@@ -1,0 +1,178 @@
+.single-product .bevesi-product-bottom-popup-cart {
+    position: fixed;
+    bottom: 0;
+    max-width: 100%;
+    width: 100%;
+    z-index: 102;
+    padding: 10px 0;
+    background: #fff;
+    will-change: transform;
+    opacity: 0;
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-box-shadow: -2px 2px 45px -20px rgb(0 0 0 / 30%);
+    -moz-box-shadow: -2px 2px 45px -20px rgba(0,0,0,.3);
+    box-shadow: -2px 2px 45px -20px rgb(0 0 0 / 30%);
+}
+.single-product .bevesi-product-bottom-popup-cart.active {
+    opacity: 1;
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+}
+
+.single-product .bevesi-product-bottom-popup-cart .bevesi-product-bottom-details {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.single-product .bevesi-product-bottom-popup-cart .bevesi-product-bottom-details img {
+    margin-right: 20px;
+}
+
+.single-product .bevesi-product-bottom-popup-cart span.price {
+    display: block;
+}
+
+.bevesi-product-bottom-popup-cart .bevesi-product-bottom-title h1 {
+    font-size: 1rem;
+	margin-bottom:0px;
+}
+
+.single-product .bevesi-product-bottom-popup-cart form,
+.single-product .bevesi-product-bottom-popup-cart .bevesi-popup-cart-to-top {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+	justify-content: flex-end;
+	height: 100%;
+}
+
+.single-product .bevesi-product-bottom-popup-cart p.stock {
+    display: none;
+}
+
+@media (max-width: 64rem){
+	.single-product .bevesi-product-bottom-popup-cart.active {
+		position: fixed;
+		bottom: 0;
+		max-width: 100%;
+		width: 100%;
+		z-index: 102;
+		padding: 10px 0;
+		background: #fff;
+		will-change: transform;
+		-webkit-transition: opacity 0.25s ease,ease;
+		transition: opacity 0.25s ease,transform 0.25s ease;
+		opacity: 0;
+		-moz-transform: translateY(100%);
+		-ms-transform: translateY(100%);
+		-webkit-transform: translateY(100%);
+		transform: translateY(100%);
+		-webkit-box-shadow: -2px 2px 45px -20px rgb(0 0 0 / 30%);
+		-moz-box-shadow: -2px 2px 45px -20px rgba(0,0,0,.3);
+		box-shadow: -2px 2px 45px -20px rgb(0 0 0 / 30%);
+	}
+}
+
+.single-product .bevesi-product-bottom-popup-cart form.cart.single-ajax button {
+    position: relative;
+}
+
+.single-product .bevesi-product-bottom-popup-cart form.cart.single-ajax button svg {
+    color: #fff;
+	top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.single-product .bevesi-product-bottom-popup-cart form span.tinvwl_add_to_wishlist-text {
+    display: none;
+}
+
+.single-product .bevesi-product-bottom-popup-cart .tinv-wishlist .tinvwl_add_to_wishlist_button.tinvwl-icon-heart:before{
+	font-size: 30px;
+	margin-left: 15px;
+	
+}
+
+.single-product .bevesi-product-bottom-popup-cart .tinv-wishlist.tinvwl-after-add-to-cart .tinvwl_add_to_wishlist_button {
+	margin-top:0px !important;
+}
+
+.bevesi-product-bottom-popup-cart .single_add_to_cart_button {
+    min-width: 10rem;
+	color: var(--color-white);
+    background-color: rgb(var(--site-primary-color));
+	height:44px;
+}
+
+
+.bevesi-product-bottom-popup-cart .single_add_to_cart_button:hover {
+	background-color: rgba(var(--site-primary-color), 0.9);
+}
+
+.bevesi-product-bottom-popup-cart form.cart .quantity {
+  --qty-size: 2.625rem;
+	border: 1px solid var(--color-black);
+    border-radius: var(--site-site-radius-default);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.0470588235);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.0470588235);
+}
+
+@media screen and (min-width: 576px) {
+ .bevesi-product-bottom-popup-cart form.cart .quantity {
+    --qty-size: 2.875rem;
+  }
+  .bevesi-product-bottom-popup-cart form.cart .quantity input {
+    font-size: 0.9375rem;
+  }
+  .bevesi-product-bottom-popup-cart form.cart .quantity > * {
+    width: 2.5rem;
+  }
+  .bevesi-product-bottom-popup-cart form.cart .quantity > *.quantity-button {
+    width: auto;
+    min-width: 2.25rem;
+  }
+}
+
+.bevesi-product-bottom-popup-cart form.cart {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin-bottom: 1.875rem;
+}
+
+.bevesi-product-bottom-popup-cart .product-delivery-time {
+    display: none;
+}
+
+.bevesi-product-bottom-popup-cart .product-stock {
+    display: none;
+}
+
+.bevesi-product-bottom-popup-cart .buy_now_button {
+    color: var(--color-black);
+    border-color: var(--color-black);
+    background-color: transparent;
+    height: 44px;
+}
+
+.bevesi-product-bottom-popup-cart .buy_now_button:hover {
+	color: var(--color-white);
+    background-color: var(--color-black);
+    border-color: transparent;
+}
+
+.bevesi-product-bottom-popup-cart .price del {
+    margin-left: 0;
+}

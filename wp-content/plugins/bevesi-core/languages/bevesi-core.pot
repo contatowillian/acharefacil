@@ -1,0 +1,4776 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Bevesi Core\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-14 09:01+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: KlbTheme <klbtheme@gmail.com>\n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Loco-Source-Locale: tr_TR\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;esc_html__;esc_html_e;"
+"esc_attr_e;esc_attr__;_n:1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"\n"
+"X-Loco-Parser: loco_parse_po"
+
+#: ../bevesi-core.php:230 ../bevesi-core.php:358 ../bevesi-core.php:381 
+#: ../bevesi-core.php:405
+msgid "Bevesi Core"
+msgstr ""
+
+#: ../bevesi-core.php:357
+#, php-format
+msgid "%1$s requires %2$s to be installed and activated."
+msgstr ""
+
+#: ../bevesi-core.php:359 ../bevesi-core.php:382
+msgid "Elementor"
+msgstr ""
+
+#: ../bevesi-core.php:380 ../bevesi-core.php:404
+#, php-format
+msgid "%1$s requires %2$s version %3$s or greater."
+msgstr ""
+
+#: ../bevesi-core.php:406
+msgid "PHP"
+msgstr ""
+
+#: ../init.php:41
+msgid "Set a Template"
+msgstr ""
+
+#: ../init.php:48
+msgid "No template exist."
+msgstr ""
+
+#: ../init.php:71
+msgid "Share this product:"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:7
+msgid "Sidebar Collapse"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:9 
+#: ../elementor/classes/class-customizing-page-settings.php:20 
+#: ../elementor/classes/class-customizing-page-settings.php:48 
+#: ../elementor/classes/class-helpers-functions.php:501 
+#: ../elementor/widgets/bevesi-address-box.php:35 
+#: ../elementor/widgets/bevesi-icon-box.php:70 
+#: ../elementor/widgets/bevesi-latest-blog.php:169
+msgid "Yes"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:10 
+#: ../elementor/classes/class-customizing-page-settings.php:21 
+#: ../elementor/classes/class-customizing-page-settings.php:49 
+#: ../elementor/classes/class-helpers-functions.php:502 
+#: ../elementor/widgets/bevesi-address-box.php:36 
+#: ../elementor/widgets/bevesi-icon-box.php:71 
+#: ../elementor/widgets/bevesi-latest-blog.php:170
+msgid "No"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:18
+msgid "Hide Header"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:29 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:32 
+#: ../inc/customizer.php:310
+msgid "Header Type"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:33 
+#: ../elementor/classes/class-customizing-page-settings.php:61
+msgid "Select a type"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:34 
+#: ../elementor/classes/class-customizing-page-settings.php:62 
+#: ../elementor/classes/class-helpers-functions.php:33 
+#: ../elementor/widgets/bevesi-banner-box2.php:37 
+#: ../elementor/widgets/bevesi-custom-title.php:37 
+#: ../elementor/widgets/bevesi-home-slider.php:37 
+#: ../elementor/widgets/bevesi-icon-box.php:37 
+#: ../elementor/widgets/bevesi-page-banner.php:37 
+#: ../elementor/widgets/bevesi-product-categories.php:38 
+#: ../elementor/widgets/bevesi-product-grid.php:37 
+#: ../elementor/widgets/bevesi-text-banner.php:37 
+#: ../elementor/widgets/bevesi-text-box.php:37 ../inc/customizer.php:315 
+#: ../inc/customizer.php:2373 ../inc/customizer.php:2523 
+#: ../inc/customizer.php:4119 ../inc/customizer.php:4984 
+#: ../inc/customizer.php:5098
+msgid "Type 1"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:35 
+#: ../elementor/classes/class-customizing-page-settings.php:63 
+#: ../elementor/classes/class-helpers-functions.php:34 
+#: ../elementor/widgets/bevesi-banner-box2.php:38 
+#: ../elementor/widgets/bevesi-custom-title.php:38 
+#: ../elementor/widgets/bevesi-home-slider.php:38 
+#: ../elementor/widgets/bevesi-icon-box.php:38 
+#: ../elementor/widgets/bevesi-page-banner.php:38 
+#: ../elementor/widgets/bevesi-product-categories.php:39 
+#: ../elementor/widgets/bevesi-product-grid.php:38 
+#: ../elementor/widgets/bevesi-text-banner.php:38 
+#: ../elementor/widgets/bevesi-text-box.php:38 ../inc/customizer.php:316 
+#: ../inc/customizer.php:2374 ../inc/customizer.php:2524 
+#: ../inc/customizer.php:4120 ../inc/customizer.php:4985 
+#: ../inc/customizer.php:5099
+msgid "Type 2"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:36 
+#: ../elementor/classes/class-customizing-page-settings.php:64 
+#: ../elementor/classes/class-helpers-functions.php:35 
+#: ../elementor/widgets/bevesi-banner-box2.php:39 
+#: ../elementor/widgets/bevesi-custom-title.php:39 ../inc/customizer.php:317 
+#: ../inc/customizer.php:2375 ../inc/customizer.php:4121 
+#: ../inc/customizer.php:5100
+msgid "Type 3"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:37 
+#: ../elementor/classes/class-helpers-functions.php:36 
+#: ../elementor/widgets/bevesi-banner-box2.php:40 ../inc/customizer.php:318 
+#: ../inc/customizer.php:2376
+msgid "Type 4"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:38 
+#: ../elementor/classes/class-helpers-functions.php:37 
+#: ../inc/customizer.php:319 ../inc/customizer.php:2377
+msgid "Type 5"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:39 
+#: ../elementor/classes/class-helpers-functions.php:38 
+#: ../inc/customizer.php:320 ../inc/customizer.php:2378
+msgid "Type 6"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:46
+msgid "Hide Footer"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:57 
+#: ../inc/customizer.php:4115
+msgid "Footer Type"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:71
+msgid "Set Dark Logo"
+msgstr ""
+
+#: ../elementor/classes/class-customizing-page-settings.php:78
+msgid "Set Light Logo"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:21
+msgid "Query"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:28
+msgid "Product Type"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:32 
+#: ../elementor/classes/class-helpers-functions.php:396 
+#: ../elementor/widgets/bevesi-banner-box.php:130 
+#: ../elementor/widgets/bevesi-banner-box.php:144 
+#: ../elementor/widgets/bevesi-banner-box2.php:36 
+#: ../elementor/widgets/bevesi-banner-box2.php:167 
+#: ../elementor/widgets/bevesi-banner-box2.php:181 
+#: ../elementor/widgets/bevesi-custom-title.php:36 
+#: ../elementor/widgets/bevesi-home-slider.php:36 
+#: ../elementor/widgets/bevesi-icon-box.php:36 
+#: ../elementor/widgets/bevesi-page-banner.php:36 
+#: ../elementor/widgets/bevesi-product-categories.php:37 
+#: ../elementor/widgets/bevesi-product-grid.php:36 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:36 
+#: ../elementor/widgets/bevesi-text-banner.php:36 
+#: ../elementor/widgets/bevesi-text-box.php:36 ../inc/customizer.php:2200
+msgid "Select Type"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:46 
+#: ../elementor/widgets/bevesi-client-carousel.php:32 
+#: ../elementor/widgets/bevesi-latest-blog.php:72 
+#: ../elementor/widgets/bevesi-product-categories.php:85 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:32
+msgid "Column"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:50 
+#: ../elementor/classes/class-helpers-functions.php:67 
+#: ../elementor/classes/class-helpers-functions.php:80 
+#: ../elementor/widgets/bevesi-client-carousel.php:36 
+#: ../elementor/widgets/bevesi-client-carousel.php:55 
+#: ../elementor/widgets/bevesi-client-carousel.php:70 
+#: ../elementor/widgets/bevesi-product-categories.php:89 
+#: ../elementor/widgets/bevesi-product-categories.php:107 
+#: ../elementor/widgets/bevesi-product-categories.php:123 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:36 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:53
+msgid "Select Column"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:51 
+#: ../elementor/widgets/bevesi-client-carousel.php:37 
+#: ../elementor/widgets/bevesi-client-carousel.php:71 
+#: ../elementor/widgets/bevesi-latest-blog.php:90 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:37
+msgid "1 Columns"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:52 
+#: ../elementor/classes/class-helpers-functions.php:69 
+#: ../elementor/classes/class-helpers-functions.php:82 
+#: ../elementor/widgets/bevesi-client-carousel.php:38 
+#: ../elementor/widgets/bevesi-client-carousel.php:57 
+#: ../elementor/widgets/bevesi-client-carousel.php:72 
+#: ../elementor/widgets/bevesi-latest-blog.php:78 
+#: ../elementor/widgets/bevesi-latest-blog.php:89 
+#: ../elementor/widgets/bevesi-product-categories.php:108 
+#: ../elementor/widgets/bevesi-product-categories.php:124 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:38 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:55 
+#: ../inc/customizer.php:2706
+msgid "2 Columns"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:53 
+#: ../elementor/classes/class-helpers-functions.php:83 
+#: ../elementor/widgets/bevesi-client-carousel.php:39 
+#: ../elementor/widgets/bevesi-client-carousel.php:58 
+#: ../elementor/widgets/bevesi-client-carousel.php:73 
+#: ../elementor/widgets/bevesi-latest-blog.php:77 
+#: ../elementor/widgets/bevesi-product-categories.php:90 
+#: ../elementor/widgets/bevesi-product-categories.php:109 
+#: ../elementor/widgets/bevesi-product-categories.php:125 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:39 
+#: ../inc/customizer.php:2705 ../inc/customizer.php:4138
+msgid "3 Columns"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:54 
+#: ../elementor/classes/class-helpers-functions.php:84 
+#: ../elementor/widgets/bevesi-client-carousel.php:40 
+#: ../elementor/widgets/bevesi-client-carousel.php:59 
+#: ../elementor/widgets/bevesi-client-carousel.php:74 
+#: ../elementor/widgets/bevesi-latest-blog.php:76 
+#: ../elementor/widgets/bevesi-product-categories.php:91 
+#: ../elementor/widgets/bevesi-product-categories.php:110 
+#: ../elementor/widgets/bevesi-product-categories.php:126 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:40 
+#: ../inc/customizer.php:2704 ../inc/customizer.php:4137
+msgid "4 Columns"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:55 
+#: ../elementor/widgets/bevesi-client-carousel.php:41 
+#: ../elementor/widgets/bevesi-client-carousel.php:75 
+#: ../elementor/widgets/bevesi-product-categories.php:92 
+#: ../elementor/widgets/bevesi-product-categories.php:111 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:41 
+#: ../inc/customizer.php:2703 ../inc/customizer.php:4136
+msgid "5 Columns"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:56 
+#: ../elementor/widgets/bevesi-client-carousel.php:42 
+#: ../elementor/widgets/bevesi-client-carousel.php:76 
+#: ../elementor/widgets/bevesi-product-categories.php:93 
+#: ../elementor/widgets/bevesi-product-categories.php:112 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:42 
+#: ../inc/customizer.php:2702
+msgid "6 Columns"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:63 
+#: ../elementor/widgets/bevesi-client-carousel.php:51 
+#: ../elementor/widgets/bevesi-latest-blog.php:85 
+#: ../elementor/widgets/bevesi-product-categories.php:119 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:49
+msgid "Mobile Column"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:68 
+#: ../elementor/classes/class-helpers-functions.php:81 
+#: ../elementor/widgets/bevesi-client-carousel.php:56 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:54
+msgid "1 Column"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:76 
+#: ../elementor/widgets/bevesi-client-carousel.php:66 
+#: ../elementor/widgets/bevesi-product-categories.php:103
+msgid "Tablet Column"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:92 
+#: ../elementor/widgets/bevesi-latest-blog.php:97 
+#: ../elementor/widgets/bevesi-product-list.php:34
+msgid "Posts Per Page"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:102 
+#: ../elementor/widgets/bevesi-product-list.php:44
+msgid "Filter Category"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:114 
+#: ../elementor/widgets/bevesi-product-list.php:56
+msgid "Include Post"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:125 
+#: ../elementor/widgets/bevesi-latest-blog.php:139 
+#: ../elementor/widgets/bevesi-product-categories.php:187 
+#: ../elementor/widgets/bevesi-product-list.php:67
+msgid "Select Order"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:128 
+#: ../elementor/widgets/bevesi-latest-blog.php:142 
+#: ../elementor/widgets/bevesi-product-categories.php:190 
+#: ../elementor/widgets/bevesi-product-list.php:70
+msgid "Ascending"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:129 
+#: ../elementor/widgets/bevesi-latest-blog.php:143 
+#: ../elementor/widgets/bevesi-product-categories.php:191 
+#: ../elementor/widgets/bevesi-product-list.php:71
+msgid "Descending"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:137 
+#: ../elementor/widgets/bevesi-latest-blog.php:151 
+#: ../elementor/widgets/bevesi-product-categories.php:199 
+#: ../elementor/widgets/bevesi-product-list.php:79
+msgid "Order By"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:140 
+#: ../elementor/widgets/bevesi-latest-blog.php:154 
+#: ../elementor/widgets/bevesi-product-categories.php:202 
+#: ../elementor/widgets/bevesi-product-list.php:82
+msgid "Post ID"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:141 
+#: ../elementor/widgets/bevesi-latest-blog.php:155 
+#: ../elementor/widgets/bevesi-product-categories.php:203 
+#: ../elementor/widgets/bevesi-product-list.php:83
+msgid "Menu Order"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:142 
+#: ../elementor/widgets/bevesi-latest-blog.php:156 
+#: ../elementor/widgets/bevesi-product-categories.php:204 
+#: ../elementor/widgets/bevesi-product-list.php:84
+msgid "Random"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:143 
+#: ../elementor/widgets/bevesi-latest-blog.php:157 
+#: ../elementor/widgets/bevesi-product-categories.php:205 
+#: ../elementor/widgets/bevesi-product-list.php:85
+msgid "Date"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:144 
+#: ../elementor/widgets/bevesi-banner-box.php:42 
+#: ../elementor/widgets/bevesi-banner-box2.php:57 
+#: ../elementor/widgets/bevesi-category-banner.php:113 
+#: ../elementor/widgets/bevesi-category-banner2.php:113 
+#: ../elementor/widgets/bevesi-counter-banner.php:32 
+#: ../elementor/widgets/bevesi-custom-title.php:46 
+#: ../elementor/widgets/bevesi-icon-box.php:107 
+#: ../elementor/widgets/bevesi-latest-blog.php:33 
+#: ../elementor/widgets/bevesi-latest-blog.php:158 
+#: ../elementor/widgets/bevesi-page-banner.php:56 
+#: ../elementor/widgets/bevesi-product-banner.php:62 
+#: ../elementor/widgets/bevesi-product-categories.php:206 
+#: ../elementor/widgets/bevesi-product-list.php:86 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:46 
+#: ../elementor/widgets/bevesi-text-banner.php:45 
+#: ../elementor/widgets/bevesi-text-banner2.php:42 
+#: ../elementor/widgets/bevesi-text-box.php:45 ../inc/customizer.php:2732 
+#: ../inc/customizer.php:2787 ../inc/customizer.php:3951 
+#: ../inc/customizer.php:4000 ../inc/customizer.php:4058 
+#: ../inc/customizer.php:4218 ../inc/customizer.php:5232
+msgid "Title"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:152
+msgid "Hide Out of Stock?"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:154 
+#: ../elementor/classes/class-helpers-functions.php:165 
+#: ../elementor/classes/class-helpers-functions.php:176 
+#: ../elementor/classes/class-helpers-functions.php:187 
+#: ../elementor/classes/class-helpers-functions.php:198 
+#: ../elementor/classes/class-helpers-functions.php:209 
+#: ../elementor/classes/class-helpers-functions.php:220 
+#: ../elementor/classes/class-helpers-functions.php:231 
+#: ../elementor/widgets/bevesi-category-banner.php:35 
+#: ../elementor/widgets/bevesi-category-banner.php:57 
+#: ../elementor/widgets/bevesi-category-banner.php:68 
+#: ../elementor/widgets/bevesi-category-banner2.php:35 
+#: ../elementor/widgets/bevesi-category-banner2.php:57 
+#: ../elementor/widgets/bevesi-category-banner2.php:68 
+#: ../elementor/widgets/bevesi-client-carousel.php:87 
+#: ../elementor/widgets/bevesi-client-carousel.php:109 
+#: ../elementor/widgets/bevesi-client-carousel.php:120 
+#: ../elementor/widgets/bevesi-home-slider.php:47 
+#: ../elementor/widgets/bevesi-home-slider.php:69 
+#: ../elementor/widgets/bevesi-home-slider.php:80 
+#: ../elementor/widgets/bevesi-product-carousel.php:35 
+#: ../elementor/widgets/bevesi-product-carousel.php:57 
+#: ../elementor/widgets/bevesi-product-carousel.php:68 
+#: ../elementor/widgets/bevesi-product-categories.php:135 
+#: ../elementor/widgets/bevesi-product-categories.php:157 
+#: ../elementor/widgets/bevesi-product-categories.php:168 
+#: ../elementor/widgets/bevesi-product-list.php:96 
+#: ../elementor/widgets/bevesi-product-list.php:107 
+#: ../elementor/widgets/bevesi-product-list.php:118 
+#: ../elementor/widgets/bevesi-product-list.php:129 
+#: ../elementor/widgets/bevesi-product-list.php:140 
+#: ../elementor/widgets/bevesi-product-list.php:151 
+#: ../elementor/widgets/bevesi-product-list.php:162 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:75 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:97 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:108 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:64 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:86 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:97
+msgid "True"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:155 
+#: ../elementor/classes/class-helpers-functions.php:166 
+#: ../elementor/classes/class-helpers-functions.php:177 
+#: ../elementor/classes/class-helpers-functions.php:188 
+#: ../elementor/classes/class-helpers-functions.php:199 
+#: ../elementor/classes/class-helpers-functions.php:210 
+#: ../elementor/classes/class-helpers-functions.php:221 
+#: ../elementor/classes/class-helpers-functions.php:232 
+#: ../elementor/widgets/bevesi-category-banner.php:36 
+#: ../elementor/widgets/bevesi-category-banner.php:58 
+#: ../elementor/widgets/bevesi-category-banner.php:69 
+#: ../elementor/widgets/bevesi-category-banner2.php:36 
+#: ../elementor/widgets/bevesi-category-banner2.php:58 
+#: ../elementor/widgets/bevesi-category-banner2.php:69 
+#: ../elementor/widgets/bevesi-client-carousel.php:88 
+#: ../elementor/widgets/bevesi-client-carousel.php:110 
+#: ../elementor/widgets/bevesi-client-carousel.php:121 
+#: ../elementor/widgets/bevesi-home-slider.php:48 
+#: ../elementor/widgets/bevesi-home-slider.php:70 
+#: ../elementor/widgets/bevesi-home-slider.php:81 
+#: ../elementor/widgets/bevesi-product-carousel.php:36 
+#: ../elementor/widgets/bevesi-product-carousel.php:58 
+#: ../elementor/widgets/bevesi-product-carousel.php:69 
+#: ../elementor/widgets/bevesi-product-categories.php:136 
+#: ../elementor/widgets/bevesi-product-categories.php:158 
+#: ../elementor/widgets/bevesi-product-categories.php:169 
+#: ../elementor/widgets/bevesi-product-list.php:97 
+#: ../elementor/widgets/bevesi-product-list.php:108 
+#: ../elementor/widgets/bevesi-product-list.php:119 
+#: ../elementor/widgets/bevesi-product-list.php:130 
+#: ../elementor/widgets/bevesi-product-list.php:141 
+#: ../elementor/widgets/bevesi-product-list.php:152 
+#: ../elementor/widgets/bevesi-product-list.php:163 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:76 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:98 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:109 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:65 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:87 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:98
+msgid "False"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:163 
+#: ../elementor/widgets/bevesi-product-list.php:94 ../inc/customizer.php:555
+msgid "On Sale Products?"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:174 
+#: ../elementor/widgets/bevesi-product-list.php:105 ../inc/customizer.php:573
+msgid "Featured Products?"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:185 
+#: ../elementor/widgets/bevesi-product-list.php:116 ../inc/customizer.php:591
+msgid "Best Selling Products?"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:196 
+#: ../elementor/widgets/bevesi-product-list.php:127
+msgid "Stock Progress Bar?"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:207 
+#: ../elementor/widgets/bevesi-product-list.php:138
+msgid "Stock Status?"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:218 
+#: ../elementor/widgets/bevesi-product-list.php:149
+msgid "Shipping Class?"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:229 
+#: ../elementor/widgets/bevesi-product-list.php:160
+msgid "Product Box Countdown?"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:386
+msgid "Settings"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:392
+msgid "Arrow Type"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:397
+msgid "Nav Style 1"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:398
+msgid "Nav Style 2"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:399
+msgid "Nav Style 3"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:400
+msgid "Nav Style 4"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:401
+msgid "Nav Style 5"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:417 
+#: ../woocommerce-filter/swatches/swatches.php:94
+msgid "Button"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:423
+msgid "Button Type"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:427 
+#: ../elementor/classes/class-helpers-functions.php:443
+msgid "Select a option"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:428
+msgid "Primary"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:429
+msgid "Black"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:430
+msgid "White"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:431
+msgid "Outline white"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:432
+msgid "Outline black"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:433
+msgid "Simple Text"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:439
+msgid "Button Style"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:444
+msgid "Square"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:445
+msgid "Round"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:446
+msgid "Circle"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:456
+msgid "Size"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:460
+msgid "Select size"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:461 
+#: ../inc/menu-endpoints/mega-menu/mega-menu.php:41
+msgid "Large"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:462
+msgid "medium"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:463
+msgid "small"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:474 
+#: ../elementor/widgets/bevesi-contact-form-7.php:167
+msgid "Alignment"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:479 
+#: ../elementor/widgets/bevesi-banner-box.php:107 
+#: ../elementor/widgets/bevesi-banner-box2.php:144 
+#: ../elementor/widgets/bevesi-category-banner.php:178 
+#: ../elementor/widgets/bevesi-category-banner2.php:178 
+#: ../elementor/widgets/bevesi-contact-form-7.php:172 
+#: ../elementor/widgets/bevesi-home-slider.php:208 
+#: ../elementor/widgets/bevesi-page-banner.php:92
+msgid "Left"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:483 
+#: ../elementor/widgets/bevesi-banner-box.php:111 
+#: ../elementor/widgets/bevesi-banner-box.php:132 
+#: ../elementor/widgets/bevesi-banner-box.php:146 
+#: ../elementor/widgets/bevesi-banner-box2.php:148 
+#: ../elementor/widgets/bevesi-banner-box2.php:169 
+#: ../elementor/widgets/bevesi-banner-box2.php:183 
+#: ../elementor/widgets/bevesi-category-banner.php:182 
+#: ../elementor/widgets/bevesi-category-banner2.php:182 
+#: ../elementor/widgets/bevesi-contact-form-7.php:176 
+#: ../elementor/widgets/bevesi-home-slider.php:212 
+#: ../elementor/widgets/bevesi-page-banner.php:96
+msgid "Center"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:487 
+#: ../elementor/widgets/bevesi-banner-box.php:115 
+#: ../elementor/widgets/bevesi-banner-box2.php:152 
+#: ../elementor/widgets/bevesi-category-banner.php:186 
+#: ../elementor/widgets/bevesi-category-banner2.php:186 
+#: ../elementor/widgets/bevesi-contact-form-7.php:180 
+#: ../elementor/widgets/bevesi-home-slider.php:216 
+#: ../elementor/widgets/bevesi-page-banner.php:100
+msgid "Right"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:499
+msgid "Full width"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:511 
+#: ../elementor/classes/class-helpers-functions.php:514
+msgid "Button Text"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:519 
+#: ../elementor/widgets/bevesi-banner-box.php:82 
+#: ../elementor/widgets/bevesi-banner-box2.php:119 
+#: ../elementor/widgets/bevesi-category-banner.php:153 
+#: ../elementor/widgets/bevesi-category-banner2.php:153 
+#: ../elementor/widgets/bevesi-counter-banner.php:91 
+#: ../elementor/widgets/bevesi-custom-title.php:86 
+#: ../elementor/widgets/bevesi-home-slider.php:149 
+#: ../elementor/widgets/bevesi-latest-blog.php:63 
+#: ../elementor/widgets/bevesi-product-banner.php:122 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:64 
+#: ../elementor/widgets/bevesi-text-banner.php:75 
+#: ../elementor/widgets/bevesi-text-banner2.php:82 
+#: ../elementor/widgets/bevesi-text-box.php:86
+msgid "Button Link"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:541
+msgid "Icon Position"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:546
+msgid "Before"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:547
+msgid "After"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:554 
+#: ../elementor/widgets/bevesi-contact-form-7.php:218 
+#: ../elementor/widgets/bevesi-contact-form-7.php:311
+msgid "Normal"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:560 
+#: ../elementor/classes/class-helpers-functions.php:598
+msgid "Icon Spacing"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:576 
+#: ../elementor/classes/class-helpers-functions.php:614 
+#: ../elementor/widgets/bevesi-banner-box.php:309 
+#: ../elementor/widgets/bevesi-banner-box.php:393 
+#: ../elementor/widgets/bevesi-banner-box.php:489 
+#: ../elementor/widgets/bevesi-banner-box.php:541 
+#: ../elementor/widgets/bevesi-banner-box2.php:346 
+#: ../elementor/widgets/bevesi-banner-box2.php:430 
+#: ../elementor/widgets/bevesi-banner-box2.php:526 
+#: ../elementor/widgets/bevesi-banner-box2.php:578 
+#: ../elementor/widgets/bevesi-category-banner.php:254 
+#: ../elementor/widgets/bevesi-category-banner.php:326 
+#: ../elementor/widgets/bevesi-category-banner.php:399 
+#: ../elementor/widgets/bevesi-category-banner.php:451 
+#: ../elementor/widgets/bevesi-category-banner2.php:254 
+#: ../elementor/widgets/bevesi-category-banner2.php:326 
+#: ../elementor/widgets/bevesi-category-banner2.php:399 
+#: ../elementor/widgets/bevesi-category-banner2.php:451 
+#: ../elementor/widgets/bevesi-contact-form-7.php:79 
+#: ../elementor/widgets/bevesi-contact-form-7.php:136 
+#: ../elementor/widgets/bevesi-contact-form-7.php:224 
+#: ../elementor/widgets/bevesi-contact-form-7.php:243 
+#: ../elementor/widgets/bevesi-contact-form-7.php:262 
+#: ../elementor/widgets/bevesi-contact-form-7.php:317 
+#: ../elementor/widgets/bevesi-contact-form-7.php:336 
+#: ../elementor/widgets/bevesi-counter-banner.php:161 
+#: ../elementor/widgets/bevesi-counter-banner.php:242 
+#: ../elementor/widgets/bevesi-counter-banner.php:315 
+#: ../elementor/widgets/bevesi-counter-banner.php:367 
+#: ../elementor/widgets/bevesi-custom-title.php:149 
+#: ../elementor/widgets/bevesi-custom-title.php:221 
+#: ../elementor/widgets/bevesi-custom-title.php:294 
+#: ../elementor/widgets/bevesi-custom-title.php:346 
+#: ../elementor/widgets/bevesi-home-slider.php:284 
+#: ../elementor/widgets/bevesi-home-slider.php:356 
+#: ../elementor/widgets/bevesi-home-slider.php:429 
+#: ../elementor/widgets/bevesi-home-slider.php:481 
+#: ../elementor/widgets/bevesi-icon-box.php:171 
+#: ../elementor/widgets/bevesi-icon-box.php:210 
+#: ../elementor/widgets/bevesi-icon-box.php:267 
+#: ../elementor/widgets/bevesi-latest-blog.php:259 
+#: ../elementor/widgets/bevesi-latest-blog.php:340 
+#: ../elementor/widgets/bevesi-latest-blog.php:392 
+#: ../elementor/widgets/bevesi-page-banner.php:168 
+#: ../elementor/widgets/bevesi-page-banner.php:241 
+#: ../elementor/widgets/bevesi-product-banner.php:183 
+#: ../elementor/widgets/bevesi-product-banner.php:255 
+#: ../elementor/widgets/bevesi-product-banner.php:328 
+#: ../elementor/widgets/bevesi-product-banner.php:380 
+#: ../elementor/widgets/bevesi-text-banner.php:133 
+#: ../elementor/widgets/bevesi-text-banner.php:193 
+#: ../elementor/widgets/bevesi-text-banner.php:247 
+#: ../elementor/widgets/bevesi-text-banner2.php:166 
+#: ../elementor/widgets/bevesi-text-banner2.php:238 
+#: ../elementor/widgets/bevesi-text-banner2.php:340 
+#: ../elementor/widgets/bevesi-text-banner2.php:394 
+#: ../elementor/widgets/bevesi-text-box.php:156 
+#: ../elementor/widgets/bevesi-text-box.php:228 
+#: ../elementor/widgets/bevesi-text-box.php:280
+msgid "Opacity"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:592 
+#: ../elementor/widgets/bevesi-contact-form-7.php:237 
+#: ../elementor/widgets/bevesi-contact-form-7.php:330
+msgid "Hover"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:642 
+#: ../elementor/widgets/bevesi-banner-box.php:553 
+#: ../elementor/widgets/bevesi-banner-box2.php:590 
+#: ../elementor/widgets/bevesi-category-banner.php:463 
+#: ../elementor/widgets/bevesi-category-banner2.php:463 
+#: ../elementor/widgets/bevesi-counter-banner.php:379 
+#: ../elementor/widgets/bevesi-custom-title.php:358 
+#: ../elementor/widgets/bevesi-home-slider.php:493 
+#: ../elementor/widgets/bevesi-latest-blog.php:404 
+#: ../elementor/widgets/bevesi-product-banner.php:392 
+#: ../elementor/widgets/bevesi-text-banner.php:259 
+#: ../elementor/widgets/bevesi-text-banner2.php:406 
+#: ../elementor/widgets/bevesi-text-box.php:292 
+#: ../woocommerce-filter/swatches/swatches.php:92 
+#: ../woocommerce-filter/swatches/swatches.php:132
+msgid "Color"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:655 
+#: ../elementor/widgets/bevesi-banner-box.php:331 
+#: ../elementor/widgets/bevesi-banner-box.php:415 
+#: ../elementor/widgets/bevesi-banner-box.php:511 
+#: ../elementor/widgets/bevesi-banner-box.php:533 
+#: ../elementor/widgets/bevesi-banner-box2.php:368 
+#: ../elementor/widgets/bevesi-banner-box2.php:452 
+#: ../elementor/widgets/bevesi-banner-box2.php:548 
+#: ../elementor/widgets/bevesi-banner-box2.php:570 
+#: ../elementor/widgets/bevesi-category-banner.php:276 
+#: ../elementor/widgets/bevesi-category-banner.php:348 
+#: ../elementor/widgets/bevesi-category-banner.php:421 
+#: ../elementor/widgets/bevesi-category-banner.php:443 
+#: ../elementor/widgets/bevesi-category-banner2.php:276 
+#: ../elementor/widgets/bevesi-category-banner2.php:348 
+#: ../elementor/widgets/bevesi-category-banner2.php:421 
+#: ../elementor/widgets/bevesi-category-banner2.php:443 
+#: ../elementor/widgets/bevesi-contact-form-7.php:101 
+#: ../elementor/widgets/bevesi-contact-form-7.php:158 
+#: ../elementor/widgets/bevesi-counter-banner.php:183 
+#: ../elementor/widgets/bevesi-counter-banner.php:264 
+#: ../elementor/widgets/bevesi-counter-banner.php:337 
+#: ../elementor/widgets/bevesi-counter-banner.php:359 
+#: ../elementor/widgets/bevesi-custom-title.php:171 
+#: ../elementor/widgets/bevesi-custom-title.php:243 
+#: ../elementor/widgets/bevesi-custom-title.php:316 
+#: ../elementor/widgets/bevesi-custom-title.php:338 
+#: ../elementor/widgets/bevesi-home-slider.php:306 
+#: ../elementor/widgets/bevesi-home-slider.php:378 
+#: ../elementor/widgets/bevesi-home-slider.php:451 
+#: ../elementor/widgets/bevesi-home-slider.php:473 
+#: ../elementor/widgets/bevesi-icon-box.php:232 
+#: ../elementor/widgets/bevesi-icon-box.php:289 
+#: ../elementor/widgets/bevesi-latest-blog.php:281 
+#: ../elementor/widgets/bevesi-latest-blog.php:362 
+#: ../elementor/widgets/bevesi-latest-blog.php:384 
+#: ../elementor/widgets/bevesi-page-banner.php:190 
+#: ../elementor/widgets/bevesi-page-banner.php:263 
+#: ../elementor/widgets/bevesi-product-banner.php:205 
+#: ../elementor/widgets/bevesi-product-banner.php:277 
+#: ../elementor/widgets/bevesi-product-banner.php:350 
+#: ../elementor/widgets/bevesi-product-banner.php:372 
+#: ../elementor/widgets/bevesi-text-banner.php:155 
+#: ../elementor/widgets/bevesi-text-banner.php:215 
+#: ../elementor/widgets/bevesi-text-banner.php:239 
+#: ../elementor/widgets/bevesi-text-banner2.php:188 
+#: ../elementor/widgets/bevesi-text-banner2.php:260 
+#: ../elementor/widgets/bevesi-text-banner2.php:362 
+#: ../elementor/widgets/bevesi-text-banner2.php:386 
+#: ../elementor/widgets/bevesi-text-box.php:178 
+#: ../elementor/widgets/bevesi-text-box.php:250 
+#: ../elementor/widgets/bevesi-text-box.php:272
+msgid "Typography"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:666 
+#: ../elementor/widgets/bevesi-banner-box.php:210 
+#: ../elementor/widgets/bevesi-banner-box.php:580 
+#: ../elementor/widgets/bevesi-banner-box2.php:247 
+#: ../elementor/widgets/bevesi-banner-box2.php:617 
+#: ../elementor/widgets/bevesi-category-banner.php:490 
+#: ../elementor/widgets/bevesi-category-banner2.php:490 
+#: ../elementor/widgets/bevesi-counter-banner.php:406 
+#: ../elementor/widgets/bevesi-custom-title.php:385 
+#: ../elementor/widgets/bevesi-home-slider.php:520 
+#: ../elementor/widgets/bevesi-latest-blog.php:431 
+#: ../elementor/widgets/bevesi-product-banner.php:419 
+#: ../elementor/widgets/bevesi-text-banner.php:286 
+#: ../elementor/widgets/bevesi-text-banner2.php:433 
+#: ../elementor/widgets/bevesi-text-box.php:319
+msgid "Padding"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:685
+msgid "Margin"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:705 
+#: ../elementor/widgets/bevesi-banner-box.php:564 
+#: ../elementor/widgets/bevesi-banner-box2.php:601 
+#: ../elementor/widgets/bevesi-category-banner.php:474 
+#: ../elementor/widgets/bevesi-category-banner2.php:474 
+#: ../elementor/widgets/bevesi-counter-banner.php:390 
+#: ../elementor/widgets/bevesi-custom-title.php:369 
+#: ../elementor/widgets/bevesi-home-slider.php:504 
+#: ../elementor/widgets/bevesi-latest-blog.php:415 
+#: ../elementor/widgets/bevesi-product-banner.php:403 
+#: ../elementor/widgets/bevesi-text-banner.php:270 
+#: ../elementor/widgets/bevesi-text-banner2.php:271 
+#: ../elementor/widgets/bevesi-text-banner2.php:417 
+#: ../elementor/widgets/bevesi-text-box.php:303
+msgid "Border"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:721 
+#: ../elementor/widgets/bevesi-banner-box.php:571 
+#: ../elementor/widgets/bevesi-banner-box2.php:608 
+#: ../elementor/widgets/bevesi-category-banner.php:481 
+#: ../elementor/widgets/bevesi-category-banner2.php:481 
+#: ../elementor/widgets/bevesi-counter-banner.php:397 
+#: ../elementor/widgets/bevesi-custom-title.php:376 
+#: ../elementor/widgets/bevesi-home-slider.php:511 
+#: ../elementor/widgets/bevesi-latest-blog.php:422 
+#: ../elementor/widgets/bevesi-product-banner.php:410 
+#: ../elementor/widgets/bevesi-text-banner.php:277 
+#: ../elementor/widgets/bevesi-text-banner2.php:278 
+#: ../elementor/widgets/bevesi-text-banner2.php:424 
+#: ../elementor/widgets/bevesi-text-box.php:310 ../inc/customizer.php:5643
+msgid "Border Radius"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:745
+msgid "Box shadow"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:757
+msgid "Text shadow"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:769 
+#: ../elementor/widgets/bevesi-banner-box.php:591 
+#: ../elementor/widgets/bevesi-banner-box2.php:628 
+#: ../elementor/widgets/bevesi-category-banner.php:501 
+#: ../elementor/widgets/bevesi-category-banner2.php:501 
+#: ../elementor/widgets/bevesi-counter-banner.php:417 
+#: ../elementor/widgets/bevesi-custom-title.php:396 
+#: ../elementor/widgets/bevesi-home-slider.php:531 
+#: ../elementor/widgets/bevesi-latest-blog.php:442 
+#: ../elementor/widgets/bevesi-product-banner.php:430 
+#: ../elementor/widgets/bevesi-text-banner.php:297 
+#: ../elementor/widgets/bevesi-text-banner2.php:444 
+#: ../elementor/widgets/bevesi-text-box.php:330
+msgid "Background"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1009
+msgid "None"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1010
+msgid "user"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1011
+msgid "youtube"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1012
+msgid "wordpress"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1013
+msgid "whatsapp"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1014
+msgid "watch"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1015
+msgid "vine"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1016
+msgid "eye"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1017
+msgid "twitter"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1018
+msgid "tripadvisor"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1019
+msgid "support"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1020
+msgid "star"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1021
+msgid "star-outline"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1022
+msgid "spotify"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1023
+msgid "soundcloud"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1024
+msgid "snapchat"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1025
+msgid "skype"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1026
+msgid "send"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1027
+msgid "search"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1028
+msgid "rss"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1029
+msgid "reddit"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1030
+msgid "quality"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1031
+msgid "pinterest"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1032
+msgid "odnoklassniki"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1033
+msgid "next"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1034
+msgid "myspace"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1035
+msgid "menu"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1036
+msgid "linkedin"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1037
+msgid "itunes"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1038
+msgid "internet"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1039
+msgid "instagram"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1040
+msgid "heart"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1041
+msgid "google-plus"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1042
+msgid "google-plus2"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1043
+msgid "github"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1044
+msgid "gift"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1045
+msgid "filter"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1046
+msgid "facebook"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1047
+msgid "exchange"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1048
+msgid "dribbble"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1049
+msgid "document"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1050
+msgid "digg"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1051
+msgid "delete"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1052
+msgid "close"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1053
+msgid "comment"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1054
+msgid "charity"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1055
+msgid "cart"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1056
+msgid "calendar"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1057
+msgid "box"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1058
+msgid "behance"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1059
+msgid "bag"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1060
+msgid "back"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1061
+msgid "avatar"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1062
+msgid "apple"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1063
+msgid "arrow-up"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1064
+msgid "arrow-right"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1065
+msgid "arrow-right2"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1066
+msgid "arrow-down"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1067
+msgid "arrow-down2"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1068
+msgid "arrow-500px2"
+msgstr ""
+
+#: ../elementor/classes/class-helpers-functions.php:1069
+msgid "arrow-500px"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-address-box.php:25 
+#: ../elementor/widgets/bevesi-banner-box.php:25 
+#: ../elementor/widgets/bevesi-banner-box2.php:25 
+#: ../elementor/widgets/bevesi-category-banner.php:26 
+#: ../elementor/widgets/bevesi-category-banner2.php:26 
+#: ../elementor/widgets/bevesi-client-carousel.php:25 
+#: ../elementor/widgets/bevesi-counter-banner.php:25 
+#: ../elementor/widgets/bevesi-custom-title.php:25 
+#: ../elementor/widgets/bevesi-home-slider.php:25 
+#: ../elementor/widgets/bevesi-icon-box.php:25 
+#: ../elementor/widgets/bevesi-latest-blog.php:26 
+#: ../elementor/widgets/bevesi-page-banner.php:25 
+#: ../elementor/widgets/bevesi-product-banner.php:25 
+#: ../elementor/widgets/bevesi-product-carousel.php:26 
+#: ../elementor/widgets/bevesi-product-categories.php:26 
+#: ../elementor/widgets/bevesi-product-grid.php:25 
+#: ../elementor/widgets/bevesi-product-list.php:26 
+#: ../elementor/widgets/bevesi-text-banner.php:25 
+#: ../elementor/widgets/bevesi-text-banner2.php:25 
+#: ../elementor/widgets/bevesi-text-box.php:25 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:25
+msgid "Content"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-address-box.php:33 
+#: ../elementor/widgets/bevesi-icon-box.php:68
+msgid "Use Custom Icon"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-address-box.php:45 
+#: ../elementor/widgets/bevesi-icon-box.php:62 
+#: ../elementor/widgets/bevesi-icon-box.php:80 ../inc/customizer.php:2213 
+#: ../inc/customizer.php:2781 ../inc/customizer.php:3851 
+#: ../inc/customizer.php:3995 ../inc/customizer.php:4208 
+#: ../inc/customizer.php:4300
+msgid "Icon"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-address-box.php:58 
+#: ../elementor/widgets/bevesi-icon-box.php:93
+msgid "Custom Icon"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-address-box.php:68
+msgid "Country"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-address-box.php:77
+msgid "Country Subtitle"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-address-box.php:86
+msgid "Address"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-address-box.php:95
+msgid "phone"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-address-box.php:104
+msgid "Email"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:34 
+#: ../elementor/widgets/bevesi-banner-box2.php:49 
+#: ../elementor/widgets/bevesi-category-banner.php:105 
+#: ../elementor/widgets/bevesi-category-banner2.php:105 
+#: ../elementor/widgets/bevesi-client-carousel.php:142 
+#: ../elementor/widgets/bevesi-home-slider.php:102 
+#: ../elementor/widgets/bevesi-icon-box.php:48 
+#: ../elementor/widgets/bevesi-icon-box.php:53 
+#: ../elementor/widgets/bevesi-page-banner.php:47 
+#: ../elementor/widgets/bevesi-product-banner.php:38 
+#: ../elementor/widgets/bevesi-text-banner2.php:34 ../inc/customizer.php:720 
+#: ../inc/customizer.php:2852 ../inc/customizer.php:4037 
+#: ../inc/customizer.php:4270 ../inc/customizer.php:5002 
+#: ../inc/customizer.php:5117 ../woocommerce-filter/compare/compare.php:34 
+#: ../woocommerce-filter/swatches/swatches.php:93
+msgid "Image"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:52 
+#: ../elementor/widgets/bevesi-banner-box2.php:67 
+#: ../elementor/widgets/bevesi-category-banner.php:123 
+#: ../elementor/widgets/bevesi-category-banner2.php:123 
+#: ../elementor/widgets/bevesi-counter-banner.php:42 
+#: ../elementor/widgets/bevesi-custom-title.php:55 
+#: ../elementor/widgets/bevesi-product-banner.php:72 
+#: ../elementor/widgets/bevesi-text-banner.php:55 
+#: ../elementor/widgets/bevesi-text-box.php:66 ../inc/customizer.php:3970 
+#: ../inc/customizer.php:4077 ../inc/customizer.php:5268
+msgid "Subtitle"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:62 
+#: ../elementor/widgets/bevesi-banner-box2.php:77 
+#: ../elementor/widgets/bevesi-category-banner.php:133 
+#: ../elementor/widgets/bevesi-category-banner2.php:133 
+#: ../elementor/widgets/bevesi-counter-banner.php:52 
+#: ../elementor/widgets/bevesi-icon-box.php:118 
+#: ../elementor/widgets/bevesi-latest-blog.php:43 
+#: ../elementor/widgets/bevesi-page-banner.php:66 
+#: ../elementor/widgets/bevesi-product-banner.php:82 
+#: ../elementor/widgets/bevesi-text-banner2.php:62 ../inc/customizer.php:4005
+msgid "Description"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:72 
+#: ../elementor/widgets/bevesi-banner-box2.php:108 
+#: ../elementor/widgets/bevesi-category-banner.php:143 
+#: ../elementor/widgets/bevesi-category-banner2.php:143 
+#: ../elementor/widgets/bevesi-counter-banner.php:81 
+#: ../elementor/widgets/bevesi-custom-title.php:75 
+#: ../elementor/widgets/bevesi-home-slider.php:139 
+#: ../elementor/widgets/bevesi-latest-blog.php:53 
+#: ../elementor/widgets/bevesi-product-banner.php:112 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:54 
+#: ../elementor/widgets/bevesi-text-banner.php:65 
+#: ../elementor/widgets/bevesi-text-banner2.php:72 
+#: ../elementor/widgets/bevesi-text-box.php:76 ../inc/customizer.php:536
+msgid "Button Title"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:76 
+#: ../elementor/widgets/bevesi-banner-box2.php:112 
+#: ../elementor/widgets/bevesi-category-banner.php:147 
+#: ../elementor/widgets/bevesi-category-banner2.php:147 
+#: ../elementor/widgets/bevesi-counter-banner.php:85 
+#: ../elementor/widgets/bevesi-custom-title.php:79 
+#: ../elementor/widgets/bevesi-home-slider.php:143 
+#: ../elementor/widgets/bevesi-latest-blog.php:57 
+#: ../elementor/widgets/bevesi-product-banner.php:116 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:58 
+#: ../elementor/widgets/bevesi-text-banner.php:69 
+#: ../elementor/widgets/bevesi-text-banner2.php:76 
+#: ../elementor/widgets/bevesi-text-box.php:80
+msgid "Enter button title here"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:85 
+#: ../elementor/widgets/bevesi-banner-box2.php:122 
+#: ../elementor/widgets/bevesi-category-banner.php:156 
+#: ../elementor/widgets/bevesi-category-banner2.php:156 
+#: ../elementor/widgets/bevesi-client-carousel.php:152 
+#: ../elementor/widgets/bevesi-counter-banner.php:94 
+#: ../elementor/widgets/bevesi-custom-title.php:89 
+#: ../elementor/widgets/bevesi-home-slider.php:152 
+#: ../elementor/widgets/bevesi-latest-blog.php:66 
+#: ../elementor/widgets/bevesi-product-banner.php:125 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:67 
+#: ../elementor/widgets/bevesi-text-banner.php:78 
+#: ../elementor/widgets/bevesi-text-banner2.php:85 
+#: ../elementor/widgets/bevesi-text-box.php:89
+msgid "Place URL here"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:95 
+#: ../elementor/widgets/bevesi-banner-box2.php:132 
+#: ../elementor/widgets/bevesi-category-banner.php:166 
+#: ../elementor/widgets/bevesi-category-banner2.php:166 
+#: ../elementor/widgets/bevesi-counter-banner.php:104 
+#: ../elementor/widgets/bevesi-custom-title.php:101 
+#: ../elementor/widgets/bevesi-home-slider.php:196 
+#: ../elementor/widgets/bevesi-icon-box.php:131 
+#: ../elementor/widgets/bevesi-latest-blog.php:202 
+#: ../elementor/widgets/bevesi-page-banner.php:80 
+#: ../elementor/widgets/bevesi-product-banner.php:135 
+#: ../elementor/widgets/bevesi-text-banner.php:88 
+#: ../elementor/widgets/bevesi-text-banner2.php:97 
+#: ../elementor/widgets/bevesi-text-box.php:99
+msgid " Style"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:102 
+#: ../elementor/widgets/bevesi-banner-box2.php:139 
+#: ../elementor/widgets/bevesi-category-banner.php:173 
+#: ../elementor/widgets/bevesi-category-banner2.php:173 
+#: ../elementor/widgets/bevesi-home-slider.php:203 
+#: ../elementor/widgets/bevesi-page-banner.php:87
+msgid "Alignment Text"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:126 
+#: ../elementor/widgets/bevesi-banner-box2.php:163
+msgid "Align Items"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:131 
+#: ../elementor/widgets/bevesi-banner-box.php:145 
+#: ../elementor/widgets/bevesi-banner-box2.php:168 
+#: ../elementor/widgets/bevesi-banner-box2.php:182
+msgid "Start"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:133 
+#: ../elementor/widgets/bevesi-banner-box.php:147 
+#: ../elementor/widgets/bevesi-banner-box2.php:170 
+#: ../elementor/widgets/bevesi-banner-box2.php:184
+msgid "End"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:140 
+#: ../elementor/widgets/bevesi-banner-box2.php:177
+msgid "Justify Content"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:154 
+#: ../elementor/widgets/bevesi-banner-box2.php:191
+msgid "Desktop Height"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:165 
+#: ../elementor/widgets/bevesi-banner-box2.php:202
+msgid "Laptop Height"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:176 
+#: ../elementor/widgets/bevesi-banner-box2.php:213
+msgid "Tablet Height"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:187 
+#: ../elementor/widgets/bevesi-banner-box2.php:224
+msgid "Mobile Height"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:198 
+#: ../elementor/widgets/bevesi-banner-box2.php:235
+msgid "Width"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:219 
+#: ../elementor/widgets/bevesi-banner-box2.php:256
+msgid "Banner Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:228 
+#: ../elementor/widgets/bevesi-banner-box2.php:265 
+#: ../elementor/widgets/bevesi-category-banner.php:197 
+#: ../elementor/widgets/bevesi-category-banner2.php:197 
+#: ../elementor/widgets/bevesi-home-slider.php:227 
+#: ../elementor/widgets/bevesi-page-banner.php:111
+msgid "IMAGE"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:244 
+#: ../elementor/widgets/bevesi-banner-box2.php:281 
+#: ../elementor/widgets/bevesi-category-banner.php:213 
+#: ../elementor/widgets/bevesi-category-banner2.php:213 
+#: ../elementor/widgets/bevesi-contact-form-7.php:53 
+#: ../elementor/widgets/bevesi-counter-banner.php:111 
+#: ../elementor/widgets/bevesi-custom-title.php:108 
+#: ../elementor/widgets/bevesi-home-slider.php:243 
+#: ../elementor/widgets/bevesi-icon-box.php:184 
+#: ../elementor/widgets/bevesi-latest-blog.php:209 
+#: ../elementor/widgets/bevesi-page-banner.php:127 
+#: ../elementor/widgets/bevesi-product-banner.php:142 
+#: ../elementor/widgets/bevesi-text-banner.php:104 
+#: ../elementor/widgets/bevesi-text-banner2.php:113 
+#: ../elementor/widgets/bevesi-text-box.php:115
+msgid "TITLE"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:252 
+#: ../elementor/widgets/bevesi-banner-box2.php:289 
+#: ../elementor/widgets/bevesi-category-banner.php:221 
+#: ../elementor/widgets/bevesi-category-banner2.php:221 
+#: ../elementor/widgets/bevesi-counter-banner.php:119 
+#: ../elementor/widgets/bevesi-custom-title.php:116 
+#: ../elementor/widgets/bevesi-home-slider.php:251 
+#: ../elementor/widgets/bevesi-latest-blog.php:217 
+#: ../elementor/widgets/bevesi-page-banner.php:135 
+#: ../elementor/widgets/bevesi-product-banner.php:150 
+#: ../elementor/widgets/bevesi-text-banner.php:112 
+#: ../elementor/widgets/bevesi-text-banner2.php:121 
+#: ../elementor/widgets/bevesi-text-box.php:123
+msgid "Title Size"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:264 
+#: ../elementor/widgets/bevesi-banner-box2.php:301 
+#: ../elementor/widgets/bevesi-category-banner.php:233 
+#: ../elementor/widgets/bevesi-category-banner2.php:233 
+#: ../elementor/widgets/bevesi-counter-banner.php:131 
+#: ../elementor/widgets/bevesi-custom-title.php:128 
+#: ../elementor/widgets/bevesi-home-slider.php:263 
+#: ../elementor/widgets/bevesi-latest-blog.php:229 
+#: ../elementor/widgets/bevesi-page-banner.php:147 
+#: ../elementor/widgets/bevesi-product-banner.php:162 
+#: ../elementor/widgets/bevesi-text-banner2.php:133 
+#: ../elementor/widgets/bevesi-text-box.php:135
+msgid "Title Weight"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:276 
+#: ../elementor/widgets/bevesi-banner-box2.php:313
+msgid "Title Width"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:288 
+#: ../elementor/widgets/bevesi-banner-box.php:468 
+#: ../elementor/widgets/bevesi-banner-box2.php:325 
+#: ../elementor/widgets/bevesi-banner-box2.php:505 
+#: ../elementor/widgets/bevesi-text-banner2.php:145 
+#: ../elementor/widgets/bevesi-text-banner2.php:319
+msgid "Line-height"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:300 
+#: ../elementor/widgets/bevesi-banner-box2.php:337 
+#: ../elementor/widgets/bevesi-category-banner.php:245 
+#: ../elementor/widgets/bevesi-category-banner2.php:245 
+#: ../elementor/widgets/bevesi-contact-form-7.php:61 
+#: ../elementor/widgets/bevesi-counter-banner.php:143 
+#: ../elementor/widgets/bevesi-custom-title.php:140 
+#: ../elementor/widgets/bevesi-home-slider.php:275 
+#: ../elementor/widgets/bevesi-icon-box.php:192 
+#: ../elementor/widgets/bevesi-latest-blog.php:241 
+#: ../elementor/widgets/bevesi-page-banner.php:159 
+#: ../elementor/widgets/bevesi-product-banner.php:174 
+#: ../elementor/widgets/bevesi-text-banner.php:124 
+#: ../elementor/widgets/bevesi-text-banner2.php:157 
+#: ../elementor/widgets/bevesi-text-box.php:147
+msgid "Title Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:340 
+#: ../elementor/widgets/bevesi-banner-box2.php:377 
+#: ../elementor/widgets/bevesi-category-banner.php:285 
+#: ../elementor/widgets/bevesi-category-banner2.php:285 
+#: ../elementor/widgets/bevesi-contact-form-7.php:110 
+#: ../elementor/widgets/bevesi-counter-banner.php:192 
+#: ../elementor/widgets/bevesi-custom-title.php:180 
+#: ../elementor/widgets/bevesi-home-slider.php:315 
+#: ../elementor/widgets/bevesi-latest-blog.php:290 
+#: ../elementor/widgets/bevesi-product-banner.php:214 
+#: ../elementor/widgets/bevesi-text-box.php:187
+msgid "SUBTITLE"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:348 
+#: ../elementor/widgets/bevesi-banner-box2.php:385 
+#: ../elementor/widgets/bevesi-category-banner.php:293 
+#: ../elementor/widgets/bevesi-category-banner2.php:293 
+#: ../elementor/widgets/bevesi-counter-banner.php:200 
+#: ../elementor/widgets/bevesi-custom-title.php:188 
+#: ../elementor/widgets/bevesi-home-slider.php:323 
+#: ../elementor/widgets/bevesi-latest-blog.php:298 
+#: ../elementor/widgets/bevesi-product-banner.php:222 
+#: ../elementor/widgets/bevesi-text-box.php:195
+msgid "Subtitle Size"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:360 
+#: ../elementor/widgets/bevesi-banner-box2.php:397 
+#: ../elementor/widgets/bevesi-category-banner.php:305 
+#: ../elementor/widgets/bevesi-category-banner2.php:305 
+#: ../elementor/widgets/bevesi-counter-banner.php:212 
+#: ../elementor/widgets/bevesi-custom-title.php:200 
+#: ../elementor/widgets/bevesi-home-slider.php:335 
+#: ../elementor/widgets/bevesi-latest-blog.php:310 
+#: ../elementor/widgets/bevesi-product-banner.php:234 
+#: ../elementor/widgets/bevesi-text-box.php:207
+msgid "Subtitle Weight"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:372 
+#: ../elementor/widgets/bevesi-banner-box2.php:409
+msgid "Subtitle Width"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:384 
+#: ../elementor/widgets/bevesi-banner-box2.php:421 
+#: ../elementor/widgets/bevesi-category-banner.php:317 
+#: ../elementor/widgets/bevesi-category-banner2.php:317 
+#: ../elementor/widgets/bevesi-contact-form-7.php:118 
+#: ../elementor/widgets/bevesi-counter-banner.php:224 
+#: ../elementor/widgets/bevesi-custom-title.php:212 
+#: ../elementor/widgets/bevesi-home-slider.php:347 
+#: ../elementor/widgets/bevesi-latest-blog.php:322 
+#: ../elementor/widgets/bevesi-product-banner.php:246 
+#: ../elementor/widgets/bevesi-text-box.php:219
+msgid "Subtitle Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:424 
+#: ../elementor/widgets/bevesi-banner-box2.php:461 
+#: ../elementor/widgets/bevesi-category-banner.php:357 
+#: ../elementor/widgets/bevesi-category-banner2.php:357 
+#: ../elementor/widgets/bevesi-counter-banner.php:273 
+#: ../elementor/widgets/bevesi-custom-title.php:252 
+#: ../elementor/widgets/bevesi-home-slider.php:387 
+#: ../elementor/widgets/bevesi-icon-box.php:241 
+#: ../elementor/widgets/bevesi-page-banner.php:199 
+#: ../elementor/widgets/bevesi-product-banner.php:286 
+#: ../elementor/widgets/bevesi-text-banner.php:164 
+#: ../elementor/widgets/bevesi-text-banner2.php:287
+msgid "DESCRIPTION"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:432 
+#: ../elementor/widgets/bevesi-banner-box2.php:469 
+#: ../elementor/widgets/bevesi-category-banner.php:365 
+#: ../elementor/widgets/bevesi-category-banner2.php:365 
+#: ../elementor/widgets/bevesi-counter-banner.php:281 
+#: ../elementor/widgets/bevesi-custom-title.php:260 
+#: ../elementor/widgets/bevesi-home-slider.php:395 
+#: ../elementor/widgets/bevesi-page-banner.php:207 
+#: ../elementor/widgets/bevesi-product-banner.php:294 
+#: ../elementor/widgets/bevesi-text-banner.php:172 
+#: ../elementor/widgets/bevesi-text-banner2.php:295
+msgid "Description Size"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:444 
+#: ../elementor/widgets/bevesi-banner-box2.php:481 
+#: ../elementor/widgets/bevesi-category-banner.php:377 
+#: ../elementor/widgets/bevesi-category-banner2.php:377 
+#: ../elementor/widgets/bevesi-counter-banner.php:293 
+#: ../elementor/widgets/bevesi-custom-title.php:272 
+#: ../elementor/widgets/bevesi-home-slider.php:407 
+#: ../elementor/widgets/bevesi-page-banner.php:219 
+#: ../elementor/widgets/bevesi-product-banner.php:306 
+#: ../elementor/widgets/bevesi-text-banner2.php:307
+msgid "Description Weight"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:456 
+#: ../elementor/widgets/bevesi-banner-box2.php:493
+msgid "Description Width"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:480 
+#: ../elementor/widgets/bevesi-banner-box2.php:517 
+#: ../elementor/widgets/bevesi-category-banner.php:390 
+#: ../elementor/widgets/bevesi-category-banner2.php:390 
+#: ../elementor/widgets/bevesi-counter-banner.php:306 
+#: ../elementor/widgets/bevesi-custom-title.php:285 
+#: ../elementor/widgets/bevesi-home-slider.php:420 
+#: ../elementor/widgets/bevesi-icon-box.php:249 
+#: ../elementor/widgets/bevesi-page-banner.php:232 
+#: ../elementor/widgets/bevesi-product-banner.php:319 
+#: ../elementor/widgets/bevesi-text-banner.php:184 
+#: ../elementor/widgets/bevesi-text-banner2.php:331
+msgid "Description Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:524 
+#: ../elementor/widgets/bevesi-banner-box2.php:561 
+#: ../elementor/widgets/bevesi-category-banner.php:434 
+#: ../elementor/widgets/bevesi-category-banner2.php:434 
+#: ../elementor/widgets/bevesi-counter-banner.php:350 
+#: ../elementor/widgets/bevesi-custom-title.php:329 
+#: ../elementor/widgets/bevesi-home-slider.php:464 
+#: ../elementor/widgets/bevesi-latest-blog.php:375 
+#: ../elementor/widgets/bevesi-product-banner.php:363 
+#: ../elementor/widgets/bevesi-text-banner.php:230 
+#: ../elementor/widgets/bevesi-text-banner2.php:377 
+#: ../elementor/widgets/bevesi-text-box.php:263
+msgid " Button Style"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box.php:599 
+#: ../elementor/widgets/bevesi-banner-box2.php:636 
+#: ../elementor/widgets/bevesi-category-banner.php:509 
+#: ../elementor/widgets/bevesi-category-banner2.php:509 
+#: ../elementor/widgets/bevesi-counter-banner.php:425 
+#: ../elementor/widgets/bevesi-custom-title.php:404 
+#: ../elementor/widgets/bevesi-home-slider.php:539 
+#: ../elementor/widgets/bevesi-latest-blog.php:450 
+#: ../elementor/widgets/bevesi-product-banner.php:438 
+#: ../elementor/widgets/bevesi-text-banner.php:305 
+#: ../elementor/widgets/bevesi-text-banner2.php:452 
+#: ../elementor/widgets/bevesi-text-box.php:338
+msgid "Button Height"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box2.php:32 
+#: ../elementor/widgets/bevesi-page-banner.php:32 
+#: ../elementor/widgets/bevesi-text-banner.php:32
+msgid "Banner Type"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box2.php:88 
+#: ../elementor/widgets/bevesi-counter-banner.php:62
+msgid "Counter Title"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box2.php:98 
+#: ../elementor/widgets/bevesi-counter-banner.php:72 
+#: ../elementor/widgets/bevesi-text-box.php:56
+msgid "Due Date"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-banner-box2.php:741 
+#: ../elementor/widgets/bevesi-counter-banner.php:458 
+#: ../elementor/widgets/bevesi-text-box.php:365 
+#: ../woocommerce-filter/woocommerce-filter.php:604 
+#: ../woocommerce-filter/woocommerce-filter.php:673
+msgid "Expired"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-category-banner.php:33 
+#: ../elementor/widgets/bevesi-category-banner2.php:33 
+#: ../elementor/widgets/bevesi-client-carousel.php:85 
+#: ../elementor/widgets/bevesi-home-slider.php:45 
+#: ../elementor/widgets/bevesi-product-carousel.php:33 
+#: ../elementor/widgets/bevesi-product-categories.php:133 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:73 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:62
+msgid "Auto Play"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-category-banner.php:44 
+#: ../elementor/widgets/bevesi-category-banner2.php:44 
+#: ../elementor/widgets/bevesi-client-carousel.php:96 
+#: ../elementor/widgets/bevesi-home-slider.php:56 
+#: ../elementor/widgets/bevesi-product-carousel.php:44 
+#: ../elementor/widgets/bevesi-product-categories.php:144 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:84 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:73
+msgid "Auto Speed"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-category-banner.php:48 
+#: ../elementor/widgets/bevesi-category-banner2.php:48 
+#: ../elementor/widgets/bevesi-client-carousel.php:100 
+#: ../elementor/widgets/bevesi-home-slider.php:60 
+#: ../elementor/widgets/bevesi-product-carousel.php:48 
+#: ../elementor/widgets/bevesi-product-categories.php:148 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:88 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:77
+msgid "Set auto speed."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-category-banner.php:55 
+#: ../elementor/widgets/bevesi-category-banner2.php:55 
+#: ../elementor/widgets/bevesi-client-carousel.php:107 
+#: ../elementor/widgets/bevesi-home-slider.php:67 
+#: ../elementor/widgets/bevesi-product-carousel.php:55 
+#: ../elementor/widgets/bevesi-product-categories.php:155 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:106 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:84
+msgid "Dots"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-category-banner.php:66 
+#: ../elementor/widgets/bevesi-category-banner2.php:66 
+#: ../elementor/widgets/bevesi-client-carousel.php:118 
+#: ../elementor/widgets/bevesi-home-slider.php:78 
+#: ../elementor/widgets/bevesi-product-carousel.php:66 
+#: ../elementor/widgets/bevesi-product-categories.php:166 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:95 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:95
+msgid "Arrows"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-category-banner.php:77 
+#: ../elementor/widgets/bevesi-category-banner2.php:77 
+#: ../elementor/widgets/bevesi-client-carousel.php:129 
+#: ../elementor/widgets/bevesi-home-slider.php:89 
+#: ../elementor/widgets/bevesi-product-carousel.php:77 
+#: ../elementor/widgets/bevesi-product-categories.php:177 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:117 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:106
+msgid "Slide Speed"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-category-banner.php:81 
+#: ../elementor/widgets/bevesi-category-banner2.php:81 
+#: ../elementor/widgets/bevesi-client-carousel.php:133 
+#: ../elementor/widgets/bevesi-home-slider.php:93 
+#: ../elementor/widgets/bevesi-product-carousel.php:81 
+#: ../elementor/widgets/bevesi-product-categories.php:181 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:121 
+#: ../elementor/widgets/bevesi-vendor-carousel.php:110
+msgid "Set slide speed."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-category-banner.php:96 
+#: ../elementor/widgets/bevesi-category-banner2.php:96
+msgid "Banner"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-category-banner.php:570 
+#: ../elementor/widgets/bevesi-category-banner2.php:569
+msgid "View All"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-client-carousel.php:43 
+#: ../elementor/widgets/bevesi-client-carousel.php:77 
+#: ../elementor/widgets/bevesi-product-categories.php:94
+msgid "7 Columns"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-client-carousel.php:44 
+#: ../elementor/widgets/bevesi-client-carousel.php:78 
+#: ../elementor/widgets/bevesi-product-categories.php:95
+msgid "8 Columns"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-client-carousel.php:149
+msgid "Image Link"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-client-carousel.php:158
+msgid "Client Items"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-contact-form-7.php:25
+msgid "Form Data"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-contact-form-7.php:32
+msgid "Select Form"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-contact-form-7.php:46
+msgid "Form Style"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-contact-form-7.php:70 
+#: ../elementor/widgets/bevesi-icon-box.php:201 
+#: ../elementor/widgets/bevesi-latest-blog.php:250
+msgid "Title Hover Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-contact-form-7.php:127 
+#: ../elementor/widgets/bevesi-latest-blog.php:331
+msgid "Subtitle Hover Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-contact-form-7.php:192 
+#: ../elementor/widgets/bevesi-contact-form-7.php:285
+msgid "Form Max Width"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-contact-form-7.php:205 
+#: ../elementor/widgets/bevesi-contact-form-7.php:298
+msgid "Input Height"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-contact-form-7.php:256
+msgid "Focus"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-contact-form-7.php:279
+msgid "Form Button Style"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-contact-form-7.php:358
+msgid "Please Select a Form"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-counter-banner.php:11
+msgid "Counter Banner (K)"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-counter-banner.php:152
+msgid "Title Background Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-counter-banner.php:233
+msgid "Subtitle Background Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-custom-title.php:32
+msgid "Title Type"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-custom-title.php:49
+msgid "Set a title."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-custom-title.php:66
+msgid "Description "
+msgstr ""
+
+#: ../elementor/widgets/bevesi-custom-title.php:69
+msgid "Set a Description."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-home-slider.php:32
+msgid "Slider Type"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-home-slider.php:109
+msgid "Item Title"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-home-slider.php:113
+msgid "Enter item title here."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-home-slider.php:119
+msgid "Item Subtitle"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-home-slider.php:123
+msgid "Enter item subtitle here."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-home-slider.php:129
+msgid "Item Description"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-home-slider.php:133
+msgid "Enter item desc here."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-home-slider.php:158
+msgid "Slide Items"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-icon-box.php:11
+msgid "Icon Box (K)"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-icon-box.php:32 
+#: ../elementor/widgets/bevesi-text-box.php:32
+msgid "Box Type"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-icon-box.php:39 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:39
+msgid "Style 3"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-icon-box.php:110
+msgid "Enter title here"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-icon-box.php:120
+msgid "Enter desc here"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-icon-box.php:138
+msgid "ICON"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-icon-box.php:145
+msgid "Icon Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-icon-box.php:154
+msgid "Icon Hover Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-icon-box.php:258
+msgid "Description Hover Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-latest-blog.php:37
+msgid "Add a title."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-latest-blog.php:47
+msgid "Add a description."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-latest-blog.php:107
+msgid "Excerpt Size"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-latest-blog.php:117 ../inc/customizer.php:2731
+msgid "Category"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-latest-blog.php:128
+msgid "Specific Post(s)"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-latest-blog.php:167
+msgid "Disable Pagination"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-latest-blog.php:178
+msgid "Image Width"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-latest-blog.php:182
+msgid "Set the product image width."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-latest-blog.php:188
+msgid "Image Height"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-latest-blog.php:192
+msgid "Set the product image height."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-banner.php:46
+msgid "Second Image"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-banner.php:54
+msgid "Third Image"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-banner.php:92
+msgid "Item Regular Price"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-banner.php:96 
+#: ../elementor/widgets/bevesi-product-banner.php:106
+msgid "Add a price."
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-banner.php:102
+msgid "Item Sale Price"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-categories.php:33
+msgid "Categories Type"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-categories.php:46 
+#: ../elementor/widgets/bevesi-product-categories.php:51
+msgid "Include Category"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-categories.php:64 
+#: ../elementor/widgets/bevesi-product-categories.php:69
+msgid "Exclude Category"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-categories.php:96
+msgid "9 Columns"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-categories.php:265 
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:25
+msgid "Products"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-grid.php:12
+msgid "Product Grid (K)"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-grid.php:32
+msgid "Product Grid Type"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-list.php:12
+msgid "Product List (K)"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:11
+msgid "Product Tab Carousel (K)"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:37 
+#: ../woocommerce-filter/product-badge/product-badge.php:48
+msgid "Style 1"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-product-tab-carousel.php:38 
+#: ../woocommerce-filter/product-badge/product-badge.php:49
+msgid "Style 2"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-text-banner.php:95 
+#: ../elementor/widgets/bevesi-text-banner2.php:104 
+#: ../elementor/widgets/bevesi-text-box.php:106
+msgid "Background Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-text-banner2.php:52
+msgid "Coupon Code"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-text-banner2.php:197
+msgid "COUPON"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-text-banner2.php:205
+msgid "Coupon Size"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-text-banner2.php:217
+msgid "Coupon Weight"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-text-banner2.php:229
+msgid "Coupon Color"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-text-box.php:11
+msgid "Text Box (K)"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-text-box.php:368
+msgid "d"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-text-box.php:372
+msgid "h"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-text-box.php:376
+msgid "m"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-text-box.php:381
+msgid "s"
+msgstr ""
+
+#: ../elementor/widgets/bevesi-vendor-carousel.php:11
+msgid "Vendor Carousel (K)"
+msgstr ""
+
+#: ../inc/breadcrumb.php:29
+msgid "Our Blog"
+msgstr ""
+
+#: ../inc/breadcrumb.php:30 ../inc/breadcrumb.php:32
+msgid "Home"
+msgstr ""
+
+#: ../inc/breadcrumb.php:76
+msgid "Category : "
+msgstr ""
+
+#: ../inc/breadcrumb.php:78
+msgid "Tag : "
+msgstr ""
+
+#: ../inc/breadcrumb.php:91
+msgid "Error 404"
+msgstr ""
+
+#: ../inc/breadcrumb.php:93 ../inc/customizer.php:2205
+msgid "Search"
+msgstr ""
+
+#: ../inc/customizer.php:29 ../inc/customizer.php:1947
+msgid "Shop Settings"
+msgstr ""
+
+#: ../inc/customizer.php:30
+msgid "You can customize the shop settings."
+msgstr ""
+
+#: ../inc/customizer.php:34
+msgid "Blog Settings"
+msgstr ""
+
+#: ../inc/customizer.php:35
+msgid "You can customize the blog settings."
+msgstr ""
+
+#: ../inc/customizer.php:39 ../inc/customizer.php:125
+msgid "Header Settings"
+msgstr ""
+
+#: ../inc/customizer.php:40
+msgid "You can customize the header settings."
+msgstr ""
+
+#: ../inc/customizer.php:44 ../inc/customizer.php:3621
+msgid "Main Color"
+msgstr ""
+
+#: ../inc/customizer.php:45 ../inc/customizer.php:3622
+msgid "You can customize the main color."
+msgstr ""
+
+#: ../inc/customizer.php:49
+msgid "Elementor Templates"
+msgstr ""
+
+#: ../inc/customizer.php:50
+msgid "You can customize the elementor templates."
+msgstr ""
+
+#: ../inc/customizer.php:54
+msgid "Map Settings"
+msgstr ""
+
+#: ../inc/customizer.php:55
+msgid "You can customize the map settings."
+msgstr ""
+
+#: ../inc/customizer.php:59 ../inc/customizer.php:3872
+msgid "Footer Settings"
+msgstr ""
+
+#: ../inc/customizer.php:60 ../inc/customizer.php:3895 
+#: ../inc/customizer.php:3905 ../inc/customizer.php:3910 
+#: ../inc/customizer.php:3915
+msgid "You can customize the footer settings."
+msgstr ""
+
+#: ../inc/customizer.php:64 ../inc/customizer.php:3812
+msgid "Bevesi Widgets"
+msgstr ""
+
+#: ../inc/customizer.php:65 ../inc/customizer.php:3813
+msgid "You can customize the bevesi widgets."
+msgstr ""
+
+#: ../inc/customizer.php:69
+msgid "GDPR Settings"
+msgstr ""
+
+#: ../inc/customizer.php:70
+msgid "You can customize the GDPR settings."
+msgstr ""
+
+#: ../inc/customizer.php:74
+msgid "Newsletter Settings"
+msgstr ""
+
+#: ../inc/customizer.php:75
+msgid "You can customize the Newsletter Popup settings."
+msgstr ""
+
+#: ../inc/customizer.php:79
+msgid "Maintenance Settings"
+msgstr ""
+
+#: ../inc/customizer.php:80
+msgid "You can customize the Maintenance settings."
+msgstr ""
+
+#: ../inc/customizer.php:84
+msgid "Bevesi Typography"
+msgstr ""
+
+#: ../inc/customizer.php:85
+msgid "You can customize the Typography settings."
+msgstr ""
+
+#: ../inc/customizer.php:126
+msgid "You can customize the header from this panel."
+msgstr ""
+
+#: ../inc/customizer.php:132 ../inc/customizer.php:222
+msgid "Logo"
+msgstr ""
+
+#: ../inc/customizer.php:133
+msgid "You can customize the logo which is on header.."
+msgstr ""
+
+#: ../inc/customizer.php:137
+msgid "Header General"
+msgstr ""
+
+#: ../inc/customizer.php:138
+msgid "You can customize the header."
+msgstr ""
+
+#: ../inc/customizer.php:142
+msgid "Header Products Tab"
+msgstr ""
+
+#: ../inc/customizer.php:143
+msgid "You can customize the header products tab."
+msgstr ""
+
+#: ../inc/customizer.php:147 ../inc/customizer.php:627
+msgid "Header Search"
+msgstr ""
+
+#: ../inc/customizer.php:148 ../inc/customizer.php:158
+msgid "You can customize the loader."
+msgstr ""
+
+#: ../inc/customizer.php:152 ../inc/customizer.php:658
+msgid "Header Notification"
+msgstr ""
+
+#: ../inc/customizer.php:153
+msgid "You can customize the header notification."
+msgstr ""
+
+#: ../inc/customizer.php:157
+msgid "Preloader"
+msgstr ""
+
+#: ../inc/customizer.php:162
+msgid "Header 1 Style"
+msgstr ""
+
+#: ../inc/customizer.php:163 ../inc/customizer.php:168 
+#: ../inc/customizer.php:173 ../inc/customizer.php:178 
+#: ../inc/customizer.php:183 ../inc/customizer.php:188 
+#: ../inc/customizer.php:193
+msgid "You can customize the style."
+msgstr ""
+
+#: ../inc/customizer.php:167
+msgid "Header 2 Style"
+msgstr ""
+
+#: ../inc/customizer.php:172
+msgid "Header 3 Style"
+msgstr ""
+
+#: ../inc/customizer.php:177
+msgid "Header 4 Style"
+msgstr ""
+
+#: ../inc/customizer.php:182
+msgid "Header 5 Style"
+msgstr ""
+
+#: ../inc/customizer.php:187
+msgid "Header 6 Style"
+msgstr ""
+
+#: ../inc/customizer.php:192
+msgid "Mobile Bottom Menu Style"
+msgstr ""
+
+#: ../inc/customizer.php:197
+msgid "Top Notification Style"
+msgstr ""
+
+#: ../inc/customizer.php:198
+msgid "You can customize the top notification."
+msgstr ""
+
+#: ../inc/customizer.php:223
+msgid "You can upload a logo."
+msgstr ""
+
+#: ../inc/customizer.php:236
+msgid "Logo White"
+msgstr ""
+
+#: ../inc/customizer.php:237
+msgid "You can upload a logo white."
+msgstr ""
+
+#: ../inc/customizer.php:250
+msgid "Set Logo Text"
+msgstr ""
+
+#: ../inc/customizer.php:251
+msgid "You can set logo as text."
+msgstr ""
+
+#: ../inc/customizer.php:262
+msgid "Logo Size"
+msgstr ""
+
+#: ../inc/customizer.php:263
+msgid "You can set size of the logo."
+msgstr ""
+
+#: ../inc/customizer.php:286
+msgid "Mobile Logo Size"
+msgstr ""
+
+#: ../inc/customizer.php:287
+msgid "You can set size of the mobil logo."
+msgstr ""
+
+#: ../inc/customizer.php:330
+msgid "Sticky Header"
+msgstr ""
+
+#: ../inc/customizer.php:331
+msgid "You can choose status of the header."
+msgstr ""
+
+#: ../inc/customizer.php:342
+msgid "Mobile Sticky Header"
+msgstr ""
+
+#: ../inc/customizer.php:343
+msgid "You can choose status of the header on the mobile."
+msgstr ""
+
+#: ../inc/customizer.php:354
+msgid "Sale Banner"
+msgstr ""
+
+#: ../inc/customizer.php:355
+msgid "Disable or Enable Sale Banner"
+msgstr ""
+
+#: ../inc/customizer.php:366
+msgid "Sale Banner Icon"
+msgstr ""
+
+#: ../inc/customizer.php:367 ../inc/customizer.php:3996 
+#: ../inc/customizer.php:4209
+msgid "You can set an icon. for example; \"klb-icon-discount-solid\""
+msgstr ""
+
+#: ../inc/customizer.php:385
+msgid "Sale Banner Title"
+msgstr ""
+
+#: ../inc/customizer.php:403
+msgid "Sale Banner Subtitle"
+msgstr ""
+
+#: ../inc/customizer.php:421
+msgid "Account Icon / Login"
+msgstr ""
+
+#: ../inc/customizer.php:422
+msgid "Disable or Enable User Login/Signup on the header."
+msgstr ""
+
+#: ../inc/customizer.php:433
+msgid "Header Cart"
+msgstr ""
+
+#: ../inc/customizer.php:434
+msgid "You can choose status of the mini cart on the header."
+msgstr ""
+
+#: ../inc/customizer.php:445
+msgid "Sidebar Menu"
+msgstr ""
+
+#: ../inc/customizer.php:446
+msgid "Disable or Enable Sidebar Menu"
+msgstr ""
+
+#: ../inc/customizer.php:457
+msgid "Disable Collapse on Frontpage"
+msgstr ""
+
+#: ../inc/customizer.php:458
+msgid "Disable or Enable Sidebar Collapse on Home Page."
+msgstr ""
+
+#: ../inc/customizer.php:476
+msgid "Top Left Menu"
+msgstr ""
+
+#: ../inc/customizer.php:477
+msgid "Disable or Enable the top left menu."
+msgstr ""
+
+#: ../inc/customizer.php:488
+msgid "Top Right Menu"
+msgstr ""
+
+#: ../inc/customizer.php:489
+msgid "Disable or Enable the top right menu."
+msgstr ""
+
+#: ../inc/customizer.php:500
+msgid "Categories Popup"
+msgstr ""
+
+#: ../inc/customizer.php:501
+msgid "Disable or Enable the categories popup."
+msgstr ""
+
+#: ../inc/customizer.php:512
+msgid "Canvas Bottom Menu"
+msgstr ""
+
+#: ../inc/customizer.php:513
+msgid "Disable or Enable the Canvas Bottom menu."
+msgstr ""
+
+#: ../inc/customizer.php:524
+msgid "Products Tab"
+msgstr ""
+
+#: ../inc/customizer.php:525
+msgid "Disable or Enable Products Tab"
+msgstr ""
+
+#: ../inc/customizer.php:537
+msgid "You can add a text for the button."
+msgstr ""
+
+#: ../inc/customizer.php:609
+msgid "Posts Count"
+msgstr ""
+
+#: ../inc/customizer.php:628
+msgid "You can choose status of the search on the header."
+msgstr ""
+
+#: ../inc/customizer.php:639
+msgid "Ajax Search Form"
+msgstr ""
+
+#: ../inc/customizer.php:640
+msgid "Enable ajax search form for the header search."
+msgstr ""
+
+#: ../inc/customizer.php:659 ../inc/customizer.php:709
+msgid "You can choose status of the notification on the header."
+msgstr ""
+
+#: ../inc/customizer.php:670
+msgid "Header Notification Icon"
+msgstr ""
+
+#: ../inc/customizer.php:671
+msgid "You can set an icon. for example; \"klb-icon-chevron-right\""
+msgstr ""
+
+#: ../inc/customizer.php:689
+msgid "Header Notification Content"
+msgstr ""
+
+#: ../inc/customizer.php:690
+msgid "You can add a text for the notification content."
+msgstr ""
+
+#: ../inc/customizer.php:708
+msgid "Top Notification"
+msgstr ""
+
+#: ../inc/customizer.php:721 ../inc/customizer.php:2853 
+#: ../inc/customizer.php:4038 ../inc/customizer.php:4271 
+#: ../inc/customizer.php:5003 ../inc/customizer.php:5118 
+#: ../inc/customizer.php:5306
+msgid "You can upload an image."
+msgstr ""
+
+#: ../inc/customizer.php:741
+msgid "Top Notification Title"
+msgstr ""
+
+#: ../inc/customizer.php:742
+msgid "You can add a text for the notification title."
+msgstr ""
+
+#: ../inc/customizer.php:760
+msgid "Top Notification Button Title"
+msgstr ""
+
+#: ../inc/customizer.php:761
+msgid "You can add a text for the notification button title."
+msgstr ""
+
+#: ../inc/customizer.php:779
+msgid "Top Notification Button Url"
+msgstr ""
+
+#: ../inc/customizer.php:797
+msgid "Enable Loader"
+msgstr ""
+
+#: ../inc/customizer.php:798
+msgid "Disable or Enable the loader."
+msgstr ""
+
+#: ../inc/customizer.php:812 ../inc/customizer.php:992 
+#: ../inc/customizer.php:1142 ../inc/customizer.php:1307 
+#: ../inc/customizer.php:1496 ../inc/customizer.php:1664
+msgid "Header Top Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:813 ../inc/customizer.php:864 
+#: ../inc/customizer.php:903 ../inc/customizer.php:993 
+#: ../inc/customizer.php:1029 ../inc/customizer.php:1053 
+#: ../inc/customizer.php:1143 ../inc/customizer.php:1194 
+#: ../inc/customizer.php:1218 ../inc/customizer.php:1308 
+#: ../inc/customizer.php:1362 ../inc/customizer.php:1404 
+#: ../inc/customizer.php:1497 ../inc/customizer.php:1548 
+#: ../inc/customizer.php:1633 ../inc/customizer.php:1665 
+#: ../inc/customizer.php:1716 ../inc/customizer.php:1755
+msgid "You can set a color for  background."
+msgstr ""
+
+#: ../inc/customizer.php:824 ../inc/customizer.php:1004 
+#: ../inc/customizer.php:1154 ../inc/customizer.php:1322 
+#: ../inc/customizer.php:1508 ../inc/customizer.php:1676
+msgid "Header Top Font Color"
+msgstr ""
+
+#: ../inc/customizer.php:825 ../inc/customizer.php:849 
+#: ../inc/customizer.php:876 ../inc/customizer.php:891 
+#: ../inc/customizer.php:915 ../inc/customizer.php:930 
+#: ../inc/customizer.php:943 ../inc/customizer.php:955 
+#: ../inc/customizer.php:967 ../inc/customizer.php:979 
+#: ../inc/customizer.php:1005 ../inc/customizer.php:1041 
+#: ../inc/customizer.php:1065 ../inc/customizer.php:1080 
+#: ../inc/customizer.php:1093 ../inc/customizer.php:1105 
+#: ../inc/customizer.php:1117 ../inc/customizer.php:1129 
+#: ../inc/customizer.php:1155 ../inc/customizer.php:1179 
+#: ../inc/customizer.php:1206 ../inc/customizer.php:1230 
+#: ../inc/customizer.php:1245 ../inc/customizer.php:1258 
+#: ../inc/customizer.php:1270 ../inc/customizer.php:1282 
+#: ../inc/customizer.php:1294 ../inc/customizer.php:1323 
+#: ../inc/customizer.php:1347 ../inc/customizer.php:1377 
+#: ../inc/customizer.php:1392 ../inc/customizer.php:1419 
+#: ../inc/customizer.php:1434 ../inc/customizer.php:1447 
+#: ../inc/customizer.php:1459 ../inc/customizer.php:1471 
+#: ../inc/customizer.php:1483 ../inc/customizer.php:1509 
+#: ../inc/customizer.php:1533 ../inc/customizer.php:1560 
+#: ../inc/customizer.php:1572 ../inc/customizer.php:1585 
+#: ../inc/customizer.php:1597 ../inc/customizer.php:1609 
+#: ../inc/customizer.php:1621 ../inc/customizer.php:1648 
+#: ../inc/customizer.php:1677 ../inc/customizer.php:1701 
+#: ../inc/customizer.php:1728 ../inc/customizer.php:1743 
+#: ../inc/customizer.php:1767 ../inc/customizer.php:1782 
+#: ../inc/customizer.php:1795 ../inc/customizer.php:1807 
+#: ../inc/customizer.php:1819 ../inc/customizer.php:1831 
+#: ../inc/customizer.php:1845 ../inc/customizer.php:1857 
+#: ../inc/customizer.php:1896 ../inc/customizer.php:4325 
+#: ../inc/customizer.php:4337
+msgid "You can set a color for  color."
+msgstr ""
+
+#: ../inc/customizer.php:836 ../inc/customizer.php:1016 
+#: ../inc/customizer.php:1166 ../inc/customizer.php:1334 
+#: ../inc/customizer.php:1520 ../inc/customizer.php:1688
+msgid "Header Top Font Hover Color"
+msgstr ""
+
+#: ../inc/customizer.php:837 ../inc/customizer.php:1017 
+#: ../inc/customizer.php:1167 ../inc/customizer.php:1335 
+#: ../inc/customizer.php:1521 ../inc/customizer.php:1689
+msgid "You can set a color for hover color."
+msgstr ""
+
+#: ../inc/customizer.php:848 ../inc/customizer.php:1178 
+#: ../inc/customizer.php:1346 ../inc/customizer.php:1532 
+#: ../inc/customizer.php:1700
+msgid "Header Top Border Color"
+msgstr ""
+
+#: ../inc/customizer.php:863 ../inc/customizer.php:1028 
+#: ../inc/customizer.php:1193 ../inc/customizer.php:1361 
+#: ../inc/customizer.php:1547 ../inc/customizer.php:1715
+msgid "Header Main Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:875 ../inc/customizer.php:1376 
+#: ../inc/customizer.php:1727
+msgid "Header Main Border Color"
+msgstr ""
+
+#: ../inc/customizer.php:890 ../inc/customizer.php:1040 
+#: ../inc/customizer.php:1205 ../inc/customizer.php:1391 
+#: ../inc/customizer.php:1559 ../inc/customizer.php:1742
+msgid "Header Main Icon Color"
+msgstr ""
+
+#: ../inc/customizer.php:902 ../inc/customizer.php:1052 
+#: ../inc/customizer.php:1217 ../inc/customizer.php:1403 
+#: ../inc/customizer.php:1632 ../inc/customizer.php:1754
+msgid "Header Bottom Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:914 ../inc/customizer.php:1064 
+#: ../inc/customizer.php:1229 ../inc/customizer.php:1418 
+#: ../inc/customizer.php:1647 ../inc/customizer.php:1766
+msgid "Header Bottom Border Color"
+msgstr ""
+
+#: ../inc/customizer.php:929 ../inc/customizer.php:1079 
+#: ../inc/customizer.php:1244 ../inc/customizer.php:1433 
+#: ../inc/customizer.php:1781
+msgid "Header Bottom Font Color"
+msgstr ""
+
+#: ../inc/customizer.php:942 ../inc/customizer.php:1092 
+#: ../inc/customizer.php:1257 ../inc/customizer.php:1446 
+#: ../inc/customizer.php:1794
+msgid "Header Bottom Font Hover Color"
+msgstr ""
+
+#: ../inc/customizer.php:954 ../inc/customizer.php:1104 
+#: ../inc/customizer.php:1269 ../inc/customizer.php:1458 
+#: ../inc/customizer.php:1806
+msgid "Header Bottom Submenu Header Font Color"
+msgstr ""
+
+#: ../inc/customizer.php:966 ../inc/customizer.php:1116 
+#: ../inc/customizer.php:1281 ../inc/customizer.php:1470 
+#: ../inc/customizer.php:1818
+msgid "Header Bottom Submenu Font Color"
+msgstr ""
+
+#: ../inc/customizer.php:978 ../inc/customizer.php:1128 
+#: ../inc/customizer.php:1293 ../inc/customizer.php:1482 
+#: ../inc/customizer.php:1830
+msgid "Header Bottom Submenu Font Hover Color"
+msgstr ""
+
+#: ../inc/customizer.php:1571
+msgid "Header Main Font Color"
+msgstr ""
+
+#: ../inc/customizer.php:1584
+msgid "Header Main Font Hover Color"
+msgstr ""
+
+#: ../inc/customizer.php:1596
+msgid "Header Main Submenu Header Font Color"
+msgstr ""
+
+#: ../inc/customizer.php:1608
+msgid "Header Main Submenu Font Color"
+msgstr ""
+
+#: ../inc/customizer.php:1620
+msgid "Header Main Submenu Font Hover Color"
+msgstr ""
+
+#: ../inc/customizer.php:1844
+msgid "Mobile Bottom Menu Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:1856
+msgid "Mobile Bottom Menu Border Color"
+msgstr ""
+
+#: ../inc/customizer.php:1868
+msgid "Mobile Bottom Menu Icon Color"
+msgstr ""
+
+#: ../inc/customizer.php:1869 ../inc/customizer.php:1881 
+#: ../inc/customizer.php:1911 ../inc/customizer.php:1923 
+#: ../inc/customizer.php:3252 ../inc/customizer.php:3264 
+#: ../inc/customizer.php:3288 ../inc/customizer.php:3312 
+#: ../inc/customizer.php:3324 ../inc/customizer.php:3336 
+#: ../inc/customizer.php:3348 ../inc/customizer.php:3408 
+#: ../inc/customizer.php:3420 ../inc/customizer.php:3432 
+#: ../inc/customizer.php:3492 ../inc/customizer.php:3504 
+#: ../inc/customizer.php:3516 ../inc/customizer.php:3528 
+#: ../inc/customizer.php:3540 ../inc/customizer.php:4349 
+#: ../inc/customizer.php:4361 ../inc/customizer.php:4373 
+#: ../inc/customizer.php:4402 ../inc/customizer.php:4444 
+#: ../inc/customizer.php:4456 ../inc/customizer.php:4498 
+#: ../inc/customizer.php:4510 ../inc/customizer.php:4552 
+#: ../inc/customizer.php:4581 ../inc/customizer.php:4593 
+#: ../inc/customizer.php:4635 ../inc/customizer.php:4647 
+#: ../inc/customizer.php:4689 ../inc/customizer.php:4701 
+#: ../inc/customizer.php:4743 ../inc/customizer.php:4755 
+#: ../inc/customizer.php:4784 ../inc/customizer.php:4796 
+#: ../inc/customizer.php:4838 ../inc/customizer.php:4850 
+#: ../inc/customizer.php:4892 ../inc/customizer.php:4904 
+#: ../inc/customizer.php:4946 ../inc/customizer.php:4958
+msgid "You can set a color for color."
+msgstr ""
+
+#: ../inc/customizer.php:1880
+msgid "Mobile Bottom Menu Font Color"
+msgstr ""
+
+#: ../inc/customizer.php:1895
+msgid "Top Notification Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:1910
+msgid "Top Notification Font Color"
+msgstr ""
+
+#: ../inc/customizer.php:1922
+msgid "Top Notification Button Color"
+msgstr ""
+
+#: ../inc/customizer.php:1934
+msgid "Top Notification Button Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:1935
+msgid "You can set a color for  background color."
+msgstr ""
+
+#: ../inc/customizer.php:1948
+msgid "You can customize the shop from this panel."
+msgstr ""
+
+#: ../inc/customizer.php:1954
+msgid "General"
+msgstr ""
+
+#: ../inc/customizer.php:1955
+msgid "You can customize shop settings."
+msgstr ""
+
+#: ../inc/customizer.php:1959
+msgid "Product Box"
+msgstr ""
+
+#: ../inc/customizer.php:1960
+msgid "You can customize the product box settings."
+msgstr ""
+
+#: ../inc/customizer.php:1964
+msgid "Product Detail"
+msgstr ""
+
+#: ../inc/customizer.php:1965
+msgid "You can customize the product single settings."
+msgstr ""
+
+#: ../inc/customizer.php:1969
+msgid "My Account"
+msgstr ""
+
+#: ../inc/customizer.php:1970
+msgid "You can customize the my account page."
+msgstr ""
+
+#: ../inc/customizer.php:1974
+msgid "Free Shipping Bar "
+msgstr ""
+
+#: ../inc/customizer.php:1975
+msgid "You can customize the free shipping bar settings."
+msgstr ""
+
+#: ../inc/customizer.php:1979 ../inc/customizer.php:3157 
+#: ../woocommerce-filter/wishlist/wishlist.php:295 
+#: ../woocommerce-filter/wishlist/wishlist.php:323 
+#: ../woocommerce-filter/wishlist/wishlist.php:467
+msgid "Wishlist"
+msgstr ""
+
+#: ../inc/customizer.php:1980
+msgid "You can customize the wishlist settings."
+msgstr ""
+
+#: ../inc/customizer.php:1984 ../woocommerce-filter/compare/compare.php:88 
+#: ../woocommerce-filter/compare/compare.php:89 
+#: ../woocommerce-filter/compare/compare.php:250 
+#: ../woocommerce-filter/compare/compare.php:295
+msgid "Compare"
+msgstr ""
+
+#: ../inc/customizer.php:1985
+msgid "You can customize the compare settings."
+msgstr ""
+
+#: ../inc/customizer.php:2009 ../inc/customizer.php:2896 
+#: ../inc/customizer.php:3553
+msgid "Layout"
+msgstr ""
+
+#: ../inc/customizer.php:2010
+msgid "You can choose a layout for the shop."
+msgstr ""
+
+#: ../inc/customizer.php:2014 ../inc/customizer.php:3558
+msgid "Left Sidebar"
+msgstr ""
+
+#: ../inc/customizer.php:2015 ../inc/customizer.php:2534 
+#: ../inc/customizer.php:3559
+msgid "Full Width"
+msgstr ""
+
+#: ../inc/customizer.php:2016 ../inc/customizer.php:3560
+msgid "Right Sidebar"
+msgstr ""
+
+#: ../inc/customizer.php:2026
+msgid "Shop Page Width"
+msgstr ""
+
+#: ../inc/customizer.php:2027
+msgid "You can choose a layout for the shop page."
+msgstr ""
+
+#: ../inc/customizer.php:2031
+msgid "Boxed"
+msgstr ""
+
+#: ../inc/customizer.php:2032
+msgid "Wide"
+msgstr ""
+
+#: ../inc/customizer.php:2041
+msgid "Pagination Type"
+msgstr ""
+
+#: ../inc/customizer.php:2046 ../inc/customizer.php:2204 
+#: ../inc/customizer.php:2429 ../inc/customizer.php:2901
+msgid "Default"
+msgstr ""
+
+#: ../inc/customizer.php:2047 ../woocommerce-filter/load-more/load-more.php:11
+msgid "Load More"
+msgstr ""
+
+#: ../inc/customizer.php:2048
+msgid "Infinite"
+msgstr ""
+
+#: ../inc/customizer.php:2058
+msgid "Ajax on Shop Page"
+msgstr ""
+
+#: ../inc/customizer.php:2059
+msgid "Disable or Enable Ajax for the shop page."
+msgstr ""
+
+#: ../inc/customizer.php:2070
+msgid "Grid List View"
+msgstr ""
+
+#: ../inc/customizer.php:2071
+msgid "Disable or Enable grid list view on shop page."
+msgstr ""
+
+#: ../inc/customizer.php:2082 ../inc/customizer.php:2106
+msgid "Attribute Swatches"
+msgstr ""
+
+#: ../inc/customizer.php:2083 ../inc/customizer.php:2107
+msgid "Disable or Enable the attribute types (Color - Button - Images)."
+msgstr ""
+
+#: ../inc/customizer.php:2094
+msgid "Perpage View"
+msgstr ""
+
+#: ../inc/customizer.php:2095
+msgid "Disable or Enable perpage view on shop page."
+msgstr ""
+
+#: ../inc/customizer.php:2118
+msgid "Added to Cart Ajax Notice"
+msgstr ""
+
+#: ../inc/customizer.php:2119
+msgid "You can choose status of the ajax notice feature."
+msgstr ""
+
+#: ../inc/customizer.php:2130
+msgid "Product Badge Tab"
+msgstr ""
+
+#: ../inc/customizer.php:2131
+msgid "You can choose status of the product badge tab."
+msgstr ""
+
+#: ../inc/customizer.php:2142
+msgid "Remove All Button in cart page"
+msgstr ""
+
+#: ../inc/customizer.php:2143
+msgid "You can choose status of the remove all button."
+msgstr ""
+
+#: ../inc/customizer.php:2154
+msgid "Mobile Bottom Menu"
+msgstr ""
+
+#: ../inc/customizer.php:2155
+msgid "Disable or Enable the bottom menu on mobile."
+msgstr ""
+
+#: ../inc/customizer.php:2166 ../inc/customizer.php:2187
+msgid "Mobile Bottom Menu Edit"
+msgstr ""
+
+#: ../inc/customizer.php:2167 ../inc/customizer.php:2188
+msgid "Edit the mobile bottom menu."
+msgstr ""
+
+#: ../inc/customizer.php:2201
+msgid "You can select a type"
+msgstr ""
+
+#: ../inc/customizer.php:2206 
+#: ../woocommerce-filter/grid-list/grid-list-view.php:30
+msgid "Filter"
+msgstr ""
+
+#: ../inc/customizer.php:2207
+msgid "category"
+msgstr ""
+
+#: ../inc/customizer.php:2214
+msgid "You can set an icon. for example; \"store\""
+msgstr ""
+
+#: ../inc/customizer.php:2218
+msgid " Text"
+msgstr ""
+
+#: ../inc/customizer.php:2219
+msgid "You can enter a text."
+msgstr ""
+
+#: ../inc/customizer.php:2223 ../inc/customizer.php:3857 
+#: ../inc/customizer.php:4213 ../inc/customizer.php:4276 
+#: ../inc/customizer.php:4306
+msgid "URL"
+msgstr ""
+
+#: ../inc/customizer.php:2224 ../inc/customizer.php:3858 
+#: ../inc/customizer.php:4214 ../inc/customizer.php:4307
+msgid "You can set url for the item."
+msgstr ""
+
+#: ../inc/customizer.php:2236
+msgid "Show Stock Quantity"
+msgstr ""
+
+#: ../inc/customizer.php:2237
+msgid "Show stock quantity on the label."
+msgstr ""
+
+#: ../inc/customizer.php:2248
+msgid "Min/Max Quantity"
+msgstr ""
+
+#: ../inc/customizer.php:2249
+msgid "Enable the additional quantity setting fields in product detail page."
+msgstr ""
+
+#: ../inc/customizer.php:2260
+msgid "Category Desc After Content"
+msgstr ""
+
+#: ../inc/customizer.php:2261
+msgid "Add the category description after the products."
+msgstr ""
+
+#: ../inc/customizer.php:2272
+msgid "Catalog Mode"
+msgstr ""
+
+#: ../inc/customizer.php:2273
+msgid "Disable Add to Cart button on the shop page."
+msgstr ""
+
+#: ../inc/customizer.php:2284
+msgid "Recently Viewed Products"
+msgstr ""
+
+#: ../inc/customizer.php:2285
+msgid "Disable or Enable Recently Viewed Products."
+msgstr ""
+
+#: ../inc/customizer.php:2296
+msgid "Recently Viewed Products Column"
+msgstr ""
+
+#: ../inc/customizer.php:2301
+msgid "6"
+msgstr ""
+
+#: ../inc/customizer.php:2302
+msgid "5"
+msgstr ""
+
+#: ../inc/customizer.php:2303
+msgid "4"
+msgstr ""
+
+#: ../inc/customizer.php:2304
+msgid "3"
+msgstr ""
+
+#: ../inc/customizer.php:2305
+msgid "2"
+msgstr ""
+
+#: ../inc/customizer.php:2322
+msgid "Min Order Amount"
+msgstr ""
+
+#: ../inc/customizer.php:2323
+msgid "Enable Min Order Amount."
+msgstr ""
+
+#: ../inc/customizer.php:2334
+msgid "Min Order Value"
+msgstr ""
+
+#: ../inc/customizer.php:2335
+msgid "Set amount to specify a minimum order value."
+msgstr ""
+
+#: ../inc/customizer.php:2353
+msgid "Product Image Size"
+msgstr ""
+
+#: ../inc/customizer.php:2354
+msgid "You can set size of the product image for the shop page."
+msgstr ""
+
+#: ../inc/customizer.php:2368
+msgid "Shop Product Box Type"
+msgstr ""
+
+#: ../inc/customizer.php:2388
+msgid "Product Gallery"
+msgstr ""
+
+#: ../inc/customizer.php:2389
+msgid "Disable or Enable gallery on the product box."
+msgstr ""
+
+#: ../inc/customizer.php:2400
+msgid "Quick View Button"
+msgstr ""
+
+#: ../inc/customizer.php:2401
+msgid "You can choose status of the quick view button."
+msgstr ""
+
+#: ../inc/customizer.php:2412
+msgid "Shipping Classes"
+msgstr ""
+
+#: ../inc/customizer.php:2413
+msgid "Enable or Disable the shipping class on the product box"
+msgstr ""
+
+#: ../inc/customizer.php:2424
+msgid "Shipping Class Type"
+msgstr ""
+
+#: ../inc/customizer.php:2430
+msgid "Bordered"
+msgstr ""
+
+#: ../inc/customizer.php:2447
+msgid "Stock Status"
+msgstr ""
+
+#: ../inc/customizer.php:2448
+msgid "Enable or Disable the stock statu on the product box"
+msgstr ""
+
+#: ../inc/customizer.php:2459
+msgid "Poor Stock"
+msgstr ""
+
+#: ../inc/customizer.php:2460
+msgid "Show quantity remaining in stock when low e.g. \"Only 9 left in stock\""
+msgstr ""
+
+#: ../inc/customizer.php:2478
+msgid "Stock Progress Bar"
+msgstr ""
+
+#: ../inc/customizer.php:2479
+msgid "Enable or Disable the stock progress bar on the product box"
+msgstr ""
+
+#: ../inc/customizer.php:2490
+msgid "Countdown"
+msgstr ""
+
+#: ../inc/customizer.php:2491
+msgid "Enable or Disable the countdown on the product box"
+msgstr ""
+
+#: ../inc/customizer.php:2502
+msgid "Gallery Type (Product Detail)"
+msgstr ""
+
+#: ../inc/customizer.php:2507
+msgid "Horizontal"
+msgstr ""
+
+#: ../inc/customizer.php:2508
+msgid "Vertical"
+msgstr ""
+
+#: ../inc/customizer.php:2518
+msgid "Type (Product Detail)"
+msgstr ""
+
+#: ../inc/customizer.php:2535
+msgid "Stretch the single product page content."
+msgstr ""
+
+#: ../inc/customizer.php:2546
+msgid "Image Zoom"
+msgstr ""
+
+#: ../inc/customizer.php:2547
+msgid "You can choose status of the zoom feature."
+msgstr ""
+
+#: ../inc/customizer.php:2558
+msgid "Comment Rating"
+msgstr ""
+
+#: ../inc/customizer.php:2559
+msgid "Disable or Enable the review slot."
+msgstr ""
+
+#: ../inc/customizer.php:2570
+msgid "Product360 View"
+msgstr ""
+
+#: ../inc/customizer.php:2571
+msgid "Disable or Enable Product 360 View."
+msgstr ""
+
+#: ../inc/customizer.php:2582
+msgid "Ajax Add to Cart"
+msgstr ""
+
+#: ../inc/customizer.php:2583
+msgid "Disable or Enable ajax add to cart button."
+msgstr ""
+
+#: ../inc/customizer.php:2594
+msgid "Sticky Add to Cart"
+msgstr ""
+
+#: ../inc/customizer.php:2595
+msgid "Disable or Enable sticky cart button."
+msgstr ""
+
+#: ../inc/customizer.php:2606
+msgid "Sticky Titles"
+msgstr ""
+
+#: ../inc/customizer.php:2607
+msgid "Disable or Enable the sticky titles for desktop."
+msgstr ""
+
+#: ../inc/customizer.php:2618
+msgid "Mobile Sticky Add to Cart"
+msgstr ""
+
+#: ../inc/customizer.php:2619
+msgid "Disable or Enable sticky cart button on mobile."
+msgstr ""
+
+#: ../inc/customizer.php:2630
+msgid "Buy Now Button"
+msgstr ""
+
+#: ../inc/customizer.php:2631
+msgid "Disable or Enable Buy Now button."
+msgstr ""
+
+#: ../inc/customizer.php:2642
+msgid "Related Products with Tags"
+msgstr ""
+
+#: ../inc/customizer.php:2643
+msgid "Display the related products by tags."
+msgstr ""
+
+#: ../inc/customizer.php:2654 ../woocommerce-filter/woocommerce-filter.php:443
+msgid "Order on WhatsApp"
+msgstr ""
+
+#: ../inc/customizer.php:2655
+msgid "Enable the button on the product detail page."
+msgstr ""
+
+#: ../inc/customizer.php:2666
+msgid "WhatsApp Number"
+msgstr ""
+
+#: ../inc/customizer.php:2667
+msgid "You can add a phone number for order on WhatsApp."
+msgstr ""
+
+#: ../inc/customizer.php:2685
+msgid "Move Review Tab"
+msgstr ""
+
+#: ../inc/customizer.php:2686
+msgid "Move the review tab out of tabs"
+msgstr ""
+
+#: ../inc/customizer.php:2697
+msgid "Related Post Column"
+msgstr ""
+
+#: ../inc/customizer.php:2698
+msgid "You can control related post column with this option."
+msgstr ""
+
+#: ../inc/customizer.php:2716
+msgid "Re-order Product Summary"
+msgstr ""
+
+#: ../inc/customizer.php:2717
+msgid ""
+"Please save the changes and refresh the page once. Live preview is not "
+"available for the option."
+msgstr ""
+
+#: ../inc/customizer.php:2733 ../woocommerce-filter/compare/compare.php:37
+msgid "Rating"
+msgstr ""
+
+#: ../inc/customizer.php:2734 ../woocommerce-filter/compare/compare.php:38 
+#: ../woocommerce-filter/wishlist/wishlist.php:354
+msgid "Price"
+msgstr ""
+
+#: ../inc/customizer.php:2735
+msgid "Excerpt"
+msgstr ""
+
+#: ../inc/customizer.php:2736
+msgid "Add to Cart"
+msgstr ""
+
+#: ../inc/customizer.php:2737
+msgid "Meta"
+msgstr ""
+
+#: ../inc/customizer.php:2738 ../inc/customizer.php:2752
+msgid "Checklist"
+msgstr ""
+
+#: ../inc/customizer.php:2739
+msgid "Share"
+msgstr ""
+
+#: ../inc/customizer.php:2740
+msgid "Progress Bar"
+msgstr ""
+
+#: ../inc/customizer.php:2741
+msgid "Time Countdown"
+msgstr ""
+
+#: ../inc/customizer.php:2753
+msgid "Disable or Enable the featured list."
+msgstr ""
+
+#: ../inc/customizer.php:2764
+msgid "Product Checklist"
+msgstr ""
+
+#: ../inc/customizer.php:2765
+msgid "You can create the checklist list."
+msgstr ""
+
+#: ../inc/customizer.php:2782
+msgid "You can set an icon. for example; \"klb-icon-truck\""
+msgstr ""
+
+#: ../inc/customizer.php:2788 ../inc/customizer.php:3952 
+#: ../inc/customizer.php:4001 ../inc/customizer.php:4219
+msgid "You can enter a title."
+msgstr ""
+
+#: ../inc/customizer.php:2800
+msgid "Social Share (Product Detail)"
+msgstr ""
+
+#: ../inc/customizer.php:2801
+msgid "Disable or Enable social share buttons."
+msgstr ""
+
+#: ../inc/customizer.php:2816
+msgid "Facebook"
+msgstr ""
+
+#: ../inc/customizer.php:2817
+msgid "Twitter"
+msgstr ""
+
+#: ../inc/customizer.php:2818
+msgid "Pinterest"
+msgstr ""
+
+#: ../inc/customizer.php:2819
+msgid "Linkedin"
+msgstr ""
+
+#: ../inc/customizer.php:2837
+msgid "Banner For Categories"
+msgstr ""
+
+#: ../inc/customizer.php:2838
+msgid "You can set banner for each category."
+msgstr ""
+
+#: ../inc/customizer.php:2844 ../inc/customizer.php:3743
+msgid "Select Category"
+msgstr ""
+
+#: ../inc/customizer.php:2845 ../inc/customizer.php:3744
+msgid "Set a category"
+msgstr ""
+
+#: ../inc/customizer.php:2858
+msgid "Set Title"
+msgstr ""
+
+#: ../inc/customizer.php:2859 ../inc/customizer.php:4238
+msgid "You can set a title."
+msgstr ""
+
+#: ../inc/customizer.php:2864
+msgid "Set Subtitle"
+msgstr ""
+
+#: ../inc/customizer.php:2865 ../inc/customizer.php:4251
+msgid "You can set a subtitle."
+msgstr ""
+
+#: ../inc/customizer.php:2870
+msgid "Set Description"
+msgstr ""
+
+#: ../inc/customizer.php:2871 ../inc/customizer.php:2877
+msgid "You can set a description."
+msgstr ""
+
+#: ../inc/customizer.php:2876
+msgid "Set button title"
+msgstr ""
+
+#: ../inc/customizer.php:2883
+msgid "Set URL"
+msgstr ""
+
+#: ../inc/customizer.php:2884
+msgid "Set an url for the button"
+msgstr ""
+
+#: ../inc/customizer.php:2897
+msgid "You can choose a layout for the login form."
+msgstr ""
+
+#: ../inc/customizer.php:2902
+msgid "Login Tab"
+msgstr ""
+
+#: ../inc/customizer.php:2912
+msgid "Register - First Name"
+msgstr ""
+
+#: ../inc/customizer.php:2916 ../inc/customizer.php:2931 
+#: ../inc/customizer.php:2946 ../inc/customizer.php:2961
+msgid "Hidden"
+msgstr ""
+
+#: ../inc/customizer.php:2917 ../inc/customizer.php:2932 
+#: ../inc/customizer.php:2947 ../inc/customizer.php:2962
+msgid "Visible"
+msgstr ""
+
+#: ../inc/customizer.php:2927
+msgid "Register - Last Name"
+msgstr ""
+
+#: ../inc/customizer.php:2942
+msgid "Register - Billing Company"
+msgstr ""
+
+#: ../inc/customizer.php:2957
+msgid "Register - Billing Phone"
+msgstr ""
+
+#: ../inc/customizer.php:2972
+msgid "Activate Ajax for Login Form"
+msgstr ""
+
+#: ../inc/customizer.php:2983
+msgid "Redirect URL After Login"
+msgstr ""
+
+#: ../inc/customizer.php:2996
+msgid "Free shipping bar"
+msgstr ""
+
+#: ../inc/customizer.php:3007
+msgid "Goal Amount"
+msgstr ""
+
+#: ../inc/customizer.php:3008
+#, php-format
+msgid ""
+"Amount to reach 100% defined in your currency absolute value. For example: "
+"300"
+msgstr ""
+
+#: ../inc/customizer.php:3026
+msgid "Cart page"
+msgstr ""
+
+#: ../inc/customizer.php:3044
+msgid "Mini cart"
+msgstr ""
+
+#: ../inc/customizer.php:3062
+msgid "Checkout page"
+msgstr ""
+
+#: ../inc/customizer.php:3080
+msgid "Initial Message"
+msgstr ""
+
+#: ../inc/customizer.php:3081
+msgid ""
+"Message to show before reaching the goal. Use shortcode [remainder] to "
+"display the amount left to reach the minimum."
+msgstr ""
+
+#: ../inc/customizer.php:3099
+msgid "Success message"
+msgstr ""
+
+#: ../inc/customizer.php:3100
+msgid "Message to show after reaching 100%."
+msgstr ""
+
+#: ../inc/customizer.php:3120
+msgid "Custom Wishlist Button"
+msgstr ""
+
+#: ../inc/customizer.php:3121
+msgid "You can choose status of the wishlist button."
+msgstr ""
+
+#: ../inc/customizer.php:3132
+msgid "Select a Wishlist Page"
+msgstr ""
+
+#: ../inc/customizer.php:3133
+msgid "You can select a wishlist page. [klbwl_list]"
+msgstr ""
+
+#: ../inc/customizer.php:3158
+msgid "Disable or Enable wishlist on the header."
+msgstr ""
+
+#: ../inc/customizer.php:3178
+msgid "Compare on Shop"
+msgstr ""
+
+#: ../inc/customizer.php:3179
+msgid "Activate the compare button on the shop page."
+msgstr ""
+
+#: ../inc/customizer.php:3190
+msgid "Select a Compare Page"
+msgstr ""
+
+#: ../inc/customizer.php:3191
+msgid "You can select a compare page. [klbcp_list]"
+msgstr ""
+
+#: ../inc/customizer.php:3215
+msgid "Compare on Header"
+msgstr ""
+
+#: ../inc/customizer.php:3216
+msgid "Disable or Enable compare on the header."
+msgstr ""
+
+#: ../inc/customizer.php:3239
+msgid "Shop Single Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:3240 ../inc/customizer.php:3276 
+#: ../inc/customizer.php:3300 ../inc/customizer.php:3360 
+#: ../inc/customizer.php:3372 ../inc/customizer.php:3444 
+#: ../inc/customizer.php:3456 ../inc/customizer.php:4387 
+#: ../inc/customizer.php:4414 ../inc/customizer.php:4468 
+#: ../inc/customizer.php:4522 ../inc/customizer.php:4566 
+#: ../inc/customizer.php:4605 ../inc/customizer.php:4659 
+#: ../inc/customizer.php:4713 ../inc/customizer.php:4769 
+#: ../inc/customizer.php:4808 ../inc/customizer.php:4862 
+#: ../inc/customizer.php:4916
+msgid "You can set a color for background."
+msgstr ""
+
+#: ../inc/customizer.php:3251
+msgid "Shop Single Image Border Color"
+msgstr ""
+
+#: ../inc/customizer.php:3263
+msgid "Shop Single Title Color"
+msgstr ""
+
+#: ../inc/customizer.php:3275
+msgid "Shop Single Stock Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:3287
+msgid "Shop Single Stock Text Color"
+msgstr ""
+
+#: ../inc/customizer.php:3299
+msgid "Shop Single Out Of Stock Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:3311
+msgid "Shop Single Out Of Stock Text Color"
+msgstr ""
+
+#: ../inc/customizer.php:3323
+msgid "Shop Single Regular Price Color"
+msgstr ""
+
+#: ../inc/customizer.php:3335
+msgid "Shop Single Sale Price Color"
+msgstr ""
+
+#: ../inc/customizer.php:3347
+msgid "Shop Single Description Color"
+msgstr ""
+
+#: ../inc/customizer.php:3359
+msgid "Shop Single Button Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:3371
+msgid "Shop Single Button Background Hover Color"
+msgstr ""
+
+#: ../inc/customizer.php:3383
+msgid "Shop Single Button border Color"
+msgstr ""
+
+#: ../inc/customizer.php:3384 ../inc/customizer.php:3396 
+#: ../inc/customizer.php:3468 ../inc/customizer.php:3480 
+#: ../inc/customizer.php:4429 ../inc/customizer.php:4483 
+#: ../inc/customizer.php:4537 ../inc/customizer.php:4620 
+#: ../inc/customizer.php:4674 ../inc/customizer.php:4728 
+#: ../inc/customizer.php:4823 ../inc/customizer.php:4877 
+#: ../inc/customizer.php:4931
+msgid "You can set a color for border."
+msgstr ""
+
+#: ../inc/customizer.php:3395
+msgid "Shop Single Button border Hover Color"
+msgstr ""
+
+#: ../inc/customizer.php:3407
+msgid "Shop Single Button Text Color"
+msgstr ""
+
+#: ../inc/customizer.php:3419
+msgid "Shop Single Button Text Hover Color"
+msgstr ""
+
+#: ../inc/customizer.php:3431
+msgid "Shop Single Wishlist Title Color"
+msgstr ""
+
+#: ../inc/customizer.php:3443
+msgid "Shop Single Wishlist Icon Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:3455
+msgid "Shop Single Wishlist Icon Background Hover Color"
+msgstr ""
+
+#: ../inc/customizer.php:3467
+msgid "Shop Single Wishlist Icon Border Color"
+msgstr ""
+
+#: ../inc/customizer.php:3479
+msgid "Shop Single Wishlist Icon Border Hover Color"
+msgstr ""
+
+#: ../inc/customizer.php:3491
+msgid "Shop Single Wishlist Icon Color"
+msgstr ""
+
+#: ../inc/customizer.php:3503
+msgid "Shop Single Wishlist Icon Hover Color"
+msgstr ""
+
+#: ../inc/customizer.php:3515
+msgid "Shop Single Meta Title Color"
+msgstr ""
+
+#: ../inc/customizer.php:3527
+msgid "Shop Single Meta Subtitle Color"
+msgstr ""
+
+#: ../inc/customizer.php:3539
+msgid "Shop Single Module Title Color"
+msgstr ""
+
+#: ../inc/customizer.php:3554
+msgid "You can choose a layout."
+msgstr ""
+
+#: ../inc/customizer.php:3570
+msgid "Breadcrumb"
+msgstr ""
+
+#: ../inc/customizer.php:3571
+msgid "Disable or Enable breadcrumb on blog pages."
+msgstr ""
+
+#: ../inc/customizer.php:3582
+msgid "Breadcrumb Title"
+msgstr ""
+
+#: ../inc/customizer.php:3583
+msgid "You can set a title for the breadcrumb.."
+msgstr ""
+
+#: ../inc/customizer.php:3601
+msgid "Breadcrumb Desc"
+msgstr ""
+
+#: ../inc/customizer.php:3602
+msgid "You can set a description for the breadcrumb.."
+msgstr ""
+
+#: ../inc/customizer.php:3636
+msgid "Secondary Color"
+msgstr ""
+
+#: ../inc/customizer.php:3637
+msgid "You can customize the secondary color."
+msgstr ""
+
+#: ../inc/customizer.php:3651 ../inc/customizer.php:3752
+msgid "Before Shop Elementor Template"
+msgstr ""
+
+#: ../inc/customizer.php:3654 ../inc/customizer.php:3668 
+#: ../inc/customizer.php:3696
+msgid "Select a template from elementor templates "
+msgstr ""
+
+#: ../inc/customizer.php:3665 ../inc/customizer.php:3760
+msgid "After Shop Elementor Template"
+msgstr ""
+
+#: ../inc/customizer.php:3679 ../inc/customizer.php:3766
+msgid "Before Header Elementor Template"
+msgstr ""
+
+#: ../inc/customizer.php:3682 ../inc/customizer.php:3710 
+#: ../inc/customizer.php:3724 ../inc/customizer.php:3755
+msgid ""
+"Select a template from elementor templates, If you want to show any content "
+"before products "
+msgstr ""
+
+#: ../inc/customizer.php:3693 ../inc/customizer.php:3772
+msgid "After Header Elementor Template"
+msgstr ""
+
+#: ../inc/customizer.php:3707 ../inc/customizer.php:3778
+msgid "Before Footer Elementor Template"
+msgstr ""
+
+#: ../inc/customizer.php:3721
+msgid "After Footer Elementor Templates"
+msgstr ""
+
+#: ../inc/customizer.php:3736
+msgid "Template For Categories"
+msgstr ""
+
+#: ../inc/customizer.php:3737
+msgid "You can set template for each category."
+msgstr ""
+
+#: ../inc/customizer.php:3784
+msgid "After Footer Elementor Template"
+msgstr ""
+
+#: ../inc/customizer.php:3800
+msgid "Google Map Api key"
+msgstr ""
+
+#: ../inc/customizer.php:3801
+msgid "Add your google map api key"
+msgstr ""
+
+#: ../inc/customizer.php:3820
+msgid "Social Media"
+msgstr ""
+
+#: ../inc/customizer.php:3821
+msgid "You can customize the social media widget."
+msgstr ""
+
+#: ../inc/customizer.php:3845
+msgid "Social Media Widget"
+msgstr ""
+
+#: ../inc/customizer.php:3846 ../inc/customizer.php:4295
+msgid "You can set social icons."
+msgstr ""
+
+#: ../inc/customizer.php:3852 ../inc/customizer.php:4301
+msgid "You can set an icon. for example; \"facebook\""
+msgstr ""
+
+#: ../inc/customizer.php:3873
+msgid "You can customize the footer from this panel."
+msgstr ""
+
+#: ../inc/customizer.php:3879 ../inc/customizer.php:3939 
+#: ../inc/customizer.php:3989
+msgid "Icon Box"
+msgstr ""
+
+#: ../inc/customizer.php:3880
+msgid "You can customize the icon box."
+msgstr ""
+
+#: ../inc/customizer.php:3884
+msgid "Subscribe"
+msgstr ""
+
+#: ../inc/customizer.php:3885
+msgid "You can customize the subscribe area."
+msgstr ""
+
+#: ../inc/customizer.php:3889
+msgid "Footer Extra"
+msgstr ""
+
+#: ../inc/customizer.php:3890
+msgid "You can customize the footer extra section."
+msgstr ""
+
+#: ../inc/customizer.php:3894
+msgid "Footer General"
+msgstr ""
+
+#: ../inc/customizer.php:3899
+msgid "Icon Box Style"
+msgstr ""
+
+#: ../inc/customizer.php:3900
+msgid "You can customize the icon box style."
+msgstr ""
+
+#: ../inc/customizer.php:3904
+msgid "Footer 1 Style"
+msgstr ""
+
+#: ../inc/customizer.php:3909
+msgid "Footer 2 Style"
+msgstr ""
+
+#: ../inc/customizer.php:3914
+msgid "Footer 3 Style"
+msgstr ""
+
+#: ../inc/customizer.php:3940
+msgid "You can choose status of Icon Box."
+msgstr ""
+
+#: ../inc/customizer.php:3971
+msgid "You can enter a subtitle."
+msgstr ""
+
+#: ../inc/customizer.php:3990
+msgid "You can set the icon box repeater."
+msgstr ""
+
+#: ../inc/customizer.php:4006
+msgid "You can enter a description."
+msgstr ""
+
+#: ../inc/customizer.php:4025
+msgid "Subcribe"
+msgstr ""
+
+#: ../inc/customizer.php:4026
+msgid "Disable or Enable subscribe section."
+msgstr ""
+
+#: ../inc/customizer.php:4059 ../inc/customizer.php:4078
+msgid "You can set text for subscribe section."
+msgstr ""
+
+#: ../inc/customizer.php:4096
+msgid "Subscribe Form Id."
+msgstr ""
+
+#: ../inc/customizer.php:4097 ../inc/customizer.php:5184 
+#: ../inc/customizer.php:5287
+msgid "You can find the form id in Dashboard > Mailchimp For Wp > Form."
+msgstr ""
+
+#: ../inc/customizer.php:4131
+msgid "Footer Column"
+msgstr ""
+
+#: ../inc/customizer.php:4132
+msgid "You can set footer column."
+msgstr ""
+
+#: ../inc/customizer.php:4148
+msgid "Copyright Second Text"
+msgstr ""
+
+#: ../inc/customizer.php:4149 ../inc/customizer.php:4168
+msgid "You can set a copyright text for the footer."
+msgstr ""
+
+#: ../inc/customizer.php:4167
+msgid "Copyright"
+msgstr ""
+
+#: ../inc/customizer.php:4179
+msgid "Back To Top Button"
+msgstr ""
+
+#: ../inc/customizer.php:4190
+msgid "Contact Icon"
+msgstr ""
+
+#: ../inc/customizer.php:4191
+msgid "You can choose status of Contact Icon."
+msgstr ""
+
+#: ../inc/customizer.php:4202
+msgid "Contact Icon Repeater"
+msgstr ""
+
+#: ../inc/customizer.php:4203
+msgid "You can set the contact icon repeater."
+msgstr ""
+
+#: ../inc/customizer.php:4237
+msgid "APP Title"
+msgstr ""
+
+#: ../inc/customizer.php:4250
+msgid "APP Subtitle"
+msgstr ""
+
+#: ../inc/customizer.php:4263
+msgid "APP IMAGE"
+msgstr ""
+
+#: ../inc/customizer.php:4264
+msgid "You can set the app images."
+msgstr ""
+
+#: ../inc/customizer.php:4277
+msgid "set an url for the image."
+msgstr ""
+
+#: ../inc/customizer.php:4282
+msgid "Text"
+msgstr ""
+
+#: ../inc/customizer.php:4283
+msgid "set an url for the text."
+msgstr ""
+
+#: ../inc/customizer.php:4294
+msgid "Social List"
+msgstr ""
+
+#: ../inc/customizer.php:4324
+msgid "Icon Box Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:4336
+msgid "Icon Box Border Color"
+msgstr ""
+
+#: ../inc/customizer.php:4348
+msgid "Icon Box Icon Color"
+msgstr ""
+
+#: ../inc/customizer.php:4360
+msgid "Icon Box Title Color"
+msgstr ""
+
+#: ../inc/customizer.php:4372
+msgid "Icon Box Subtitle Color"
+msgstr ""
+
+#: ../inc/customizer.php:4386 ../inc/customizer.php:4565 
+#: ../inc/customizer.php:4768
+msgid "Footer Top Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:4401 ../inc/customizer.php:4580 
+#: ../inc/customizer.php:4783
+msgid "Footer Top Title Color"
+msgstr ""
+
+#: ../inc/customizer.php:4413 ../inc/customizer.php:4604 
+#: ../inc/customizer.php:4807
+msgid "Footer Main Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:4428 ../inc/customizer.php:4619 
+#: ../inc/customizer.php:4822
+msgid "Footer Main Border Color"
+msgstr ""
+
+#: ../inc/customizer.php:4443 ../inc/customizer.php:4634 
+#: ../inc/customizer.php:4837
+msgid "Footer Main Title Color"
+msgstr ""
+
+#: ../inc/customizer.php:4455 ../inc/customizer.php:4646 
+#: ../inc/customizer.php:4849
+msgid "Footer Main Subtitle Color"
+msgstr ""
+
+#: ../inc/customizer.php:4467 ../inc/customizer.php:4658 
+#: ../inc/customizer.php:4861
+msgid "Footer Bottom Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:4482 ../inc/customizer.php:4673 
+#: ../inc/customizer.php:4876
+msgid "Footer Bottom Border Color"
+msgstr ""
+
+#: ../inc/customizer.php:4497 ../inc/customizer.php:4688 
+#: ../inc/customizer.php:4891
+msgid "Footer Bottom Icon Color"
+msgstr ""
+
+#: ../inc/customizer.php:4509 ../inc/customizer.php:4700 
+#: ../inc/customizer.php:4903
+msgid "Footer Bottom Title Color"
+msgstr ""
+
+#: ../inc/customizer.php:4521 ../inc/customizer.php:4712 
+#: ../inc/customizer.php:4915
+msgid "Footer Copyright Background Color"
+msgstr ""
+
+#: ../inc/customizer.php:4536 ../inc/customizer.php:4727 
+#: ../inc/customizer.php:4930
+msgid "Footer Copyright Border Color"
+msgstr ""
+
+#: ../inc/customizer.php:4551 ../inc/customizer.php:4754 
+#: ../inc/customizer.php:4957
+msgid "Footer Copyright Color"
+msgstr ""
+
+#: ../inc/customizer.php:4592 ../inc/customizer.php:4795
+msgid "Footer Top Subtitle Color"
+msgstr ""
+
+#: ../inc/customizer.php:4742 ../inc/customizer.php:4945
+msgid "Footer Copyright Title Color"
+msgstr ""
+
+#: ../inc/customizer.php:4968
+msgid "Enable GDPR"
+msgstr ""
+
+#: ../inc/customizer.php:4969
+msgid "You can choose status of GDPR."
+msgstr ""
+
+#: ../inc/customizer.php:4980
+msgid "GDPR Type"
+msgstr ""
+
+#: ../inc/customizer.php:5028
+msgid "GDPR Text"
+msgstr ""
+
+#: ../inc/customizer.php:5046
+msgid "GDPR Expire Date"
+msgstr ""
+
+#: ../inc/customizer.php:5064
+msgid "GDPR Button Text"
+msgstr ""
+
+#: ../inc/customizer.php:5082
+msgid "Enable Newsletter"
+msgstr ""
+
+#: ../inc/customizer.php:5083
+msgid "You can choose status of Newsletter Popup."
+msgstr ""
+
+#: ../inc/customizer.php:5094
+msgid "Newsletter Type"
+msgstr ""
+
+#: ../inc/customizer.php:5147
+msgid "Newsletter Title"
+msgstr ""
+
+#: ../inc/customizer.php:5165
+msgid "Newsletter Subtitle"
+msgstr ""
+
+#: ../inc/customizer.php:5183
+msgid "Newsletter Form Id."
+msgstr ""
+
+#: ../inc/customizer.php:5202
+msgid "Newsletter Expire Date"
+msgstr ""
+
+#: ../inc/customizer.php:5220
+msgid "Enable Maintenance Mode"
+msgstr ""
+
+#: ../inc/customizer.php:5221
+msgid "You can choose status of Maintenance."
+msgstr ""
+
+#: ../inc/customizer.php:5250
+msgid "Second Title"
+msgstr ""
+
+#: ../inc/customizer.php:5286
+msgid "Mailchimp Form Id."
+msgstr ""
+
+#: ../inc/customizer.php:5305
+msgid "Background Image"
+msgstr ""
+
+#: ../inc/customizer.php:5327
+msgid "Body Typography"
+msgstr ""
+
+#: ../inc/customizer.php:5370
+msgid "Heading Typography"
+msgstr ""
+
+#: ../inc/customizer.php:5411
+msgid "Menu Typography"
+msgstr ""
+
+#: ../inc/customizer.php:5455
+msgid "Form Typography"
+msgstr ""
+
+#: ../inc/customizer.php:5498
+msgid "Button Typography"
+msgstr ""
+
+#: ../inc/customizer.php:5541
+msgid "Price Typography"
+msgstr ""
+
+#: ../inc/customizer.php:5584
+msgid "Product Name Typography"
+msgstr ""
+
+#: ../inc/customizer.php:5625
+msgid "Site Gutter"
+msgstr ""
+
+#: ../inc/customizer.php:5661
+msgid "Site Width"
+msgstr ""
+
+#: ../inc/klb-attribute-search/klb-attribute-search.php:30 
+#: ../widgets/widget-search-filter.php:69
+msgid "Select Model"
+msgstr ""
+
+#: ../inc/klb-attribute-search/klb-attribute-search.php:30 
+#: ../widgets/widget-search-filter.php:54 
+#: ../widgets/widget-search-filter.php:69
+msgid "Search item..."
+msgstr ""
+
+#: ../inc/maintenance/maintenance.php:35 ../inc/maintenance/maintenance.php:37
+msgid "maintenance"
+msgstr ""
+
+#: ../inc/menu-endpoints/menu-endpoints.php:7
+msgid "Bevesi endpoints"
+msgstr ""
+
+#: ../inc/menu-endpoints/menu-endpoints.php:19 
+#: ../inc/menu-endpoints/mega-menu/mega-menu.php:27
+msgid "Elementor Template"
+msgstr ""
+
+#: ../inc/menu-endpoints/menu-endpoints.php:31
+msgid "Select all"
+msgstr ""
+
+#: ../inc/menu-endpoints/menu-endpoints.php:34
+msgid "Add to menu"
+msgstr ""
+
+#: ../inc/menu-endpoints/mega-menu/mega-menu.php:38
+msgid "Sub Menu Width"
+msgstr ""
+
+#: ../inc/menu-endpoints/mega-menu/mega-menu.php:42
+msgid "Medium"
+msgstr ""
+
+#: ../inc/menu-item-icon/menu-item-icon.php:52
+msgid "Menu Item Icon"
+msgstr ""
+
+#: ../inc/menu-item-icon/menu-item-icon.php:62 
+#: ../woocommerce-filter/compare/compare.php:140
+msgid "Remove"
+msgstr ""
+
+#: ../inc/menu-item-icon/menu-item-icon.php:64
+msgid "Select image"
+msgstr ""
+
+#: ../inc/newsletter-popup/newsletter1/newsletter.php:50 
+#: ../inc/newsletter-popup/newsletter2/newsletter.php:60 
+#: ../inc/newsletter-popup/newsletter3/newsletter.php:47
+msgid "Don't show this popup again."
+msgstr ""
+
+#: ../taxonomy/location_taxonomy.php:111
+msgid "Delivery to you"
+msgstr ""
+
+#: ../taxonomy/location_taxonomy.php:117
+msgid ""
+"Add an exact address, a convenient pick-up point or a parcel locker to see "
+"the conditions for delivery of goods in advances."
+msgstr ""
+
+#: ../taxonomy/location_taxonomy.php:120
+msgid "Search your location..."
+msgstr ""
+
+#: ../taxonomy/location_taxonomy.php:137
+msgid "Select a Location"
+msgstr ""
+
+#: ../widgets/widget-popular-posts.php:7
+msgid "Display the popular posts"
+msgstr ""
+
+#: ../widgets/widget-popular-posts.php:9
+msgid "Bevesi Popular Posts"
+msgstr ""
+
+#: ../widgets/widget-popular-posts.php:92 
+#: ../widgets/widget-search-filter.php:110 
+#: ../widgets/widget-social-media.php:74 
+#: ../woocommerce-filter/widgets/product-categories/widget-product-categories.php:156
+#:  ../woocommerce-filter/widgets/product-status/widget-product-status.php:92
+msgid "Title:"
+msgstr ""
+
+#: ../widgets/widget-popular-posts.php:97
+msgid "Number of items to show:"
+msgstr ""
+
+#: ../widgets/widget-search-filter.php:7
+msgid "Display the search filter"
+msgstr ""
+
+#: ../widgets/widget-search-filter.php:9
+msgid "Bevesi Search Filter"
+msgstr ""
+
+#: ../widgets/widget-search-filter.php:54
+msgid "Select"
+msgstr ""
+
+#: ../widgets/widget-search-filter.php:80
+msgid "Find Auto Parts"
+msgstr ""
+
+#: ../widgets/widget-search-filter.php:115
+msgid "Subtitle:"
+msgstr ""
+
+#: ../widgets/widget-search-filter.php:120
+msgid "Attribute Items:"
+msgstr ""
+
+#: ../widgets/widget-social-media.php:7
+msgid "Only Detail Page: Social Media."
+msgstr ""
+
+#: ../widgets/widget-social-media.php:9
+msgid "Bevesi Social Media"
+msgstr ""
+
+#: ../widgets/widget-social-media.php:41
+msgid "Follow"
+msgstr ""
+
+#: ../widgets/widget-social-media.php:79
+msgid ""
+"You can customize the social media from Dashboard > Appearance > Customize > "
+"bevesi Widgets > Social Media"
+msgstr ""
+
+#: ../woocommerce-filter/woocommerce-filter.php:232
+msgid "Clear filters"
+msgstr ""
+
+#: ../woocommerce-filter/woocommerce-filter.php:258 
+#: ../woocommerce-filter/widgets/product-status/widget-product-status.php:55
+msgid "In Stock"
+msgstr ""
+
+#: ../woocommerce-filter/woocommerce-filter.php:262 
+#: ../woocommerce-filter/widgets/product-status/widget-product-status.php:62
+msgid "On Sale"
+msgstr ""
+
+#: ../woocommerce-filter/woocommerce-filter.php:523 
+#: ../woocommerce-filter/woocommerce-filter.php:557
+msgid "Available only:"
+msgstr ""
+
+#: ../woocommerce-filter/woocommerce-filter.php:603 
+#: ../woocommerce-filter/woocommerce-filter.php:672
+msgid "The campaign is over."
+msgstr ""
+
+#: ../woocommerce-filter/ajax-login/ajax-login.php:44 
+#: ../woocommerce-filter/ajax-login/ajax-login.php:48 
+#: ../woocommerce-filter/ajax-login/ajax-login.php:121
+msgid "Error:"
+msgstr ""
+
+#: ../woocommerce-filter/ajax-login/ajax-login.php:48
+msgid "Username is required."
+msgstr ""
+
+#: ../woocommerce-filter/ajax-login/ajax-login.php:133
+msgid ""
+"Your account was created successfully and a password has been sent to your "
+"email address."
+msgstr ""
+
+#: ../woocommerce-filter/ajax-login/ajax-login.php:135
+msgid ""
+"Your account was created successfully. Your login details have been sent to "
+"your email address."
+msgstr ""
+
+#: ../woocommerce-filter/ajax-search/ajax-search.php:74
+msgid "See all products..."
+msgstr ""
+
+#: ../woocommerce-filter/ajax-search/ajax-search.php:81
+#, php-format
+msgid "No results found for \"%s\""
+msgstr ""
+
+#: ../woocommerce-filter/back-to-top/back-to-top.php:21
+msgid "Scroll to top button"
+msgstr ""
+
+#: ../woocommerce-filter/buy-now/buy-now.php:7
+msgid "Buy Now"
+msgstr ""
+
+#: ../woocommerce-filter/comment-rating/comment-rating.php:82
+msgid "Average of"
+msgstr ""
+
+#: ../woocommerce-filter/comment-rating/comment-rating.php:82
+#, php-format
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../woocommerce-filter/compare/compare.php:35
+msgid "Name"
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:36
+msgid "SKU"
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:39 
+#: ../woocommerce-filter/wishlist/wishlist.php:356
+msgid "Stock"
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:40
+msgid "Weight"
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:41 
+#: ../woocommerce-filter/wishlist/wishlist.php:357
+msgid "Add to cart"
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:81
+msgid "View Compare Page"
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:82 
+#: ../woocommerce-filter/wishlist/wishlist.php:479
+msgid "Close"
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:83
+msgid "{name} has been added to Compare list."
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:84
+msgid "{name} has been removed from the Compare list."
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:85
+msgid "{name} is already in the Compare list."
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:87
+msgid "You can add a maximum of {limit} products to the comparison table."
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:222
+msgid "The comparison table is empty."
+msgstr ""
+
+#: ../woocommerce-filter/compare/compare.php:225 
+#: ../woocommerce-filter/wishlist/wishlist.php:434
+msgid "Return to shop"
+msgstr ""
+
+#: ../woocommerce-filter/grid-list/grid-list-view.php:18
+msgid "Filter Products"
+msgstr ""
+
+#: ../woocommerce-filter/grid-list/grid-list-view.php:46
+msgid "Show:"
+msgstr ""
+
+#: ../woocommerce-filter/grid-list/grid-list-view.php:54
+msgid "Items"
+msgstr ""
+
+#: ../woocommerce-filter/load-more/load-more.php:52 
+#: ../woocommerce-filter/load-more/load-more.php:98
+msgid "No More Products"
+msgstr ""
+
+#: ../woocommerce-filter/min-amount/min-amount.php:19
+#, php-format
+msgid ""
+"Your current order total is %s - you must have an order with a minimum of %s "
+"to place your order "
+msgstr ""
+
+#: ../woocommerce-filter/minmax-quantity/minmax-quantity.php:21
+msgid "Quantity Settings"
+msgstr ""
+
+#: ../woocommerce-filter/minmax-quantity/minmax-quantity.php:23
+msgid "Enable this to show and enable the additional quantity setting fields."
+msgstr ""
+
+#: ../woocommerce-filter/minmax-quantity/minmax-quantity.php:30
+msgid "Minimum Quantity"
+msgstr ""
+
+#: ../woocommerce-filter/minmax-quantity/minmax-quantity.php:33
+msgid "Set a minimum allowed quantity limit (a number greater than 0)."
+msgstr ""
+
+#: ../woocommerce-filter/minmax-quantity/minmax-quantity.php:38
+msgid "Maximum Quantity"
+msgstr ""
+
+#: ../woocommerce-filter/minmax-quantity/minmax-quantity.php:41
+msgid "Set the maximum allowed quantity limit (a number greater than 0)."
+msgstr ""
+
+#: ../woocommerce-filter/minmax-quantity/minmax-quantity.php:46
+msgid "Quantity Step"
+msgstr ""
+
+#: ../woocommerce-filter/minmax-quantity/minmax-quantity.php:49
+msgid "Optional. Set quantity step (a number greater than 0)."
+msgstr ""
+
+#: ../woocommerce-filter/mobile-filter/mobile-filter.php:70
+msgid "STORE"
+msgstr ""
+
+#: ../woocommerce-filter/mobile-filter/mobile-filter.php:75
+msgid "HOME"
+msgstr ""
+
+#: ../woocommerce-filter/mobile-filter/mobile-filter.php:84
+msgid "FILTER"
+msgstr ""
+
+#: ../woocommerce-filter/mobile-filter/mobile-filter.php:92
+msgid "SEARCH"
+msgstr ""
+
+#: ../woocommerce-filter/mobile-filter/mobile-filter.php:100
+msgid "WISHLIST"
+msgstr ""
+
+#: ../woocommerce-filter/mobile-filter/mobile-filter.php:108
+msgid "ACCOUNT"
+msgstr ""
+
+#: ../woocommerce-filter/mobile-filter/mobile-filter.php:118
+msgid "CATEGORIES"
+msgstr ""
+
+#: ../woocommerce-filter/product-badge/product-badge.php:23
+msgid "Badge"
+msgstr ""
+
+#: ../woocommerce-filter/product-badge/product-badge.php:37
+msgid "Badge Text"
+msgstr ""
+
+#: ../woocommerce-filter/product-badge/product-badge.php:39
+msgid "Badge Text."
+msgstr ""
+
+#: ../woocommerce-filter/product-badge/product-badge.php:44
+msgid "Badge Type"
+msgstr ""
+
+#: ../woocommerce-filter/product-badge/product-badge.php:46
+msgid "Choose a badge type."
+msgstr ""
+
+#: ../woocommerce-filter/product-badge/product-badge.php:55
+msgid "Badge BG Color"
+msgstr ""
+
+#: ../woocommerce-filter/product-badge/product-badge.php:61
+msgid "Badge Text Color"
+msgstr ""
+
+#: ../woocommerce-filter/product-badge/product-badge.php:67
+msgid "Hide Percentage"
+msgstr ""
+
+#: ../woocommerce-filter/product-badge/product-badge.php:68
+msgid "Enable this to hide the percentage label."
+msgstr ""
+
+#: ../woocommerce-filter/product-badge/product-badge.php:75
+msgid "Percentage BG Color"
+msgstr ""
+
+#: ../woocommerce-filter/product-badge/product-badge.php:81
+msgid "Percentage Text Color"
+msgstr ""
+
+#: ../woocommerce-filter/product-data/product-data-video.php:15
+msgid "Video"
+msgstr ""
+
+#: ../woocommerce-filter/product-data/product-data-video.php:28
+msgid "Video URL"
+msgstr ""
+
+#: ../woocommerce-filter/product-data/product-data-video.php:31
+msgid "Enter a youtube or a vimeo video url for the single product."
+msgstr ""
+
+#: ../woocommerce-filter/product-data/product-data-video.php:62
+msgid "Watch video"
+msgstr ""
+
+#: ../woocommerce-filter/product360/product360.php:27
+msgid "Product 360 View"
+msgstr ""
+
+#: ../woocommerce-filter/product360/product360.php:70 
+#: ../woocommerce-filter/product360/product360.php:90
+msgid "Delete image"
+msgstr ""
+
+#: ../woocommerce-filter/product360/product360.php:70 
+#: ../woocommerce-filter/product360/product360.php:90
+msgid "Delete"
+msgstr ""
+
+#: ../woocommerce-filter/product360/product360.php:90
+msgid "Add Images to Product 360 view Gallery"
+msgstr ""
+
+#: ../woocommerce-filter/product360/product360.php:90
+msgid "Add to gallery"
+msgstr ""
+
+#: ../woocommerce-filter/product360/product360.php:90
+msgid "Add product 360 view gallery images"
+msgstr ""
+
+#: ../woocommerce-filter/product360/product360.php:161
+msgid "360 product view"
+msgstr ""
+
+#: ../woocommerce-filter/recently-viewed/recently-viewed.php:83
+msgid "Recently viewed"
+msgstr ""
+
+#: ../woocommerce-filter/recently-viewed/recently-viewed.php:94 
+#: ../woocommerce-filter/recently-viewed/recently-viewed.php:162
+msgid "No products found"
+msgstr ""
+
+#: ../woocommerce-filter/recently-viewed/recently-viewed.php:130
+msgid "Recently Viewed"
+msgstr ""
+
+#: ../woocommerce-filter/registration-fields/registration-fields.php:10
+msgid "First Name"
+msgstr ""
+
+#: ../woocommerce-filter/registration-fields/registration-fields.php:17
+msgid "Last Name"
+msgstr ""
+
+#: ../woocommerce-filter/registration-fields/registration-fields.php:24 
+#: ../woocommerce-filter/registration-fields/registration-fields.php:103
+msgid "Company Name"
+msgstr ""
+
+#: ../woocommerce-filter/registration-fields/registration-fields.php:30 
+#: ../woocommerce-filter/registration-fields/registration-fields.php:109
+msgid "Phone"
+msgstr ""
+
+#: ../woocommerce-filter/registration-fields/registration-fields.php:55
+msgid "Please enter a valid first name."
+msgstr ""
+
+#: ../woocommerce-filter/registration-fields/registration-fields.php:59
+msgid "Please enter a valid last name."
+msgstr ""
+
+#: ../woocommerce-filter/registration-fields/registration-fields.php:62 
+#: ../woocommerce-filter/registration-fields/registration-fields.php:146
+msgid "Please enter a valid company name."
+msgstr ""
+
+#: ../woocommerce-filter/registration-fields/registration-fields.php:66 
+#: ../woocommerce-filter/registration-fields/registration-fields.php:150
+msgid "Please enter a valid phone number."
+msgstr ""
+
+#: ../woocommerce-filter/remove-all/remove-all.php:27
+msgid "Clear All"
+msgstr ""
+
+#: ../woocommerce-filter/side-cart/side-cart.php:18
+msgid "Shopping Cart"
+msgstr ""
+
+#: ../woocommerce-filter/sticky-single-cart/sticky-single-cart.php:46
+msgid "Select options"
+msgstr ""
+
+#: ../woocommerce-filter/swatches/swatches.php:67
+msgid "Permissions check failed"
+msgstr ""
+
+#: ../woocommerce-filter/swatches/swatches.php:144
+msgid "Upload/Add image"
+msgstr ""
+
+#: ../woocommerce-filter/swatches/swatches.php:145
+msgid "Remove image"
+msgstr ""
+
+#: ../woocommerce-filter/swatches/swatches.php:219
+msgid "Value"
+msgstr ""
+
+#: ../woocommerce-filter/swatches/swatches.php:278
+msgid "Choose"
+msgstr ""
+
+#: ../woocommerce-filter/swatches/swatches.php:285
+msgid "Clear"
+msgstr ""
+
+#: ../woocommerce-filter/widgets/product-categories/widget-product-categories.php:8
+msgid "For Main Shop Page."
+msgstr ""
+
+#: ../woocommerce-filter/widgets/product-categories/widget-product-categories.php:10
+msgid "Bevesi Product Categories"
+msgstr ""
+
+#: ../woocommerce-filter/widgets/product-categories/widget-product-categories.php:161
+msgid "Exclude id:"
+msgstr ""
+
+#: ../woocommerce-filter/widgets/product-status/widget-product-status.php:7
+msgid "For Product Archive Page."
+msgstr ""
+
+#: ../woocommerce-filter/widgets/product-status/widget-product-status.php:9
+msgid "Bevesi Product Status"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:115
+msgid "{name} has been added to Wishlist."
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:117
+msgid "{name} is already in the Wishlist."
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:126
+#, php-format
+msgid "%d person"
+msgid_plural "%d people"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:138 
+#: ../woocommerce-filter/wishlist/wishlist.php:177
+msgid "Have an error, please try again!"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:163
+msgid "Product has been removed from the Wishlist."
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:170
+msgid "There are no products on the Wishlist!"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:173
+msgid "The product does not exist on the Wishlist!"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:219 
+#: ../woocommerce-filter/wishlist/wishlist.php:325
+msgid "View wishlist"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:221 
+#: ../woocommerce-filter/wishlist/wishlist.php:324
+msgid "Add to wishlist"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:275
+msgid "Share on:"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:321 
+#: ../woocommerce-filter/wishlist/wishlist.php:322
+msgid "This action cannot be undone. Are you sure?"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:352
+msgid "Thumbnail image"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:353
+msgid "Product"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:355
+msgid "Date Added"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:358
+msgid "Remove item"
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:431
+msgid "The wishlist table is empty."
+msgstr ""
+
+#: ../woocommerce-filter/wishlist/wishlist.php:476
+msgid "View Wishlist"
+msgstr ""

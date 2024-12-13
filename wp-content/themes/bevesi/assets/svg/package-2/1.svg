@@ -1,0 +1,15 @@
+<svg class="dml-offers-bar__icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <circle cx="31" cy="27" r="6" fill="#E11239"></circle>
+                    <circle cx="12" cy="10" r="6" fill="#E11239"></circle>
+                    <rect x="27" y="5" width="5" height="32" rx="2.5" transform="rotate(30 27 5)" fill="#E11239"></rect>
+                    <path d="M23.75 7.059a2.5 2.5 0 0 1 4.33 2.5L14.58 32.94a2.5 2.5 0 1 1-4.33-2.5L23.75 7.06z" fill="#fff"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="m13.714 32.441 13.5-23.382a1.5 1.5 0 0 0-2.598-1.5l-13.5 23.382a1.5 1.5 0 0 0 2.598 1.5zM27.165 6.144a2.5 2.5 0 0 0-3.415.915L10.25 30.44a2.5 2.5 0 0 0 4.33 2.5L28.08 9.56a2.5 2.5 0 0 0-.915-3.415z" fill="#000"></path>
+                    <path d="M16 11a6 6 0 1 1-12 0 6 6 0 0 1 12 0z" fill="#fff"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 16a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 1a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" fill="#000"></path>
+                    <path d="M35 28a6 6 0 1 1-12 0 6 6 0 0 1 12 0z" fill="#fff"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M29 33a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 1a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" fill="#000"></path>
+                    <path d="M13 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" fill="#E11239"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" fill="#000"></path>
+                    <path d="M32 28a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" fill="#E11239"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M29 30a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" fill="#000"></path>
+                </svg>

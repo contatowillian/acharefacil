@@ -1,0 +1,41 @@
+/* --- Gdpr styles --- */
+.site-gdpr {
+  position: fixed;
+  width: 100%;
+  bottom: var(--mobile-nav-height);
+  left: 0;
+  color: var(--color-white);
+  background-color: var(--color-gray-900);
+  will-change: opacity, transform;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  opacity: 0;
+  z-index: 9999;
+   max-width: 100%;
+       border: none;
+    border-radius: 0;
+}
+.site-gdpr:not(.active) {
+  pointer-events: none;
+}
+.site-gdpr .site-gdpr-inner {
+  text-align: center;
+  max-width: var(--theme-site-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.25rem 0.75rem;
+}
+@media screen and (min-width: 576px) {
+  .site-gdpr .site-gdpr-inner {
+    padding-top: 1.625rem;
+    padding-bottom: 1.625rem;
+  }
+}
+.site-gdpr .site-gdpr-inner p {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+.site-gdpr .site-gdpr-inner a {
+  text-transform: uppercase;
+  color: #fff !important;
+}

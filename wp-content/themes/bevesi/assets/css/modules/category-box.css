@@ -1,0 +1,163 @@
+@-webkit-keyframes dot-keyframes {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  25% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  75% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+}
+@keyframes dot-keyframes {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  25% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  75% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+}
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.site-category-box {
+  position: relative;
+}
+.site-category-box.style-1 {
+  background-color: var(--color-slate-100);
+  border-radius: var(--site-site-radius-default);
+  padding: 1.375rem;
+  -webkit-transition: all 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: all 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.site-category-box.style-1 .site-category-thumbnail {
+  margin-bottom: 1rem;
+}
+.site-category-box.style-1 .site-category-thumbnail img {
+  max-width: 76%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.site-category-box.style-1 .site-category-content {
+  text-align: center;
+  line-height: 1.1;
+}
+.site-category-box.style-1 .site-category-content .category-name {
+  font-size: var(--site-site-font-size-sm);
+  font-weight: 600;
+  margin-bottom: 0.125rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.site-category-box.style-1 .site-category-content .category-name a {
+  color: currentColor;
+  text-decoration: none;
+}
+.site-category-box.style-1 .site-category-content .category-count {
+  font-size: var(--site-site-font-size-xs);
+  color: var(--color-slate-500);
+}
+.site-category-box.style-1:hover {
+  background-color: var(--color-slate-50);
+}
+.site-category-box.style-2 {
+  text-align: center;
+}
+.site-category-box.style-2 .site-category-thumbnail {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 6.875rem;
+  height: 6.875rem;
+  margin-bottom: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--color-gray-100);
+  overflow: hidden;
+}
+.site-category-box.style-2 .site-category-thumbnail a {
+  color: currentColor;
+  text-decoration: none;
+}
+.site-category-box.style-2 .site-category-thumbnail img {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.site-category-box.style-2 .site-category-thumbnail.with-text a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.site-category-box.style-2 .site-category-thumbnail.with-text h4 {
+  font-size: var(--site-site-font-size-base);
+  font-weight: 700;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 576.1px) {
+  .site-category-box.style-2 .site-category-thumbnail.with-text h4 {
+    font-size: var(--site-site-font-size-lg);
+  }
+}
+.site-category-box.style-2 .site-category-content {
+  line-height: 1.1;
+}
+.site-category-box.style-2 .site-category-content .category-name {
+  font-size: var(--site-site-font-size-sm);
+  font-weight: 600;
+  margin-bottom: 0.125rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.site-category-box.style-2 .site-category-content .category-name a {
+  color: currentColor;
+  text-decoration: none;
+}
+.site-category-box.style-2 .site-category-content .category-count {
+  font-size: var(--site-site-font-size-xs);
+  color: var(--color-slate-500);
+}

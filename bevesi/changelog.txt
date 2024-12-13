@@ -1,0 +1,41 @@
+v1.0.7
+-- Updated: WooCommerce outdated files.
+-- Updated: Bevesi Core plugin.
+-- Updated: Customizer X button.
+-- Updated: File version.
+
+v1.0.6
+-- Fixed: Logo issue Header Type4.
+-- Updated: WooCommerce outdated files.
+-- Updated: Bevesi Core plugin.
+
+v1.0.5
+-- Added: WhatsApp share.
+-- Fixed: The logo issue.
+-- Fixed: RTL issue.
+-- Updated: Load More pagination.
+-- Updated: Infinity Scroll pagination.
+-- Updated: WooCommerce outdated files.
+-- Updated: Bevesi Core plugin.
+
+v1.0.4
+-- Updated: WooCommerce outdated files.
+-- Updated: Bevesi Core plugin.
+-- Fixed: PHP 8.2 and PHP 8.3 deprecations.
+
+v1.0.3
+-- Fixed: Vertical Thumbnails.
+-- Updated: WooCommerce outdated files.
+-- Updated: Bevesi Core plugin.
+
+v1.0.2
+-- Fixed: Translation file.
+-- Updated: Bevesi Core plugin.
+-- Updated: WooCommerce.
+
+v1.0.1
+-- Updated: Right to Left (RTL).
+-- Updated: Infinite Scroll.
+-- Updated: Tab Ajax.
+-- Updated: Bevesi Core plugin.
+-- Added: The child theme.
