@@ -45,6 +45,9 @@
 
 
 <style>
+.elementor-1134 .page-header-image img{
+    border-radius: 10px;
+}
 
 .site-page-header.style-2 .page-header-image::before{
     background-color: unset !important;
