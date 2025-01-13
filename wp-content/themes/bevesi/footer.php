@@ -46,6 +46,14 @@
 
 <style>
 
+    .klb-icon-eye{
+        display:none !important;
+    }
+
+    .product-button .product-compare{
+        display:none !important;
+    }
+
 .site-search-form .search-form button{
     background-color: #E8521F !important;
     color:white !important;
