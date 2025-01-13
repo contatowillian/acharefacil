@@ -48,6 +48,7 @@
 
 .site-search-form .search-form button{
     background-color: #E8521F !important;
+    color:white !important;
 }
 .elementor-1134 .page-header-image img{
     border-radius: 10px;
