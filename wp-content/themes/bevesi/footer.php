@@ -50,7 +50,7 @@
         display:none !important;
     }
 
-    .product-button .product-compare{
+     .product-compare{
         display:none !important;
     }
 
