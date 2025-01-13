@@ -46,6 +46,9 @@
 
 <style>
 
+.site-page-header.style-2 .page-header-image::before{
+    background-color: unset !important;
+}
 .site-drawer .site-brand a img {
     width: 136px !important;
 }
