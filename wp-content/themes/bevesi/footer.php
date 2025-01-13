@@ -62,7 +62,7 @@ display: none !important;
    padding-top: 50px;
 }
 .custom-background{
-background-color: #004711 !important;
+background-color: #27326F !important;
 color: white !important;
 }
 
@@ -117,44 +117,44 @@ color: white !important;
 font-weight: 300;
 }
 #masthead {
-background-color: #004711  !important;
+background-color: #27326F  !important;
 }
 .site-footer.footer-type2 #footer-widgets{
-	background-color: #004711  !important;
+	background-color: #27326F  !important;
 	color:white;
 }
 
 #footer-contact{
-	background-color: #004711  !important;
+	background-color: #27326F  !important;
 	color:white;
 }
 
 #footer-copyright{
-	background-color: #004711  !important;
+	background-color: #27326F  !important;
 	color:white;
 }
 .site-footer.footer-type2 #footer-newsletter{
 	display: none !important;	
 }
 .site-header .site-header-row.header-row-bg-white{
-	background-color: #004711 !important;
+	background-color: #27326F !important;
     border-bottom: 0.2px solid #c4c4
 }
 
 .site-footer.footer-type1 #footer-newsletter {
-background-color: #004711  !important;
+background-color: #27326F  !important;
 }
 
 .site-footer.footer-type1 #footer-widgets  {
-   background-color: #004711  !important;
+   background-color: #27326F  !important;
 }
 
 .site-footer.footer-type1 #footer-contact {
-   background-color: #004711  !important;
+   background-color: #27326F  !important;
 }
 
 .site-footer.footer-type1 #footer-copyright {
-   background-color: #004711  !important;
+   background-color: #27326F  !important;
 }
 .elementor-1550 .elementor-element.elementor-element-0aefe4e:not(.elementor-motion-effects-element-type-background), .elementor-1550 .elementor-element.elementor-element-0aefe4e>.elementor-motion-effects-container>.elementor-motion-effects-layer{
 display: none !important;
@@ -217,7 +217,7 @@ display: none !important;
 }
 
 .theme-cl {
-    color: #004711 !important;
+    color: #27326F !important;
 }
 .ft-bold {
     font-weight: 600;
@@ -289,7 +289,7 @@ display: none !important;
    color:#353535;
 }
 .Goodup-top-cates ul li a:hover .Goodup-tp-ico, .Goodup-top-cates ul li a:focus .Goodup-tp-ico, .Goodup-top-cates ul li a:active .Goodup-tp-ico{
-    color:#004711;
+    color:#27326F;
 }
 .Goodup-counter {
     position: relative;
@@ -370,7 +370,7 @@ display: none !important;
     border-radius: 50px;
 }
 .Goodup-bnr-cats ul li a:hover, .Goodup-bnr-cats ul li a:focus, .Goodup-bnr-cats ul li a:active{
-	color:#004711;
+	color:#27326F;
 	background:#ffffff;
 }
 .Goodup-bnr-cats.dark ul li a:hover, .Goodup-bnr-cats.dark ul li a:focus, .Goodup-bnr-cats.dark ul li a:active{
@@ -499,7 +499,7 @@ display: none !important;
 }
 .Goodup-cates a {
     font-size: 11px;
-    color: #004711;
+    color: #27326F;
     font-weight: 500;
     text-transform: uppercase;
     margin-right: 5px;
@@ -555,7 +555,7 @@ display: none !important;
 .Goodup-featured-tag {
     position:relative;
     z-index: 3;
-    background:#004711;
+    background:#27326F;
 	letter-spacing: 0.5px;
     padding:4px 12px;
 	font-weight:500;
@@ -567,13 +567,13 @@ display: none !important;
     -webkit-transform: translate3d(0,0,0);
 }
 .Goodup-featured-tag:before {
-    border-top: 14px solid #004711;
+    border-top: 14px solid #27326F;
     border-right: 14px solid transparent;
     margin-right: -12px;
     margin-top: -4px;
 }
 .Goodup-featured-tag:after {
-    border-bottom: 14px solid #004711;
+    border-bottom: 14px solid #27326F;
     border-right: 14px solid transparent;
     margin-right: -12px;
     margin-top:7px;
@@ -745,7 +745,7 @@ span.verified-badge {
 }
 .Goodup-facilities-wrap ul li {
     margin-right: 5px;
-    color: #004711;
+    color: #27326F;
 }
 .Goodup-facility-title {
     font-weight: 600;
@@ -807,7 +807,7 @@ span.verified-badge {
 	transition:all ease 0.4s;
 }
 .Goodup-btn-book:hover, .Goodup-btn-book:focus, .Goodup-btn-book:active{
-	background:#004711;
+	background:#27326F;
 	color:#ffffff;
 }
 span.Goodup-apr-rates {
@@ -910,7 +910,7 @@ span.Goodup-apr-rates i{
     border-radius: 50%;
     background:rgb(244 27 59 / 7%);
     font-size: 28px;
-	color: #004711;
+	color: #27326F;
 	transition:all ease 0.4s;
 }
 .Goodup-catg-city {
@@ -926,7 +926,7 @@ span.Goodup-apr-rates i{
 }
 .Goodup-catg-wrap:hover .Goodup-catg-icon, .Goodup-catg-wrap:focus .Goodup-catg-icon, .Goodup-catg-wrap:active .Goodup-catg-icon{
 	color:#ffffff;
-	background:#004711;
+	background:#27326F;
 }
 .Goodup-catg-wrap:hover .Goodup-catg-city, .Goodup-catg-wrap:focus .Goodup-catg-city, .Goodup-catg-wrap:active .Goodup-catg-city{
 	color:#ffffff;
@@ -966,18 +966,18 @@ span.Goodup-apr-rates i{
     display: flex;
     background: #feeff1;
     border-radius: 50%;
-    color: #004711;
+    color: #27326F;
     transition: all ease 0.4s;
     border: 1px dashed rgb(244 27 59 / 30%);
 }
 .Goodup-img-catg-wrap .Goodup-catg-city {
-    background: #004711;
+    background: #27326F;
     color: #ffffff;
 }
 .Goodup-img-catg-wrap:hover .Goodup-cat-arrow, .Goodup-img-catg-wrap:focus .Goodup-cat-arrow, .Goodup-img-catg-wrap:active .Goodup-cat-arrow{
 	color: #ffffff;
-	background:#004711;
-	border: 1px dashed #004711;
+	background:#27326F;
+	border: 1px dashed #27326F;
 }
 
 /*--------------------- Goodup Location Designs --------------*/
@@ -1006,8 +1006,8 @@ span.Goodup-apr-rates i{
 }
 .Goodup-img-location-wrap:hover .Goodup-cat-arrow, .Goodup-img-location-wrap:focus .Goodup-cat-arrow, .Goodup-img-location-wrap:active .Goodup-cat-arrow {
     color: #ffffff;
-    background: #004711;
-    border: 1px dashed #004711;
+    background: #27326F;
+    border: 1px dashed #27326F;
 }
 /*--------------------- Goodup Author Designs --------------*/
 .Goodup-author-wrap{
@@ -1077,7 +1077,7 @@ span.Goodup-apr-rates i{
 }
 .Goodup-author-links .Goodup-social li a:hover, .Goodup-author-links .Goodup-social li a:focus, .Goodup-author-links .Goodup-social li a:active{
 	color:#ffffff;
-	background:#004711;
+	background:#27326F;
 }
 .Goodup-author-lists {
     position: absolute;
@@ -1086,10 +1086,10 @@ span.Goodup-apr-rates i{
     padding: 2px 8px;
     background: rgb(244 27 59 / 10%);
     border-radius: 2px;
-    color: #004711;
+    color: #27326F;
 }
 .Goodup-author-links .Goodup-social.colored li a {
-    color: #004711;
+    color: #27326F;
     background: rgb(244 27 59 / 10%);
 }
 
@@ -1176,7 +1176,7 @@ span.Goodup-apr-rates i{
 }
 .Goodup-price-body ul li i{
 	margin-right:5px;
-	color:#004711;
+	color:#27326F;
 }
 .Goodup-price-btn {
     position: relative;
@@ -1195,8 +1195,8 @@ span.Goodup-apr-rates i{
 }
 .Goodup-price-btn:hover, .Goodup-price-btn:focus, .Goodup-price-btn:active, .Goodup-price-btn.active{
 	color:#ffffff;
-	background:#004711;
-	border:2px dashed #004711;
+	background:#27326F;
+	border:2px dashed #27326F;
 }
 .Goodup-price-wrap.dark-price{
     border: 1px solid #304450;
@@ -1250,7 +1250,7 @@ span.Goodup-apr-rates i{
     transition: border .3s;
 }
 .Goodup-all-drp .dropdown-toggle.active:after {
-    border-color: transparent #004711 #004711 transparent;
+    border-color: transparent #27326F #27326F transparent;
 }
 .Goodup-all-drp .dropdown-menu {
     min-width: 300px;
@@ -1278,7 +1278,7 @@ span.Goodup-apr-rates i{
 	margin-right:10px;
 }
 .Goodup-all-drp .Goodup-single-drp.small .btn-group>.btn.active {
-    color: #004711;
+    color: #27326F;
     background: rgba(244, 27, 59,0.1);
     border-color: rgba(244, 27, 59,0.1);
 }
@@ -1487,7 +1487,7 @@ margin-left:15px;
 
 .site-header .site-header-custom-button>a{
 background-color: white;
-color: #004711 !important;
+color: #27326F !important;
 padding-right: 11px !important;
 border-radius: 11px !important;
 margin: 6px !important;
