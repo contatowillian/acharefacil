@@ -178,7 +178,7 @@
 				</div><!-- site-copyright-content -->
 				
 				<?php if(get_theme_mod( 'bevesi_copyright' )){ ?>
-					<p class="site-copyright"><?php echo bevesi_sanitize_data(get_theme_mod( 'bevesi_copyright' )); ?></p>
+					<!--<p class="site-copyright"><?php echo bevesi_sanitize_data(get_theme_mod( 'bevesi_copyright' )); ?></p>-->
 				<?php } else { ?>
 					<p class="site-copyright"><?php esc_html_e('Copyright 2024.KlbTheme . All rights reserved','bevesi'); ?></p>
 				<?php } ?>       

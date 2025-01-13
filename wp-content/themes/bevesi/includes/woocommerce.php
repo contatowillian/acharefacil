@@ -595,7 +595,7 @@ add_filter( 'get_product_search_form' , 'bevesi_custom_product_searchform' );
 function bevesi_custom_product_searchform( $form ) {
 
 	$form = '<form action="' . esc_url( home_url( '/'  ) ) . '" class="search-form" role="search" method="get" id="searchform">
-              <input type="search" value="' . get_search_query() . '" class="form-control search-input size-lg" name="s" placeholder="'.esc_attr__('Procure os melhores serviços próximos à você...','bevesi').'" autocomplete="off">
+              <input type="search" value="' . get_search_query() . '" class="form-control search-input size-lg" name="s" placeholder="'.esc_attr__('Procure os melhores serviços próximos à você','bevesi').'" autocomplete="off">
               <button type="submit" class="btn unset search-button color-black"><i class="klb-icon-search"></i></button>
 			  <input type="hidden" name="post_type" value="product" />
             </form>';
@@ -634,7 +634,7 @@ function bevesi_header_product_search() {
 	$form .= '</div><!-- search-addon-dropdown-menu -->';
 	$form .= '<input class="search-category" type="hidden" name="category" id="category" value="all">';
 	$form .= '</div><!-- search-addon-dropdown -->';
-	$form .= '<input type="search" value="' . get_search_query() . '" class="form-control search-input size-lg" name="s" placeholder="'.esc_attr__('Procure os melhores serviços próximos à você...','bevesi').'" autocomplete="off">';
+	$form .= '<input type="search" value="' . get_search_query() . '" class="form-control search-input size-lg" name="s" placeholder="'.esc_attr__('Procure os melhores serviços próximos à você','bevesi').'" autocomplete="off">';
 	$form .= '<button type="submit" class="btn unset search-button color-black"><i class="klb-icon-search"></i></button>';
 	$form .= '<input type="hidden" name="post_type" value="product" />';
 	$form .= '</form>';

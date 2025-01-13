@@ -33,7 +33,14 @@
   
 	<?php wp_footer(); ?>
   
-	</body>
+    </body>
+    
+    <div id="container">
+    <div class="corpo">
+        <div class="painelvermelho"></div>
+    </div>
+    </div>
+
 </html>
 
 

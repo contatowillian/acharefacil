@@ -112,9 +112,9 @@ if ( ! class_exists( 'KlbWishlist' ) ) {
 								] + $products;
 					update_option( 'klbwl_list_' . $key, $products );
 					self::update_product_count( $product_id, 'add' );
-					$return['notice'] = esc_html__( '{name} has been added to Wishlist.', 'bevesi-core' );
+					$return['notice'] = esc_html__( '{name} foi adicionado aos favoritos.', 'bevesi-core' );
 				} else {
-					$return['notice'] = esc_html__( '{name} is already in the Wishlist.', 'bevesi-core' );
+					$return['notice'] = esc_html__( '{name} Já está na lista de favoritos.', 'bevesi-core' );
 				}
 				
 				
