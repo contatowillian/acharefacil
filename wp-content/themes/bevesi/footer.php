@@ -46,13 +46,27 @@
 
 <style>
 
-    .klb-icon-eye{
-        display:none !important;
-    }
+.contact-form-wrapper .wpcf7-form .wpcf7-submit{
+    background-color: #27326F  !important;
+}
 
-     .product-compare{
-        display:none !important;
-    }
+body .site-header .site-header-row.header-row-bg-primary{
+    background-color: #27326F  !important;
+}
+
+.elementor-element-ae0b646{
+    margin-top: 3%;
+}
+
+.klb-icon-eye{
+    display:none !important;
+}
+.quick-view-1{
+    display:none !important;
+}
+    .product-compare{
+    display:none !important;
+}
 
 .site-search-form .search-form button{
     background-color: #E8521F !important;
@@ -1467,7 +1481,7 @@ span.Goodup-apr-rates i{
     float: right;
     background-size: contain;
     width: 3.5vw !important;
-    background-image: url(https://www.jacmotors.com.br/public/template/site/default/images/whatsapp_azul.png);
+    background-image: url('/wp-content/themes/bevesi/assets/img/icone_whats.webp');
     color: rgb(217, 160, 0);
     cursor: pointer;
     height: 100px;
@@ -1492,15 +1506,16 @@ width:100%;
 height:100%;
 }
 .painelvermelho {
-width: 61px;
-height: 61px;
+width: 51px;
+height: 51px;
 position: fixed;
 cursor: pointer;
 bottom: 8%;
-background-image: url(https://www.jacmotors.com.br/public/template/site/default/images/layout_novo/whatsapp_novo.png);
+background-image: url('/wp-content/themes/bevesi/assets/img/icone_whats.webp');
 z-index: 9999;
 background-size: cover;
 margin-left:15px;
+right: 8px;
 }
 
 

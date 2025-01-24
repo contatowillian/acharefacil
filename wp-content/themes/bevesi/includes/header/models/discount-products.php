@@ -13,7 +13,7 @@ if ( ! function_exists( 'bevesi_discount_products' ) ) {
 					</div><!-- custom-button-label -->
 
 					<div class="custom-button-label criar_anuncio_botao_header">
-						<span class="custom-button-name"><i class="klb-icon-plus"></i>Criar Anúncio</span>
+						<span class="custom-button-name"><i class="klb-icon-plus"></i>Divulgue seu negócio</span>
 					</div>
 				</a>
 				<div class="custom-button-holder">
