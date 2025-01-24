@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" >
+   <head>
+      <meta charset="UTF-8">
+      <title>Cria Anúncio</title>
+      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+      <script src="https://use.fontawesome.com/6a6312675e.js"></script>
+      <link rel="stylesheet" href="./style.css">
+   </head>
+   <body>
+      <!-- partial:index.partial.html -->
+      <div class="wrapper">
+         <div id="wizard" class="wizard">
+            <div class="wizard__content">
+               <header class="wizard__header">
+                  <div class="wizard__header-overlay"></div>
+                  <div class="wizard__header-content">
+                     <h1 class="wizard__title" >Divulgue seu negócio</h1>
+                     <p class="wizard__subheading">Com apenas <span>3</span> passos.</p>
+                  </div>
+                  <div class="wizard__steps">
+                     <nav class="steps">
+                        <div class="step">
+                           <div class="step__content">
+                              <p class="step__number"><i class="fa fa-github-alt"></i></p>
+                              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                 <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                 <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                              </svg>
+                              <div class="lines">
+                                 <div class="line -start">
+                                 </div>
+                                 <div class="line -background">
+                                 </div>
+                                 <div class="line -progress">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step">
+                           <div class="step__content">
+                              <p class="step__number"><i class="fa fa-book"></i></p>
+                              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                 <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                 <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                              </svg>
+                              <div class="lines">
+                                 <div class="line -background">
+                                 </div>
+                                 <div class="line -progress">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step">
+                           <div class="step__content">
+                              <p class="step__number"><i class="fa fa-group"></i></p>
+                              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                 <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                 <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                              </svg>
+                              <div class="lines">
+                                 <div class="line -background">
+                                 </div>
+                                 <div class="line -progress">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </nav>
+                  </div>
+               </header>
+               <div class="panels">
+                  <div class="panel">
+                     <header class="panel__header">
+                        <h2 class="panel__title">1º - Dados do login</h2>
+                        <p class="panel__subheading">Digite seu e-mail e senha</p>
+                     </header>
+                     <form>
+                        <div class="row">
+                           <div class="col-12 col-lg-9">
+                              <p><label> Seu Nome * </label><span class="wpcf7-form-control-wrap" data-name="your-name">
+                                <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                                 aria-invalid="false" value="" type="text" name="your-name"></span>
+                              </p>
+                           </div>
+                           <div class="col-12 col-lg-9">
+                              <p><label> Seu email *</label><span class="wpcf7-form-control-wrap" data-name="your-email">
+                                <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
+                                 aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
+                              </p>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+                  <div class="panel">
+                     <header class="panel__header">
+                        <h2 class="panel__title">Digite os dados do ser anúncio.</h2>
+                        <p class="panel__subheading">Esses são os dados que apareceram no seu anúncio!</p>
+                     </header>
+                     <form>
+                        <div class="row">
+                           <div class="col-12 col-lg-9">
+                              <p><label> Nome do anúnciante:* </label><span class="wpcf7-form-control-wrap" data-name="your-name"><br>
+                                <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" 
+                                aria-invalid="false" value="" type="text" name="your-name"></span>
+                              </p>
+                           </div>
+                           <div class="col-12 col-lg-9">
+                              <p><label> Categoria: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
+                                <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
+                                aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
+                              </p>
+                           </div>
+                           <div class="col-12 col-lg-9">
+                            <p><label> Chave Pix: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
+                              <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
+                              aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
+                            </p>
+                         </div>
+                           <div class="col-12 col-lg-9">
+                            <p><label> Celular: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
+                              <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
+                              aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
+                            </p>
+                           </div>
+                           <div class="col-12 col-lg-9">
+                            <p><label> Descrição: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
+                              <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
+                              aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
+                            </p>
+                         </div>
+
+                         <div class="col-12 col-lg-9">
+                            <p><label> Rede Social: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
+                              <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
+                              aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
+                            </p>
+                        </div>
+
+                        <div class="col-12 col-lg-9">
+                          <p><label> Foto: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
+                            <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
+                            aria-required="true" aria-invalid="false" value="" type="file" name="your-email"></span>
+                          </p>
+                      </div>
+                          
+                        </div>
+                     </form>
+                  </div>
+                  <div class="panel">
+                     <header class="panel__header">
+                        <h2 class="panel__title">Termos e condições:</h2>
+                        <p class="panel__subheading">
+                          <br><br>
+                          mply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. <br>
+                           it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the <br>
+                           release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+                        </p>
+                     </header>
+
+                    
+                  </div>
+               </div>
+               <div class="wizard__footer">
+                  <button class="button previous">Voltar</button>
+                  <button class="button next">Proxímo</button>
+               </div>
+            </div>
+            <h1 class="wizard__congrats-message">
+             Parabéns, você faz parte do time achar é Fácil !
+
+             <div class="row">
+                     
+              <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                 <div class="Goodup-price-wrap">
+                    <div class="Goodup-author-header">
+                       <div class="Goodup-price-currency">
+                          <h3><span class="Goodup-new-price">R$<del>0</del></span><span class="Goodup-old-price">R$<del>0</del></span></h3>
+                       </div>
+                       <div class="Goodup-price-title">
+                          <div class="Goodup-price-tlt"><h4>Personal</h4></div><div class="Goodup-price-ribbon"><span class="Goodup-ribbon-offer all">50% Off</span></div>
+                       </div>
+                       <div class="Goodup-price-subtitle">Melhor escolha pra pequenos comércios</div>
+                    </div>
+                    <div class="Goodup-price-body">
+                       <ul class="price__features">
+                          <li><i class="klb-icon-chevron-right"></i>Anúnicos Personalizados</li>
+                          <li><i class="klb-icon-chevron-right"></i>6 Mesês de Publicação</li>
+                          <li><i class="klb-icon-chevron-right"></i>Anúncios em redes sociais</li>
+                          <li><i class="klb-icon-chevron-right"></i>Criação de Logos</li>
+                          <li><i class="klb-icon-chevron-right"></i>Acesso a plataforma de publicação</li>
+                       </ul>
+                    </div>
+                    <div class="Goodup-price-bottom">
+                       <a class="Goodup-price-btn" href="#"><i class="klb-icon-shopping-bag"></i> Anúncie Agora</a>
+                    </div>
+                 </div>
+              </div>
+              
+              <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                 <div class="Goodup-price-wrap">
+                    <div class="Goodup-author-header">
+                       <div class="Goodup-price-currency">
+                          <h3><span class="Goodup-new-price theme-cl">R$<del>129</del></span><span class="Goodup-old-price">R$<del>199</del></span></h3>
+                       </div>
+                       <div class="Goodup-price-title">
+                          <div class="Goodup-price-tlt"><h4>Platinum</h4></div><div class="Goodup-price-ribbon"><span class="Goodup-ribbon-offer">50% Off</span></div>
+                       </div>
+                       <div class="Goodup-price-subtitle">Melhor escolha para comércios médios </div>
+                    </div>
+                    <div class="Goodup-price-body">
+                       <ul class="price__features">
+                          <li><i class="klb-icon-chevron-right"></i>Anúnicos Personalizados</li>
+                          <li><i class="klb-icon-chevron-right"></i>12 Mesês de Publicação</li>
+                          <li><i class="klb-icon-chevron-right"></i>Anúncios em redes sociais</li>
+                          <li><i class="klb-icon-chevron-right"></i>Criação de Logos</li>
+                          <li><i class="klb-icon-chevron-right"></i>Acesso a plataforma de publicação</li>
+                       </ul>
+                    </div>
+                    <div class="Goodup-price-bottom">
+                       <a class="Goodup-price-btn active" href="#"><i class="klb-icon-shopping-bag"></i>Anúncie Agora</a>
+                    </div>
+                 </div>
+              </div>
+              
+              <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                 <div class="Goodup-price-wrap">
+                    <div class="Goodup-author-header">
+                       <div class="Goodup-price-currency">
+                          <h3><span class="Goodup-new-price">R$<del>149</del></span><span class="Goodup-old-price">R$<del>249</del></span></h3>
+                       </div>
+                       <div class="Goodup-price-title">
+                          <div class="Goodup-price-tlt"><h4>Gold</h4></div><div class="Goodup-price-ribbon"><span class="Goodup-ribbon-offer all">50% Off</span></div>
+                       </div>
+                       <div class="Goodup-price-subtitle">Melhor escolha para grandes comércios</div>
+                    </div>
+                    <div class="Goodup-price-body">
+                       <ul class="price__features">
+                          <li><i class="klb-icon-chevron-right"></i>Destaque na Home</li>
+                          
+                          <li><i class="klb-icon-chevron-right"></i>24 Mesês de Publicação</li>
+                          <li><i class="klb-icon-chevron-right"></i>Anúncios em redes sociais</li>
+                          <li><i class="klb-icon-chevron-right"></i>Criação de Logos</li>
+                          <li><i class="klb-icon-chevron-right"></i>Acesso a plataforma de publicação</li>
+                       </ul>
+                    </div>
+                    <div class="Goodup-price-bottom">
+                       <a class="Goodup-price-btn" href="#"><i class="klb-icon-shopping-bag"></i>Anúncie Agora</a>
+                    </div>
+                 </div>
+              </div>
+              
+           </div>
+            </h1>
+         </div>
+      </div>
+      <!-- partial -->
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script><script  src="./script.js"></script>
+   </body>
+</html>
