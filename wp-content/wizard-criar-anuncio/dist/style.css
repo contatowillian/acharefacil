@@ -1,10 +1,20 @@
 body, html {
   padding: 0;
   margin: 0;
-  background: #F7F8FA;
   font-family: "Lato", sans-serif;
   color: #676767;
 }
+
+
+
+input{
+  margin-top: 10px;
+   display: block;
+   height: 28px;
+   border-radius: 5px;
+   border: 1px solid #ced4da;
+}
+
 
 .wrapper {
   position: relative;
@@ -16,17 +26,19 @@ body, html {
   max-width: 920px;
   margin: 0 auto;
 }
+.wpcf7-form-control-wrap{
+  padding-top: 15px;
+}
 .wizard__header {
   position: relative;
   color: #FFF;
-  padding: 50px;
+  padding: 0px;
   border-radius: 5px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   text-align: center;
   height: 100px;
-  background: url("http://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1444253482/DG2015-paris.jpg?itok=XH81cBH9");
-  background-color: #4D637B;
+  background-color: white;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -34,7 +46,7 @@ body, html {
 .wizard__header-content {
   position: absolute;
   width: 100%;
-  padding: 0 50px;
+  padding: 0 10px;
   text-align: center;
   top: 50%;
   left: 50%;
@@ -46,7 +58,7 @@ body, html {
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(77, 99, 123, 0.6);
+  background-color: white;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }

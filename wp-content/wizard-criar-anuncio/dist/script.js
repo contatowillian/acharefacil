@@ -132,6 +132,7 @@ class Wizard {
 
   handleWizardConclusion() {
     this.wizard.classList.add('completed');
+    window.location=('./lista_planos');
   }
 
   addControls(previousControl, nextControl) {
