@@ -132,7 +132,7 @@ class Wizard {
 
   handleWizardConclusion() {
     this.wizard.classList.add('completed');
-    window.location=('./lista_planos');
+    top.location.href=('./lista_planos');
   }
 
   addControls(previousControl, nextControl) {
