@@ -17,6 +17,8 @@
 					<div class="footer-newsletter-form">
 						<?php echo do_shortcode('[mc4wp_form id="'.get_theme_mod('bevesi_footer_subscribe_formid').'"]'); ?>
 					</div><!-- footer-newsletter-form -->
+					
+
 				</div><!-- site-footer-inner -->
 			</div><!-- container -->
 		</div><!-- site-footer-row -->
@@ -26,6 +28,7 @@
 	<?php if ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3' ) || is_active_sidebar( 'footer-4' ) || is_active_sidebar( 'footer-4' )) { ?>
 	
 		<div id="footer-widgets" class="site-footer-row footer-row-background-gray footer-row-color-black border-full">
+
 			<div class="container">
 				<?php if(get_theme_mod('bevesi_footer_column') == '3columns'){ ?>
 					<div class="site-footer-inner widgets-column-3">
@@ -89,10 +92,13 @@
 									</div><!-- widget-body -->
 								</div><!-- widget -->
 							</div><!-- column -->
-						<?php } ?>	
+						<?php } ?>
+	
 					</div>
 				<?php } ?>
 			</div><!-- container -->
+			<img class='img-selo-seguro-rodape'  src="<?php echo get_template_directory_uri(); ?>/assets/img/certificado_loja_segura.png" alt="Selo Seguro"/>
+
 		</div><!-- site-footer-row -->
 	
 	<?php } ?>
