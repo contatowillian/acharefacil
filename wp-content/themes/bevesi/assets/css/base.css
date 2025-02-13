@@ -2252,14 +2252,14 @@ img {
   margin-left: var(--site-header-topbar-menu-padding);
 }
 #header-main.header-main-padding .site-header-inner {
-  padding-top: 4px;
-  padding-bottom: 2px;
+  padding-top: 4px !important;
+  padding-bottom: 2px  !important;
 
 }
 @media screen and (min-width: 576.1px) {
   #header-main.header-main-padding .site-header-inner {
-    padding-top: var(--site-header-main-desktop-padding);
-    padding-bottom: var(--site-header-main-desktop-padding);
+    padding-top: 4px !important;
+  padding-bottom: 2px  !important;
   }
 }
 #header-main.header-main-height .site-header-inner {
