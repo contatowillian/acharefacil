@@ -1545,7 +1545,7 @@ img {
   border-color: var(--color-gray-300);
 }
 .site-header .site-header-row.header-row-bg-primary {
-  background-color: rgb(var(--site-primary-color));
+  background-color: #27326F !important;
 }
 .site-header .site-header-row.header-row-bg-primary.border-full, .site-header .site-header-row.header-row-bg-primary.border-container .site-header-inner {
   border-color: rgba(255, 255, 255, 0.2);
@@ -2252,8 +2252,8 @@ img {
   margin-right: var(--site-header-topbar-menu-padding);
 }
 #header-main.header-main-padding .site-header-inner {
-  padding-top: var(--site-header-main-mobile-padding);
-  padding-bottom: var(--site-header-main-mobile-padding);
+  padding-top: 4px;
+  padding-bottom: 2px;
 }
 @media screen and (min-width: 576.1px) {
   #header-main.header-main-padding .site-header-inner {
