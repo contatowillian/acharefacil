@@ -76,13 +76,13 @@
                      </header>
                      <form>
                         <div class="row">
-                           <div class="col-12 col-lg-9">
+                           <div class="col-lg-6">
                               <p><label> Seu Nome * </label><span class="wpcf7-form-control-wrap" data-name="your-name">
                                 <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
                                  aria-invalid="false" value="" type="text" name="your-name"></span>
                               </p>
                            </div>
-                           <div class="col-12 col-lg-9">
+                           <div class="col-lg-6">
                               <p><label> Seu email *</label><span class="wpcf7-form-control-wrap" data-name="your-email">
                                 <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
                                  aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
@@ -92,57 +92,72 @@
                      </form>
                      <a><h5><i class="fa fa-user"></i> - Clique para logar login !</h5></a>
                   </div>
-                  <div class="panel">
+                  <div class="panel anuncie_dados">
                      <header class="panel__header">
                         <h2 class="panel__title">Digite os dados do ser anúncio.</h2>
                         <p class="panel__subheading">Esses são os dados que apareceram no seu anúncio!</p>
                      </header>
                      <form>
-                        <div class="row">
-                           <div class="col-12 col-lg-9">
-                              <p><label> Nome do anúnciante:* </label><span class="wpcf7-form-control-wrap" data-name="your-name"><br>
+
+                      
+                        <div class="row col-12 ">
+                           <div class="col-lg-6">
+                              <p><label> Titulo:* </label><span class="wpcf7-form-control-wrap" data-name="your-name"><br>
                                 <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" 
                                 aria-invalid="false" value="" type="text" name="your-name"></span>
                               </p>
                            </div>
-                           <div class="col-12 col-lg-9">
-                              <p><label> Categoria: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
-                                <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
-                                aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
+                           <div class="col-lg-6 categoria">
+                              <p><label> Categoria: *</label>
+                              <select>
+                                 <option value="valor1"selected>Escolha categoria</option>
+                                 <option value="valor2" >Automoveis</option>
+                                 <option value="valor3">Cabeleleiro</option>
+                              </select>
+                              </p>
+                           </div>   
+                         <br>
+                         <div class="col-lg-12 clear"></div>
+                           <div class="col-lg-6">
+                              <p><label> E-mail:* </label><span class="wpcf7-form-control-wrap" data-name="your-name"><br>
+                                <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" 
+                                aria-invalid="false" value="" type="text" name="your-name"></span>
                               </p>
                            </div>
-                           <div class="col-12 col-lg-9">
+                           <div class="col-lg-6">
                             <p><label> Chave Pix: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
                               <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
                               aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
                             </p>
                          </div>
-                           <div class="col-12 col-lg-9">
+                           <div class="col-lg-6">
                             <p><label> Celular: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
                               <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
                               aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
                             </p>
                            </div>
-                           <div class="col-12 col-lg-9">
-                            <p><label> Descrição: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
-                              <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
-                              aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
-                            </p>
-                         </div>
+                          
 
-                         <div class="col-12 col-lg-9">
-                            <p><label> Rede Social: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
+                         <div class="col-lg-6">
+                            <p><label> Rede Social: </label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
                               <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
                               aria-required="true" aria-invalid="false" value="" type="email" name="your-email"></span>
                             </p>
                         </div>
-
-                        <div class="col-12 col-lg-9">
-                          <p><label> Foto: *</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
+                        <div class="col-lg-12 clear"></div>
+                        <div class="col-lg-12 foto_div">
+                          <p><label> Foto: </label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
                             <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" 
                             aria-required="true" aria-invalid="false" value="" type="file" name="your-email"></span>
                           </p>
                       </div>
+               
+                      <div class="col-lg-12 clear"></div>
+                      <div class="col-lg-12 wpcf7-form-control">
+                        <p><label> Descrição:</label><span class="wpcf7-form-control-wrap" data-name="your-email"><br>
+                           <textarea lines='5'></textarea></span>
+                        </p>
+                     </div>
                           
                         </div>
                      </form>
@@ -194,4 +209,55 @@
     
 }
 
+.categoria select{
+  
+   margin-top: 10px;
+    display: block;
+    height: 33px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    color: #495057;
+   background-color: #fff;
+   background-clip: padding-box;
+   border: 1px solid #ced4da;
+   border-radius: .25rem;
+   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+   width: 93%;
+  
+}
+
+
+.wpcf7-form-control textarea{
+  
+  width: 85%;
+  font-size: 1rem;
+  height: 50px;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  position:absolute;
+  
+}
+
+
+.anuncie_dados .col-lg-6{
+   float:left;
+   margin-left:3%;
+   width: 47%;
+}
+
+.anuncie_dados .col-lg-12{
+ width:100%;
+ margin-bottom:20px;
+ margin-top:20px;
+ margin-left: 3%;
+}
+
+.foto_div{
+
+}
 </style>
