@@ -46,6 +46,23 @@
 
 <style>
 
+.page-id-2916 .site-login{
+    padding:0px !important;
+}
+
+.page-id-2916  .vendor-customer-registration{
+ display: none !important;
+}
+
+.page-id-2916 .woocommerce-privacy-policy-text{
+    display: none !important; 
+}
+
+.page-id-2916  .site-login .site-login-inner .site-login-overflow .login-form-container > * button{
+    background-color: #e5e7eb !important;
+    color: #000 !important;
+}
+
 .contact-form-wrapper .wpcf7-form .wpcf7-submit{
     background-color: #27326F  !important;
 }
