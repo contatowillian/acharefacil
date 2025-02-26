@@ -63,6 +63,11 @@
     color: #000 !important;
 }
 
+
+.page-id-2916  .register-form p:first-child{
+    display: none !important; 
+}
+
 .contact-form-wrapper .wpcf7-form .wpcf7-submit{
     background-color: #27326F  !important;
 }
