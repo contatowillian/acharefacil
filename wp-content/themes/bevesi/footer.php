@@ -44,11 +44,19 @@
 </html>
 
 
+
+
+
 <style>
 
 .page-id-2916 .site-login{
     padding:0px !important;
 }
+.page-id-2916 .textarea_descricao_anuncio{
+    height: 80px !important;
+}
+
+
 
 .page-id-2916  .vendor-customer-registration{
  display: none !important;
