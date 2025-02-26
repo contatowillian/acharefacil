@@ -54,6 +54,7 @@
 }
 .page-id-2916 .textarea_descricao_anuncio{
     height: 80px !important;
+    max-height: 80px !important;
 }
 
 
