@@ -49,6 +49,18 @@
 
 <style>
 
+  #afreg_additionalshowhide_3226  .afreg_field_message{
+ 
+    font-size: 13px;
+    color: gray;
+
+}
+
+.afreg_extra_fields .input-text, .input-select {
+
+    font-size: 14px !important;
+}
+
 .page-id-2916 .site-login{
     padding:0px !important;
 }
