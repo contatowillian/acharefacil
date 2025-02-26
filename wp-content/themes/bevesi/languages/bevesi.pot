@@ -1972,7 +1972,7 @@ msgid "Register"
 msgstr ""
 
 #: woocommerce/myaccount/form-login.php:42
-msgid "If you have an account, sign in with your username or email address."
+msgid "Se você tiver uma conta, entre com seu nome de usuário ou endereço de e-mail."
 msgstr ""
 
 #: woocommerce/myaccount/form-login.php:48
