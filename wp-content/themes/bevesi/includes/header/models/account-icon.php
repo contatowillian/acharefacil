@@ -17,7 +17,7 @@ if ( ! function_exists( 'bevesi_account_icon' ) ) {
 							<span class="quick-button-description"><?php esc_html_e('Bem Vindo','bevesi'); ?></span>
 							<p class="quick-button-label"><?php echo esc_html($current_user->user_login); ?></p>
 						<?php } else { ?>
-							<span class="quick-button-description"><?php esc_html_e('Logar','bevesi'); ?></span>
+							<span class="quick-button-description"><?php esc_html_e('Entrar','bevesi'); ?></span>
 							<p class="quick-button-label"><?php esc_html_e('Conta','bevesi'); ?></p>
 						<?php } ?>
 						

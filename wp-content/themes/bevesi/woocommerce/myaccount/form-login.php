@@ -68,7 +68,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 							</div>
 							
 							<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-							<button type="submit" class="woocommerce-button button woocommerce-form-login__submit<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="login" value="<?php esc_attr_e( 'Log in', 'bevesi' ); ?>"><?php esc_html_e( 'Log in', 'bevesi' ); ?></button>
+							<button type="submit" class="woocommerce-button button woocommerce-form-login__submit<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="login" value="<?php esc_attr_e( 'Acessar', 'bevesi' ); ?>"><?php esc_html_e( 'Log in', 'bevesi' ); ?></button>
 							
 
 							<?php do_action( 'woocommerce_login_form_end' ); ?>
@@ -158,7 +158,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 						<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span><?php esc_html_e( 'Lembrar Login', 'bevesi' ); ?></span>
 					</label>
 					<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-					<button type="submit" class="woocommerce-button button woocommerce-form-login__submit<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="login" value="<?php esc_attr_e( 'Enviar', 'bevesi' ); ?>"><?php esc_html_e( 'Log in', 'bevesi' ); ?></button>
+					<button type="submit" class="woocommerce-button button woocommerce-form-login__submit<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="login" value="<?php esc_attr_e( 'Enviar', 'bevesi' ); ?>"><?php esc_html_e( 'Acessar', 'bevesi' ); ?></button>
 				</p>
 				<p class="woocommerce-LostPassword lost_password">
 					<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php esc_html_e( 'Perdeu sua senha ?', 'bevesi' ); ?></a>
