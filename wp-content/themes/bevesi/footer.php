@@ -56,6 +56,9 @@
 
 }
 
+#afreg_additionalshowhide_3218 .afreg_field_message{
+    font-size: 14px;
+}
 .afreg_extra_fields .input-text, .input-select {
 
     font-size: 14px !important;
