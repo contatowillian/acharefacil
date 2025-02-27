@@ -107,7 +107,7 @@
         </div><!-- container -->
     </div><!-- site-header-row -->
     
-    <div id="header-bottom" class="site-header-row site-header-bottom header-row-bg-white border-full display-none display-block-laptop">
+	<?php /*   <div id="header-bottom" class="site-header-row site-header-bottom header-row-bg-white border-full display-none display-block-laptop">
         <div class="container">
 			<div class="site-header-inner">
 				<div class="col display-inline-flex align-items-center justify-start">
@@ -133,5 +133,5 @@
 				</div><!-- col -->
 			</div><!-- site-header-inner -->
         </div><!-- container -->
-	</div><!-- site-header-row -->
+	</div>*/ ?><!-- site-header-row -->
 </header><!-- site-heaader -->

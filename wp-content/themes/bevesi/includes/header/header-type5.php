@@ -115,7 +115,7 @@
         </div><!-- container -->
     </div><!-- site-header-row -->
     
-    <div id="header-bottom" class="site-header-row site-header-bottom header-row-bg-primary header-row-text-white border-full display-none display-block-laptop header-search-row">
+	<?php /*   <div id="header-bottom" class="site-header-row site-header-bottom header-row-bg-primary header-row-text-white border-full display-none display-block-laptop header-search-row">
         <div class="container">
 			<div class="site-header-inner">
 				<div class="col display-inline-flex align-items-center justify-start">
@@ -132,5 +132,5 @@
 				</div><!-- col -->
 			</div><!-- site-header-inner -->
         </div><!-- container -->
-    </div><!-- site-header-row -->
+    </div>*/ ?><!-- site-header-row -->
 </header><!-- site-heaader --> 
