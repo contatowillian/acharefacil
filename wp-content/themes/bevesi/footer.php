@@ -155,6 +155,10 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     font-size: 14px !important;
 }
 
+.page-id-2916 .mo-openid-app-icons:first{
+    display: none !important;
+}
+
 .page-id-2916 .site-login{
     padding:0px !important;
 }
@@ -183,6 +187,11 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
 .page-id-2916  .register-form p:first-child{
     display: none !important; 
 }
+
+.page-id-10 .page-id-2916 .mo-openid-app-icons:first{
+    display: none !important;
+}
+
 
 .page-id-10 .site-login{
     padding:0px !important;
@@ -221,6 +230,7 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
 body .site-header .site-header-row.header-row-bg-primary{
     background-color: #27326F  !important;
 }
+
 
 .elementor-element-ae0b646{
     margin-top: 3%;
