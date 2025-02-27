@@ -4314,7 +4314,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 						$approved_status = get_user_meta($user_id, 'afreg_new_user_status', true);
 						//if the user hasn't been approved yet by WP Approve User plugin, destroy the cookie to kill the session and log them out
 						if ( 'approved' == $approved_status ) {
-							return get_permalink(wc_get_page_id('myaccount'));
+							return 'https://sorvetedecerveja.com.br/my-account/';
 
 						} elseif ('pending' == $approved_status) {
 							wp_logout();
@@ -4324,16 +4324,17 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 							wp_logout();
 							return get_permalink(wc_get_page_id('myaccount')) . '?approved=disapproved';
 						} else {
-							return get_permalink(wc_get_page_id('myaccount'));
+							return 'https://sorvetedecerveja.com.br/my-account/';
+							
 						}
 					} else {
-						return get_permalink(wc_get_page_id('myaccount'));
+						return 'https://sorvetedecerveja.com.br/my-account/';
 					}
 
 
 				} else {
 
-					return get_permalink(wc_get_page_id('myaccount'));
+					return 'https://sorvetedecerveja.com.br/my-account/';
 				}
 			}
 		}
