@@ -77,7 +77,7 @@ jQuery( document ).ready(function( $ ) {
 
 });
 </script>
-
+<?php }?>
 <style>
 
 input[type=checkbox], .woocommerce-form__input-checkbox{
