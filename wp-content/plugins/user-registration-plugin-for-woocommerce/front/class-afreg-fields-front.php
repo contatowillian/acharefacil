@@ -4318,7 +4318,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 						} elseif ('pending' == $approved_status) {
 							wp_logout();
-							return get_permalink(wc_get_page_id('myaccount')) . '?approved=pending';
+							return 'https://sorvetedecerveja.com.br/lista_planos/';
 						} elseif ('disapproved' == $approved_status) {
 
 							wp_logout();
