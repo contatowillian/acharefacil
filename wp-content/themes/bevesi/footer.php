@@ -44,10 +44,18 @@
     </div>
 
 </html>
+<script src="wp-content/themes/bevesi/assets/js/jquery.mask.js"></script>
 
 
+<script>
 
+jQuery( document ).ready(function( $ ) {
 
+    $("#campo_telefone").mask('(00) 000000009', {clearIfNotMatch: true});
+    $(".campo_escolha_rede_social").css("display", "none");
+
+});
+</script>
 
 <style>
 .header-type4  .site-header-custom-button>a{ 
