@@ -3003,7 +3003,7 @@ img {
   border-color: rgba(255, 255, 255, 0.2);
 }
 .site-footer .site-footer-row.footer-row-background-black {
-  background-color: var(--color-slate-900);
+  background-color: #27326F !important;
   border-color: rgba(255, 255, 255, 0.1);
 }
 .site-footer .site-footer-row.footer-row-background-black .site-footer-inner {
