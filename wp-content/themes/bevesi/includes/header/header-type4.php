@@ -91,6 +91,17 @@
 						<?php echo bevesi_header_product_search(); ?> 
 					</div><!-- site-search-form -->        
 				
+					<div class="site-header-custom-button">
+					<a href="/criar-anuncio" >
+						<div class="custom-button-icon"></div>
+						<div class="custom-button-label" style='display:none'>
+							<span class="custom-button-name">x<?php echo bevesi_sanitize_data(get_theme_mod('bevesi_header_products_button_title')); ?></span>
+						</div>
+						<div class="custom-button-label criar_anuncio_botao_header">
+						<span class="custom-button-name"><i class="klb-icon-plus"></i>Divulgue seu negócio</span>
+					</div>
+					</a>
+				</div>
 				</div><!-- col -->
 				<div class="col display-none display-inline-flex-mobile align-items-center flex-1 flex-initial-laptop justify-content-end">
 					<?php bevesi_wishlist_icon(); ?>         
