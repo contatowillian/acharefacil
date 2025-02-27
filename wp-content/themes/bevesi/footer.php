@@ -46,18 +46,43 @@
 </html>
 <script src="/wp-content/themes/bevesi/assets/js/jquery.mask.js"></script>
 
-
+<?php if(is_page('criar-anuncio') or is_page( 'my-account' )){ ?>
 <script>
 
 jQuery( document ).ready(function( $ ) {
 
     $(".campo_telefone").mask('(00) 000000009', {clearIfNotMatch: true});
     $(".campo_escolha_rede_social").css("display", "none");
+    $(".afreg_additionalshowhide_3234").css("display", "none");
+    $(".afreg_additionalshowhide_3234").css("display", "none");
+    $(".afreg_additionalshowhide_3217").css("display", "none");
+
+    $('#afreg_additional_3226').val('');
+
+
+    $("#afreg_additional_3232").change(function(){
+    let valor = $(this).val();  
+        
+    if(valor=='Linkedin'){
+        $("#afreg_additional_3234").css("display", "block");
+    }
+    if(valor=='Facebook'){
+        $(".afreg_additional_3217").css("display", "none");;
+    }
+    if(valor=='Instagram'){
+        $(".afreg_additional_3216").css("display", "none");
+    }
+
+    })
 
 });
 </script>
 
 <style>
+
+input[type=checkbox], .woocommerce-form__input-checkbox{
+    background-color: gray;
+}
 .header-type4  .site-header-custom-button>a{ 
 min-width: 209px;
     border-radius: 15px;
@@ -118,6 +143,36 @@ min-width: 209px;
 .page-id-2916  .register-form p:first-child{
     display: none !important; 
 }
+
+.page-id-10 .site-login{
+    padding:0px !important;
+}
+.page-id-10 .textarea_descricao_anuncio{
+    height: 80px !important;
+    max-height: 80px !important;
+    line-height: 18px !important;
+}
+
+
+
+.page-id-10  .vendor-customer-registration{
+ display: none !important;
+}
+
+.page-id-10 .woocommerce-privacy-policy-text{
+    display: none !important; 
+}
+
+.page-id-10  .site-login .site-login-inner .site-login-overflow .login-form-container > * button{
+    background-color: #e5e7eb !important;
+    color: #000 !important;
+}
+
+
+.page-id-10  .register-form p:first-child{
+    display: none !important; 
+}
+
 
 .contact-form-wrapper .wpcf7-form .wpcf7-submit{
     background-color: #27326F  !important;
