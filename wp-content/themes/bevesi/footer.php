@@ -63,7 +63,7 @@
         $("#afreg_additional_3224").on("keyup change", function(e) {
 
             let valor = $(this).val();
-            $("#reg_username").val(removerCaracteresEspeciais(valor)+generatePassword);
+            $("#reg_username").val(removerCaracteresEspeciais(valor)+generatePassword());
             
         })
 
