@@ -54,7 +54,7 @@
 min-width: 209px;
     border-radius: 15px;
     height: 50px;
-    min-width: 210px;
+    min-width: 210px !important;
 }
 
 
