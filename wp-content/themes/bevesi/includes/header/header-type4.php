@@ -42,7 +42,7 @@
         </div><!-- container -->
     </div><!-- site-header-row -->
     
-    <div id="header-main" class="site-header-row site-header-main header-main-padding header-row-bg-primary border-full header-row-text-white">
+    <div id="header-main" class="site-header-row site-header-main header-main-padding header-row border-full header-row-text-white">
         <div class="container">
 			<div class="site-header-inner">
 				<div class="col display-inline-flex display-none-laptop align-items-center flex-initial">
