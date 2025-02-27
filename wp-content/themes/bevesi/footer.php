@@ -44,7 +44,7 @@
     </div>
 
 </html>
-<script src="wp-content/themes/bevesi/assets/js/jquery.mask.js"></script>
+<script src="/wp-content/themes/bevesi/assets/js/jquery.mask.js"></script>
 
 
 <script>
