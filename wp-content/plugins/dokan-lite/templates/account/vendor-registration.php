@@ -27,7 +27,7 @@ $custom_store_url = dokan_get_option( 'custom_store_url', 'dokan_general', 'stor
 
     <?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
         <p class="form-row form-group form-row-wide">
-            <label for="reg_username"><?php esc_html_e( 'Username', 'dokan-lite' ); ?> <span class="required">*</span></label>
+            <label for="reg_username" class='class_reg_username'><?php esc_html_e( 'Username', 'dokan-lite' ); ?> <span class="required">*</span></label>
             <input type="text" class="input-text form-control" name="username" id="reg_username" value="<?php echo ! empty( $data['username'] ) ? esc_attr( $data['username'] ) : ''; ?>" required="required" />
         </p>
     <?php endif; ?>

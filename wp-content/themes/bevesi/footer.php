@@ -188,12 +188,20 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
 }
 
 
-.page-id-2916 #reg_username{
-    padding:0px !important;
+
+.page-id-2916 .class_reg_username{
+    display: none !important;
 }
 
+.page-id-2916 #reg_username{
+    display: none !important;
+}
+
+.page-id-10 .class_reg_username{
+    display: none !important;
+}
 .page-id-10 #reg_username{
-    padding:0px !important;
+    display: none !important;
 }
 
 .page-id-10 .site-login{
