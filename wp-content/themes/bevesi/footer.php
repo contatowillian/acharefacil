@@ -117,7 +117,7 @@
 <style>
 
 .woocommerce-form-register p:first{
-   /* display: none !important;*/
+    display: none !important;
 }
 
 input[type=checkbox], .woocommerce-form__input-checkbox{
