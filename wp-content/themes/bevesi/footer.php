@@ -51,6 +51,10 @@
 
 <style>
 
+.site-footer .img-selo-seguro-rodape{
+    width: 128px !important;
+}
+
 .site-search-form{
 
     width: 100%;
