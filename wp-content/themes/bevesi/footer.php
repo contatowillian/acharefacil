@@ -51,7 +51,7 @@
 
 jQuery( document ).ready(function( $ ) {
 
-    $("#campo_telefone").mask('(00) 000000009', {clearIfNotMatch: true});
+    $(".campo_telefone").mask('(00) 000000009', {clearIfNotMatch: true});
     $(".campo_escolha_rede_social").css("display", "none");
 
 });
