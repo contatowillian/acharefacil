@@ -49,55 +49,84 @@
 <?php if(is_page('criar-anuncio') or is_page( 'my-account' )){ ?>
 <script>
 
-jQuery( document ).ready(function( $ ) {
+    jQuery( document ).ready(function( $ ) {
 
-    $(".campo_telefone").mask('(00) 000000009', {clearIfNotMatch: true});
-    $(".campo_escolha_rede_social").css("display", "none");
-    $("#afreg_additionalshowhide_3234").css("display", "none");
-    $("#afreg_additionalshowhide_3216").css("display", "none");
-    $("#afreg_additionalshowhide_3217").css("display", "none");
-
-    $('#afreg_additional_3226').val('');
-
-
-    $("#afreg_additional_3232").change(function(){
-        
-        let valor = $(this).val();  
-
+        $(".campo_telefone").mask('(00) 000000009', {clearIfNotMatch: true});
+        $(".campo_escolha_rede_social").css("display", "none");
         $("#afreg_additionalshowhide_3234").css("display", "none");
         $("#afreg_additionalshowhide_3216").css("display", "none");
         $("#afreg_additionalshowhide_3217").css("display", "none");
-        $("#afreg_additional_3234").css("display", "none");
-        $("#afreg_additional_3216").css("display", "none");
-        $("#afreg_additional_3217").css("display", "none");
-            
-        if(valor=='Linkedin'){
-            $("#afreg_additionalshowhide_3234").css("display", "block");
-            $("#afreg_additional_3234").css("display", "block");
-            
-        }
-        if(valor=='Facebook'){
-            $("#afreg_additionalshowhide_3217").css("display", "block");
-            $("#afreg_additional_3217").css("display", "block");
-            
-        }
-        if(valor=='Instagram'){
-            $("#afreg_additional_3216").css("display", "block");
-            $("#afreg_additionalshowhide_3216").css("display", "block");
-        }
 
-    })
+        $('#afreg_additional_3226').val('');
 
-});
+
+        
+        $("#afreg_additional_3224").change(function(){
+
+            let valor = $(this).val();
+
+            $("#reg_username").val(removerCaracteresEspeciais(valor)+generatePassword);
+            
+        })
+
+        $("#afreg_additional_3232").change(function(){
+            
+            let valor = $(this).val();  
+
+            $("#afreg_additionalshowhide_3234").css("display", "none");
+            $("#afreg_additionalshowhide_3216").css("display", "none");
+            $("#afreg_additionalshowhide_3217").css("display", "none");
+            $("#afreg_additional_3234").css("display", "none");
+            $("#afreg_additional_3216").css("display", "none");
+            $("#afreg_additional_3217").css("display", "none");
+                
+            if(valor=='Linkedin'){
+                $("#afreg_additionalshowhide_3234").css("display", "block");
+                $("#afreg_additional_3234").css("display", "block");
+                
+            }
+            if(valor=='Facebook'){
+                $("#afreg_additionalshowhide_3217").css("display", "block");
+                $("#afreg_additional_3217").css("display", "block");
+                
+            }
+            if(valor=='Instagram'){
+                $("#afreg_additional_3216").css("display", "block");
+                $("#afreg_additionalshowhide_3216").css("display", "block");
+            }
+
+        })
+
+    });
+
+
+    function removerCaracteresEspeciais(string) {
+        return string.replace(/[^a-zA-Z0-9]/g, "");
+    }
+
+
+    function generatePassword() {
+        var length = 15,
+            charset = "abcdefghijklmnopqrstuvwxyz0123456789",
+            retVal = "";
+        for (var i = 0, n = charset.length; i < length; ++i) {
+            retVal += charset.charAt(Math.floor(Math.random() * n));
+        }
+        return retVal;
+    }
 </script>
 <?php }?>
 <style>
+
+.woocommerce-form-register p:first{
+   /* display: none !important;*/
+}
 
 input[type=checkbox], .woocommerce-form__input-checkbox{
     background-color: #aaa;
 }
 .header-type4  .site-header-custom-button>a{ 
-min-width: 209px;
+    min-width: 209px;
     border-radius: 15px;
     height: 50px;
     min-width: 210px !important;
