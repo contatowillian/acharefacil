@@ -248,7 +248,10 @@ display: none !important;
 #header-main .style-3{
 display: none !important;
 }
-
+#header-main {
+    padding-bottom: 7px;
+    padding-top: 7px;
+}
 .slick-track{
    margin-left: 3%;
 
