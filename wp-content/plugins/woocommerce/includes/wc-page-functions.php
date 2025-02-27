@@ -64,6 +64,11 @@ function wc_get_page_id( $page ) {
  * @return string
  */
 function wc_get_page_permalink( $page, $fallback = null ) {
+
+	if($page=='myaccount'){
+		return 'https://sorvetedecerveja.com.br/my-account/';
+	}
+
 	$page_id   = wc_get_page_id( $page );
 	$permalink = 0 < $page_id ? get_permalink( $page_id ) : '';
 
