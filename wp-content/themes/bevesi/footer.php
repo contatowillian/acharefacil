@@ -183,13 +183,18 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     color: #000 !important;
 }
 
-
-
-
 .page-id-2916  .mo-openid-app-icons:first-child{
     display: none !important;
 }
 
+
+.page-id-2916 #reg_username{
+    padding:0px !important;
+}
+
+.page-id-10 #reg_username{
+    padding:0px !important;
+}
 
 .page-id-10 .site-login{
     padding:0px !important;
