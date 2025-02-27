@@ -155,8 +155,8 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     font-size: 14px !important;
 }
 
-.page-id-2916 .mo-openid-app-icons:first{
-    display: none !important;
+.site-login .site-login-inner .site-login-overflow .login-form-container > *.login-form .lost-password p .woocommerce-form__label-for-checkbox input:checked + span::before{
+    background-color: gray !important;
 }
 
 .page-id-2916 .site-login{
@@ -184,13 +184,6 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
 }
 
 
-.page-id-2916  .register-form p:first-child{
-    display: none !important; 
-}
-
-.page-id-10  .mo-openid-app-icons:first-child{
-    display: none !important;
-}
 
 
 .page-id-2916  .mo-openid-app-icons:first-child{
