@@ -61,21 +61,27 @@ jQuery( document ).ready(function( $ ) {
 
 
     $("#afreg_additional_3232").change(function(){
-    let valor = $(this).val();  
         
-    if(valor=='Linkedin'){
-        $("#afreg_additionalshowhide_3234").css("display", "block");
-        $("#afreg_additional_3234").css("display", "block");
-    }
-    if(valor=='Facebook'){
-        $("#afreg_additionalshowhide_3217").css("display", "block");
-        $(".afreg_additional_3217").css("display", "none");
-        
-    }
-    if(valor=='Instagram'){
-        $(".afreg_additional_3216").css("display", "none");
-        $("#afreg_additionalshowhide_3216").css("display", "block");
-    }
+        let valor = $(this).val();  
+
+        $("#afreg_additionalshowhide_3234").css("display", "none");
+        $("#afreg_additionalshowhide_3216").css("display", "none");
+        $("#afreg_additionalshowhide_3217").css("display", "none");
+            
+        if(valor=='Linkedin'){
+            $("#afreg_additionalshowhide_3234").css("display", "block");
+            $("#afreg_additional_3234").css("display", "block");
+            
+        }
+        if(valor=='Facebook'){
+            $("#afreg_additionalshowhide_3217").css("display", "block");
+            $("#afreg_additional_3217").css("display", "none");
+            
+        }
+        if(valor=='Instagram'){
+            $("#afreg_additional_3216").css("display", "none");
+            $("#afreg_additionalshowhide_3216").css("display", "block");
+        }
 
     })
 
