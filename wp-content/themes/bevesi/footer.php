@@ -53,9 +53,9 @@ jQuery( document ).ready(function( $ ) {
 
     $(".campo_telefone").mask('(00) 000000009', {clearIfNotMatch: true});
     $(".campo_escolha_rede_social").css("display", "none");
-    $(".afreg_additionalshowhide_3234").css("display", "none");
-    $(".afreg_additionalshowhide_3234").css("display", "none");
-    $(".afreg_additionalshowhide_3217").css("display", "none");
+    $("#afreg_additionalshowhide_3234").css("display", "none");
+    $("#afreg_additionalshowhide_3216").css("display", "none");
+    $("#afreg_additionalshowhide_3217").css("display", "none");
 
     $('#afreg_additional_3226').val('');
 
@@ -64,13 +64,17 @@ jQuery( document ).ready(function( $ ) {
     let valor = $(this).val();  
         
     if(valor=='Linkedin'){
+        $("#afreg_additionalshowhide_3234").css("display", "block");
         $("#afreg_additional_3234").css("display", "block");
     }
     if(valor=='Facebook'){
-        $(".afreg_additional_3217").css("display", "none");;
+        $("#afreg_additionalshowhide_3217").css("display", "block");
+        $(".afreg_additional_3217").css("display", "none");
+        
     }
     if(valor=='Instagram'){
         $(".afreg_additional_3216").css("display", "none");
+        $("#afreg_additionalshowhide_3216").css("display", "block");
     }
 
     })
@@ -81,7 +85,7 @@ jQuery( document ).ready(function( $ ) {
 <style>
 
 input[type=checkbox], .woocommerce-form__input-checkbox{
-    background-color: gray;
+    background-color: #e5e7eb;
 }
 .header-type4  .site-header-custom-button>a{ 
 min-width: 209px;
