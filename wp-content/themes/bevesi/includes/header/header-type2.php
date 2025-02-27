@@ -90,6 +90,19 @@
 					</div><!-- col -->
 				</div><!-- col -->
 				
+
+				<div class="site-header-custom-button">
+					<a href="/criar-anuncio" >
+						<div class="custom-button-icon"></div>
+						<div class="custom-button-label" style='display:none'>
+							<span class="custom-button-name">x<?php echo bevesi_sanitize_data(get_theme_mod('bevesi_header_products_button_title')); ?></span>
+						</div>
+						<div class="custom-button-label criar_anuncio_botao_header">
+						<span class="custom-button-name"><i class="klb-icon-plus"></i>Divulgue seu negócio</span>
+					</div>
+					</a>
+				</div>
+
 				<div class="col display-none display-inline-flex-mobile align-items-center flex-1 flex-initial-laptop justify-content-end">
 					<?php bevesi_wishlist_icon(); ?>         
 					
@@ -107,7 +120,7 @@
         </div><!-- container -->
     </div><!-- site-header-row -->
     
-    <div id="header-bottom" class="site-header-row site-header-bottom header-row-bg-white header-row-text-black border-full display-none display-block-laptop">
+   <?php /* <div id="header-bottom" class="site-header-row site-header-bottom header-row-bg-white header-row-text-black border-full display-none display-block-laptop">
         <div class="container">
 			<div class="site-header-inner">
 				<div class="col display-inline-flex align-items-center justify-start">
@@ -134,5 +147,9 @@
 				</div><!-- col -->
 			</div><!-- site-header-inner -->
         </div><!-- container -->
-    </div><!-- site-header-row -->
+	</div> */ ?>
+	
+	<!-- site-header-row -->
+	
+
 </header><!-- site-heaader --> 

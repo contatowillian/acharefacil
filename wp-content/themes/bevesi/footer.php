@@ -36,9 +36,11 @@
     </body>
     
     <div id="container">
-    <div class="corpo">
-        <div class="painelvermelho"></div>
-    </div>
+        <a href="https://w.app/uncgvy" target="_blank">
+            <div class="corpo">
+                <div class="painelvermelho"></div>
+            </div>
+        </a>
     </div>
 
 </html>
@@ -48,6 +50,11 @@
 
 
 <style>
+
+.site-search-form{
+
+    width: 100%;
+}
 
   #afreg_additionalshowhide_3226  .afreg_field_message{
  
