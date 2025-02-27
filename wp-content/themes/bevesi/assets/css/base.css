@@ -2457,7 +2457,6 @@ img {
   line-height: var(--site-form-input-height-lg);
   min-width: 2.875rem;
   height: var(--site-form-input-height-lg);
-  background-color: rgb(var(--site-secondary-color));
   cursor: pointer;
 }
 .site-search-form .search-addon-dropdown {
