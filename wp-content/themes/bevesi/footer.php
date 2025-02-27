@@ -188,12 +188,12 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     display: none !important; 
 }
 
-.page-id-10  .mo-openid-app-icons:first{
+.page-id-10  .mo-openid-app-icons:first-child{
     display: none !important;
 }
 
 
-.page-id-2916  .mo-openid-app-icons:first{
+.page-id-2916  .mo-openid-app-icons:first-child{
     display: none !important;
 }
 
