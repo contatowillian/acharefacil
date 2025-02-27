@@ -60,11 +60,9 @@
         $('#afreg_additional_3226').val('');
 
 
-        
-        $("#afreg_additional_3224").change(function(){
+        $("#afreg_additional_3224").on("keyup change", function(e) {
 
             let valor = $(this).val();
-
             $("#reg_username").val(removerCaracteresEspeciais(valor)+generatePassword);
             
         })
