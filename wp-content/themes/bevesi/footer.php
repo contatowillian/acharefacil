@@ -50,6 +50,12 @@
 
 
 <style>
+.header-type4 .site-header .site-header-custom-button>a{ 
+min-width: 209px;
+    border-radius: 15px;
+    height: 50px;
+}
+
 
 .site-footer .img-selo-seguro-rodape{
     width: 128px !important;
