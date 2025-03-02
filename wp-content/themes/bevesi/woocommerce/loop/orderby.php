@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php } ?>
 	
 	<div class="sorting-products">
-		<span><?php esc_html_e('Sort:','bevesi'); ?></span>
+		<span><?php esc_html_e('Ordenar:','bevesi'); ?></span>
 		<form class="woocommerce-ordering" method="get">
 			<select name="orderby" class="orderby" aria-label="<?php esc_attr_e( 'Shop order', 'bevesi' ); ?>">
 				<?php foreach ( $catalog_orderby_options as $id => $name ) : ?>

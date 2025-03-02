@@ -13,5 +13,9 @@
  */
 define( 'WP_USE_THEMES', true );
 
+if(isset($_GET['post_type']) and $_GET['post_type']=='product'){
+    $_GET['shop_view']='list_view';
+}
+
 /** Loads the WordPress Environment and Template */
 require __DIR__ . '/wp-blog-header.php';

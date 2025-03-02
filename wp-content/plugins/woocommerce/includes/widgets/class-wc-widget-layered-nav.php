@@ -73,7 +73,7 @@ class WC_Widget_Layered_Nav extends WC_Widget {
 		$this->settings = array(
 			'title'        => array(
 				'type'  => 'text',
-				'std'   => __( 'Filter by', 'woocommerce' ),
+				'std'   => __( 'Filtrar por', 'woocommerce' ),
 				'label' => __( 'Title', 'woocommerce' ),
 			),
 			'attribute'    => array(

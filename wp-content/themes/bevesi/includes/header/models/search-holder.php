@@ -15,7 +15,7 @@ if ( ! function_exists( 'bevesi_search_holder' ) ) {
 							<input type="search" class="form-control search-input size-lg" name="s" value="<?php echo get_search_query(); ?>"  placeholder="<?php esc_attr_e('Search everything at bevesi online and in store...', 'bevesi'); ?>" autocomplete="off">
 							<button type="submit" class="btn unset search-button color-black"><i class="klb-icon-search"></i></button>
 							<input type="hidden" name="post_type" value="product" />
-							
+							<input type="hidden" name="shop_view" value="list_view" />
 							<div class="site-search-form-result">
 								<?php if(function_exists('bevesi_get_most_popular_keywords') && bevesi_get_most_popular_keywords()){ ?>
 									<?php $total_products = wp_count_posts( 'product' ); ?>

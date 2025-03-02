@@ -43,7 +43,7 @@ function bevesi_catalog_ordering_start(){
 					<?php $defaultperpage = wc_get_default_products_per_row() * wc_get_default_product_rows_per_page(); ?>
 					<?php $options = array($defaultperpage,$defaultperpage*2,$defaultperpage*3,$defaultperpage*4); ?>
 					<div class="sorting-per-page">
-					  <span><?php esc_html_e('Show:','bevesi-core'); ?></span>
+					  <span><?php esc_html_e('Mostrar:','bevesi-core'); ?></span>
 					  <form class="woocommerce-ordering product-filter products-per-page" method="get">
 						<?php if (bevesi_get_body_class('bevesi-ajax-shop-on')) { ?>
 							<select name="perpage" class="perpage orderby filterSelect " data-class="select-filter-perpage">

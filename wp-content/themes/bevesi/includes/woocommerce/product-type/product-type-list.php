@@ -75,13 +75,15 @@ function bevesi_product_type_list($stockprogressbar = '', $stockstatus = '', $sh
 		$output .= '<div class="product-content-wrapper">';
 		$output .= '<div class="product-content-body">';
 		$output .= '<div class="product-content-row">';
+		$output .= '<div class="col-lg-9 linha_desc_anuncio_texto"> <!-- product-content-row col-lg-9 -->';
 		$output .= '<div class="product-price-wrapper">';
 		$output .= '<span class="price">';
 		$output .= $price;
 		$output .= '</span> ';               
 		$output .= bevesi_sale_percentage();
 		$output .= '</div><!-- product-price-wrapper -->';
-		$output .= '<h2 class="product-title"><a href="'.get_permalink().'"><span>x'.get_the_title().'</span></a></h2>';
+		$output .= '<div class="titulo_produto_busca"><h2 class="product-title"><a href="'.get_permalink().'"><span>'.get_the_title().'</span></a></h2></div>
+					<div class="limpa_linha"></div>';
 		
 		if($ratingcount){
 			$output .= '<div class="product-rating yellow">';
@@ -92,8 +94,32 @@ function bevesi_product_type_list($stockprogressbar = '', $stockstatus = '', $sh
 			$output .= '</div><!-- product-rating -->';  
 		} 
 
-		
+		if($short_desc){
+			$output .= '<div class="entry-description">';
+			$output .= $short_desc;
+			$output .= '</div><!-- product-details -->';
+		}
+
+		$output .= '<div class="info_extra_anunciante_busca">';
+		$output .= '<div class="site_lista_busca"><i class="klb-icon-www"></i>www.jaraguaveiculos.com.br</div>';
+		$output .= '<div class="instagram_lista_busca"><img class="icones_rede_social_lista_busca"  src="wp-content/themes/bevesi/assets/img/barra_icones.png"></div>';
+		$output .= '</div>';
+
+		$output .= '</div><!-- product-content-row col-lg-9 -->';
+		$output .= '<div class="col-lg-3 coluna_info_anunciante_busca"> <!-- product-content-row col-lg-3 -->';
+		$output .= '<div class="linha_top_info_lista_imoveis"></div>';
+		$output .= '<div class="info-section info-secondary">
+					<div class="phones phone primary"><strong>Informações:</strong></div>
+					<div class="phones phone primary"><i class="klb-icon-phone"></i>(11) 99738-2911</div>
+						<div class="adr">
+						<div class="street-address"><i class="klb-icon-home"></i>Av. Paulista, 80</div>
+						<div class="locality"><i class="klb-icon-map"></i>São Paulo,SP</div>
+						</div>
+					</div>';
+
+		$output .= '</div><!-- product-content-row  col-lg-3-->';
 		$output .= '</div><!-- product-content-row -->';
+
 		$output .= '<div class="product-content-row">';
 		
 		ob_start();
@@ -104,11 +130,7 @@ function bevesi_product_type_list($stockprogressbar = '', $stockstatus = '', $sh
 		$output .= '</div><!-- product-content-body -->';
 		$output .= '<div class="product-content-footer">';
 		$output .= '<div class="product-extra-content">';
-		if($short_desc){
-			$output .= '<div class="entry-description">';
-			$output .= $short_desc;
-			$output .= '</div><!-- product-details -->';
-		}
+		
 		
 		$output .= '</div><!-- product-extra-content -->';
 		$output .= bevesi_loop_add_to_cart($id, 'product_type2');

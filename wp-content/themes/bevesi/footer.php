@@ -116,6 +116,68 @@
 <?php }?>
 <style>
 
+    .linha_top_info_lista_imoveis{
+        height: 15px;
+    }
+    .product .product-content-wrapper{
+        gap: 0rem;
+    }
+.icones_rede_social_lista_busca{
+    width:200px;
+    padding-top: 5px;
+}
+
+.info_extra_anunciante_busca{
+  
+    font-size: 0.8125rem;
+    color: var(--color-slate-600);
+}
+.products:not(.slick-slider).product-listing-style .product-inner .product-content-wrapper .entry-description{
+    padding-right: 17px;
+ 
+}
+
+.products:not(.slick-slider).product-listing-style .product-inner .product-content-wrapper .product-title{
+    font-size: 1.1rem !important;
+}
+
+.linha_desc_anuncio_texto{
+    vertical-align: top;
+}
+.coluna_info_anunciante_busca{
+    
+    font-size: 0.8125rem;
+    color: var(--color-slate-600);
+}
+.coluna_info_anunciante_busca strong{
+    color: var(--color-black);
+}
+.product .product-content-wrapper .product-content-body > *{
+    display: ruby !important;
+}
+.products:not(.slick-slider).product-listing-style .product-inner .product-content-wrapper{
+    flex-direction: column !important;
+}
+.limpa_linha{
+    width:100%;
+    clear:both;
+}
+
+.titulo_produto_busca{
+    width:100%;
+}
+
+<?php if(isset($_GET['post_type']) and $_GET['post_type']=='product'){ ?>
+.template-2403{
+    display: none !important;
+}
+<?php } ?>
+
+.before-shop-loop .product-views-buttons {
+    display: none !important;
+
+}
+
 .woocommerce-form-register p:first{
     display: none !important;
 }
@@ -414,8 +476,10 @@ display: none !important;
 }
 
 .products .product-title {
-   min-height: 90px !important;
+   min-height: 20px !important;
    font-size: 13px !important;
+   min-width: 400px;
+   white-space: nowrap;
 }
 
 .price{
