@@ -511,6 +511,8 @@ function bevesi_shop_box () {
 	$shippingclass = get_theme_mod('bevesi_product_box_shipping_class') == 1 ? 'true' : '';
 	$countdown = get_theme_mod('bevesi_product_box_countdown') == 1 ? 'true' : '';
 
+	echo bevesi_product_type_list();
+	/*
 	if(bevesi_shop_view() == 'list_view' || $postview == 'list_view') {
 		echo bevesi_product_type_list();
 	} else if(get_theme_mod('bevesi_product_box_type') == 'type6'){
@@ -525,7 +527,7 @@ function bevesi_shop_box () {
 		echo bevesi_product_type2($stockprogressbar, $stockstatus, $shippingclass, $countdown);
 	} else {
 		echo bevesi_product_type1($stockprogressbar, $stockstatus, $shippingclass, $countdown);
-	}
+	}*/
 }
 
 /*************************************************

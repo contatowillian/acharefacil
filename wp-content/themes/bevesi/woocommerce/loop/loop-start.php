@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<?php if(bevesi_shop_view() == 'list_view') { ?>
+<?php if(bevesi_shop_view() == 'list_view' or bevesi_shop_view() == 'grid_view') { ?>
 	<div class="shop-products-wrapper">
         <div class="products product-listing-style">
 <?php } else { ?>
