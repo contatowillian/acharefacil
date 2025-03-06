@@ -381,7 +381,6 @@ $reorder_single = get_theme_mod( 'bevesi_shop_single_reorder',
 		'woocommerce_template_single_add_to_cart', 
 		'woocommerce_template_single_meta', 
 		'bevesi_single_product_checklist', 
-		'bevesi_social_share', 
 		
 	) 
 );
@@ -395,7 +394,6 @@ if($reorder_single){
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 	remove_action( 'woocommerce_single_product_summary', 'bevesi_single_product_checklist', 45 );
-	remove_action( 'woocommerce_single_product_summary', 'bevesi_social_share', 70);
 	
 	$count = 7;
 	

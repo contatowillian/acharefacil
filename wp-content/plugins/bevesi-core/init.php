@@ -68,7 +68,7 @@ function bevesi_social_share(){
 		$single_share_multicheck = get_theme_mod('bevesi_shop_single_share',array( 'facebook', 'twitter', 'pinterest', 'linkedin', 'whatsapp'));
 		
 		echo'<div class="product-share social-container">';
-		echo'<span>'.esc_html__('Share this product:', 'bevesi-core').'</span>';
+		echo'<span>'.esc_html__('Redes Sociais:', 'bevesi-core').'</span>';
 		echo'<div class="site-social">';
 			echo'<ul class="color-social">';
 				if(in_array('facebook', $single_share_multicheck)){

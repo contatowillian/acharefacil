@@ -15,7 +15,7 @@
 			<h2 class="wp-block-heading" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)">
 				<?php
 					echo esc_html__(
-						'Related products',
+						'Anúncios Semelhantes',
 						'woocommerce'
 					)
 					?>

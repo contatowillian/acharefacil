@@ -56,7 +56,7 @@ $thumb_type = get_theme_mod( 'bevesi_single_gallery_type' ) == 'vertical' ? 'ver
 				?>
 		</div>
 		
-		<div class="column single-product-detail">			
+		<div class="column single-product-detail segunda_coluna_detalhes_anuncio">			
 			<div class="product-detail-inner">			
 				<?php
 				/**
@@ -75,6 +75,26 @@ $thumb_type = get_theme_mod( 'bevesi_single_gallery_type' ) == 'vertical' ? 'ver
 				?>
 			</div>
 		</div>
+
+		<div class="column single-product-detail">			
+			<div class="product-detail-inner">
+			<div class="product-category"><a href="http://acharefacil.test/product-category/auto-escola/" rel="tag">Informações</a><a href="http://acharefacil.test/product-category/automotivo/" rel="tag">Automotivo</a><a href="http://acharefacil.test/product-category/toys-video-games/" rel="tag">Brinquedos</a><a href="http://acharefacil.test/product-category/cosmeticos/" rel="tag">Cosmeticos</a><a href="http://acharefacil.test/product-category/eletronicos/" rel="tag">Eletrônicos</a><a href="http://acharefacil.test/product-category/imobiliarias/" rel="tag">Imobiliarias</a><a href="http://acharefacil.test/product-category/lavanderias/" rel="tag">Lavanderias</a><a href="http://acharefacil.test/product-category/moda-accessorios/" rel="tag">Moda &amp; Acessorios</a><a href="http://acharefacil.test/product-category/sorveterias/" rel="tag">Sorveterias</a></div>
+			<h1 class="product_title entry-title telefone_detalhe_anuncio"><i class="klb-icon-phone"></i>(11)9878-52654</h1>
+			<div class="product-meta">
+			</div>
+			<div class="woocommerce-product-details__short-description">
+				<p><i class="klb-icon-home"></i>Av. Paulista, 80 - São Paulo,SP</p>
+			</div>
+			
+			<div class="woocommerce-product-details__short-description">
+				<p><i class="klb-icon-www"></i>www.textexpto.com.br</p>
+			</div>
+			<?php bevesi_social_share();?>
+		
+			<!-- product-share -->			
+			</div>
+		</div>
+	
 		
 		<?php do_action('bevesi_single_side_inner'); ?>
 	</div>	
@@ -90,6 +110,7 @@ $thumb_type = get_theme_mod( 'bevesi_single_gallery_type' ) == 'vertical' ? 'ver
 		do_action( 'woocommerce_after_single_product_summary' );
 		?>
 	</div>
+
 	
 </div>
 

@@ -1,3 +1,4 @@
+/*
 jQuery(document).ready(function($) {
 	"use strict";
 	
@@ -37,7 +38,6 @@ jQuery(document).ready(function($) {
 				
 			};
 
-			// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
 			$.post(bevesisearch.ajaxurl, data, function(response) {
 
 				$(".klb-search-results").remove();
@@ -74,4 +74,4 @@ jQuery(document).ready(function($) {
 	});
 	
 
-});
+});*/

@@ -2700,7 +2700,6 @@ function bevesi_customizer_add_field ( $args ) {
 					'woocommerce_template_single_add_to_cart',
 					'woocommerce_template_single_meta',
 					'bevesi_single_product_checklist',
-					'bevesi_social_share',
 				],
 				'choices'     => [
 					'bevesi_single_product_brand' 				=> esc_html__( 'Category', 		'bevesi-core' ),
@@ -2711,7 +2710,6 @@ function bevesi_customizer_add_field ( $args ) {
 					'woocommerce_template_single_add_to_cart' 	=> esc_html__( 'Add to Cart', 	'bevesi-core' ),
 					'woocommerce_template_single_meta'			=> esc_html__( 'Meta', 			'bevesi-core' ),
 					'bevesi_single_product_checklist' 			=> esc_html__( 'Checklist', 	'bevesi-core' ),
-					'bevesi_social_share'					    => esc_html__( 'Share', 		'bevesi-core' ),
 					'bevesi_product_stock_progress_bar' 		=> esc_html__( 'Progress Bar', 	'bevesi-core' ),
 					'bevesi_product_time_countdown'			    => esc_html__( 'Time Countdown', 'bevesi-core' ),
 					
@@ -4151,7 +4149,7 @@ function bevesi_customizer_add_field ( $args ) {
 				'label' => esc_attr__( 'Copyright Second Text', 'bevesi-core' ),
 				'description' => esc_attr__( 'You can set a copyright text for the footer.', 'bevesi-core' ),
 				'section' => 'bevesi_footer_general_section',
-				'default' => 'These contacts are, among other things, contacts for communication regarding the appeal of buyers about a violation of their rights. Persons authorized to consider buyers ’appeals about violation of their rights - KLBThemes. Phone number of employees of local executive and administrative bodies at the place of state registration of LLC « Triovist » authorized to consider customer requests: + 375 17 374 01 46.',
+				'default' => 'These contacts are, among other things, contacts for communication regarding the appeal of buyers about a violation of their rights. Persons authorized to consider buyers ï¿½appeals about violation of their rights - KLBThemes. Phone number of employees of local executive and administrative bodies at the place of state registration of LLC ï¿½ Triovist ï¿½ authorized to consider customer requests:ï¿½+ 375 17 374 01 46.',
 				'active_callback' => [
 					[
 					  'setting'  => 'bevesi_footer_type',

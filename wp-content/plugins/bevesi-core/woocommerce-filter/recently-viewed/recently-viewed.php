@@ -80,7 +80,7 @@ function bevesi_recently_viewed_product_loop(){
 		echo '<div class="site-module klb-module module-recently-products mt-20">';
 		echo '<div class="klb-module-header d-flex align-items-center flex-wrap mb-30 gap-2 gap-md-4">';
 		echo '<div class="column">';
-		echo '<h3 class="entry-title">'.esc_html__('Recently viewed','bevesi-core').'</h3>';
+		echo '<h3 class="entry-title">'.esc_html__('Vistos Recentemente','bevesi-core').'</h3>';
 		echo '</div><!-- column -->';
              
 		echo '</div><!-- site-module-header -->';
@@ -127,7 +127,7 @@ function bevesi_recently_viewed_product_loop_product_info(){
 	$loop = new WP_Query( $args );
 
 
-	echo '<h4 class="entry-title">'.esc_html__('Recently Viewed', 'bevesi-core').'</h4>';
+	echo '<h4 class="entry-title">'.esc_html__('Vistos Recentemente', 'bevesi-core').'</h4>';
 	echo '<ul class="products list-style sm-list">';
 	
 	if ( $loop->have_posts() ) {

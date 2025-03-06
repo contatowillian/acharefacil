@@ -24,7 +24,7 @@ if ( $related_products ) : ?>
 	<section class="site-module klb-module related" id="related-products">
 
 		<?php
-		$heading = apply_filters( 'woocommerce_product_related_products_heading', esc_html__( 'Related products', 'bevesi' ) );
+		$heading = apply_filters( 'woocommerce_product_related_products_heading', esc_html__( 'Anúncios Semelhantes', 'bevesi' ) );
 
 		if ( $heading ) :
 			?>

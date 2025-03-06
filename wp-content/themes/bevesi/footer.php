@@ -116,12 +116,49 @@
 <?php }?>
 <style>
 
-    .linha_top_info_lista_imoveis{
-        height: 15px;
+@media screen and (min-width: 1024.1px) {
+    .single-product-wrapper .column {
+        width: 30%;
     }
-    .product .product-content-wrapper{
-        gap: 0rem;
-    }
+}
+.postid-2887 .telefone_detalhe_anuncio{
+    font-size: 22px !important; 
+}
+.postid-288 .products .product{
+    width: 27%;
+}
+
+.segunda_coluna_detalhes_anuncio .social-container{
+    display: none !important;
+}
+
+
+
+.postid-2887 .product-grid-style.grid-column-6{
+    width: 20% !important;
+}
+
+.postid-2887 .product-iconbox{
+    display: none !important;
+}
+
+.postid-2887 .wc-tabs-wrapper{
+    display: none !important;
+}
+.postid-2887 .product-price-wrapper{
+    display: none !important;
+}
+
+.postid-2887 .single-product-buttons{
+    display: none !important; 
+}
+
+.linha_top_info_lista_imoveis{
+    height: 25px;
+}
+.product .product-content-wrapper{
+    gap: 0rem;
+}
 .icones_rede_social_lista_busca{
     width:200px;
     padding-top: 5px;
