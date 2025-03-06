@@ -121,13 +121,13 @@
         width: 30%;
     }
 }
-.postid-2887 #related-products .product{
+.product-template-default #related-products .product{
     width: 67% !important; 
 }
-.postid-2887 .telefone_detalhe_anuncio{
+.product-template-default .telefone_detalhe_anuncio{
     font-size: 22px !important; 
 }
-.postid-288 .products .product{
+.product-template-default .products .product{
     width: 27%;
 }
 
@@ -135,24 +135,26 @@
     display: none !important;
 }
 
+.product-template-default .single-ajax{
+    display: none !important;
+}
 
-
-.postid-2887 .product-grid-style.grid-column-6{
+.product-template-default .product-grid-style.grid-column-6{
     width: 20% !important;
 }
 
-.postid-2887 .product-iconbox{
+.product-template-default .product-iconbox{
     display: none !important;
 }
 
-.postid-2887 .wc-tabs-wrapper{
+.product-template-default .wc-tabs-wrapper{
     display: none !important;
 }
-.postid-2887 .product-price-wrapper{
+.product-template-default .product-price-wrapper{
     display: none !important;
 }
 
-.postid-2887 .single-product-buttons{
+.product-template-default .single-product-buttons{
     display: none !important; 
 }
 
