@@ -121,6 +121,9 @@
         width: 30%;
     }
 }
+.postid-2887 #related-products .product{
+    width: 67% !important; 
+}
 .postid-2887 .telefone_detalhe_anuncio{
     font-size: 22px !important; 
 }
