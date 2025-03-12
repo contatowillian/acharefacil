@@ -31,10 +31,10 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 		<div class="site-login-inner">
 			<div class="site-login-overflow">
 				<ul class="login-page-tab">
-					<li><a href="#" class="active"><?php esc_html_e( 'Login', 'bevesi' ); ?></a></li>
+					<li id='login_li_item'><a href="#" class="active"><?php esc_html_e( 'Login', 'bevesi' ); ?></a></li>
 					
 					<?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) { ?>
-						<li><a href="#"><?php esc_html_e( 'Criar Conta', 'bevesi' ); ?></a></li>
+						<li  id='criar_conta_li_item'><a href="#"><?php esc_html_e( 'Criar Conta', 'bevesi' ); ?></a></li>
 					<?php } ?>
 				</ul>
 				<div id="customer_login" class="login-form-container">

@@ -291,9 +291,18 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     display: none !important;
 }
 
-
-
 .page-id-2916 .class_reg_username{
+    display: none !important;
+}
+
+
+.page-id-2916 .login-page-tab:first-child{
+    display: none !important;
+}
+.page-id-2916 .login-form{
+    display: none !important;
+}
+.page-id-2916 .login-form{
     display: none !important;
 }
 
@@ -317,7 +326,9 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     line-height: 18px !important;
 }
 
-
+.page-id-10 #criar_conta_li_item{
+    display: none !important;
+}
 
 .page-id-10  .vendor-customer-registration{
  display: none !important;
