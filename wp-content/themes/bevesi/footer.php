@@ -313,6 +313,10 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     opacity: 1 !important;
 }
 
+.page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container > * button{
+    display: none !important; 
+}
+
 .page-id-2916 #reg_username{
     display: none !important;
 }
