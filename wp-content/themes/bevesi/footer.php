@@ -318,7 +318,7 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
 }
 
 
-.page-id-2916 .afreg_additionalshowhide_3218{
+.page-id-2916 #afreg_additionalshowhide_3218{
     display: none !important;  
 }
 
