@@ -302,8 +302,8 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
 .page-id-2916 .login-form{
     display: none !important;
 }
-.page-id-2916 .login-form{
-    display: none !important;
+.page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container > *.register-form{
+    opacity: 1 !important;
 }
 
 .page-id-2916 #reg_username{
