@@ -295,6 +295,13 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     display: none !important;
 }
 
+.page-id-2916 .cadastro-etapa-3{
+    display: none !important;
+}
+
+.page-id-2916 .cadastro-etapa-2{
+    display: none !important;
+}
 
 .page-id-2916 .login-page-tab:first-child{
     display: none !important;
