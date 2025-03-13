@@ -216,6 +216,13 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 												console.log('mostra_etapa'+i)
 												divsToShow[i].innerHTML= "Parabéns, você agora faz parte do time Achar é Fácil !"; // depending on what you're doing
 											}
+											var divsToShow = document.getElementsByClassName("site-page-header-inner entry-description p"); //divsToHide is an array
+											for(var i = 0; i < divsToShow.length; i++){
+												console.log('mostra_etapa'+i)
+												divsToShow[i].innerHTML= "Você pode incrementar o anúncio com informações importantes, isso ajudará no desempenho do seu anúncio.<br> Você também pode destacar seu Negócio assinado um de nossos planos "; // depending on what you're doing
+											}
+
+											
 
 											
 										}
