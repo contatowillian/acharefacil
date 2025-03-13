@@ -140,14 +140,12 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 										if(etapa_atual=='1'){
 											var divsToHide = document.getElementsByClassName("cadastro-etapa-1"); //divsToHide is an array
 											for(var i = 0; i < divsToHide.length; i++){
-												divsToHide[i].style.visibility = "hidden"; // or
 												divsToHide[i].style.display = "none"; // depending on what you're doing
 											}
 
 											var divsToShow = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
-											for(var i = 0; i < divsToHide.length; i++){
-												divsToHide[i].style.visibility = "block"; // or
-												divsToHide[i].style.display = "block"; // depending on what you're doing
+											for(var i = 0; i < divsToShow.length; i++){
+												divsToShow[i].style.display = "block !important"; // depending on what you're doing
 											}
 										}
 
