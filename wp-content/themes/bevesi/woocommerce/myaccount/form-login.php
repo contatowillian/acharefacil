@@ -69,7 +69,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 							
 							<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
 							<button type="submit" class="woocommerce-button button woocommerce-form-login__submit<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="login" value="<?php esc_attr_e( 'Acessar', 'bevesi' ); ?>"><?php esc_html_e( 'Log in', 'bevesi' ); ?></button>
-							
+						
 
 							<?php do_action( 'woocommerce_login_form_end' ); ?>
 
@@ -115,8 +115,45 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 									<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
 									<button type="submit" class="woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> woocommerce-form-register__submit" name="register" value="<?php esc_attr_e( 'Register', 'bevesi' ); ?>"><?php esc_html_e( 'Cadastrar', 'bevesi' ); ?></button>
 								</p>
+								<p class="woocommerce-form-row form-row">
+								
+								<button type="button" onclick="proxima_anterior_cadastro()"  class="col-lg-6 form_cadastro_anterior woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> "
+								name="form_cadastro_anterior"  id="form_cadastro_anterior" value="<?php esc_attr_e( 'Register', 'bevesi' ); ?>">
+								Anterior
+								</button>
 
+								<input type='hidden'  id="controle_etapa_cadastro" name="controle_etapa_cadastro" value ='1'>
+
+								<button type="button" onclick="proxima_etapa_cadastro()" class="col-lg-6  form_cadastro_proximo woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"
+								name="form_cadastro_proximo"  id="form_cadastro_proximo" value="<?php esc_attr_e( 'Register', 'bevesi' ); ?>">
+								Próximo
+								</button>
+								</p>
 								<?php do_action( 'woocommerce_register_form_end' ); ?>
+
+								<script>
+
+									function proxima_etapa_cadastro(){
+
+										var etapa_atual = document.getElementById("controle_etapa_cadastro").value;
+
+										if(etapa_atual=='1'){
+											var divsToHide = document.getElementsByClassName("cadastro-etapa-1"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.visibility = "hidden"; // or
+												divsToHide[i].style.display = "none"; // depending on what you're doing
+											}
+
+											var divsToShow = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.visibility = "block"; // or
+												divsToHide[i].style.display = "block"; // depending on what you're doing
+											}
+										}
+
+									}
+								</script>
+
 
 							</form>
 						</div>
@@ -225,3 +262,8 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 <?php } ?>
 
 <?php do_action( 'woocommerce_after_customer_login_form' ); ?>
+<p class="woocommerce-form-row form-row">
+
+
+
+</p>

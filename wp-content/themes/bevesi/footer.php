@@ -291,6 +291,27 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     display: none !important;
 }
 
+.page-id-2916  .site-page-header.style-1 {
+    margin-top: 0rem !important;
+    margin-bottom:0rem !important;
+}
+
+html .page-id-2916 .form_cadastro_proximo{ 
+    width:47% !important;
+    float:left !important;
+  
+    margin-left: 3%;
+}
+html .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container .form_cadastro_proximo{
+    background-color: #444 !important;
+    color:white !important;
+}
+
+.page-id-2916 .form_cadastro_anterior{
+    width:47% !important;
+    float:left !important;
+}
+
 .page-id-2916 .class_reg_username{
     display: none !important;
 }
@@ -313,7 +334,7 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     opacity: 1 !important;
 }
 
-.page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container > * button{
+.page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container .woocommerce-form-register__submit{
     display: none !important; 
 }
 .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container{
