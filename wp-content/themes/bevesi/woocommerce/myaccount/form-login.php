@@ -136,10 +136,11 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 								<script>
 
 
-										document.getElementById("form_cadastro_anterior").style.display = 'none';
 
 
-										document.onreadystatechange = function(){
+										window.onload = function() {
+											document.getElementById("form_cadastro_anterior").style.display = 'none';
+
 											var divsToHide = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
 											for(var i = 0; i < divsToHide.length; i++){
 												divsToHide[i].style.display = "none"; // depending on what you're doing
@@ -158,7 +159,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 											}
 
 											
-										})
+									}
 
 									function proxima_etapa_cadastro(){
 
