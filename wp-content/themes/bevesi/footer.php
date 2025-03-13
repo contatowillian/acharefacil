@@ -331,9 +331,10 @@ html .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-for
 }
 
 .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container .woocommerce-form-register__submit{
-    width:47% !important;
-    float:left !important;
+    width: 47% !important;
+    float: right !important;
     margin-left: 3%;
+    background-color: #83df83 !important;
 }
 .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container{
     width:100% !important; 

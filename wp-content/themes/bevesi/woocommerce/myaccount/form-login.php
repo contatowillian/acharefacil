@@ -176,14 +176,19 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 												console.log('mostra_etapa'+i)
 												divsToShow[i].style.display = "inherit"; // depending on what you're doing
 											}
-											document.getElementById("form_cadastro_proximo").style.display = 'block';
+								
 											document.getElementById("form_cadastro_anterior").style.display = 'block';
 											document.getElementById("controle_etapa_cadastro").value = 2;
 
-											var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
+											/*var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
 											for(var i = 0; i < divsToHide.length; i++){
-												divsToHide[i].style.display = "none"; // depending on what you're doing
-											}
+												divsToHide[i].style.display = "inherit"; // depending on what you're doing
+											}*/
+
+
+											document.getElementById("form_cadastro_proximo").innerHTML = 'Cadastrar';
+											document.getElementById("form_cadastro_proximo").style.backgroundColor = "rgb(131, 223, 131) !important";
+											
 										}
 
 										if(etapa_atual=='2'){
@@ -215,6 +220,8 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 										var etapa_atual = document.getElementById("controle_etapa_cadastro").value;
 
 										if(etapa_atual=='2'){
+
+											document.getElementById("form_cadastro_proximo").innerHTML = 'Próximo';
 											var divsToHide = document.getElementsByClassName("cadastro-etapa-1"); //divsToHide is an array
 											for(var i = 0; i < divsToHide.length; i++){
 												divsToHide[i].style.display = "inherit"; // depending on what you're doing
