@@ -174,7 +174,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 											var divsToShow = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
 											for(var i = 0; i < divsToShow.length; i++){
 												console.log('mostra_etapa'+i)
-												divsToShow[i].style.display = "block"; // depending on what you're doing
+												divsToShow[i].style.display = "inherit"; // depending on what you're doing
 											}
 											document.getElementById("form_cadastro_proximo").style.display = 'block';
 											document.getElementById("form_cadastro_anterior").style.display = 'block';
@@ -195,7 +195,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 											var divsToShow = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
 											for(var i = 0; i < divsToShow.length; i++){
 												console.log('mostra_etapa'+i)
-												divsToShow[i].style.display = "block"; // depending on what you're doing
+												divsToShow[i].style.display = "inherit"; // depending on what you're doing
 											}
 
 											document.getElementById("form_cadastro_proximo").style.display = 'none';
@@ -204,7 +204,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 											var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
 											for(var i = 0; i < divsToHide.length; i++){
-												divsToHide[i].style.display = "block"; // depending on what you're doing
+												divsToHide[i].style.display = "inherit"; // depending on what you're doing
 											}
 										}
 
@@ -217,7 +217,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 										if(etapa_atual=='2'){
 											var divsToHide = document.getElementsByClassName("cadastro-etapa-1"); //divsToHide is an array
 											for(var i = 0; i < divsToHide.length; i++){
-												divsToHide[i].style.display = "block"; // depending on what you're doing
+												divsToHide[i].style.display = "inherit"; // depending on what you're doing
 											}
 
 											var divsToShow = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
@@ -238,7 +238,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 										if(etapa_atual=='3'){
 											var divsToHide = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
 											for(var i = 0; i < divsToHide.length; i++){
-												divsToHide[i].style.display = "block"; // depending on what you're doing
+												divsToHide[i].style.display = "inherit"; // depending on what you're doing
 											}
 
 											var divsToShow = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
