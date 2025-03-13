@@ -203,14 +203,21 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 												divsToShow[i].style.display = "inherit"; // depending on what you're doing
 											}
 
-											document.getElementById("form_cadastro_proximo").style.display = 'none';
-											document.getElementById("form_cadastro_anterior").style.display = 'block';
+											document.getElementById("form_cadastro_proximo").style.display = 'block';
+											document.getElementById("form_cadastro_anterior").style.display = 'none';
 											document.getElementById("controle_etapa_cadastro").value = 3;
 
-											var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
-											for(var i = 0; i < divsToHide.length; i++){
-												divsToHide[i].style.display = "inherit"; // depending on what you're doing
+											document.getElementById("form_cadastro_proximo").innerHTML = 'Atualizar';
+
+											window.scrollTo({ top: 0, behavior: 'smooth' });
+
+											var divsToShow = document.getElementsByClassName("page-title"); //divsToHide is an array
+											for(var i = 0; i < divsToShow.length; i++){
+												console.log('mostra_etapa'+i)
+												divsToShow[i].innerHTML= "Parabéns, você agora faz parte do time Achar é Fácil !"; // depending on what you're doing
 											}
+
+											
 										}
 
 								
