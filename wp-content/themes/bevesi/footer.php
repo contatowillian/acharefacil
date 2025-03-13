@@ -316,7 +316,9 @@ html .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-for
     display: none !important;
 }
 
-
+.page-id-2916 #afreg_additionalshowhide_3212{
+    margin-top: 150px;
+}
 
 .page-id-2916 .login-page-tab:first-child{
     display: none !important;
