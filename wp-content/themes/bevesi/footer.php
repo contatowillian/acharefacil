@@ -316,13 +316,7 @@ html .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-for
     display: none !important;
 }
 
-.page-id-2916 .cadastro-etapa-3{
-    display: none !important;
-}
 
-.page-id-2916 .cadastro-etapa-2{
-    display: none !important;
-}
 
 .page-id-2916 .login-page-tab:first-child{
     display: none !important;
@@ -335,7 +329,9 @@ html .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-for
 }
 
 .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container .woocommerce-form-register__submit{
-    display: none !important; 
+    width:47% !important;
+    float:left !important;
+    margin-left: 3%;
 }
 .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container{
     width:100% !important; 

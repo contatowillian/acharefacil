@@ -85,22 +85,22 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 								<?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
 
 									<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-										<label class='class_reg_username' for="reg_username"><?php esc_html_e( 'Nome do usuário', 'bevesi' ); ?>&nbsp;<span class="required" aria-hidden="true">*</span><span class="screen-reader-text"><?php esc_html_e( 'Required', 'bevesi' ); ?></span></label>
+										<label class='cadastro-etapa-1  class_reg_username' for="reg_username"><?php esc_html_e( 'Nome do usuário', 'bevesi' ); ?>&nbsp;<span class="required" aria-hidden="true">*</span><span class="screen-reader-text"><?php esc_html_e( 'Required', 'bevesi' ); ?></span></label>
 										<input type="text" placeholder="EX: acharefacil" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" required aria-required="true" /><?php // @codingStandardsIgnoreLine ?>
 									</p>
 
 								<?php endif; ?>
 
-								<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+								<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide cadastro-etapa-1">
 									<label for="reg_email"><?php esc_html_e( 'Email', 'bevesi' ); ?>&nbsp;<span class="required" aria-hidden="true">*</span><span class="screen-reader-text"><?php esc_html_e( 'Required', 'bevesi' ); ?></span></label>
 									<input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="<?php echo ( ! empty( $_POST['email'] ) ) ? esc_attr( wp_unslash( $_POST['email'] ) ) : ''; ?>" required aria-required="true" /><?php // @codingStandardsIgnoreLine ?>
 								</p>
 
 								<?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>
 
-									<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+									<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide cadastro-etapa-1">
 										<label for="reg_password"><?php esc_html_e( 'Senha', 'bevesi' ); ?>&nbsp;<span class="required" aria-hidden="true">*</span><span class="screen-reader-text"><?php esc_html_e( 'Required', 'bevesi' ); ?></span></label>
-										<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" autocomplete="new-password" required aria-required="true" />
+										<input type="password" class="cadastro-etapa-1 woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" autocomplete="new-password" required aria-required="true" />
 									</p>
 
 								<?php else : ?>
@@ -113,11 +113,13 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 								<p class="woocommerce-form-row form-row">
 									<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
-									<button type="submit" class="woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> woocommerce-form-register__submit" name="register" value="<?php esc_attr_e( 'Register', 'bevesi' ); ?>"><?php esc_html_e( 'Cadastrar', 'bevesi' ); ?></button>
+									<button type="submit" class="cadastro-etapa-1  woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> woocommerce-form-register__submit" name="register" value="<?php esc_attr_e( 'Register', 'bevesi' ); ?>"><?php esc_html_e( 'Cadastrar', 'bevesi' ); ?></button>
 								</p>
+
+								
 								<p class="woocommerce-form-row form-row">
 								
-								<button type="button" onclick="proxima_anterior_cadastro()"  class="col-lg-6 form_cadastro_anterior woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> "
+								<button type="button" onclick="etapa_anterior_cadastro()"  class="col-lg-6 form_cadastro_anterior woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> "
 								name="form_cadastro_anterior"  id="form_cadastro_anterior" value="<?php esc_attr_e( 'Register', 'bevesi' ); ?>">
 								Anterior
 								</button>
@@ -133,6 +135,31 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 								<script>
 
+
+										document.getElementById("form_cadastro_anterior").style.display = 'none';
+
+
+										document.addEventListener("DOMContentLoaded", () => {
+											var divsToHide = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.display = "none"; // depending on what you're doing
+											}
+											var divsToHide = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.display = "none"; // depending on what you're doing
+											}
+											var divsToHide = document.getElementsByClassName("cadastro-etapa-4"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.display = "none"; // depending on what you're doing
+											}
+											var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.display = "none"; // depending on what you're doing
+											}
+
+											
+										})
+
 									function proxima_etapa_cadastro(){
 
 										var etapa_atual = document.getElementById("controle_etapa_cadastro").value;
@@ -145,11 +172,94 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 											var divsToShow = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
 											for(var i = 0; i < divsToShow.length; i++){
-												divsToShow[i].style.display = "block !important"; // depending on what you're doing
+												console.log('mostra_etapa'+i)
+												divsToShow[i].style.display = "block"; // depending on what you're doing
+											}
+											document.getElementById("form_cadastro_proximo").style.display = 'block';
+											document.getElementById("form_cadastro_anterior").style.display = 'block';
+											document.getElementById("controle_etapa_cadastro").value = 2;
+
+											var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.display = "none"; // depending on what you're doing
 											}
 										}
 
+										if(etapa_atual=='2'){
+											var divsToHide = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.display = "none"; // depending on what you're doing
+											}
+
+											var divsToShow = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
+											for(var i = 0; i < divsToShow.length; i++){
+												console.log('mostra_etapa'+i)
+												divsToShow[i].style.display = "block"; // depending on what you're doing
+											}
+
+											document.getElementById("form_cadastro_proximo").style.display = 'none';
+											document.getElementById("form_cadastro_anterior").style.display = 'block';
+											document.getElementById("controle_etapa_cadastro").value = 3;
+
+											var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.display = "block"; // depending on what you're doing
+											}
+										}
+
+								
 									}
+									function etapa_anterior_cadastro(){
+
+										var etapa_atual = document.getElementById("controle_etapa_cadastro").value;
+
+										if(etapa_atual=='2'){
+											var divsToHide = document.getElementsByClassName("cadastro-etapa-1"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.display = "block"; // depending on what you're doing
+											}
+
+											var divsToShow = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
+											for(var i = 0; i < divsToShow.length; i++){
+												console.log('mostra_etapa'+i)
+												divsToShow[i].style.display = "none"; // depending on what you're doing
+											}
+
+											var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.display = "none"; // depending on what you're doing
+											}
+											document.getElementById("form_cadastro_proximo").style.display = 'block';
+											document.getElementById("form_cadastro_anterior").style.display = 'block';
+											document.getElementById("controle_etapa_cadastro").value = 1;
+										}
+
+										if(etapa_atual=='3'){
+											var divsToHide = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.display = "block"; // depending on what you're doing
+											}
+
+											var divsToShow = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
+											for(var i = 0; i < divsToShow.length; i++){
+												console.log('mostra_etapa'+i)
+												divsToShow[i].style.display = "none"; // depending on what you're doing
+											}
+
+											var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
+											for(var i = 0; i < divsToHide.length; i++){
+												divsToHide[i].style.display = "none"; // depending on what you're doing
+											}
+
+											document.getElementById("form_cadastro_proximo").style.display = 'block';
+											document.getElementById("form_cadastro_anterior").style.display = 'block';
+											document.getElementById("controle_etapa_cadastro").value = 2;
+										}
+
+
+									}
+
+
 								</script>
 
 
