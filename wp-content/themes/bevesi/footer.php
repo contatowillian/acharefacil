@@ -51,7 +51,7 @@
 
     jQuery( document ).ready(function( $ ) {
 
-        $(".campo_telefone").mask('(00) 000000009', {clearIfNotMatch: true});
+        $(".campo_telefone input").mask('(00) 000000009', {clearIfNotMatch: true});
         $(".campo_escolha_rede_social").css("display", "none");
         $("#afreg_additionalshowhide_3234").css("display", "none");
         $("#afreg_additionalshowhide_3216").css("display", "none");
