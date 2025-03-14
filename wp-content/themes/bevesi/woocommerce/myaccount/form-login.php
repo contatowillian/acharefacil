@@ -204,7 +204,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 											}
 
 											document.getElementById("form_cadastro_proximo").style.display = 'block';
-											document.getElementById("form_cadastro_anterior").style.display = 'none';
+											document.getElementById("form_cadastro_anterior").innerHTML = "<a href='./listas_planos'>Destacar Meu Negócio</a>";
 											document.getElementById("controle_etapa_cadastro").value = 3;
 
 											document.getElementById("form_cadastro_proximo").innerHTML = 'Atualizar';
