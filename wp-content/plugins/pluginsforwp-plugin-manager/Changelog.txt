@@ -1,0 +1,8 @@
+7.0.0 - 1/30/2025
+
+* Refactored the PHP code on the backend and split it into multiple files
+* Added the ability to turn auto updates on or off
+
+6.2.0 - 1/27/2025
+
+* Updated 'Enable Premium Version' function to not need any external dependencies

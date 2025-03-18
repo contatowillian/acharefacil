@@ -1,0 +1,72 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "90b087375e3b3e5cd35f9627891101a7",
+    "packages": [
+        {
+            "name": "vaimo/unified-diff-patcher",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/incodepany/unified-diff-patcher",
+                "reference": "5898a83251c24009b8ef5049ad5e0f533e6dc911"
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "changelog": {
+                    "source": "changelog.json",
+                    "output": {
+                        "md": "CHANGELOG.md"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vaimo\\UnifiedDiffPatcher\\": "src"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Francois Mazerolle",
+                    "email": "fmaz008@gmail.com"
+                },
+                {
+                    "name": "Allan Paiste",
+                    "email": "allan.paiste@vaimo.com"
+                },
+                {
+                    "name": "Incodepany LLC",
+                    "email": "admin@pluginsforwp.com"
+                }
+            ],
+            "description": "Provides executable for applying unified diff files as patches",
+            "keywords": [
+                "patch",
+                "patch applier",
+                "unified diff"
+            ],
+            "time": "2025-01-28T00:06:46+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "vaimo/unified-diff-patcher": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
+}

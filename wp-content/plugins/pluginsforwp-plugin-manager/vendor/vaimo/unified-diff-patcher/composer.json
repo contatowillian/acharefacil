@@ -1,0 +1,48 @@
+{
+    "name": "vaimo/unified-diff-patcher",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "description": "Provides executable for applying unified diff files as patches",
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "config": {
+        "platform": {
+            "php": "5.3.9"
+        },
+        "process-timeout": 3000
+    },
+    "authors": [
+        {
+            "name": "Francois Mazerolle",
+            "email": "fmaz008@gmail.com"
+        },
+        {
+            "name": "Allan Paiste",
+            "email": "allan.paiste@vaimo.com"
+        },
+        {
+            "name": "Incodepany LLC",
+            "email": "admin@pluginsforwp.com"
+        }
+    ],
+    "keywords": [
+        "patch",
+        "unified diff",
+        "patch applier"
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "changelog": {
+            "source": "changelog.json",
+            "output": {
+                "md": "CHANGELOG.md"
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Vaimo\\UnifiedDiffPatcher\\": "src"
+        }
+    }
+}
