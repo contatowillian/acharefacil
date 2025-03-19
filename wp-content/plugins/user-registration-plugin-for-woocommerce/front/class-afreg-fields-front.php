@@ -2791,7 +2791,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 												<?php } elseif ( 'fileupload' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) { ?>
 
 													<p class="af-dependable-field form-row <?php echo esc_attr($afreg_field_css); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
-														<label for="<?php echo esc_attr($afreg_field->field_name); ?>">
+														<!--<label for="<?php echo esc_attr($afreg_field->field_name); ?>">-->
 														 <?php 
 															if (!empty($afreg_field->post_title)) {
 																echo esc_html__($afreg_field->post_title , 'addify_reg' );
