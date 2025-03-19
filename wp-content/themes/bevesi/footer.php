@@ -345,7 +345,7 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
 }
 
 .page-id-10  .aviso_parabens{
-    font-size: 18px;;
+    font-size: 18px !important;
 }   
 
 .page-id-2916 .class_reg_username{
