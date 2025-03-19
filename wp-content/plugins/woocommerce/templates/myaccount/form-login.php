@@ -128,10 +128,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 				for(var i = 0; i < divsToHide.length; i++){
 					divsToHide[i].style.display = "none"; // depending on what you're doing
 				}
-				var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
-				for(var i = 0; i < divsToHide.length; i++){
-					divsToHide[i].style.display = "none"; // depending on what you're doing
-				}
+			
 
 				
 			}
