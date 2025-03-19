@@ -2229,7 +2229,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 								?>
 
-								<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+								<p class="af-dependable-field form-row <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 									<label for="afreg_additional_<?php echo intval($afreg_field->ID); ?>">
 										<?php 
 										if (!empty($afreg_field->post_title)) {
@@ -2248,7 +2248,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 							} elseif ('text' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) { 
 								?>
 
-								<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+								<p class="af-dependable-field form-row <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 									<label for="afreg_additional_<?php echo intval($afreg_field->ID); ?>">
 										<?php 
 										if (!empty($afreg_field->post_title)) {
@@ -2288,7 +2288,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 							<?php } elseif ( 'textarea' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) { ?>
 
-								<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+								<p class="af-dependable-field form-row <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 									<label for="afreg_additional_<?php echo intval($afreg_field->ID); ?>">
 										<?php 
 										if (!empty($afreg_field->post_title)) {
@@ -2332,7 +2332,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 								<?php } elseif ( 'email' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) { ?>
 
-									<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+									<p class="af-dependable-field form-row <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 										<label for="afreg_additional_<?php echo intval($afreg_field->ID); ?>">
 											<?php 
 											if (!empty($afreg_field->post_title)) {
@@ -2376,7 +2376,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 								<?php } elseif ( 'select' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) { ?>
 
-									<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+									<p class="af-dependable-field form-row <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 										<label for="afreg_additional_<?php echo intval($afreg_field->ID); ?>">
 											<?php 
 											if (!empty($afreg_field->post_title)) {
@@ -2436,7 +2436,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 										<?php } elseif ( 'multiselect' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) { ?>
 
-											<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+											<p class="af-dependable-field form-row <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 												<label for="afreg_additional_<?php echo intval($afreg_field->ID); ?>">
 													<?php 
 													if (!empty($afreg_field->post_title)) {
@@ -2516,7 +2516,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 										} elseif ('multi_checkbox' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) {
 
 											?>
-											<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+											<p class="af-dependable-field form-row <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 												<label for="afreg_additional_<?php echo intval($afreg_field->ID); ?>">
 													<?php 
 													if (!empty($afreg_field->post_title)) {
@@ -2590,7 +2590,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 										} elseif ('checkbox' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) {
 
 											?>
-													<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+													<p class="af-dependable-field form-row <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 														<label for="afreg_additional_<?php echo intval($afreg_field->ID); ?>">
 													<?php 
 													if (!empty($afreg_field->post_title)) {
@@ -2638,7 +2638,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 												<?php } elseif ( 'radio' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) { ?>
 
-													<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+													<p class="af-dependable-field form-row <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 														<label for="afreg_additional_<?php echo intval($afreg_field->ID); ?>">
 															<?php 
 															if (!empty($afreg_field->post_title)) {
@@ -2703,7 +2703,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 												<?php } elseif ( 'number' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) { ?>
 
-													<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+													<p class="af-dependable-field form-row <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 														<label for="afreg_additional_<?php echo intval($afreg_field->ID); ?>">
 															<?php 
 															if (!empty($afreg_field->post_title)) {
@@ -2790,7 +2790,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 												<?php } elseif ( 'fileupload' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) { ?>
 
-													<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+													<p class="af-dependable-field form-row <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 														<label for="<?php echo esc_attr($afreg_field->field_name); ?>">
 															<?php echo esc_html__('Current', 'addify_reg'); ?> <?php 
 															if (!empty($afreg_field->post_title)) {
@@ -2915,7 +2915,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 												<?php } elseif ( 'datepicker' == $afreg_field_type && 'off' != $afreg_field_show_in_my_account) { ?>
 
-													<p class="af-dependable-field form-row <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
+													<p class="af-dependable-field form-row  <?php echo esc_attr($css_class); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 														<label for="afreg_additional_<?php echo intval($afreg_field->ID); ?>">
 															<?php 
 															if (!empty($afreg_field->post_title)) {
