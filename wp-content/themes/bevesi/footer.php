@@ -2080,31 +2080,24 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
              $('#status_busca_cep').show();
              $('#status_busca_cep').html("Carregando...");
 
-           var site = "https://gruposhprime.com.br/prelocacao/admin/busca_cep?cep="+conta;
+        
+           var site = "https://viacep.com.br/ws/"+conta+"/json";
+
            $.ajax({
                 type: "GET",
                 url: site,
-                dataType: "xml",
-                success: function(xml){
-
-                    $('#status_busca_cep').hide();
-                    
-                     $(xml).find('webservicecep').each(function(){
-                        var logradouro = $(this).find('logradouro').text();
-                        var tipo_logradouro = $(this).find('tipo_logradouro').text();
-                        var bairro = $(this).find('bairro').text();
-                        var cidade = $(this).find('cidade').text();
-                        var uf = $(this).find('uf').text();
-                        logradouro = tipo_logradouro +" "+ logradouro;						 
-                         $('#afreg_additional_3240').val(logradouro);
-                         $('#afreg_additional_3243').val(bairro);
-                         $('#afreg_additional_3244').val(cidade);
-                         $('#afreg_additional_3245').val(uf);
+                dataType: "json",
+                success: function(json){
+        
+                         $('#afreg_additional_3240').val(json.tipo_logradouro+" "+json.logradouro);
+                         $('#afreg_additional_3243').val(json.bairro);
+                         $('#afreg_additional_3244').val(json.cidade);
+                         $('#afreg_additional_3245').val(json.uf);
                          $('#afreg_additional_3240').removeAttr("readonly");
                         
                          $('#afreg_additional_3244').removeAttr("readonly");
                          $('#afreg_additional_3245').removeAttr("readonly");
-                    }); //close each(
+            
                 },
                 error: function(data) { 
                     $('#status_busca_cep').show();
