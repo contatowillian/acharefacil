@@ -271,7 +271,7 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
 .page-id-2916 .site-login{
     padding:0px !important;
 }
-.page-id-2916 .textarea_descricao_anuncio textarea{
+.page-id-10 .textarea_descricao_anuncio textarea{
     height: 80px !important;
     max-height: 80px !important;
     line-height: 18px !important;
