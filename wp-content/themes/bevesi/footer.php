@@ -1965,6 +1965,12 @@ if(etapa_atual=='1'){
 }
 
 if(etapa_atual=='2'){
+
+    var divsToHide = document.getElementsByClassName("cadastro-etapa-1"); //divsToHide is an array
+    for(var i = 0; i < divsToHide.length; i++){
+        divsToHide[i].style.display = "none"; // depending on what you're doing
+    }
+
     var divsToHide = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
     for(var i = 0; i < divsToHide.length; i++){
         divsToHide[i].style.display = "none"; // depending on what you're doing
@@ -2005,11 +2011,7 @@ var etapa_atual = document.getElementById("controle_etapa_cadastro").value;
 
 if(etapa_atual=='2'){
 
-    document.getElementById("form_cadastro_proximo").innerHTML = 'Próximo';
-    var divsToHide = document.getElementsByClassName("cadastro-etapa-1"); //divsToHide is an array
-    for(var i = 0; i < divsToHide.length; i++){
-        divsToHide[i].style.display = "inherit"; // depending on what you're doing
-    }
+   
 
     var divsToShow = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
     for(var i = 0; i < divsToShow.length; i++){
