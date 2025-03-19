@@ -370,7 +370,7 @@ if (!class_exists('Addify_Registration_Fields_Addon') ) {
 			$af_state = '';
 
 			if ( ! wp_verify_nonce( $nonce, 'afreg-ajax-nonce' ) ) {
-				wp_die( esc_html__('Security Violated', 'addify_reg') );
+				wp_die( esc_html__('Security Violated 1', 'addify_reg') );
 			}
 
 			if (!empty($_POST['country'])) {

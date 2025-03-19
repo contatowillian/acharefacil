@@ -170,7 +170,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 
 					if ( empty( $_POST['afreg_nonce_field'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['afreg_nonce_field'])), 'afreg_nonce_action')) {
-						wp_die( esc_html__('Security Violated', 'addify_reg') );
+						wp_die( esc_html__('Security Violated 3', 'addify_reg') );
 					}
 				}
 
@@ -928,7 +928,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 			if (isset($_POST['register']) || is_checkout() ) {
 
 				if ( empty( $_POST['afreg_nonce_field'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['afreg_nonce_field'])), 'afreg_nonce_action')) {
-					wp_die( esc_html__('Security Violated', 'addify_reg') );
+					wp_die( esc_html__('Security Violated 3', 'addify_reg') );
 				}
 
 				if ( isset( $_POST['afreg_select_user_role'] ) && empty( $_POST['afreg_select_user_role'] ) ) {
@@ -1329,7 +1329,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 						if (!wp_verify_nonce($retrieved_nonce, 'afreg_nonce_action')) {
 
-							wp_die( esc_html__('Security Violated', 'addify_reg') );
+							wp_die( esc_html__('Security Violated 3', 'addify_reg') );
 						}
 
 						foreach ($afreg_extra_fields as $afreg_field_id) {
@@ -1673,7 +1673,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 			}
 
 			if ( empty( $_POST['afreg_nonce_field'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['afreg_nonce_field'])), 'afreg_nonce_action')) {
-				wp_die( esc_html__('Security Violated', 'addify_reg') );
+				wp_die( esc_html__('Security Violated 3', 'addify_reg') );
 			}
 
 			//Manual Approve User
@@ -3053,7 +3053,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 
 			if ( empty( $_POST['afreg_nonce_field'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['afreg_nonce_field'])), 'afreg_nonce_action')) {
-				wp_die( esc_html__('Security Violated', 'addify_reg') );
+				wp_die( esc_html__('Security Violated 3', 'addify_reg') );
 			}
 
 
@@ -3367,7 +3367,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 
 			if ( empty( $_POST['afreg_nonce_field'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['afreg_nonce_field'])), 'afreg_nonce_action')) {
-				wp_die( esc_html__('Security Violated', 'addify_reg') );
+				wp_die( esc_html__('Security Violated 3', 'addify_reg') );
 			}
 
 			$new_user_role = '';
@@ -3496,7 +3496,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 					<?php
 
 					if ( empty( $_POST['afreg_nonce_field'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['afreg_nonce_field'])), 'afreg_nonce_action')) {
-						wp_die( esc_html__('Security Violated', 'addify_reg') );
+						wp_die( esc_html__('Security Violated 3', 'addify_reg') );
 					}
 
 					if ( !empty( get_option('afreg_enable_user_role')) && 'yes' == get_option('afreg_enable_user_role')) {
@@ -4107,7 +4107,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 
 				if ( empty( $_POST['afreg_nonce_field'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['afreg_nonce_field'])), 'afreg_nonce_action')) {
-					wp_die( esc_html__('Security Violated', 'addify_reg') );
+					wp_die( esc_html__('Security Violated 3', 'addify_reg') );
 				}
 
 				if ( !empty( get_option('afreg_enable_user_role')) && 'yes' == get_option('afreg_enable_user_role')) {
@@ -4717,7 +4717,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 						$retrieved_nonce = 0;
 					}
 					if (!wp_verify_nonce($retrieved_nonce, 'afreg_nonce_action')) {
-						wp_die( esc_html__('Security Violated', 'addify_reg') );
+						wp_die( esc_html__('Security Violated 3', 'addify_reg') );
 					}
 					$def_value = sanitize_text_field($_POST[ $post->post_name ]);
 				} else {
@@ -4881,7 +4881,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 			}
 
 			if ( empty( $_POST['afreg_nonce_field'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['afreg_nonce_field'])), 'afreg_nonce_action')) {
-				wp_die( esc_html__('Security Violated', 'addify_reg') );
+				wp_die( esc_html__('Security Violated 3', 'addify_reg') );
 			}
 
 			//First Name
@@ -5026,7 +5026,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 
 					if ( empty( $_POST['afreg_nonce_field'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['afreg_nonce_field'])), 'afreg_nonce_action')) {
-						wp_die( esc_html__('Security Violated', 'addify_reg') );
+						wp_die( esc_html__('Security Violated 3', 'addify_reg') );
 					}
 
 

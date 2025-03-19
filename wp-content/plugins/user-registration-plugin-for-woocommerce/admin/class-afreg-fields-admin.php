@@ -514,7 +514,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Admin' ) ) {
 
 			if ( empty( $_POST['afreg_nonce_field'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['afreg_nonce_field'])), 'afreg_nonce_action')) {
 
-				wp_die( esc_html__('Security Violated', 'addify_reg') );
+				wp_die( esc_html__('Security Violated 2', 'addify_reg') );
 			}
 
 
@@ -2120,7 +2120,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Admin' ) ) {
 
 
 			if ( empty( $_POST['afreg_nonce_field'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['afreg_nonce_field'])), 'afreg_nonce_action')) {
-				wp_die( esc_html__('Security Violated', 'addify_reg') );
+				wp_die( esc_html__('Security Violated 2', 'addify_reg') );
 			}
 
 			$user_info         = get_userdata( $customer_id );
@@ -2634,7 +2634,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Admin' ) ) {
 
 
 			if ( empty( $_POST['nonce'] ) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'afreg-ajax-nonce')) {
-				wp_die( esc_html__('Security Violated', 'addify_reg') );
+				wp_die( esc_html__('Security Violated 2', 'addify_reg') );
 			}
 
 
