@@ -1940,31 +1940,7 @@ function proxima_etapa_cadastro(){
 
 var etapa_atual = document.getElementById("controle_etapa_cadastro").value;
 
-if(etapa_atual=='1'){
-    var divsToHide = document.getElementsByClassName("cadastro-etapa-1"); //divsToHide is an array
-    for(var i = 0; i < divsToHide.length; i++){
-        divsToHide[i].style.display = "none"; // depending on what you're doing
-    }
 
-    var divsToShow = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
-    for(var i = 0; i < divsToShow.length; i++){
-        console.log('mostra_etapa'+i)
-        divsToShow[i].style.display = "inherit"; // depending on what you're doing
-    }
-
-    document.getElementById("form_cadastro_anterior").style.display = 'block';
-    document.getElementById("controle_etapa_cadastro").value = 2;
-
-    /*var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
-    for(var i = 0; i < divsToHide.length; i++){
-        divsToHide[i].style.display = "inherit"; // depending on what you're doing
-    }*/
-
-
-    document.getElementById("form_cadastro_proximo").innerHTML = 'Cadastrar';
-    document.getElementById("form_cadastro_proximo").style.backgroundColor = "rgb(131, 223, 131) !important";
-    
-}
 
 if(etapa_atual=='2'){
 
@@ -1985,10 +1961,10 @@ if(etapa_atual=='2'){
     }
 
     document.getElementById("form_cadastro_proximo").style.display = 'block';
-    document.getElementById("form_cadastro_anterior").innerHTML = "<a href='/lista_planos'>Destacar Meu Negócio</a>";
+    document.getElementById("form_cadastro_anterior").style.display = 'block';
+    document.getElementById("form_cadastro_proximo").innerHTML = "<a href='/lista_planos'>Destacar Meu Negócio</a>";
     document.getElementById("controle_etapa_cadastro").value = 3;
 
-    document.getElementById("form_cadastro_proximo").innerHTML = 'Atualizar';
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
