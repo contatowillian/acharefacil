@@ -340,6 +340,10 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
     float:left !important;
 }
 
+.page-id-10  .aviso_parabens{
+    font-size: 18px;;
+}   
+
 .page-id-2916 .class_reg_username{
     display: none !important;
 }
@@ -1994,7 +1998,7 @@ if(etapa_atual=='2'){
     var divsToShow = document.getElementsByClassName("page-title"); //divsToHide is an array
     for(var i = 0; i < divsToShow.length; i++){
         console.log('mostra_etapa'+i)
-        divsToShow[i].innerHTML= "Parabéns, você agora faz parte do time Achar é Fácil !"; // depending on what you're doing
+        divsToShow[i].innerHTML= "Parabéns ! <br>  <p class='aviso_parabens'>Você agora faz parte do time Achar é Fácil !</p>"; // depending on what you're doing
     }
     
     document.querySelector(".site-page-header-inner .entry-description p").innerHTML = "Você pode incrementar o anúncio com informações importantes, isso ajudará no desempenho do seu anúncio.<br> Você também pode destacar seu Negócio assinado um de nossos planos "; // depending on what you're doing
@@ -2055,5 +2059,63 @@ if(etapa_atual=='3'){
 }
 
 
+jQuery( document ).ready(function( $ ) {
+
+$("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
+
+    $("#afreg_additional_3239").keyup(function(){
+       if($("#afreg_additional_3239").val() == ""){
+           $('#afreg_additional_3240').val("");
+            $('#afreg_additional_3243').val("");
+            $('#afreg_additional_3244').val("");
+            $('#estado').val("");
+       }
+       var conta =  $(this).val();
+       var conta2 = conta.length;
+       if(conta2==9){
+             $('#afreg_additional_3240').val("");
+             $('#afreg_additional_3243').val("");
+             $('#afreg_additional_3244').val("");
+             $('#estado').val("");
+             $('#status_busca_cep').show();
+             $('#status_busca_cep').html("Carregando...");
+
+           var site = "./busca_cep?cep="+conta;
+           $.ajax({
+                type: "GET",
+                url: site,
+                dataType: "xml",
+                success: function(xml){
+
+                    $('#status_busca_cep').hide();
+                    
+                     $(xml).find('webservicecep').each(function(){
+                        var logradouro = $(this).find('logradouro').text();
+                        var tipo_logradouro = $(this).find('tipo_logradouro').text();
+                        var bairro = $(this).find('bairro').text();
+                        var cidade = $(this).find('cidade').text();
+                        var uf = $(this).find('uf').text();
+                        logradouro = tipo_logradouro +" "+ logradouro;						 
+                         $('#afreg_additional_3240').val(logradouro);
+                         $('#afreg_additional_3243').val(bairro);
+                         $('#afreg_additional_3244').val(cidade);
+                         $('#afreg_additional_3245').val(uf);
+                         $('#afreg_additional_3240').removeAttr("readonly");
+                        
+                         $('#afreg_additional_3244').removeAttr("readonly");
+                         $('#afreg_additional_3245').removeAttr("readonly");
+                    }); //close each(
+                },
+                error: function(data) { 
+                    $('#status_busca_cep').show();
+                    $('#status_busca_cep').html("Cep não encontrado");
+                }
+                
+            });			
+       }
+   });
+});
 </script>
 <?php } ?>
+
+<div class="alert alert-primary col-md-16" role="alert" id='status_busca_cep'> </div>
