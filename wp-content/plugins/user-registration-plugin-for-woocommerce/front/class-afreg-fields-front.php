@@ -2792,7 +2792,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 													<p class="af-dependable-field form-row <?php echo esc_attr($afreg_field_css); ?> <?php echo esc_attr($afreg_main_class); ?>" id="afreg_additionalshowhide_<?php echo intval($afreg_field->ID); ?>" data-current_post_id="<?php echo intval($afreg_field->ID); ?>">
 														<label for="<?php echo esc_attr($afreg_field->field_name); ?>">
-															<?php echo esc_html__('Current', 'addify_reg'); ?> <?php 
+														 <?php 
 															if (!empty($afreg_field->post_title)) {
 																echo esc_html__($afreg_field->post_title , 'addify_reg' );
 															} 
