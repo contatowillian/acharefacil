@@ -290,6 +290,10 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     color: #000 !important;
 }
 
+.page-id-10  #afreg_additionalshowhide_3212{
+    margin-top: 170px;
+}
+
 .page-id-10  .mo-openid-app-icons:first-child{
     display: none !important;
 }
