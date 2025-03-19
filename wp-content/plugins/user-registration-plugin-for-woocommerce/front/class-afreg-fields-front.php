@@ -2135,7 +2135,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 							<p class="af-dependable-field form-row form-row-wide">
 
-								<label for="afreg_user_role"><?php echo esc_html__($role_field_label, 'addify_reg'); ?></label>
+								<label for="afreg_user_role xrole"><?php echo esc_html__($role_field_label, 'addify_reg'); ?></label>
 								<b><?php echo esc_attr( $role_label ); ?></b>
 							</p>
 
