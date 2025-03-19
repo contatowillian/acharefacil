@@ -46,7 +46,7 @@
 </html>
 <script src="/wp-content/themes/bevesi/assets/js/jquery.mask.js"></script>
 
-<?php if(is_page('criar-anuncio') or is_page( 'my-account' )){ ?>
+<?php if(is_page('criar-anuncio') ){ ?>
 <script>
 
     jQuery( document ).ready(function( $ ) {
@@ -58,6 +58,14 @@
         $("#afreg_additionalshowhide_3217").css("display", "none");
 
         $('#afreg_additional_3226').val('');
+
+
+        $("#reg_email").on("keyup change", function(e) {
+
+        let valor = $(this).val();
+        $("#reg_username").val(removerCaracteresEspeciais(valor)+generatePassword());
+
+        })
 
 
         $("#afreg_additional_3224").on("keyup change", function(e) {
@@ -368,7 +376,6 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
     width: 47% !important;
     float: right !important;
     margin-left: 3%;
-    background-color: #83df83 !important;
 }
 .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container{
     width:100% !important; 
