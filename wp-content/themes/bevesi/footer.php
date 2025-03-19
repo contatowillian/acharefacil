@@ -2097,7 +2097,12 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
                         
                          $('#afreg_additional_3244').removeAttr("readonly");
                          $('#afreg_additional_3245').removeAttr("readonly");
-            
+
+                         var divsToHide = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
+                        for(var i = 0; i < divsToHide.length; i++){
+                            divsToHide[i].style.display = "none"; // depending on what you're doing
+                        }
+                                
                 },
                 error: function(data) { 
                     $('#status_busca_cep').show();
