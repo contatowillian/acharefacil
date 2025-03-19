@@ -2012,6 +2012,9 @@ if(etapa_atual=='2'){
 }
 function etapa_anterior_cadastro(){
 
+
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+
 var etapa_atual = document.getElementById("controle_etapa_cadastro").value;
 
 if(etapa_atual=='2'){

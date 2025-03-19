@@ -26,7 +26,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 <div class="site-page-header style-1"><div class="container"><div class="site-page-header-inner"><h1 class="page-title">Divulgue seu Negócio</h1><div class="entry-description"><p>Escolha um plano abaixo que melhor se adequá as suas necessidades, divulgue seu negócio gratuitamente no Achar é Fácil</p></div><!-- entry-description --></div><!-- site-page-header-inner --></div><!-- container --></div><!-- site-page-header -->		</div>
 	</div>
 
-<form class="woocommerce-EditAccountForm edit-account" action="" method="post" <?php do_action( 'woocommerce_edit_account_form_tag' ); ?> >
+<form class="woocommerce-EditAccountForm edit-account" action="?etapa=3" id='form_cadastro_anunco_wizard' method="post" <?php do_action( 'woocommerce_edit_account_form_tag' ); ?> >
 
 	<?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 
@@ -90,7 +90,6 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 	<p id='botao_salvar'>
 		<?php wp_nonce_field( 'save_account_details', 'save-account-details-nonce' ); ?>
 		<button type="submit" class="woocommerce-Button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="save_account_details" value="<?php esc_attr_e( 'Save changes', 'woocommerce' ); ?>"><?php esc_html_e( 'Save changes', 'woocommerce' ); ?></button>
-		<input type="hidden" name="action" value="save_account_details" />
 	</p>
 
 	<p id='controle_wizard' style="display: none;">
@@ -101,10 +100,11 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 
 		<input type='hidden'  id="controle_etapa_cadastro" name="controle_etapa_cadastro" value ='2'>
 
-		<button type="button" onclick="proxima_etapa_cadastro()" class="col-lg-6  form_cadastro_proximo woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"
+		<button type="submit"  class="col-lg-6  form_cadastro_proximo woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"
 		name="form_cadastro_proximo"  id="form_cadastro_proximo" value="<?php esc_attr_e( 'Register', 'bevesi' ); ?>">
 		Próximo
 		</button>
+		<input type="hidden" name="action" value="save_account_details" />
 		</p>
 		
 	<?php do_action( 'woocommerce_edit_account_form_end' ); ?>
