@@ -1947,20 +1947,42 @@ window.onload = function() {
     for(var i = 0; i < divsToHide.length; i++){
         divsToHide[i].style.display = "none"; // depending on what you're doing
     }
+
+    <?php if($_GET['etapa_cadastro']==2){ ?>
     var divsToHide = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
     for(var i = 0; i < divsToHide.length; i++){
         divsToHide[i].style.display = "none"; // depending on what you're doing
     }
-    var divsToHide = document.getElementsByClassName("cadastro-etapa-4"); //divsToHide is an array
-    for(var i = 0; i < divsToHide.length; i++){
-        divsToHide[i].style.display = "none"; // depending on what you're doing
-    }
-    var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
+    <?php } ?>
+
+    <?php if($_GET['etapa_cadastro']==3){ ?>
+    var divsToHide = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
     for(var i = 0; i < divsToHide.length; i++){
         divsToHide[i].style.display = "none"; // depending on what you're doing
     }
 
+    document.getElementById("form_cadastro_proximo").style.display = 'block';
+    document.getElementById("form_cadastro_anterior").style.display = 'block';
+    document.getElementById("form_cadastro_proximo").innerHTML = "<a href='/lista_planos'>Destacar Meu Negócio</a>";
+    document.getElementById("controle_etapa_cadastro").value = 3;
+
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    var divsToShow = document.getElementsByClassName("page-title"); //divsToHide is an array
+    for(var i = 0; i < divsToShow.length; i++){
+        console.log('mostra_etapa'+i)
+        divsToShow[i].innerHTML= "Parabéns ! <br>  <p class='aviso_parabens'>Você agora faz parte do time Achar é Fácil !</p>"; // depending on what you're doing
+    }
     
+    document.querySelector(".site-page-header-inner .entry-description p").innerHTML = "Você pode incrementar o anúncio com informações importantes, isso ajudará no desempenho do seu anúncio.<br> Você também pode destacar seu Negócio assinado um de nossos planos "; // depending on what you're doing
+    
+    <?php } ?> 
+
+    var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
+    for(var i = 0; i < divsToHide.length; i++){
+        divsToHide[i].style.display = "none"; // depending on what you're doing
+    }
 }
 
 function proxima_etapa_cadastro(){
