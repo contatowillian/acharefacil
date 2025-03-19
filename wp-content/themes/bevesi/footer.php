@@ -1886,10 +1886,12 @@ margin: 6px !important;
 height:35px !important;
 
 }
-
+@media (min-width: 600px) {
 .form_cadastro_divulgue_seu_negocio{
-    width: 80%;
+    width: 70%;
     margin:0px auto;
+}
+
 }
 
 @media (max-width: 600px) {
