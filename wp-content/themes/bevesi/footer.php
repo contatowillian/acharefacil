@@ -1888,7 +1888,7 @@ height:35px !important;
 }
 @media (min-width: 600px) {
 .form_cadastro_divulgue_seu_negocio{
-    width: 70%;
+    width: 60%;
     margin:0px auto;
 }
 

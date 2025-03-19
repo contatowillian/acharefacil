@@ -99,7 +99,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 			Anterior
 		</button>
 
-		<input type='hidden'  id="controle_etapa_cadastro" name="controle_etapa_cadastro" value ='1'>
+		<input type='hidden'  id="controle_etapa_cadastro" name="controle_etapa_cadastro" value ='2'>
 
 		<button type="button" onclick="proxima_etapa_cadastro()" class="col-lg-6  form_cadastro_proximo woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"
 		name="form_cadastro_proximo"  id="form_cadastro_proximo" value="<?php esc_attr_e( 'Register', 'bevesi' ); ?>">
