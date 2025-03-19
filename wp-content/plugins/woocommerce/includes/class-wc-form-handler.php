@@ -364,7 +364,7 @@ class WC_Form_Handler {
 			// Notices are checked here so that if something created a notice during the save hooks above, the redirect will not happen.
 			if ( 0 === wc_notice_count( 'error' ) ) {
 				wc_add_notice( __( 'Account details changed successfully.', 'woocommerce' ) );
-				wp_safe_redirect( wc_get_endpoint_url( 'edit-account', '', wc_get_page_permalink( 'myaccount' ) ) );
+			//	wp_safe_redirect( wc_get_endpoint_url( 'edit-account', '', wc_get_page_permalink( 'myaccount' ) ) );
 				exit;
 			}
 		}
