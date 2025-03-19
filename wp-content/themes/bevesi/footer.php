@@ -262,7 +262,12 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
 .site-login .site-login-inner .site-login-overflow .login-form-container > *.login-form .lost-password p .woocommerce-form__label-for-checkbox input:checked + span::before{
     background-color: gray !important;
 }
-
+.page-id-2916 .cadastro-etapa-2{
+    display: none !important;
+}
+.page-id-2916 .cadastro-etapa-3{
+    display: none !important;
+}
 .page-id-2916 .site-login{
     padding:0px !important;
 }

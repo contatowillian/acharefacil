@@ -109,30 +109,6 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
 
-			<script>
-
-
-			window.onload = function() {
-				document.getElementById("form_cadastro_anterior").style.display = 'none';
-			
-
-				var divsToHide = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
-				for(var i = 0; i < divsToHide.length; i++){
-					divsToHide[i].style.display = "none"; // depending on what you're doing
-				}
-				var divsToHide = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
-				for(var i = 0; i < divsToHide.length; i++){
-					divsToHide[i].style.display = "none"; // depending on what you're doing
-				}
-				var divsToHide = document.getElementsByClassName("cadastro-etapa-4"); //divsToHide is an array
-				for(var i = 0; i < divsToHide.length; i++){
-					divsToHide[i].style.display = "none"; // depending on what you're doing
-				}
-			
-
-				
-			}
-			</script>
 		</form>
 
 	</div>
