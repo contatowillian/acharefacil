@@ -2080,7 +2080,7 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
              $('#status_busca_cep').show();
              $('#status_busca_cep').html("Carregando...");
 
-           var site = "./busca_cep?cep="+conta;
+           var site = "https://gruposhprime.com.br/prelocacao/admin/busca_cep?cep="+conta;
            $.ajax({
                 type: "GET",
                 url: site,
