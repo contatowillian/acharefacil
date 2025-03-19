@@ -2089,9 +2089,9 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
                 dataType: "json",
                 success: function(json){
         
-                         $('#afreg_additional_3240').val(json.tipo_logradouro+" "+json.logradouro);
+                         $('#afreg_additional_3240').val(json.logradouro);
                          $('#afreg_additional_3243').val(json.bairro);
-                         $('#afreg_additional_3244').val(json.cidade);
+                         $('#afreg_additional_3244').val(json.localidade);
                          $('#afreg_additional_3245').val(json.uf);
                          $('#afreg_additional_3240').removeAttr("readonly");
                         
