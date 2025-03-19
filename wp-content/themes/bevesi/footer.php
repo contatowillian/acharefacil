@@ -1954,7 +1954,7 @@ window.onload = function() {
 
     <?php if($_GET['etapa_cadastro']==2){ ?>
 
-    $('#afreg_additional_3239').attr('required',true);
+    document.getElementById("afreg_additional_3239").required = true;
 
     var divsToHide = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
     for(var i = 0; i < divsToHide.length; i++){
