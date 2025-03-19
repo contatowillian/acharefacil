@@ -277,7 +277,26 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     line-height: 18px !important;
 }
 
+.page-id-10  .vendor-customer-registration{
+ display: none !important;
+}
 
+.page-id-10 .woocommerce-privacy-policy-text{
+    display: none !important; 
+}
+
+.page-id-10  .site-login .site-login-inner .site-login-overflow .login-form-container > * button{
+    background-color: #e5e7eb !important;
+    color: #000 !important;
+}
+
+.page-id-10  .mo-openid-app-icons:first-child{
+    display: none !important;
+}
+
+.page-id-10  .site-page-header.style-1 {
+    margin-top: 0rem !important;
+}
 
 .page-id-2916  .vendor-customer-registration{
  display: none !important;
@@ -301,18 +320,18 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     margin-bottom:0rem !important;
 }
 
-html .page-id-2916 .form_cadastro_proximo{ 
+html .page-id-10 .form_cadastro_proximo{ 
     width:47% !important;
     float:left !important;
   
     margin-left: 3%;
 }
-html .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container .form_cadastro_proximo{
+html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-container .form_cadastro_proximo{
     background-color: #444 !important;
     color:white !important;
 }
 
-.page-id-2916 .form_cadastro_anterior{
+.page-id-10 .form_cadastro_anterior{
     width:47% !important;
     float:left !important;
 }
