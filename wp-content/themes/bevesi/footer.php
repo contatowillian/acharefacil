@@ -1980,8 +1980,11 @@ window.onload = function() {
     }
 
     document.getElementById("form_cadastro_proximo").style.display = 'block';
-    document.getElementById("form_cadastro_anterior").style.display = 'none';
+    document.getElementById("form_cadastro_anterior").style.display = 'block';
+    document.getElementById("form_cadastro_proximo").innerHTML = 'Atualizar';
     document.getElementById("form_cadastro_proximo").innerHTML = "<a href='/lista_planos'>Destacar Meu Negócio</a>";
+    document.getElementById("form_cadastro_proximo").style.backgroundColor = "#18864B";
+
     document.getElementById("controle_etapa_cadastro").value = 3;
 
 
