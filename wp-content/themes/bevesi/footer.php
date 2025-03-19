@@ -1955,6 +1955,17 @@ window.onload = function() {
     <?php if($_GET['etapa_cadastro']==2){ ?>
 
     document.getElementById("afreg_additional_3239").required = true;
+    document.getElementById("afreg_additional_3224").required = true;
+    document.getElementById("afreg_additional_3213").required = true;
+    document.getElementById("afreg_additional_3214").required = true;
+    document.getElementById("afreg_additional_3254").required = true;
+    document.getElementById("afreg_additional_3226").required = true;
+    document.getElementById("afreg_additional_3212").required = true;
+    document.getElementById("afreg_additional_3240").required = true;
+    document.getElementById("afreg_additional_3243").required = true;
+    document.getElementById("afreg_additional_3244").required = true;
+    document.getElementById("afreg_additional_3245").required = true;
+    document.getElementById("afreg_additional_3218").required = true;
 
     var divsToHide = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
     for(var i = 0; i < divsToHide.length; i++){
