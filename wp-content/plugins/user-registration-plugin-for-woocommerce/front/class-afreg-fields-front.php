@@ -2072,7 +2072,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 			$roles = ( array ) $user->roles;
 			wp_nonce_field( 'afreg_nonce_action', 'afreg_nonce_field' );
 			?>
-			<div class="afreg_extra_fields">
+			<div class="afreg_extra_fields extramyaccount">
 				<h3><?php echo esc_html__(get_option('afreg_additional_fields_section_title'), 'addify_reg'); ?></h3>
 				<fieldset>
 
