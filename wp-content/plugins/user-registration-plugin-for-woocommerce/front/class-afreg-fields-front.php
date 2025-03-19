@@ -2794,7 +2794,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 														<!--<label for="<?php echo esc_attr($afreg_field->field_name); ?>">-->
 														 <?php 
 															if (!empty($afreg_field->post_title)) {
-																echo esc_html__($afreg_field->post_title , 'addify_reg' );
+																//echo esc_html__($afreg_field->post_title , 'addify_reg' );
 															} 
 															?>
 														</label>
