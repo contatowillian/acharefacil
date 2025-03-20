@@ -1948,6 +1948,13 @@ object-fit: none !important;
 
 <script>
 
+function limpa_campos_etapa(numero_etapa){
+    var divsToHide = document.getElementsByClassName("cadastro-etapa-"+numero_etapa); //divsToHide is an array
+    for(var i = 0; i < divsToHide.length; i++){
+        divsToHide[i].style.display = "none"; // depending on what you're doing
+    }
+}
+
 
 window.onload = function() {
     document.getElementById("form_cadastro_anterior").style.display = 'none';
@@ -1974,17 +1981,15 @@ window.onload = function() {
     document.getElementById("afreg_additional_3245").required = true;
     document.getElementById("afreg_additional_3218").required = true;
 
-    var divsToHide = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
-    for(var i = 0; i < divsToHide.length; i++){
-        divsToHide[i].style.display = "none"; // depending on what you're doing
-    }
+
+    
+    setInterval(limpa_campos_etapa(3), 1000);
+    
     <?php } ?>
 
     <?php if($_GET['etapa_cadastro']==3){ ?>
-    var divsToHide = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
-    for(var i = 0; i < divsToHide.length; i++){
-        divsToHide[i].style.display = "none"; // depending on what you're doing
-    }
+
+    setInterval(limpa_campos_etapa(2), 1000);
 
     document.getElementById("form_cadastro_proximo").style.display = 'block';
     document.getElementById("form_cadastro_anterior").style.display = 'block';
@@ -2021,21 +2026,9 @@ var etapa_atual = document.getElementById("controle_etapa_cadastro").value;
 
 if(etapa_atual=='2'){
 
-    var divsToHide = document.getElementsByClassName("cadastro-etapa-1"); //divsToHide is an array
-    for(var i = 0; i < divsToHide.length; i++){
-        divsToHide[i].style.display = "none"; // depending on what you're doing
-    }
-
-    var divsToHide = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
-    for(var i = 0; i < divsToHide.length; i++){
-        divsToHide[i].style.display = "none"; // depending on what you're doing
-    }
-
-    var divsToShow = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
-    for(var i = 0; i < divsToShow.length; i++){
-        console.log('mostra_etapa'+i)
-        divsToShow[i].style.display = "inherit"; // depending on what you're doing
-    }
+    limpa_campos_etapa(1);
+    limpa_campos_etapa(2);
+    limpa_campos_etapa(3);
 
     document.getElementById("form_cadastro_proximo").style.display = 'block';
     document.getElementById("form_cadastro_anterior").style.display = 'none';
@@ -2053,9 +2046,6 @@ if(etapa_atual=='2'){
     
     document.querySelector(".site-page-header-inner .entry-description p").innerHTML = "Você pode incrementar o anúncio com informações importantes, isso ajudará no desempenho do seu anúncio.<br> Você também pode destacar seu Negócio assinado um de nossos planos "; // depending on what you're doing
     
-
-
-    
 }
 
 
@@ -2070,12 +2060,7 @@ var etapa_atual = document.getElementById("controle_etapa_cadastro").value;
 if(etapa_atual=='2'){
 
    
-
-    var divsToShow = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
-    for(var i = 0; i < divsToShow.length; i++){
-        console.log('mostra_etapa'+i)
-        divsToShow[i].style.display = "none"; // depending on what you're doing
-    }
+    limpa_campos_etapa(2);
 
     var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
     for(var i = 0; i < divsToHide.length; i++){
@@ -2087,16 +2072,8 @@ if(etapa_atual=='2'){
 }
 
 if(etapa_atual=='3'){
-    var divsToHide = document.getElementsByClassName("cadastro-etapa-2"); //divsToHide is an array
-    for(var i = 0; i < divsToHide.length; i++){
-        divsToHide[i].style.display = "inherit"; // depending on what you're doing
-    }
-
-    var divsToShow = document.getElementsByClassName("cadastro-etapa-3"); //divsToHide is an array
-    for(var i = 0; i < divsToShow.length; i++){
-        console.log('mostra_etapa'+i)
-        divsToShow[i].style.display = "none"; // depending on what you're doing
-    }
+    limpa_campos_etapa(2);
+    limpa_campos_etapa(3);
 
     var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
     for(var i = 0; i < divsToHide.length; i++){
