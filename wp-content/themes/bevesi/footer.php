@@ -2074,7 +2074,7 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
 <?php } ?>
 
 
-<?php if(is_page('my-acoount') or is_page('criar-anuncio')){ ?>
+<?php if(is_page('my-acoount') or is_page('edit-acoount') or is_page('criar-anuncio')){ ?>
 <script>
 
     jQuery( document ).ready(function( $ ) {
