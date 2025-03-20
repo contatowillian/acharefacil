@@ -93,7 +93,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 	</p>
 
 	<p id='controle_wizard' style="display: none;">
-		<button type="submit" onclick="etapa_anterior_cadastro()"  class="col-lg-6 form_cadastro_anterior woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> "
+		<button type="submit"   class="col-lg-6 form_cadastro_anterior woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> "
 			name="form_cadastro_anterior"  id="form_cadastro_anterior" value="<?php esc_attr_e( 'Register', 'bevesi' ); ?>">
 			
 			Atualizar
