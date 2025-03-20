@@ -1982,13 +1982,13 @@ window.onload = function() {
     document.getElementById("afreg_additional_3218").required = true;
 
 
-    setInterval(function() { limpa_campos_etapa(3); }, 1000);
+    setInterval(function() { limpa_campos_etapa(3); }, 500);
     
     <?php } ?>
 
     <?php if($_GET['etapa_cadastro']==3){ ?>
 
-    setInterval(function() { limpa_campos_etapa(2); }, 1000);
+    setInterval(function() { limpa_campos_etapa(2); }, 500);
 
     document.getElementById("form_cadastro_proximo").style.display = 'block';
     document.getElementById("form_cadastro_anterior").style.display = 'block';
@@ -2025,9 +2025,9 @@ var etapa_atual = document.getElementById("controle_etapa_cadastro").value;
 
 if(etapa_atual=='2'){
 
-    setInterval(function() { limpa_campos_etapa(1); }, 1000);
-    setInterval(function() { limpa_campos_etapa(2); }, 1000);
-    setInterval(function() { limpa_campos_etapa(3); }, 1000);
+    setInterval(function() { limpa_campos_etapa(1); }, 500);
+    setInterval(function() { limpa_campos_etapa(2); }, 500);
+    setInterval(function() { limpa_campos_etapa(3); }, 500);
 
     document.getElementById("form_cadastro_proximo").style.display = 'block';
     document.getElementById("form_cadastro_anterior").style.display = 'none';
@@ -2059,7 +2059,7 @@ var etapa_atual = document.getElementById("controle_etapa_cadastro").value;
 if(etapa_atual=='2'){
 
    
-    setInterval(function() { limpa_campos_etapa(2); }, 1000);
+    setInterval(function() { limpa_campos_etapa(2); }, 500);
 
     var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
     for(var i = 0; i < divsToHide.length; i++){
@@ -2071,8 +2071,8 @@ if(etapa_atual=='2'){
 }
 
 if(etapa_atual=='3'){
-    setInterval(function() { limpa_campos_etapa(2); }, 1000);
-    setInterval(function() { limpa_campos_etapa(3); }, 1000)
+    setInterval(function() { limpa_campos_etapa(2); }, 500);
+    setInterval(function() { limpa_campos_etapa(3); }, 500)
 
     var divsToHide = document.getElementsByClassName("woocommerce-form-register__submit"); //divsToHide is an array
     for(var i = 0; i < divsToHide.length; i++){
