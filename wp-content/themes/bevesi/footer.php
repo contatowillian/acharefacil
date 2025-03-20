@@ -285,6 +285,10 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     line-height: 18px !important;
 }
 
+.page-id-10 .woocommerce-my-account .my-account-inner .woocommerce-MyAccount-content p a{
+    color:white !important;
+}
+
 .page-id-10 .woocommerce-MyAccount-content .woocommerce-message{
     display: none !important;
 }
