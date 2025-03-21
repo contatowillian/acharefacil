@@ -1876,6 +1876,10 @@ object-fit: none !important;
 
 <script>
 
+jQuery( document ).ready(function( $ ) {
+$(".campo_telefone input").mask('(00) 000000009', {clearIfNotMatch: true});
+});
+
 function limpa_campos_etapa(numero_etapa){
     var divsToHide = document.getElementsByClassName("cadastro-etapa-"+numero_etapa); //divsToHide is an array
     for(var i = 0; i < divsToHide.length; i++){
@@ -2081,8 +2085,6 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
 
         $(".campo_telefone input").mask('(00) 000000009', {clearIfNotMatch: true});
       
-
-
         $("#reg_email").on("keyup change", function(e) {
 
         let valor = $(this).val();
