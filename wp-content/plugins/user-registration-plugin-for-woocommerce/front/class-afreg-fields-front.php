@@ -4309,11 +4309,6 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 						$manual_user_roles = array();
 					}
 
-					$user = get_user_by( 'id', $user_id ); 
-
-	
-
-
 
 					if (!in_array( $default_role, $manual_user_roles)) {
 						$approved_status = get_user_meta($user_id, 'afreg_new_user_status', true);
@@ -4323,10 +4318,6 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 						} elseif ('pending' == $approved_status) {
 							wp_logout();
-							wp_set_current_user( $user_id, $current_user->user_login );
-							wp_set_auth_cookie( $user_id );
-						//	do_action( 'wp_login', $current_user->user_login, $current_user );
-
 							return 'https://sorvetedecerveja.com.br/my-account/edit-account/?etapa=2';
 						} elseif ('disapproved' == $approved_status) {
 
