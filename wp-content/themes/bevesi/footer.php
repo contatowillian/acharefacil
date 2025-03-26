@@ -2096,7 +2096,9 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
     jQuery( document ).ready(function( $ ) {
 
         $(".campo_telefone input").mask('(00) 000000009', {clearIfNotMatch: true});
-      
+        
+        $(".horario_atendimento input").mask('00:00', {clearIfNotMatch: true});
+
         $("#reg_email").on("keyup change", function(e) {
 
         let valor = $(this).val();
