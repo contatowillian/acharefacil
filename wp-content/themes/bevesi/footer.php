@@ -1890,6 +1890,8 @@ object-fit: none !important;
 
 jQuery( document ).ready(function( $ ) {
 $(".campo_telefone input").mask('(00) 000000009', {clearIfNotMatch: true});
+$(".horario_atendimento input").mask('00:00', {clearIfNotMatch: true});
+
 });
 
 function limpa_campos_etapa(numero_etapa){
