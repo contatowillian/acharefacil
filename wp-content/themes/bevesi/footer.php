@@ -214,6 +214,7 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     width: 43%;
     float: left;
     margin-right: 3%;
+    display: grid;
 }
 
 .page-id-10 .woocommerce-my-account .my-account-inner .woocommerce-MyAccount-content p a{
