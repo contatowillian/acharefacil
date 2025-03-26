@@ -4317,7 +4317,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 							return 'https://sorvetedecerveja.com.br/my-account/';
 
 						} elseif ('pending' == $approved_status) {
-							wp_logout();
+						//	wp_logout();
 							return 'https://sorvetedecerveja.com.br/my-account/edit-account/?etapa=2';
 						} elseif ('disapproved' == $approved_status) {
 
