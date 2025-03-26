@@ -209,6 +209,13 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     line-height: 18px !important;
 }
 
+
+.page-id-10 .horario_atendimento{
+    width: 43%;
+    float: left;
+    margin-right: 3%;
+}
+
 .page-id-10 .woocommerce-my-account .my-account-inner .woocommerce-MyAccount-content p a{
     color:white !important;
 }
