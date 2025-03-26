@@ -212,6 +212,10 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
 .page-id-10 .woocommerce-my-account .my-account-inner .woocommerce-MyAccount-content p a{
     color:white !important;
 }
+.page-id-10 .woocommerce-my-account .my-account-inner .woocommerce-MyAccount-content p .afreg_field_message a{
+    color: var(--color-blue-700);
+}
+
 
 .page-id-10 .woocommerce-MyAccount-content .woocommerce-message{
     display: none !important;
