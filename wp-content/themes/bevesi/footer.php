@@ -376,7 +376,7 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
 }
 
 
-.page-id-10 div .nsl-container .nsl-container-block .nsl-container-buttons{
+.page-id-10 .nsl-container-buttons{
     display: none !important;  
 }
 
