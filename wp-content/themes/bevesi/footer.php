@@ -1981,7 +1981,7 @@ jQuery( document ).ready(function( $ ) {
 function abre_dia_semana(id_campo,id_campo_2){
 
     document.getElementById("afreg_additionalshowhide_"+id_campo).style.display = 'block';
-    document.getElementById("form_cadafreg_additionalshowhide_astro_anterior"+id_campo_2).style.display = 'block';
+    document.getElementById("afreg_additionalshowhide_"+id_campo_2).style.display = 'block';
 }
 
 function limpa_campos_etapa(numero_etapa){
