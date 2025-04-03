@@ -2004,7 +2004,9 @@ jQuery( document ).ready(function( $ ) {
                const pega_ids_campos_horarios = id_div.split("__");
 
                 $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[0]).show();
+                $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[0]+' label').show();
                 $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[1]).show();
+                $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[1]+' label').show();
             })
                                                     
         }
