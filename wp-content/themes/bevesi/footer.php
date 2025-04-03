@@ -1954,6 +1954,27 @@ jQuery( document ).ready(function( $ ) {
         cria_preenche_horario_funcionamento(3247,3268 ,'Sexta-Feira');
         cria_preenche_horario_funcionamento(3252,3270,'Sabado');
         cria_preenche_horario_funcionamento(3251,3272,'Domingo');
+
+        $("#afreg_additional_3255").on("keyup change", function(e) {
+            jQuery('.horario_atendimento').hide();
+        }) 
+
+        $("#afreg_additional_3216").on("keyup change", function(e) {
+            jQuery('.horario_atendimento').hide();
+        })
+
+        $("#afreg_additional_3217").on("keyup change", function(e) {
+            jQuery('.horario_atendimento').hide();
+        })
+
+        $("#afreg_additional_3217").on("keyup change", function(e) {
+            jQuery('.horario_atendimento').hide();
+        })
+        $("#afreg_additional_3234").on("keyup change", function(e) {
+            jQuery('.horario_atendimento').hide();
+        })
+
+        
        
     <?php } ?>
 
@@ -1989,6 +2010,10 @@ function limpa_campos_etapa(numero_etapa){
     for(var i = 0; i < divsToHide.length; i++){
         divsToHide[i].style.display = "none"; // depending on what you're doing
     }
+
+    if(numero_etapa==2){
+               
+    }
 }
 
 
@@ -2020,7 +2045,7 @@ window.onload = function() {
 
   
 
-    setInterval(function() { limpa_campos_etapa(3); }, 500);
+    setInterval(function() { limpa_campos_etapa(3); }, 200);
     
     <?php } ?>
 
@@ -2031,7 +2056,7 @@ window.onload = function() {
                 window.location=('/lista_planos');
         <?php }  ?>
 
-    setInterval(function() { limpa_campos_etapa(2); }, 500);
+    setInterval(function() { limpa_campos_etapa(2); }, 200);
 
     document.getElementById("form_cadastro_proximo").style.display = 'none';
     document.getElementById("form_cadastro_anterior").style.display = 'block';
