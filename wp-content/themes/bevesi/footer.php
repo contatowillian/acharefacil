@@ -1908,9 +1908,23 @@ object-fit: none !important;
 
 <script>
 
+
+
+
+
 jQuery( document ).ready(function( $ ) {
-$(".campo_telefone input").mask('(00) 000000009', {clearIfNotMatch: true});
-$(".horario_atendimento input").mask('00:00', {clearIfNotMatch: true});
+
+    $(".campo_telefone input").mask('(00) 000000009', {clearIfNotMatch: true});
+    $(".horario_atendimento input").mask('00:00', {clearIfNotMatch: true});
+
+    <?php if($_GET['etapa_cadastro']==2){ ?>
+        $("#afreg_additional_3224").on("keyup change", function(e) {
+
+            let valor = $(this).val();
+            $("#account_first_name").val(valor);
+            $("#account_last_name").val(' ');
+        })
+    <?php } ?>
 
 });
 
@@ -1948,13 +1962,7 @@ window.onload = function() {
     document.getElementById("afreg_additional_3218").required = true;
 
 
-    $("#afreg_additional_3224").on("keyup change", function(e) {
-
-        let valor = $(this).val();
-        $("#account_first_name").val(valor);
-        $("#account_last_name").val(' ');
-    })
-
+  
 
     setInterval(function() { limpa_campos_etapa(3); }, 500);
     
