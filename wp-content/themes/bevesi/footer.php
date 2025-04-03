@@ -308,7 +308,8 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
     font-size: 18px !important;
 }   
 .page-id-10  .campo_escolhe_horaio_dia_semana{
-    width:100%;
+    width:100% !important;
+    display: flex !important;
 }  
 
 
@@ -1937,8 +1938,8 @@ jQuery( document ).ready(function( $ ) {
     <?php if($_GET['etapa_cadastro']==3){ ?>
 
         
-        cria_preenche_horario_funcionamento(3246,'Segunda-Feira');
-        cria_preenche_horario_funcionamento(3248,'Terça-Feira');
+        cria_preenche_horario_funcionamento(3246,3263,'Segunda-Feira');
+        cria_preenche_horario_funcionamento(3248,3264,'Terça-Feira');
 
 
        
@@ -1946,13 +1947,17 @@ jQuery( document ).ready(function( $ ) {
 
 
 
-        function cria_preenche_horario_funcionamento(id_campo,dia){
+        function cria_preenche_horario_funcionamento(id_campo,id_campo_2,dia){
 
             $('#afreg_additionalshowhide_'+id_campo).before('<div class="clear campo_escolhe_horaio_dia_semana"><p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_'+id_campo+'" >'+
-                                                    '<input  onclick="abre_dia_semana('+id_campo+')"  type="checkbox"><label for="afreg_additional_'+id_campo+'">'+
+                                                    '<input  onclick="abre_dia_semana('+id_campo+','+id_campo_2+')"  type="checkbox"><label for="afreg_additional_'+id_campo+'">'+
                                                     'Preencher horário de Funcionamento - '+dia+							
                                                     '</label>'+
                                                     '</p><br></div>');
+
+            $('#afreg_additionalshowhide_'+id_campo).hide();
+            $('#afreg_additionalshowhide_'+id_campo_2).hide();
+                                                    
             
         }
 
