@@ -209,6 +209,12 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     line-height: 18px !important;
 }
 
+.page-id-10 .klb-icon-timer{
+    font-size: 23px;
+    margin-top: -8px;
+    display: block;
+}
+
 
 .page-id-10 #afreg_additionalshowhide_3218{
     display:flex;
@@ -311,6 +317,7 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
     width:100% !important;
     display: flex !important;
     cursor:pointer;
+    margin-top: 12px;
 }  
 
 
