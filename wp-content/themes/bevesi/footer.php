@@ -1980,8 +1980,8 @@ jQuery( document ).ready(function( $ ) {
 
 function abre_dia_semana(id_campo,id_campo_2){
 
-    document.getElementById("afreg_additionalshowhide_"+id_campo).style.display = 'block';
-    document.getElementById("afreg_additionalshowhide_"+id_campo_2).style.display = 'block';
+    document.getElementById("afreg_additionalshowhide_"+id_campo).style.display = 'grid';
+    document.getElementById("afreg_additionalshowhide_"+id_campo_2).style.display = 'grid';
 }
 
 function limpa_campos_etapa(numero_etapa){
