@@ -2147,7 +2147,7 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
             
         })
 
-        $("#afreg_additional_3232").change(function(){
+       /* $("#afreg_additional_3232").change(function(){
             
             let valor = $(this).val();  
 
@@ -2173,7 +2173,7 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
                 $("#afreg_additionalshowhide_3216").css("display", "block");
             }
 
-        })
+        })*/
 
     });
 
