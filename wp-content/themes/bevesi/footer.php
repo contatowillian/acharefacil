@@ -1930,16 +1930,25 @@ jQuery( document ).ready(function( $ ) {
     <?php if($_GET['etapa_cadastro']==3){ ?>
 
         
-
-        $('#afreg_additionalshowhide_3246').before('<p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_3246" >'+
-                                                    '<input  onclick="abre_dia_semana(3246)"  type="checkbox"><label for="afreg_additional_3246">'+
-                                                    'Preencher Horário Segunda-Feira'+								
-                                                    '</label>'+
-                                                    '</p><br><div class="clear">');
+        cria_preenche_horario_funcionamento(3246,'Segunda-Feira');
+        cria_preenche_horario_funcionamento(3248,'Terça-Feira');
 
 
        
     <?php } ?>
+
+
+
+        function cria_preenche_horario_funcionamento(id_campo,dia){
+
+            $('#afreg_additionalshowhide_'+id_campo).before('<p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_'+id_campo+'" >'+
+                                                    '<input  onclick="abre_dia_semana('+id_campo+')"  type="checkbox"><label for="afreg_additional_'+id_campo+'">'+
+                                                    'Preencher horário de Funcionamento - '+dia+							
+                                                    '</label>'+
+                                                    '</p><br><div class="clear">');
+            
+        }
+
 
 });
 
