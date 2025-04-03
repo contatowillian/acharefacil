@@ -1961,7 +1961,12 @@ jQuery( document ).ready(function( $ ) {
             $('#afreg_additionalshowhide_'+id_campo).hide();
             $('#afreg_additionalshowhide_'+id_campo_2).hide();
                                                     
-            
+        }
+
+        function abre_dia_semana(id_campo,id_campo_2){
+            $('.campo_escolhe_horaio_dia_semana').hide();
+            $('#afreg_additionalshowhide_'+id_campo).show();
+            $('#afreg_additionalshowhide_'+id_campo_2).show();
         }
 
 
@@ -2179,3 +2184,4 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
 <?php }?>
 
 <div class="alert alert-primary col-md-16" role="alert" id='status_busca_cep'> </div>
+
