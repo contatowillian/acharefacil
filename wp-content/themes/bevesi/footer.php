@@ -1948,6 +1948,14 @@ window.onload = function() {
     document.getElementById("afreg_additional_3218").required = true;
 
 
+    $("#afreg_additional_3224").on("keyup change", function(e) {
+
+        let valor = $(this).val();
+        $("#account_first_name").val(valor);
+        $("#account_last_name").val(' ');
+    })
+
+
     setInterval(function() { limpa_campos_etapa(3); }, 500);
     
     <?php } ?>
@@ -2057,6 +2065,9 @@ if(etapa_atual=='3'){
 jQuery( document ).ready(function( $ ) {
 
 $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
+
+
+
 
     $("#afreg_additional_3239").keyup(function(){
        if($("#afreg_additional_3239").val() == ""){

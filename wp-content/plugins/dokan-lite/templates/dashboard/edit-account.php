@@ -50,7 +50,7 @@ $user = get_user_by( 'id', get_current_user_id() );
 
                 <?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 
-            <!--    <p class="form-row form-row-first">
+                <p class="form-row form-row-first">
                     <label for="account_first_name"><?php esc_html_e( 'First name', 'dokan-lite' ); ?> <span class="required">*</span></label>
                     <input type="text" class="input-text" name="account_first_name" id="account_first_name" value="<?php echo esc_attr( $user->first_name ); ?>"/>
                 </p>
@@ -58,7 +58,7 @@ $user = get_user_by( 'id', get_current_user_id() );
                 <p class="form-row form-row-last">
                     <label for="account_last_name"><?php esc_html_e( 'Last name', 'dokan-lite' ); ?> <span class="required">*</span></label>
                     <input type="text" class="input-text" name="account_last_name" id="account_last_name" value="<?php echo esc_attr( $user->last_name ); ?>"/>
-                </p> -->
+                </p>
                 <div class="clear"></div>
 
                 <p class="form-row form-row-wide">
