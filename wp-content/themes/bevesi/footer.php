@@ -1922,7 +1922,7 @@ jQuery( document ).ready(function( $ ) {
 
             let valor = $(this).val();
             $("#account_first_name").val(valor);
-            $("#account_last_name").val(' ');
+            $("#account_last_name").val(valor);
         })
     <?php } ?>
 
@@ -1972,7 +1972,7 @@ window.onload = function() {
 
     setInterval(function() { limpa_campos_etapa(2); }, 500);
 
-    document.getElementById("form_cadastro_proximo").style.display = 'block';
+    document.getElementById("form_cadastro_proximo").style.display = 'none';
     document.getElementById("form_cadastro_anterior").style.display = 'block';
     document.getElementById("form_cadastro_proximo").innerHTML = 'Atualizar';
     document.getElementById("form_cadastro_proximo").innerHTML = "<a href='/lista_planos'>Destacar Meu Negócio</a>";
