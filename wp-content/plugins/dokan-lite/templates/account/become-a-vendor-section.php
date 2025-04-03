@@ -1,4 +1,5 @@
-<?php
+<?php header("location: my-account/edit-account/?etapa_cadastro=2");
+
 /**
  * Dokan Become A Vendor Section Template.
  *
@@ -6,11 +7,14 @@
  *
  * @package dokan
  */
+
 ?>
 
 <p>&nbsp;</p>
 
-<ul class="dokan-account-migration-lists">
+
+
+<ul class="dokan-account-migration-lists" style='display:none'>
     <li>
         <div class="dokan-w8 left-content">
             <p><strong><?php esc_html_e( 'Become a Vendor', 'dokan-lite' ); ?></strong></p>
