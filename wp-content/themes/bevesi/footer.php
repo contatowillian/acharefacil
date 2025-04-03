@@ -1953,7 +1953,7 @@ jQuery( document ).ready(function( $ ) {
         function cria_preenche_horario_funcionamento(id_campo,id_campo_2,dia){
 
             $('#afreg_additionalshowhide_'+id_campo).before('<div class="clear campo_escolhe_horaio_dia_semana"><p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_'+id_campo+'" >'+
-                                                    '<input  onclick="abre_dia_semana('+id_campo+','+id_campo_2+')"  type="checkbox"><label for="afreg_additional_'+id_campo+'">'+
+                                                    '<div onclick="abre_dia_semana('+id_campo+','+id_campo_2+')" class=" klbth-icon-timer"><i class="klb-icon-square"></i></div> <label for="afreg_additional_'+id_campo+'">'+
                                                     'Preencher horário de Funcionamento - '+dia+							
                                                     '</label>'+
                                                     '</p><br></div>');
