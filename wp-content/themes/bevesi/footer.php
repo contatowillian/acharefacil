@@ -1926,6 +1926,21 @@ jQuery( document ).ready(function( $ ) {
         })
     <?php } ?>
 
+
+    <?php if($_GET['etapa_cadastro']==3){ ?>
+
+        
+
+        $('#afreg_additionalshowhide_3246').before('<p class="af-dependable-field form-row cadastro-etapa-3 horario_atendimento form-row-wide" id="abre_dia_semana_3246"  onclick="abre_dia_semana(3246)" >'+
+                                                    '<label for="afreg_additional_3246">'+
+                                                    'Horário Segunda-Feira'+								
+                                                    '</label>'+
+                                                    '</p>');
+
+
+       
+    <?php } ?>
+
 });
 
 function limpa_campos_etapa(numero_etapa){
