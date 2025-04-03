@@ -307,10 +307,16 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
 .page-id-10  .aviso_parabens{
     font-size: 18px !important;
 }   
+.page-id-10  .campo_escolhe_horaio_dia_semana{
+    width:100%;
+}  
+
 
 .page-id-2916 .class_reg_username{
     display: none !important;
 }
+
+
 
 
 
@@ -1875,6 +1881,7 @@ right: 8px;
 }
 
 
+
 .site-header .site-header-custom-button>a{
 background-color: white;
 color: #27326F !important;
@@ -1941,11 +1948,11 @@ jQuery( document ).ready(function( $ ) {
 
         function cria_preenche_horario_funcionamento(id_campo,dia){
 
-            $('#afreg_additionalshowhide_'+id_campo).before('<br><p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_'+id_campo+'" >'+
+            $('#afreg_additionalshowhide_'+id_campo).before('<div class="clear campo_escolhe_horaio_dia_semana"><p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_'+id_campo+'" >'+
                                                     '<input  onclick="abre_dia_semana('+id_campo+')"  type="checkbox"><label for="afreg_additional_'+id_campo+'">'+
                                                     'Preencher horário de Funcionamento - '+dia+							
                                                     '</label>'+
-                                                    '</p><br><div class="clear"></div>');
+                                                    '</p><br></div>');
             
         }
 
