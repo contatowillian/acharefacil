@@ -2005,8 +2005,10 @@ jQuery( document ).ready(function( $ ) {
 
                 $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[0]).show();
                 $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[0]+' label').show();
+                $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[0]+' input').show();
                 $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[1]).show();
                 $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[1]+' label').show();
+                $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[1]+' input').show();
             })
                                                     
         }
