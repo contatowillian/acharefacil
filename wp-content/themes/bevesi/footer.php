@@ -1992,7 +1992,7 @@ jQuery( document ).ready(function( $ ) {
             $('#afreg_additionalshowhide_'+id_campo_2).hide();
 
             $(".campo_escolhe_horaio_dia_semana").on("click change", function(e) {
-               console.log(e.id);
+               console.log(this.id);
             })
                                                     
         }
