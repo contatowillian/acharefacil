@@ -310,6 +310,7 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
 .page-id-10  .campo_escolhe_horaio_dia_semana{
     width:100% !important;
     display: flex !important;
+    cursor:pointer;
 }  
 
 
@@ -1952,8 +1953,8 @@ jQuery( document ).ready(function( $ ) {
 
         function cria_preenche_horario_funcionamento(id_campo,id_campo_2,dia){
 
-            $('#afreg_additionalshowhide_'+id_campo).before('<div class="clear campo_escolhe_horaio_dia_semana"><p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_'+id_campo+'" >'+
-                                                    '<div onclick="abre_dia_semana('+id_campo+','+id_campo_2+')" class=" klbth-icon-timer"><i class="klb-icon-square"></i></div> <label for="afreg_additional_'+id_campo+'">'+
+            $('#afreg_additionalshowhide_'+id_campo).before('<div class="clear campo_escolhe_horaio_dia_semana" onclick="abre_dia_semana('+id_campo+','+id_campo_2+')"><p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_'+id_campo+'" >'+
+                                                    '<div ><i class="klb-icon-timer"></i></div> <label for="afreg_additional_'+id_campo+'">'+
                                                     'Preencher horário de Funcionamento - '+dia+							
                                                     '</label>'+
                                                     '</p><br></div>');
@@ -1964,7 +1965,7 @@ jQuery( document ).ready(function( $ ) {
         }
 
         function abre_dia_semana(id_campo,id_campo_2){
-            $('.campo_escolhe_horaio_dia_semana').hide();
+      
             $('#afreg_additionalshowhide_'+id_campo).show();
             $('#afreg_additionalshowhide_'+id_campo_2).show();
         }
