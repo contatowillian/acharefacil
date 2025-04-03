@@ -317,7 +317,8 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
     width:100% !important;
     display: flex !important;
     cursor:pointer;
-    margin-top: 12px;
+    margin-top: 17px;
+    margin-left: -7px;
 }  
 
 
@@ -1971,14 +1972,17 @@ jQuery( document ).ready(function( $ ) {
                                                     
         }
 
-        function abre_dia_semana(id_campo,id_campo_2){
-      
-            $('#afreg_additionalshowhide_'+id_campo).show();
-            $('#afreg_additionalshowhide_'+id_campo_2).show();
-        }
+       
 
 
 });
+
+
+function abre_dia_semana(id_campo,id_campo_2){
+
+    document.getElementById("afreg_additionalshowhide_"+id_campo).style.display = 'block';
+    document.getElementById("form_cadafreg_additionalshowhide_astro_anterior"+id_campo_2).style.display = 'block';
+}
 
 function limpa_campos_etapa(numero_etapa){
     var divsToHide = document.getElementsByClassName("cadastro-etapa-"+numero_etapa); //divsToHide is an array
