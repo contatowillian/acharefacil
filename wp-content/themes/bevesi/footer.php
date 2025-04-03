@@ -1933,7 +1933,7 @@ jQuery( document ).ready(function( $ ) {
 
         $('#afreg_additionalshowhide_3246').before('<p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_3246" >'+
                                                     '<input  onclick="abre_dia_semana(3246)"  type="checkbox"><label for="afreg_additional_3246">'+
-                                                    'Horário Segunda-Feira'+								
+                                                    'Preencher Horário Segunda-Feira'+								
                                                     '</label>'+
                                                     '</p><br><div class="clear">');
 
