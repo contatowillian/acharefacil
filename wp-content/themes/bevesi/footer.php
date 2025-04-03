@@ -210,6 +210,18 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
 }
 
 
+.page-id-10 #afreg_additionalshowhide_3218{
+    display:flex;
+}
+
+.page-id-10 #afreg_additionalshowhide_3218 label{
+    display: none !important;
+}
+.page-id-10 #afreg_additionalshowhide_3218 label{
+    display: none !important;
+}
+
+
 .page-id-10 .horario_atendimento{
     width: 43%;
     float: left;
@@ -1928,7 +1940,7 @@ window.onload = function() {
     document.getElementById("afreg_additional_3214").required = true;
     document.getElementById("afreg_additional_3254").required = true;
     document.getElementById("afreg_additional_3226").required = true;
-    document.getElementById("afreg_additional_3212").required = true;
+
     document.getElementById("afreg_additional_3240").required = true;
     document.getElementById("afreg_additional_3243").required = true;
     document.getElementById("afreg_additional_3244").required = true;
