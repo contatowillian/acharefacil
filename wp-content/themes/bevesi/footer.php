@@ -1940,8 +1940,11 @@ jQuery( document ).ready(function( $ ) {
         
         cria_preenche_horario_funcionamento(3246,3263,'Segunda-Feira');
         cria_preenche_horario_funcionamento(3248,3264,'Terça-Feira');
-
-
+        cria_preenche_horario_funcionamento(3249,3266,'Quarta-Feira');
+        cria_preenche_horario_funcionamento(3250,3267,'Quinta-Feira');
+        cria_preenche_horario_funcionamento(3247,3268 ,'Sexta-Feira');
+        cria_preenche_horario_funcionamento(3252,3270,'Sabado');
+        cria_preenche_horario_funcionamento(3251,3272,'Domingo');
        
     <?php } ?>
 
