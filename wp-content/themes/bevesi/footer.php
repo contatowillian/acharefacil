@@ -1941,7 +1941,7 @@ jQuery( document ).ready(function( $ ) {
 
         function cria_preenche_horario_funcionamento(id_campo,dia){
 
-            $('#afreg_additionalshowhide_'+id_campo).before('<p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_'+id_campo+'" >'+
+            $('#afreg_additionalshowhide_'+id_campo).before('<br><p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_'+id_campo+'" >'+
                                                     '<input  onclick="abre_dia_semana('+id_campo+')"  type="checkbox"><label for="afreg_additional_'+id_campo+'">'+
                                                     'Preencher horário de Funcionamento - '+dia+							
                                                     '</label>'+
