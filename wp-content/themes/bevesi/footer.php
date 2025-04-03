@@ -1970,6 +1970,11 @@ window.onload = function() {
 
     <?php if($_GET['etapa_cadastro']==3){ ?>
 
+        <?php 
+            if (strpos($_SERVER['HTTP_REFERER'], '?etapa_cadastro=3') !== false) { ?>
+                window.location('/lista_planos');
+        <?php }  ?>
+
     setInterval(function() { limpa_campos_etapa(2); }, 500);
 
     document.getElementById("form_cadastro_proximo").style.display = 'none';
