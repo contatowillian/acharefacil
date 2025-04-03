@@ -1982,7 +1982,7 @@ jQuery( document ).ready(function( $ ) {
 
         function cria_preenche_horario_funcionamento(id_campo,id_campo_2,dia){
 
-            $('#afreg_additionalshowhide_'+id_campo).before('<div class="clear campo_escolhe_horaio_dia_semana" ><p class="af-dependable-field form-row  form-row-wide" id="'+id_campo+'__'+id_campo_2+'" >'+
+            $('#afreg_additionalshowhide_'+id_campo).before('<div class="clear campo_escolhe_horaio_dia_semana" id="'+id_campo+'__'+id_campo_2+'"  ><p class="af-dependable-field form-row  form-row-wide" >'+
                                                     '<div ><i class="klb-icon-timer"></i></div> <label for="afreg_additional_'+id_campo+'">'+
                                                     'Preencher horário de Funcionamento - '+dia+							
                                                     '</label>'+
@@ -1993,6 +1993,13 @@ jQuery( document ).ready(function( $ ) {
 
             $(".campo_escolhe_horaio_dia_semana").on("click", function(e) {
                console.log(this.id);
+
+               var id_div = this.id;
+
+               const pega_ids_campos_horarios = id_div.split("__");
+
+                $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[0]).show();
+                $('#afreg_additionalshowhide_'+pega_ids_campos_horarios[1]).show();
             })
                                                     
         }
