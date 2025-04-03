@@ -1931,11 +1931,11 @@ jQuery( document ).ready(function( $ ) {
 
         
 
-        $('#afreg_additionalshowhide_3246').before('<p class="af-dependable-field form-row cadastro-etapa-3 horario_atendimento form-row-wide" id="abre_dia_semana_3246"  onclick="abre_dia_semana(3246)" >'+
-                                                    '<label for="afreg_additional_3246">'+
+        $('#afreg_additionalshowhide_3246').before('<p class="af-dependable-field form-row  form-row-wide" id="abre_dia_semana_3246" >'+
+                                                    '<input  onclick="abre_dia_semana(3246)"  type="checkbox"><label for="afreg_additional_3246">'+
                                                     'Horário Segunda-Feira'+								
                                                     '</label>'+
-                                                    '</p>');
+                                                    '</p><br><div class="clear">');
 
 
        
