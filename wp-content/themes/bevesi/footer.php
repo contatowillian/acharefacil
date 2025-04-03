@@ -1957,21 +1957,26 @@ jQuery( document ).ready(function( $ ) {
 
         $("#afreg_additional_3255").on("keyup change", function(e) {
             jQuery('.horario_atendimento').hide();
+            jQuery('.horario_atendimento label').hide();
         }) 
 
         $("#afreg_additional_3216").on("keyup change", function(e) {
             jQuery('.horario_atendimento').hide();
+            jQuery('.horario_atendimento label').hide();
         })
 
         $("#afreg_additional_3217").on("keyup change", function(e) {
             jQuery('.horario_atendimento').hide();
+            jQuery('.horario_atendimento label').hide();
         })
 
         $("#afreg_additional_3217").on("keyup change", function(e) {
             jQuery('.horario_atendimento').hide();
+            jQuery('.horario_atendimento label').hide();
         })
         $("#afreg_additional_3234").on("keyup change", function(e) {
             jQuery('.horario_atendimento').hide();
+            jQuery('.horario_atendimento label').hide();
         })
 
         
