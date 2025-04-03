@@ -1945,7 +1945,7 @@ jQuery( document ).ready(function( $ ) {
                                                     '<input  onclick="abre_dia_semana('+id_campo+')"  type="checkbox"><label for="afreg_additional_'+id_campo+'">'+
                                                     'Preencher horário de Funcionamento - '+dia+							
                                                     '</label>'+
-                                                    '</p><br><div class="clear">');
+                                                    '</p><br><div class="clear"></div>');
             
         }
 
