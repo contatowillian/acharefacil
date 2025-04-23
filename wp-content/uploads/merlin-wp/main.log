@@ -5039,3 +5039,4 @@
 [2024-10-18 23:42:27] merlin-logger.INFO: The content import AJAX call will be executed with this import data {"title":"After import setup","data":0} []
 [2024-10-18 23:42:40] merlin-logger.DEBUG: The final step has been displayed [] []
 [2024-12-12 19:22:02] merlin-logger.DEBUG: The welcome step has been displayed [] []
+[2025-04-23 19:12:06] merlin-logger.DEBUG: The Hello world post status was set to draft [] []
