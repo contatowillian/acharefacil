@@ -2053,7 +2053,6 @@ window.onload = function() {
     document.getElementById("afreg_additional_3224").required = true;
     document.getElementById("afreg_additional_3213").required = true;
     document.getElementById("afreg_additional_3214").required = true;
-    document.getElementById("afreg_additional_3254").required = true;
     document.getElementById("afreg_additional_3226").required = true;
 
     document.getElementById("afreg_additional_3240").required = true;
@@ -2062,8 +2061,8 @@ window.onload = function() {
     document.getElementById("afreg_additional_3245").required = true;
     document.getElementById("afreg_additional_3218").required = true;
 
-
-  
+    document.getElementById("afreg_additional_3218").click();
+    
 
     setInterval(function() { limpa_campos_etapa(3); }, 200);
     
