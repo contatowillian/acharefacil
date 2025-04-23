@@ -341,9 +341,9 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
 }
 
 .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container .woocommerce-form-register__submit{
-    width: 47% !important;
+  /*  width: 47% !important;
     float: right !important;
-    margin-left: 3%;
+    margin-left: 3%; */
 }
 .page-id-2916 .site-login .site-login-inner .site-login-overflow .login-form-container{
     width:100% !important; 
