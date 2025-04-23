@@ -440,7 +440,11 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
 }
 
 .page-id-10 #form_cadastro_anunco_wizard h3{
-    display: none !important
+    display: none !important;
+}
+
+.search-results .shop-sorting-wrapper{
+    display: none !important;
 }
 
 .contact-form-wrapper .wpcf7-form .wpcf7-submit{
