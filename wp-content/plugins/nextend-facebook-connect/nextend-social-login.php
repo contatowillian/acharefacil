@@ -676,9 +676,9 @@ class NextendSocialLogin {
             $scripts = NSL_PATH . '/js/nsl.js';
             if (file_exists($scripts)) {
                 $localizedStrings = array(
-                    'redirect_overlay_title'    => __('Hold On', 'nextend-facebook-connect'),
-                    'redirect_overlay_text'     => __('You are being redirected to another page,<br>it may take a few seconds.', 'nextend-facebook-connect'),
-                    'webview_notification_text' => __('The selected provider doesn\'t support embedded browsers!', 'nextend-facebook-connect'),
+                    'redirect_overlay_title'    => __('Aguarde ...', 'nextend-facebook-connect'),
+                    'redirect_overlay_text'     => __('Você está sendo redirecionado para outra página,<br>pode levar alguns segundos.', 'nextend-facebook-connect'),
+                    'webview_notification_text' => __('O provedor selecionado não suporta navegadores incorporados!', 'nextend-facebook-connect'),
                 );
 
                 $scriptOptions = array(
