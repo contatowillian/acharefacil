@@ -102,7 +102,7 @@ function bevesi_product_type_list($stockprogressbar = '', $stockstatus = '', $sh
 
 		$output .= '<div class="info_extra_anunciante_busca">';
 		$output .= '<div class="site_lista_busca"><i class="klb-icon-www"></i>www.jaraguaveiculos.com.br</div>';
-		$output .= '<div class="instagram_lista_busca"><img class="icones_rede_social_lista_busca"  src="wp-content/themes/bevesi/assets/img/barra_icones.png"></div>';
+	//	$output .= '<div class="instagram_lista_busca"><img class="icones_rede_social_lista_busca"  src="wp-content/themes/bevesi/assets/img/barra_icones.png"></div>';
 		$output .= '</div>';
 
 		$output .= '</div><!-- product-content-row col-lg-9 -->';
