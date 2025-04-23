@@ -41,11 +41,15 @@ $current_user = wp_get_current_user();
 		<div class="my-account-navigation" aria-label="<?php esc_html_e( 'Account pages', 'bevesi' ); ?>">
 			<ul>
 				<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
+					<?php if($label=='Log out'){
+						
+						$label="Sair da conta"; ?>
 					<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
 						<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>" <?php echo wc_is_current_account_menu_item( $endpoint ) ? 'aria-current="page"' : ''; ?>>
 							<?php echo esc_html( $label ); ?>
 						</a>
 					</li>
+					<?php }  ?>
 				<?php endforeach; ?>
 			</ul>
 		</div><!-- my-account-navigation -->

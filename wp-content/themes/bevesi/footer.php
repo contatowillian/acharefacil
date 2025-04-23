@@ -378,10 +378,12 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
 .page-id-10  .my-account-user{
     display: none !important;
 }
+
+<?php if(!isset($_GET['opcao_deslogar'])){ ?>
 .page-id-10  .my-account-navigation{
     display: none !important;
 }
-
+<?php } ?>
 
 
 .page-id-10 .site-login{
