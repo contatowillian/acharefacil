@@ -1931,7 +1931,7 @@ object-fit: none !important;
 
 jQuery( document ).ready(function( $ ) {
 
-    $(".campo_telefone input").mask('(00) 000000009', {clearIfNotMatch: true});
+    $(".campo_telefone input").mask('(00) 00000-0009', {clearIfNotMatch: true});
     $(".horario_atendimento input").mask('00:00', {clearIfNotMatch: true});
 
     <?php if($_GET['etapa_cadastro']==2){ ?>
