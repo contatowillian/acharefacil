@@ -215,6 +215,10 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     display: block;
 }
 
+.page-id-10 #afreg_additionalshowhide_3227{
+    margin-top: 16px;
+}
+
 
 .page-id-10 #afreg_additionalshowhide_3218{
     display:flex;
@@ -2079,6 +2083,7 @@ window.onload = function() {
 
     document.getElementById("form_cadastro_proximo").style.display = 'none';
     document.getElementById("form_cadastro_anterior").style.display = 'block';
+    document.getElementById("form_cadastro_anterior").innerHTML = 'Finalizar';
     document.getElementById("form_cadastro_proximo").innerHTML = 'Finalizar';
     document.getElementById("form_cadastro_proximo").innerHTML = "<a href='/lista_planos'>Destacar Meu Negócio</a>";
     document.getElementById("form_cadastro_proximo").style.backgroundColor = "#18864B";
