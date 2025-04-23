@@ -146,7 +146,7 @@
 				<?php } ?>
 				
 				<div class="site-copyright-content">
-					<p>Copyright 2010-2025 © Achar é Facíl</p>
+					<p><?php echo bevesi_sanitize_data(get_theme_mod( 'bevesi_second_copyright' )); ?></p>
 				</div><!-- site-copyright-content -->
 				
 				<?php if(get_theme_mod( 'bevesi_copyright' )){ ?>
