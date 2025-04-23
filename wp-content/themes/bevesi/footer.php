@@ -203,6 +203,14 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
 .page-id-2916 .site-login{
     padding:0px !important;
 }
+
+
+.page-id-3039 #ver-meu-anuncio-botao{
+    padding: 15px 20px 15px 20px;
+    background-color: #004711;
+}
+
+
 .page-id-10 .textarea_descricao_anuncio textarea{
     height: 80px !important;
     max-height: 80px !important;
