@@ -174,9 +174,11 @@
 						</ul>
 					</div><!-- site-social -->
 				<?php } ?>
+				<img class='img-selo-seguro-rodape'  src="<?php echo get_template_directory_uri(); ?>/assets/img/certificado_loja_segura.png" alt="Selo Seguro"/>
+
 				
 				<div class="site-copyright-content">
-				  <p><?php echo bevesi_sanitize_data(get_theme_mod( 'bevesi_second_copyright' )); ?></p>
+				  <p>Copyright 2010-2025 © Achar é Facíl</p>
 				</div><!-- site-copyright-content -->
 				
 				<?php if(get_theme_mod( 'bevesi_copyright' )){ ?>
