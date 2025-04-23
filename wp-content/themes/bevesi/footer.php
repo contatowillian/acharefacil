@@ -1988,7 +1988,7 @@ jQuery( document ).ready(function( $ ) {
         function cria_preenche_horario_funcionamento(id_campo,id_campo_2,dia){
 
             $('#afreg_additionalshowhide_'+id_campo).before('<div class="clear campo_escolhe_horaio_dia_semana" id="'+id_campo+'__'+id_campo_2+'"  ><p class="af-dependable-field form-row  form-row-wide" >'+
-                                                    '<div ><i class="klb-icon-timer"></i></div> <label for="afreg_additional_'+id_campo+'">'+
+                                                    '<div ><input type="checkbox"></i></div> <label for="afreg_additional_'+id_campo+'">'+
                                                     'Preencher horário de Funcionamento - '+dia+							
                                                     '</label>'+
                                                     '</p><br></div>');
