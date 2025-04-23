@@ -383,8 +383,25 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
 .page-id-10  .my-account-navigation{
     display: none !important;
 }
-<?php } ?>
+<?php }else{ ?>
 
+.page-id-10  .my-account-navigation{
+    position: absolute;
+}
+.page-id-10  .my-account-navigation li{
+    border: 1px solid black;
+    padding-top: 0px;
+    max-width: 118px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 5px;
+    height: 42px;
+    background-color: #444;
+    color: white;
+    padding-left: 5px;
+}   
+
+<?php } ?>
 
 .page-id-10 .site-login{
     padding:0px !important;
