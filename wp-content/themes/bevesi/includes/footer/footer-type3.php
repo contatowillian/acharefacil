@@ -33,6 +33,8 @@
 					</div><!-- iconboxes -->
 				</div><!-- site-footer-inner -->
 			</div><!-- container -->
+			<img class='img-selo-seguro-rodape'  src="<?php echo get_template_directory_uri(); ?>/assets/img/certificado_loja_segura.png" alt="Selo Seguro"/>
+
 		</div><!-- site-footer-row -->
 	<?php } ?>	
 		

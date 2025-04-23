@@ -36,7 +36,7 @@
     </body>
     
     <div id="container">
-        <a href="https://w.app/uncgvy" target="_blank">
+        <a href="https://wa.me/5511993112353?text=%F0%9F%91%8B%20Ol%C3%A1!%20Obrigado%20por%20entrar%20em%20contato.%20Como%20posso%20ajudar%20voc%C3%AA%20hoje%3F" target="_blank">
             <div class="corpo">
                 <div class="painelvermelho"></div>
             </div>
