@@ -109,7 +109,6 @@ function bevesi_product_type_list($stockprogressbar = '', $stockstatus = '', $sh
 		$output .= '<div class="col-lg-3 coluna_info_anunciante_busca"> <!-- product-content-row col-lg-3 -->';
 		$output .= '<div class="linha_top_info_lista_imoveis"></div>';
 		$output .= '<div class="info-section info-secondary">
-					<div class="phones phone primary"><strong>Informações:</strong></div>
 					<div class="phones phone primary"><i class="klb-icon-phone"></i>(11) 99738-2911</div>
 						<div class="adr">
 						<div class="street-address"><i class="klb-icon-home"></i>Av. Paulista, 80</div>
