@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: WP All Import
-Plugin URI: http://www.wpallimport.com/upgrade-to-pro?utm_source=wordpress.org&utm_medium=plugins-page&utm_campaign=free+plugin
+Plugin URI: https://www.wpallimport.com/wordpress-xml-csv-import/?utm_source=import-plugin-free&utm_medium=wp-plugins-page&utm_campaign=upgrade-to-pro
 Description: The most powerful solution for importing XML and CSV files to WordPress. Create Posts and Pages with content from any XML or CSV file. A paid upgrade to WP All Import Pro is available for support and additional features.
-Version: 3.5.0
+Version: 3.9.1
 Author: Soflyy
 */
 
@@ -25,7 +25,7 @@ define('WP_ALL_IMPORT_ROOT_URL', rtrim(plugin_dir_url(__FILE__), '/'));
  */
 define('WP_ALL_IMPORT_PREFIX', 'pmxi_');
 
-define('PMXI_VERSION', '3.5.0');
+define('PMXI_VERSION', '3.9.1');
 
 define('PMXI_EDITION', 'free');
 
@@ -111,7 +111,12 @@ final class PMXI_Plugin {
 
 	public static $csv_path = false;
 
-	public static $capabilities = 'manage_options';
+    /**
+     * @var bool
+     */
+    public static $is_php_allowed = true;
+
+	public static $capabilities = 'setup_network';
 
 	/**
 	 * WP All Import logs folder
@@ -140,7 +145,10 @@ final class PMXI_Plugin {
 	 */
 	const HISTORY_DIRECTORY =  WP_ALL_IMPORT_HISTORY_DIRECTORY;
 
-	const LANGUAGE_DOMAIN = 'wp_all_import_plugin';
+        /**
+         *  Language domain key.
+         */
+        const LANGUAGE_DOMAIN = 'wp_all_import_plugin';
 
 	/**
 	 * Return singletone instance
@@ -232,8 +240,18 @@ final class PMXI_Plugin {
 	 */
 	protected function __construct() {
 
+        if(defined('WPAI_WPAE_ALLOW_INSECURE_MULTISITE') && 1 === WPAI_WPAE_ALLOW_INSECURE_MULTISITE){
+            self::$capabilities = 'manage_options';
+        }
+
 		// register autoloading method
 		spl_autoload_register(array($this, 'autoload'));
+        require_once 'vendor/autoload.php';
+
+		// require acc code
+		if (is_dir(self::ROOT_DIR . '/acc')) foreach (PMXI_Helper::safe_glob(self::ROOT_DIR . '/acc/*.php', PMXI_Helper::GLOB_RECURSE | PMXI_Helper::GLOB_PATH) as $filePath) {
+			require_once $filePath;
+		}
 
 		// register helpers
 		if (is_dir(self::ROOT_DIR . '/helpers')) foreach (PMXI_Helper::safe_glob(self::ROOT_DIR . '/helpers/*.php', PMXI_Helper::GLOB_RECURSE | PMXI_Helper::GLOB_PATH) as $filePath) {
@@ -254,9 +272,9 @@ final class PMXI_Plugin {
             $this->options['cron_job_key'] = wp_all_import_url_title(wp_all_import_rand_char(12));
         }
 
-        if ($current_options !== $this->options) {
-            update_option($option_name, $this->options);
-        }
+			if ($current_options !== $this->options) {
+                update_option($option_name, $this->options, false);
+            }
 
 		register_activation_hook(self::FILE, array($this, 'activation'));
 
@@ -295,6 +313,15 @@ final class PMXI_Plugin {
 
 	}
 
+    /**
+     * Determines is process running from cli.
+     *
+     * @return bool
+     */
+    public function isCli() {
+        return php_sapi_name() === 'cli';
+    }
+
 	/**
 	 * Setup required directory.
 	 */
@@ -317,6 +344,7 @@ final class PMXI_Plugin {
 
 	public function init(){
 		$this->load_plugin_textdomain();
+        self::$is_php_allowed = apply_filters('wp_all_import_is_php_allowed', TRUE);
 	}
 
 	public function plugin_row_meta($links, $file)
@@ -521,25 +549,26 @@ final class PMXI_Plugin {
 	}
 
 	public function ver_4x_transition_fix(&$options, $version){
-		if ( version_compare($version, '4.0.5') < 0  ){
-			if ( ! empty($options['tax_hierarchical_logic']) and is_array($options['tax_hierarchical_logic']) ){
-				foreach ($options['tax_hierarchical_logic'] as $tx => $type) {
-					switch ($type){
-						case 'entire':
-							$options['tax_hierarchical_logic_entire'][$tx] = 1;
-							break;
-						case 'manual':
-							$options['tax_hierarchical_logic_manual'][$tx] = 1;
-							break;
-						default:
-
-							break;
-					}
-				}
-				unset($options['tax_hierarchical_logic']);
-			}
-		}
-
+        if ( version_compare($version, '3.7.2') < 0 ) {
+            $options['delete_missing_logic'] = 'import';
+            $options['is_send_removed_to_trash'] = 0;
+            $options['status_of_removed_products'] = 'outofstock';
+            if (empty($options['is_delete_missing']) || (!empty($options['is_update_missing_cf']) || !empty($options['set_missing_to_draft']) || !empty($options['missing_records_stock_status']))) {
+                $options['delete_missing_action'] = 'keep';
+                if ($options['set_missing_to_draft']) {
+                    $options['is_change_post_status_of_removed'] = 1;
+                    $options['status_of_removed'] = 'draft';
+                }
+            } else {
+                $options['delete_missing_action'] = 'remove';
+            }
+            // Set default option if no other options selected.
+            if (empty($options['is_update_missing_cf']) && empty($options['is_change_post_status_of_removed']) && empty($options['missing_records_stock_status'])) {
+                $options['is_send_removed_to_trash'] = 1;
+            }
+            $options['is_delete_attachments'] = !$options['is_keep_attachments'];
+            $options['is_delete_imgs'] = !$options['is_keep_imgs'];
+        }
 	}
 
 	/**
@@ -563,7 +592,7 @@ final class PMXI_Plugin {
 			if (method_exists($controllerName, $actionName)) {
 
 				@ini_set("max_input_time", PMXI_Plugin::getInstance()->getOption('max_input_time'));
-				@ini_set("max_execution_time", PMXI_Plugin::getInstance()->getOption('max_execution_time'));
+				@ini_set("max_execution_time", str_replace('-1','0',PMXI_Plugin::getInstance()->getOption('max_execution_time')));
 
 				if ( ! get_current_user_id() or ! current_user_can( self::$capabilities )) {
 				    // This nonce is not valid.
@@ -571,33 +600,36 @@ final class PMXI_Plugin {
 
 				} else {
 
-					$this->_admin_current_screen = (object)array(
-						'id' => $controllerName,
-						'base' => $controllerName,
-						'action' => $actionName,
-						'is_ajax' => strpos($_SERVER["HTTP_ACCEPT"], 'json') !== false,
-						'is_network' => is_network_admin(),
-						'is_user' => is_user_admin(),
-					);
-					add_filter('current_screen', array($this, 'getAdminCurrentScreen'));
-					add_filter('admin_body_class', array($this, 'getAdminBodyClass'), 10, 1);
+						$this->_admin_current_screen = (object)array(
+							'id' => $controllerName,
+							'base' => $controllerName,
+							'action' => $actionName,
+							'is_ajax' => (isset($_SERVER["HTTP_ACCEPT"]) && strpos($_SERVER["HTTP_ACCEPT"], 'json')) !== false,
+							'is_network' => is_network_admin(),
+							'is_user' => is_user_admin(),
+						);
+						add_filter('current_screen', array($this, 'getAdminCurrentScreen'));
+						add_filter('admin_body_class', array($this, 'getAdminBodyClass'), 10, 1);
 
-					$controller = new $controllerName();
-					if ( ! $controller instanceof PMXI_Controller_Admin) {
-						throw new Exception("Administration page `$page` matches to a wrong controller type.");
-					}
+						$controller = new $controllerName();
+						if ( ! $controller instanceof PMXI_Controller_Admin) {
+							throw new Exception("Administration page `$page` matches to a wrong controller type.");
+						}
 
-					if ($this->_admin_current_screen->is_ajax) { // ajax request
-						$controller->$action();
-						do_action('pmxi_action_after');
-						die(); // stop processing since we want to output only what controller is randered, nothing in addition
-					} elseif ( ! $controller->isInline) {
-						@ob_start();
-						$controller->$action();
-						self::$buffer = @ob_get_clean();
-					} else {
-						self::$buffer_callback = array($controller, $action);
-					}
+					    $reviewsUI = new \Wpai\Reviews\ReviewsUI();
+					    add_action('admin_notices', [$reviewsUI, 'render']);
+
+						if ($this->_admin_current_screen->is_ajax) { // ajax request
+							$controller->$action();
+							do_action('pmxi_action_after');
+							wp_die(); // stop processing since we want to output only what controller is randered, nothing in addition
+						} elseif ( ! $controller->isInline) {
+							@ob_start();
+							$controller->$action();
+							self::$buffer = @ob_get_clean();
+						} else {
+							self::$buffer_callback = array($controller, $action);
+						}
 
 				}
 
@@ -643,7 +675,9 @@ final class PMXI_Plugin {
 		if ('' === $page) {
 			if ( ! is_null(self::$buffer)) {
 				echo '<div class="wrap">';
-				echo self::$buffer;
+
+                echo self::$buffer;
+
 				do_action('pmxi_action_after');
 				echo '</div>';
 			} elseif ( ! is_null(self::$buffer_callback)) {
@@ -696,6 +730,36 @@ final class PMXI_Plugin {
 					require $pathAlt;
 					return TRUE;
 				}
+			}
+		}
+
+		if(strpos($className, '\\') !== false){
+
+			// project-specific namespace prefix
+			$prefix = 'Wpai\\';
+
+			// base directory for the namespace prefix
+			$base_dir = self::ROOT_DIR . '/src/';
+
+			// does the class use the namespace prefix?
+			$len = strlen($prefix);
+			if (strncmp($prefix, $className, $len) !== 0) {
+				// no, move to the next registered autoloader
+				return false;
+			}
+
+			// get the relative class name
+			$relative_class = substr($className, $len);
+
+			// replace the namespace prefix with the base directory, replace namespace
+			// separators with directory separators in the relative class name, append
+			// with .php
+			$file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+
+			// if the file exists, require it
+			if (file_exists($file)) {
+				require_once $file;
+                return true;
 			}
 		}
 
@@ -762,7 +826,7 @@ final class PMXI_Plugin {
 
 		if (function_exists('is_multisite') && is_multisite()) {
 	        // check if it is a network activation - if so, run the activation function for each blog id
-	        if (isset($_GET['networkwide']) && ($_GET['networkwide'] == 1)) {
+	        if (isset($_GET['networkwide']) && (intval($_GET['networkwide']) == 1)) {
 	            $old_blog = $wpdb->blogid;
 	            // Get all blog ids
 	            $blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
@@ -787,7 +851,7 @@ final class PMXI_Plugin {
                         foreach ($imports_list as $import_entry) {
                             $import_id = $import_entry->id;
                             $import = $import->getById($import_id);
-                            $import_options = maybe_unserialize($import->options);
+                            $import_options = pmxi_maybe_unserialize($import->options);
                             $import_type = $import_options['custom_type'];
                             if ( in_array($import_type, array('import_users', 'shop_customer')) ) {
                                 $user_imports[] = $import_id;
@@ -834,7 +898,7 @@ final class PMXI_Plugin {
 				foreach ($imports_list as $import_entry) {
 					$import_id = $import_entry->id;
 					$import = $import->getById($import_id);
-					$import_options = maybe_unserialize($import->options);
+					$import_options = pmxi_maybe_unserialize($import->options);
 					$import_type = $import_options['custom_type'];
 					if ( in_array($import_type, array('import_users', 'shop_customer')) ) {
 						$user_imports[] = $import_id;
@@ -877,11 +941,11 @@ final class PMXI_Plugin {
 		$uploads = wp_upload_dir();
 
 		if ( ! is_dir($uploads['basedir'] . DIRECTORY_SEPARATOR . self::LOGS_DIRECTORY) or ! is_writable($uploads['basedir'] . DIRECTORY_SEPARATOR . self::LOGS_DIRECTORY)) {
-			die(sprintf(__('Uploads folder %s must be writable', 'wp_all_import_plugin'), $uploads['basedir'] . DIRECTORY_SEPARATOR . self::LOGS_DIRECTORY));
+			die(sprintf(__('Uploads folder %s must be writable', 'wp_all_import_plugin'), esc_attr($uploads['basedir'] . DIRECTORY_SEPARATOR . self::LOGS_DIRECTORY)));
 		}
 
 		if ( ! is_dir($uploads['basedir'] . DIRECTORY_SEPARATOR . WP_ALL_IMPORT_UPLOADS_BASE_DIRECTORY) or ! is_writable($uploads['basedir'] . DIRECTORY_SEPARATOR . WP_ALL_IMPORT_UPLOADS_BASE_DIRECTORY)) {
-			die(sprintf(__('Uploads folder %s must be writable', 'wp_all_import_plugin'), $uploads['basedir'] . DIRECTORY_SEPARATOR . WP_ALL_IMPORT_UPLOADS_BASE_DIRECTORY));
+			die(sprintf(__('Uploads folder %s must be writable', 'wp_all_import_plugin'), esc_attr($uploads['basedir'] . DIRECTORY_SEPARATOR . WP_ALL_IMPORT_UPLOADS_BASE_DIRECTORY)));
 		}
 
 		// create/update required database tables
@@ -891,7 +955,7 @@ final class PMXI_Plugin {
 
 		if (function_exists('is_multisite') && is_multisite()) {
 	        // check if it is a network activation - if so, run the activation function for each blog id
-	        if (isset($_GET['networkwide']) && ($_GET['networkwide'] == 1)) {
+	        if (isset($_GET['networkwide']) && (intval($_GET['networkwide']) == 1)) {
 	            $old_blog = $wpdb->blogid;
 	            // Get all blog ids
 	            $blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
@@ -956,10 +1020,10 @@ final class PMXI_Plugin {
 			foreach ($fields_to_alter as $field) {
 				switch ($field) {
 					case 'image_url':
-						$wpdb->query("ALTER TABLE {$table} ADD `image_url` VARCHAR(600) NOT NULL DEFAULT '';");
+						$wpdb->query("ALTER TABLE {$table} ADD `image_url` TEXT;");
 						break;
 					case 'image_filename':
-						$wpdb->query("ALTER TABLE {$table} ADD `image_filename` VARCHAR(600) NOT NULL DEFAULT '';");
+						$wpdb->query("ALTER TABLE {$table} ADD `image_filename` TEXT;");
 						break;
 					default:
 						# code...
@@ -974,6 +1038,7 @@ final class PMXI_Plugin {
 			'parent_import_id',
 			'iteration',
 			'deleted',
+			'changed_missing',
 			'executing',
 			'canceled',
 			'canceled_on',
@@ -1004,6 +1069,9 @@ final class PMXI_Plugin {
 						break;
 					case 'deleted':
 						$wpdb->query("ALTER TABLE {$table} ADD `deleted` BIGINT(20) NOT NULL DEFAULT 0;");
+						break;
+					case 'changed_missing':
+						$wpdb->query("ALTER TABLE {$table} ADD `changed_missing` BIGINT(20) NOT NULL DEFAULT 0;");
 						break;
 					case 'executing':
 						$wpdb->query("ALTER TABLE {$table} ADD `executing` BOOL NOT NULL DEFAULT 0;");
@@ -1052,7 +1120,7 @@ final class PMXI_Plugin {
 				<div class="error"><p>
 					<?php printf(
 							__('<b>%s Plugin</b>: Current sql user %s doesn\'t have ALTER privileges', 'pmwi_plugin'),
-							self::getInstance()->getName(), DB_USER
+							esc_attr(self::getInstance()->getName()), esc_attr(DB_USER)
 					) ?>
 				</p></div>
 				<?php
@@ -1091,180 +1159,260 @@ final class PMXI_Plugin {
 		return true;
 	}
 
-	/**
-	 * Method returns default import options, main utility of the method is to avoid warnings when new
-	 * option is introduced but already registered imports don't have it
-	 */
-	public static function get_default_import_options() {
-		return array(
-			'type' => 'post',
-			'is_override_post_type' => 0,
-			'post_type_xpath' => '',
-			'deligate' => '',
-			'wizard_type' => 'new',
-			'custom_type' => '',
-			'featured_delim' => ',',
-			'atch_delim' => ',',
-			'is_search_existing_attach' => 0,
-			'post_taxonomies' => array(),
-			'parent' => 0,
-			'is_multiple_page_parent' => 'yes',
-			'single_page_parent' => '',
-			'order' => 0,
-			'status' => 'publish',
-			'page_template' => 'default',
-			'is_multiple_page_template' => 'yes',
-			'single_page_template' => '',
-			'page_taxonomies' => array(),
-			'date_type' => 'specific',
-			'date' => 'now',
-			'date_start' => 'now',
-			'date_end' => 'now',
-			'custom_name' => array(),
-			'custom_value' => array(),
-			'custom_format' => array(),
-			'custom_mapping' => array(),
-			'serialized_values' => array(),
-			'custom_mapping_rules' => array(),
-			'comment_status' => 'open',
-			'comment_status_xpath' => '',
-			'ping_status' => 'open',
-			'ping_status_xpath' => '',
-			'create_draft' => 'no',
-			'author' => '',
-			'post_excerpt' => '',
-			'post_slug' => '',
-			'attachments' => '',
-			'is_import_specified' => 0,
-			'import_specified' => '',
-			'is_delete_source' => 0,
-			'is_cloak' => 0,
-			'unique_key' => '',
-			'tmp_unique_key' => '',
-			'feed_type' => 'auto',
-			'search_existing_images' => 1,
+		/**
+		 * Method returns default import options, main utility of the method is to avoid warnings when new
+		 * option is introduced but already registered imports don't have it
+		 */
+		public static function get_default_import_options() {
+			return array(
+				'type' => 'post',
+				'is_override_post_type' => 0,
+				'post_type_xpath' => '',
+				'deligate' => '',
+				'wizard_type' => 'new',
+				'ftp_host' => '',
+				'ftp_path' => '',
+				'ftp_root' => '/',
+				'ftp_port' => 21,
+				'ftp_username' => '',
+				'ftp_password' => '',
+				'ftp_private_key' => '',
+				'custom_type' => '',
+				'featured_delim' => ',',
+				'atch_delim' => ',',
+				'is_search_existing_attach' => 0,
+				'post_taxonomies' => array(),
+				'parent' => 0,
+				'is_multiple_page_parent' => 'yes',
+				'single_page_parent' => '',
+				'order' => 0,
+				'status' => 'publish',
+				'page_template' => 'default',
+				'is_multiple_page_template' => 'yes',
+				'single_page_template' => '',
+				'page_taxonomies' => array(),
+				'date_type' => 'specific',
+				'date' => 'now',
+				'date_start' => 'now',
+				'date_end' => 'now',
+				'custom_name' => array(),
+				'custom_value' => array(),
+				'custom_format' => array(),
+				'custom_mapping' => array(),
+				'serialized_values' => array(),
+				'custom_mapping_rules' => array(),
+				'comment_status' => 'open',
+				'comment_status_xpath' => '',
+				'ping_status' => 'open',
+				'ping_status_xpath' => '',
+				'create_draft' => 'no',
+				'author' => '',
+				'post_excerpt' => '',
+				'post_slug' => '',
+				'attachments' => '',
+				'is_import_specified' => 0,
+				'import_specified' => '',
+				'is_delete_source' => 0,
+				'is_cloak' => 0,
+				'unique_key' => '',
+				'tmp_unique_key' => '',
+				'feed_type' => 'auto',
+				'search_existing_images' => 1,
 
-			'create_new_records' => 1,
-			'is_delete_missing' => 0,
-			'set_missing_to_draft' => 0,
-			'is_update_missing_cf' => 0,
-			'update_missing_cf_name' => '',
-			'update_missing_cf_value' => '',
+				'create_new_records' => 1,
+				'is_selective_hashing' => 0,
+				'is_delete_missing' => 0,
+                'delete_missing_logic' => 'import',
+                'delete_missing_action' => 'keep',
+                'is_send_removed_to_trash' => 0,
+                'is_change_post_status_of_removed' => 1,
+                'status_of_removed' => 'draft',
+                'status_of_removed_products' => 'outofstock',
+                'set_missing_to_draft' => 0,
+                'is_update_missing_cf' => 0,
+                'update_missing_cf_name' => [],
+                'update_missing_cf_value' => [],
 
-			'is_keep_former_posts' => 'no',
-			'is_update_status' => 1,
-			'is_update_content' => 1,
-			'is_update_title' => 1,
-			'is_update_slug' => 1,
-			'is_update_excerpt' => 1,
-			'is_update_categories' => 1,
-			'is_update_author' => 1,
-			'is_update_comment_status' => 1,
-			'is_update_post_type' => 1,
-			'update_categories_logic' => 'full_update',
-			'taxonomies_list' => array(),
-			'taxonomies_only_list' => array(),
-			'taxonomies_except_list' => array(),
-			'is_update_attachments' => 1,
-			'is_update_images' => 1,
-			'update_images_logic' => 'full_update',
-			'is_update_dates' => 1,
-			'is_update_menu_order' => 1,
-			'is_update_parent' => 1,
-			'is_keep_attachments' => 0,
-			'is_keep_imgs' => 0,
-			'do_not_remove_images' => 1,
+				'is_keep_former_posts' => 'no',
+				'is_update_status' => 1,
+				'is_update_content' => 1,
+				'is_update_title' => 1,
+				'is_update_slug' => 1,
+				'is_update_excerpt' => 1,
+				'is_update_categories' => 1,
+				'is_update_author' => 1,
+				'is_update_comment_status' => 1,
+				'is_update_ping_status' => 1,
+				'is_update_post_type' => 1,
+				'is_update_post_format' => 1,
+				'update_categories_logic' => 'full_update',
+				'taxonomies_list' => array(),
+				'taxonomies_only_list' => array(),
+				'taxonomies_except_list' => array(),
+				'do_not_create_terms' => 0,
+				'is_update_attachments' => 1,
+				'is_update_images' => 1,
+				'update_images_logic' => 'full_update',
+				'is_update_dates' => 1,
+				'is_update_menu_order' => 1,
+				'is_update_parent' => 1,
+                'is_keep_attachments' => 0,
+                'is_delete_attachments' => 0,
+                'is_keep_imgs' => 0,
+                'is_delete_imgs' => 0,
+				'do_not_remove_images' => 1,
 
-			'is_update_custom_fields' => 1,
-			'update_custom_fields_logic' => 'full_update',
-			'custom_fields_list' => array(),
-			'custom_fields_only_list' => array(),
-			'custom_fields_except_list' => array(),
+				'is_update_custom_fields' => 1,
+				'update_custom_fields_logic' => 'full_update',
+				'custom_fields_list' => array(),
+				'custom_fields_only_list' => array(),
+				'custom_fields_except_list' => array(),
 
-			'duplicate_matching' => 'auto',
-			'duplicate_indicator' => 'title',
-			'custom_duplicate_name' => '',
-			'custom_duplicate_value' => '',
-			'is_update_previous' => 0,
-			'is_scheduled' => '',
-			'scheduled_period' => '',
-			'friendly_name' => '',
-			'records_per_request' => 20,
-			'auto_rename_images' => 0,
-			'auto_rename_images_suffix' => '',
-			'images_name' => 'filename',
-			'post_format' => 'standard',
-			'post_format_xpath' => '',
-			'encoding' => 'UTF-8',
-			'delimiter' => '',
-			'image_meta_title' => '',
-			'image_meta_title_delim' => ',',
-			'image_meta_caption' => '',
-			'image_meta_caption_delim' => ',',
-			'image_meta_alt' => '',
-			'image_meta_alt_delim' => ',',
-			'image_meta_description' => '',
-			'image_meta_description_delim' => ',',
-			'image_meta_description_delim_logic' => 'separate',
-			'status_xpath' => '',
-			'download_images' => 'yes',
-			'converted_options' => 0,
-			'update_all_data' => 'yes',
-			'is_fast_mode' => 0,
-			'chuncking' => 1,
-			'import_processing' => 'ajax',
-			'save_template_as' => 0,
+				'duplicate_matching' => 'auto',
+				'duplicate_indicator' => 'title',
+				'custom_duplicate_name' => '',
+				'custom_duplicate_value' => '',
+				'is_update_previous' => 0,
+				'is_scheduled' => '',
+				'scheduled_period' => '',
+				'friendly_name' => '',
+				'records_per_request' => 20,
+				'auto_rename_images' => 0,
+				'auto_rename_images_suffix' => '',
+				'images_name' => 'filename',
+				'post_format' => 'standard',
+				'post_format_xpath' => '',
+				'encoding' => 'UTF-8',
+				'delimiter' => '',
+				'image_meta_title' => '',
+				'image_meta_title_delim' => ',',
+				'image_meta_caption' => '',
+				'image_meta_caption_delim' => ',',
+				'image_meta_alt' => '',
+				'image_meta_alt_delim' => ',',
+				'image_meta_description' => '',
+				'image_meta_description_delim' => ',',
+				'image_meta_description_delim_logic' => 'separate',
+				'status_xpath' => '',
+				'download_images' => 'yes',
+				'converted_options' => 0,
+				'update_all_data' => 'yes',
+				'is_fast_mode' => 0,
+				'chuncking' => 1,
+				'import_processing' => 'ajax',
+				'processing_iteration_logic' => 'auto',
+				'save_template_as' => 0,
 
-			'title' => '',
-			'content' => '',
-			'name' => '',
-			'is_keep_linebreaks' => 1,
-			'is_leave_html' => 0,
-			'fix_characters' => 0,
-			'pid_xpath' => '',
+				'title' => '',
+				'content' => '',
+				'name' => '',
+				'is_keep_linebreaks' => 1,
+				'is_leave_html' => 0,
+				'fix_characters' => 0,
+				'pid_xpath' => '',
+				'slug_xpath' => '',
+				'title_xpath' => '',
 
-			'featured_image' => '',
-			'download_featured_image' => '',
-			'download_featured_delim' => ',',
-			'gallery_featured_image' => '',
-			'gallery_featured_delim' => ',',
-			'is_featured' => 1,
-			'is_featured_xpath' => '',
-			'set_image_meta_title' => 0,
-			'set_image_meta_caption' => 0,
-			'set_image_meta_alt' => 0,
-			'set_image_meta_description' => 0,
-			'auto_set_extension' => 0,
-			'new_extension' => '',
-			'tax_logic' => array(),
-			'tax_assing' => array(),
-			'term_assing' => array(),
-			'multiple_term_assing' => array(),
-			'tax_hierarchical_assing' => array(),
-			'tax_hierarchical_last_level_assign' => array(),
-			'tax_single_xpath' => array(),
-			'tax_multiple_xpath' => array(),
-			'tax_hierarchical_xpath' => array(),
-			'tax_multiple_delim' => array(),
-			'tax_hierarchical_delim' => array(),
-			'tax_manualhierarchy_delim' => array(),
-			'tax_hierarchical_logic_entire' => array(),
-			'tax_hierarchical_logic_manual' => array(),
-			'tax_enable_mapping' => array(),
-			'tax_is_full_search_single' => array(),
-			'tax_is_full_search_multiple' => array(),
-			'tax_assign_to_one_term_single' => array(),
-			'tax_assign_to_one_term_multiple' => array(),
-			'tax_mapping' => array(),
-			'tax_logic_mapping' => array(),
-			'is_tax_hierarchical_group_delim' => array(),
-			'tax_hierarchical_group_delim' => array(),
-			'nested_files' => array(),
-			'xml_reader_engine' => 0,
-			'import_img_tags' => 0,
-			'search_existing_images_logic' => 'by_url'
-		);
-	}
+				'featured_image' => '',
+				'download_featured_image' => '',
+				'download_featured_delim' => ',',
+				'gallery_featured_image' => '',
+				'gallery_featured_delim' => ',',
+				'is_featured' => 1,
+				'is_featured_xpath' => '',
+				'set_image_meta_title' => 0,
+				'set_image_meta_caption' => 0,
+				'set_image_meta_alt' => 0,
+				'set_image_meta_description' => 0,
+				'auto_set_extension' => 0,
+				'new_extension' => '',
+				'tax_logic' => array(),
+				'tax_assing' => array(),
+				'term_assing' => array(),
+				'multiple_term_assing' => array(),
+				'tax_hierarchical_assing' => array(),
+				'tax_hierarchical_last_level_assign' => array(),
+				'tax_single_xpath' => array(),
+				'tax_multiple_xpath' => array(),
+				'tax_hierarchical_xpath' => array(),
+				'tax_multiple_delim' => array(),
+				'tax_hierarchical_delim' => array(),
+				'tax_manualhierarchy_delim' => array(),
+				'tax_hierarchical_logic_entire' => array(),
+				'tax_hierarchical_logic_manual' => array(),
+				'tax_enable_mapping' => array(),
+				'tax_is_full_search_single' => array(),
+				'tax_is_full_search_multiple' => array(),
+				'tax_assign_to_one_term_single' => array(),
+				'tax_assign_to_one_term_multiple' => array(),
+				'tax_mapping' => array(),
+				'tax_logic_mapping' => array(),
+				'is_tax_hierarchical_group_delim' => array(),
+				'tax_hierarchical_group_delim' => array(),
+				'nested_files' => array(),
+				'xml_reader_engine' => 0,
+				'taxonomy_type' => '',
+				'taxonomy_parent' => '',
+				'taxonomy_slug' => 'auto',
+				'taxonomy_slug_xpath' => '',
+				'taxonomy_display_type' => '',
+				'taxonomy_display_type_xpath' => '',
+				'import_img_tags' => 0,
+				'search_existing_images_logic' => 'by_url',
+				'enable_import_scheduling' => 'false',
+				'scheduling_enable' => false,
+				'scheduling_weekly_days' => '',
+				'scheduling_run_on' => 'weekly',
+				'scheduling_monthly_day' => '',
+				'scheduling_times' => array(),
+				'scheduling_timezone' => 'UTC',
+                'is_update_comment_post_id' => 1,
+                'is_update_comment_author' => 1,
+                'is_update_comment_author_email' => 1,
+                'is_update_comment_author_url' => 1,
+                'is_update_comment_author_IP' => 1,
+                'is_update_comment_karma' => 1,
+                'is_update_comment_approved' => 1,
+                'is_update_comment_verified' => 1,
+                'is_update_comment_rating' => 1,
+                'is_update_comment_agent' => 1,
+                'is_update_comment_user_id' => 1,
+                'is_update_comment_type' => 1,
+                'is_update_comments' => 1,
+                'update_comments_logic' => 'full_update',
+                'comment_author' => '',
+                'comment_author_email' => '',
+                'comment_author_url' => '',
+                'comment_author_IP' => '',
+                'comment_karma' => '',
+                'comment_parent' => '',
+                'comment_approved' => '1',
+                'comment_approved_xpath' => '',
+                'comment_verified' => '1',
+                'comment_verified_xpath' => '',
+                'comment_agent' => '',
+                'comment_type' => '',
+                'comment_type_xpath' => '',
+                'comment_user_id' => 'email',
+                'comment_user_id_xpath' => '',
+                'comment_post' => '',
+                'comment_rating' => '',
+                'comments_repeater_mode' => 'csv',
+                'comments_repeater_mode_separator' => '|',
+                'comments_repeater_mode_foreach' => '',
+                'comments' => array(
+                    'content' => '',
+                    'author' => '',
+                    'author_email' => '',
+                    'author_url' => '',
+                    'author_ip' => '',
+                    'karma' => '',
+                    'approved' => '',
+                    'type' => '',
+                    'date' => 'now'
+                )
+			);
+		}
 
 	/*
 	 * Convert csv to xml
@@ -1283,9 +1431,54 @@ final class PMXI_Plugin {
 
 	}
 
-	public static function is_ajax(){
-		return strpos($_SERVER["HTTP_ACCEPT"], 'json') !== false;
+        /**
+         * @return bool
+         */
+        public static function is_ajax(){
+			return (isset($_SERVER["HTTP_ACCEPT"]) && strpos($_SERVER["HTTP_ACCEPT"], 'json')) !== false;
+		}
+
+    /**
+     * Returns ID of current import.
+     *
+     * @return int|bool
+     */
+    public static function getCurrentImportId() {
+        $input = new PMXI_Input();
+        $import_id = $input->get('id');
+        if (empty($import_id)) {
+            $import_id = $input->get('import_id');
+        }
+        return $import_id;
+    }
+
+	/**
+	 * @param $message
+	 */
+	public function showNoticeAndDisablePlugin($message){
+		$this->showNotice($message);
+		deactivate_plugins( str_replace('\\', '/', dirname(__FILE__)) . '/wp-all-import-pro.php');
 	}
+
+	/**
+	 * @param $message
+	 */
+	public function showNotice($message) {
+		$notice = new \Wpai\WordPress\AdminErrorNotice($message);
+		$notice->render();
+	}
+
+	/**
+	 * @param $message
+	 * @param $noticeId
+	 */
+	public function showDismissibleNotice($message, $noticeId) {
+		$notice = new \Wpai\WordPress\AdminDismissibleNotice($message, $noticeId);
+		if(!$notice->isDismissed()) {
+			$notice->render();
+		}
+	}
+
 
 }
 

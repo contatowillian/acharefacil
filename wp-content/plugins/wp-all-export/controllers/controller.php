@@ -115,7 +115,7 @@ abstract class PMXE_Controller {
 
 
 		$nonce = (!empty($_REQUEST['_wpnonce'])) ? $_REQUEST['_wpnonce'] : '';
-		if ( ! wp_verify_nonce( $nonce, '_wpnonce-download_feed' ) && !isset($_GET['google_feed']) ) {
+		if ( ! wp_verify_nonce( $nonce, '_wpnonce-download_feed' ) ) {
 		    die( __('Security check', 'wp_all_export_plugin') );
 		} else {
 

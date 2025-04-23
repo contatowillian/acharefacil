@@ -20,7 +20,10 @@
 	if ( ! function_exists('wp_all_export_get_absolute_path') ){
 		function wp_all_export_get_absolute_path($path){			
 			$uploads = wp_upload_dir();
-			return ( strpos($path, $uploads['basedir']) === false and ! preg_match('%^https?://%i', $path)) ? $uploads['basedir'] . $path : $path;			
+
+			// If the path isn't http(s) and doesn't start with the basedir, add the basedir.
+			return ( strncmp($path, $uploads['basedir'], strlen($uploads['basedir'])) !== 0  and ! preg_match( '%^https?://%i', $path ) ) ? $uploads['basedir'] . $path : $path;
+
 		}
 	}
 
@@ -56,11 +59,18 @@
 		{
 			if (empty($post_type)) return array();
 
-			$post_type = ($post_type == 'product' and class_exists('WooCommerce')) ? array('product', 'product_variation') : array($post_type);
+			$post_type = ($post_type == 'product' and class_exists('WooCommerce')) ? array('product') : array($post_type);
 
 			global $wpdb;
 			$table_prefix = $wpdb->prefix;
-			$meta_keys = $wpdb->get_results("SELECT DISTINCT {$table_prefix}postmeta.meta_key FROM {$table_prefix}postmeta, {$table_prefix}posts WHERE {$table_prefix}postmeta.post_id = {$table_prefix}posts.ID AND {$table_prefix}posts.post_type IN ('" . implode('\',\'', $post_type) . "') AND {$table_prefix}postmeta.meta_key NOT LIKE '_edit%' LIMIT 1000");
+
+			$post_type = array_map(function($item) use ($wpdb) {
+                return $wpdb->prepare('%s', $item);
+            }, $post_type);
+
+            $post_type_in = implode(',', $post_type);
+
+            $meta_keys = $wpdb->get_results("SELECT DISTINCT {$table_prefix}postmeta.meta_key FROM {$table_prefix}postmeta, {$table_prefix}posts WHERE {$table_prefix}postmeta.post_id = {$table_prefix}posts.ID AND {$table_prefix}posts.post_type IN ({$post_type_in}) AND {$table_prefix}postmeta.meta_key NOT LIKE '_edit%' AND {$table_prefix}postmeta.meta_key NOT LIKE '_oembed_%' LIMIT 1000");
 
 			$_existing_meta_keys = array();
 			if ( ! empty($meta_keys)){
@@ -155,3 +165,81 @@
             return $post_date;
         }
     }
+
+
+if ( ! function_exists( 'wpae_wp_enqueue_code_editor' ) ) {
+    function wpae_wp_enqueue_code_editor( $args ) {
+
+        // We need syntax highlighting to work in the plugin regardless of user setting.
+        // Function matches https://developer.wordpress.org/reference/functions/wp_enqueue_code_editor/ otherwise.
+        /*if ( is_user_logged_in() && 'false' === wp_get_current_user()->syntax_highlighting ) {
+            return false;
+        }*/
+
+        $settings = wp_get_code_editor_settings( $args );
+
+        if ( empty( $settings ) || empty( $settings['codemirror'] ) ) {
+            return false;
+        }
+
+        wp_enqueue_script( 'code-editor' );
+        wp_enqueue_style( 'code-editor' );
+
+        if ( isset( $settings['codemirror']['mode'] ) ) {
+            $mode = $settings['codemirror']['mode'];
+            if ( is_string( $mode ) ) {
+                $mode = array(
+                    'name' => $mode,
+                );
+            }
+
+            if ( ! empty( $settings['codemirror']['lint'] ) ) {
+                switch ( $mode['name'] ) {
+                    case 'css':
+                    case 'text/css':
+                    case 'text/x-scss':
+                    case 'text/x-less':
+                        wp_enqueue_script( 'csslint' );
+                        break;
+                    case 'htmlmixed':
+                    case 'text/html':
+                    case 'php':
+                    case 'application/x-httpd-php':
+                    case 'text/x-php':
+                        wp_enqueue_script( 'htmlhint' );
+                        wp_enqueue_script( 'csslint' );
+                        wp_enqueue_script( 'jshint' );
+                        if ( ! current_user_can( 'unfiltered_html' ) ) {
+                            wp_enqueue_script( 'htmlhint-kses' );
+                        }
+                        break;
+                    case 'javascript':
+                    case 'application/ecmascript':
+                    case 'application/json':
+                    case 'application/javascript':
+                    case 'application/ld+json':
+                    case 'text/typescript':
+                    case 'application/typescript':
+                        wp_enqueue_script( 'jshint' );
+                        wp_enqueue_script( 'jsonlint' );
+                        break;
+                }
+            }
+        }
+
+        wp_add_inline_script( 'code-editor', sprintf( 'jQuery.extend( wp.codeEditor.defaultSettings, %s );', wp_json_encode( $settings ) ) );
+
+        /**
+         * Fires when scripts and styles are enqueued for the code editor.
+         *
+         * @param array $settings Settings for the enqueued code editor.
+         *
+         * @since 4.9.0
+         *
+         */
+        do_action( 'wp_enqueue_code_editor', $settings );
+
+        return $settings;
+    }
+}
+

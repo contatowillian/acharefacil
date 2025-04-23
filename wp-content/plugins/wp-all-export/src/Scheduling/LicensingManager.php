@@ -20,10 +20,10 @@ class LicensingManager
 
             // Call the custom API.
             $response = wp_remote_get(
-                add_query_arg(
+                esc_url_raw(add_query_arg(
                     $api_params,
                     $this->getInfoApiUrl()
-                ),
+                )),
                 array(
                     'timeout' => 15,
                     'sslverify' => false
@@ -32,18 +32,18 @@ class LicensingManager
 
             // make sure the response came back okay
             if (is_wp_error($response)){
-                return false;
+                return ['success' => false];
             }
 
             $responseData = \json_decode($response['body'], true);
 
-            if(is_null($responseData)) {
-                return false;
+            if(is_null($responseData) || empty($responseData['success'])) {
+                return $responseData ?? ['success' => false];
             } else {
-                return $responseData['success'];
+                return $responseData;
             }
         } else {
-            return false;
+            return ['success' => false];
         }
     }
 

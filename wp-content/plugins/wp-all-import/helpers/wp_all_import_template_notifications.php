@@ -11,7 +11,7 @@ if ( ! function_exists('wp_all_import_template_notifications') )
 			{
 				if (class_exists($key)) continue;
 
-				$notifications[] = sprintf(__('The import template you are using requires the %s. If you continue without it your data may import incorrectly.<br/><br/><a href="%s" target="_blank">' . ($addon['paid'] ? 'Purchase' : 'Download') . ' the %s</a>.', 'wp_all_import_plugin'), $addon['name'], $addon['url'], $addon['name']);							
+				$notifications[] = sprintf(__('The import template you are using requires the %s. If you continue without it your data may import incorrectly.<br/><br/><a href="%s" target="_blank">' . ($addon['paid'] ? 'Purchase' : 'Download') . ' the %s</a>.', 'wp_all_import_plugin'), esc_attr($addon['name']), esc_url($addon['url']), esc_attr($addon['name']));
 			}
 		}				
 		else // Custom Import Template
@@ -20,18 +20,18 @@ if ( ! function_exists('wp_all_import_template_notifications') )
 
 			if ( $post['custom_type'] == 'import_users' && ! class_exists('PMUI_Plugin') )
 			{
-				$notifications[] = __('The import template you are using requires the User Add-On. If you continue without it your data may import incorrectly.<br/><br/><a href="http://www.wpallimport.com/add-ons/user-import/?utm_source=wordpress.org&utm_medium=wpai-import-template&utm_campaign=free+wp+all+export+plugin" target="_blank">Purchase the User Add-On</a>.', 'wp_all_import_plugin');						
+				$notifications[] = __('The import template you are using requires the User Add-On. If you continue without it your data may import incorrectly.<br/><br/><a href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839963&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=import-users-template" target="_blank">Purchase the User Add-On</a>.', 'wp_all_import_plugin');						
 			}
 
 			if ( $post['custom_type'] == 'shop_customer' && ! class_exists('PMUI_Plugin') )
 			{
-				$notifications[] = __('The import template you are using requires the User Add-On. If you continue without having this add-on active, your data may import incorrectly.<br/><br/><a href="http://www.wpallimport.com/add-ons/user-import/?utm_source=wordpress.org&utm_medium=wpai-import-template&utm_campaign=free+wp+all+export+plugin" target="_blank">Purchase the User Add-On</a>.', 'wp_all_import_plugin');
+				$notifications[] = __('The import template you are using requires the User Add-On. If you continue without having this add-on active, your data may import incorrectly.<br/><br/><a href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839963&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=import-users-template" target="_blank">Purchase the User Add-On</a>.', 'wp_all_import_plugin');
 			}
 
 
 			elseif ( $post['custom_type'] == 'product' && ! class_exists('PMWI_Plugin') && class_exists( 'Woocommerce' ))
 			{
-				$notifications[] = __('The import template you are using requires the WooCommerce Import Add-On. If you continue without it your data may import incorrectly.<br/><br/><a href="http://www.wpallimport.com/woocommerce-product-import/" target="_blank">Purchase the WooCommerce Import Add-On</a>.', 'wp_all_import_plugin');				
+				$notifications[] = __('The import template you are using requires the WooCommerce Add-On. If you continue without it your data may import incorrectly.<br/><br/><a href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839961&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=import-wooco-template" target="_blank">Purchase the WooCommerce Add-On</a>.', 'wp_all_import_plugin');				
 			}			
 			// Realia Add-On
 			elseif ( ! empty($post['realia_addon']) and ! is_plugin_active('realia-xml-csv-property-listings-import/realia-add-on.php') )
@@ -103,7 +103,7 @@ if ( ! function_exists('wp_all_import_template_notifications') )
 				{
 					?>
 					<div class="error inline">
-						<p><?php printf(__('<strong>Warning:</strong>', 'wp_all_import_plugin') . ' %s', $notification);?></p>
+						<p><?php printf(__('<strong>Warning:</strong>', 'wp_all_import_plugin') . ' %s', wp_kses_post($notification));?></p>
 					</div>
 					<?php
 				}
@@ -111,7 +111,7 @@ if ( ! function_exists('wp_all_import_template_notifications') )
 				{
 					?>
 					<div class="wpallimport-free-edition-notice" style="text-align:center; margin-top:0; margin-bottom: 20px;">
-						<p class="upgrade_link"><?php echo $notification;?></p>
+						<p class="upgrade_link"><?php echo wp_kses_post($notification);?></p>
 					</div>
 					<?php
 				}

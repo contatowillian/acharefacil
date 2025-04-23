@@ -59,7 +59,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 
 				PMXI_Plugin::getInstance()->updateOption($post);
 
-				if (empty($_POST['pmxi_license_activate']) and empty($_POST['pmxi_license_deactivate'])) {
+				if (!empty($this->data['addons']) && empty($_POST['pmxi_license_activate']) and empty($_POST['pmxi_license_deactivate'])) {
 					foreach ($this->data['addons'] as $class => $addon) {
 						$post['statuses'][$class] = $this->check_license($class);
 					}					
@@ -70,7 +70,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 
 				$files = new PMXI_File_List(); $files->sweepHistory(); // adjust file history to new settings specified
 				
-				wp_redirect(add_query_arg('pmxi_nt', urlencode(__('Settings saved', 'wp_all_import_plugin')), $this->baseUrl)); die();
+				wp_redirect(esc_url_raw(add_query_arg('pmxi_nt', urlencode(__('Settings saved', 'wp_all_import_plugin')), $this->baseUrl))); die();
 			}
 		}
 		/*else{			
@@ -89,9 +89,9 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 			if ($this->input->post('import_templates')){
 
 				if (!empty($_FILES)){
-					$file_name = $_FILES['template_file']['name'];
-					$file_size = $_FILES['template_file']['size'];
-					$tmp_name  = $_FILES['template_file']['tmp_name'];										
+					$file_name = sanitize_file_name($_FILES['template_file']['name']);
+					$file_size = intval($_FILES['template_file']['size']);
+					$tmp_name  = realpath($_FILES['template_file']['tmp_name']);
 					
 					if(isset($file_name)) 
 					{				
@@ -114,7 +114,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 										$templateOptions = $templates_data[0]['options'];
 									}
 									else{
-										$templateOptions = empty($templates_data[0]['options']) ? false : unserialize($templates_data[0]['options']);
+										$templateOptions = empty($templates_data[0]['options']) ? false : pmxi_maybe_unserialize($templates_data[0]['options']);
 									}
 									if ( empty($templateOptions) ){
 										$this->errors->add('form-validation', __('The template is invalid. Options are missing.', 'wp_all_import_plugin'));
@@ -129,7 +129,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 												unset($template_data['id']);
 												$template->clear()->set($template_data)->insert();
 											}
-											wp_redirect(add_query_arg('pmxi_nt', urlencode(sprintf(_n('%d template imported', '%d templates imported', count($templates_data), 'wp_all_import_plugin'), count($templates_data))), $this->baseUrl)); die();
+											wp_redirect(esc_url_raw(add_query_arg('pmxi_nt', urlencode(sprintf(_n('%d template imported', '%d templates imported', count($templates_data), 'wp_all_import_plugin'), count($templates_data))), $this->baseUrl))); die();
 										}
 									}
 								}
@@ -155,7 +155,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 						foreach ($templates_ids as $template_id) {
 							$template->clear()->set('id', $template_id)->delete();
 						}
-						wp_redirect(add_query_arg('pmxi_nt', urlencode(sprintf(_n('%d template deleted', '%d templates deleted', count($templates_ids), 'wp_all_import_plugin'), count($templates_ids))), $this->baseUrl)); die();
+						wp_redirect(esc_url_raw(add_query_arg('pmxi_nt', urlencode(sprintf(_n('%d template deleted', '%d templates deleted', count($templates_ids), 'wp_all_import_plugin'), count($templates_ids))), $this->baseUrl))); die();
 					}
 					if ($this->input->post('export_templates')){
 						$export_data = array();
@@ -207,7 +207,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 						);								
 						
 						// Call the custom API.
-						$response = wp_remote_get( add_query_arg( $api_params, $options['info_api_url'] ), array( 'timeout' => 15, 'sslverify' => false ) );						
+						$response = wp_remote_get( esc_url_raw(add_query_arg( $api_params, $options['info_api_url'] ), array( 'timeout' => 15, 'sslverify' => false ) ));
 
 						// make sure the response came back okay
 						if ( is_wp_error( $response ) )
@@ -253,7 +253,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 				);
 
 				// Call the custom API.
-				$response = wp_remote_get( add_query_arg( $api_params, $options['info_api_url'] ), array( 'timeout' => 15, 'sslverify' => false ) );
+				$response = wp_remote_get( esc_url_raw(add_query_arg( $api_params, $options['info_api_url'] ), array( 'timeout' => 15, 'sslverify' => false ) ));
 
 				if ( is_wp_error( $response ) )
 					return false;
@@ -271,7 +271,12 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 	
 	public function cleanup(){
 
-		$removedFiles = 0;
+        $nonce = (!empty($_REQUEST['_wpnonce'])) ? $_REQUEST['_wpnonce'] : '';
+        if ( ! wp_verify_nonce( $nonce, '_wpnonce-cleanup_logs' ) ) {
+            die( __('Security check', 'wp_all_import_plugin') );
+        }
+
+        $removedFiles = 0;
 
 		$wp_uploads = wp_upload_dir();
 
@@ -281,7 +286,8 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 
 		$files = array_diff(@scandir($dir), array('.','..'));
 
-		$cacheFiles = @array_diff(@scandir($cacheDir), array('.','..'));
+		$cacheFiles = @scandir($cacheDir);
+		$cacheFiles = is_array($cacheFiles) ? @array_diff($cacheFiles, array('.','..')) : [];
 
 		$msg = __('Files not found', 'wp_all_import_plugin');
 
@@ -364,10 +370,14 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 			}
 		}
 
-		wp_redirect(add_query_arg('pmxi_nt', urlencode($msg), $this->baseUrl)); die();
+		wp_redirect(esc_url_raw(add_query_arg('pmxi_nt', urlencode($msg), $this->baseUrl))); die();
 	}
 
 	public function dismiss(){
+
+		if ( ! check_ajax_referer( 'wp_all_import_secure', 'security', false )){
+			exit( __('Security check', 'wp_all_import_plugin'));
+		}
 
 		PMXI_Plugin::getInstance()->updateOption("dismiss", 1);
 
@@ -376,6 +386,10 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 
 	public function dismiss_speed_up(){
 
+		if ( ! check_ajax_referer( 'wp_all_import_secure', 'security', false )){
+			exit( __('Security check', 'wp_all_import_plugin'));
+		}
+
 		PMXI_Plugin::getInstance()->updateOption("dismiss_speed_up", 1);
 
 		exit('OK');
@@ -383,12 +397,20 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 
 	public function dismiss_manage_top(){
 
+		if ( ! check_ajax_referer( 'wp_all_import_secure', 'security', false )){
+			exit( json_encode(array('result' => array(), 'failed_msgs' => array(__('Security check', 'wp_all_import_plugin')))));
+		}
+
 		PMXI_Plugin::getInstance()->updateOption("dismiss_manage_top", 1);
 
 		exit( json_encode(array('result' => 'OK')) );
 	}
 
 	public function dismiss_manage_bottom(){
+
+		if ( ! check_ajax_referer( 'wp_all_import_secure', 'security', false )){
+			exit( json_encode(array('result' => array(), 'failed_msgs' => array(__('Security check', 'wp_all_import_plugin')))));
+		}
 
 		PMXI_Plugin::getInstance()->updateOption("dismiss_manage_bottom", 1);
 
@@ -407,7 +429,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 
 		global $wpdb;
 
-		$meta_key = $_POST['key'];
+		$meta_key = sanitize_key($_POST['key']);
 
 		$r = $wpdb->get_results("
 			SELECT DISTINCT postmeta.meta_value
@@ -471,12 +493,12 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 		// Get parameters
 		$chunk = isset($_REQUEST["chunk"]) ? intval($_REQUEST["chunk"]) : 0;
 		$chunks = isset($_REQUEST["chunks"]) ? intval($_REQUEST["chunks"]) : 0;
-		$fileName = isset($_REQUEST["name"]) ? $_REQUEST["name"] : '';
+		$fileName = isset($_REQUEST["name"]) ? sanitize_file_name($_REQUEST["name"]) : '';
 
 		// Clean the fileName for security reasons
 		$fileName = preg_replace('/[^\w\._]+/', '_', $fileName);
 
-		if ( ! preg_match('%\W(xml|gzip|zip|csv|gz|json|txt|dat|psv|sql|xls|xlsx)$%i', trim(basename($fileName)))) {	
+		if ( ! preg_match('%\W(xml|gzip|zip|csv|tsv|gz|json|txt|dat|psv|sql|xls|xlsx)$%i', trim(basename($fileName)))) {
 			exit(json_encode(array("jsonrpc" => "2.0", "error" => array("code" => 100, "message" => __("Uploaded file must be XML, CSV, ZIP, GZIP, GZ, JSON, SQL, TXT, DAT or PSV", "wp_all_import_plugin")), "id" => "id")));
 		}
 
@@ -526,12 +548,12 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 
 		// Handle non multipart uploads older WebKit versions didn't support multipart in HTML5
 		if (strpos($contentType, "multipart") !== false) {
-			if (isset($_FILES['async-upload']['tmp_name']) && is_uploaded_file($_FILES['async-upload']['tmp_name'])) {
+			if (isset($_FILES['async-upload']['tmp_name']) && is_uploaded_file(realpath($_FILES['async-upload']['tmp_name']))) {
 				// Open temp file
 				$out = fopen("{$filePath}.part", $chunk == 0 ? "wb" : "ab");
 				if ($out) {
 					// Read binary input stream and append it to temp file
-					$in = fopen($_FILES['async-upload']['tmp_name'], "rb");
+					$in = fopen(realpath($_FILES['async-upload']['tmp_name']), "rb");
 
 					if ($in) {
 						while ($buff = fread($in, 4096))
@@ -542,7 +564,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 					}
 					fclose($in);
 					fclose($out);
-					@unlink($_FILES['async-upload']['tmp_name']);
+					@unlink(realpath($_FILES['async-upload']['tmp_name']));
 				} else{
 					delete_transient( self::$upload_transient );					
 					exit(json_encode(array("jsonrpc" => "2.0", "error" => array("code" => 102, "message" => __("Failed to open output stream.", "wp_all_import_plugin")), "id" => "id")));
@@ -604,7 +626,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 				ob_start();
 				?>
 				<?php foreach ($msgs as $msg): ?>
-					<p><?php echo $msg ?></p>
+					<p><?php echo wp_kses_post($msg); ?></p>
 				<?php endforeach ?>
 				<?php
 				$response = ob_get_clean();
@@ -637,13 +659,13 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 							}
 
 							if ( $is_show_cf_notice && $is_show_images_notice ){
-								$warning = __('<a class="upgrade_link" target="_blank" href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=1748&edd_options%5Bprice_id%5D=0&utm_source=free-plugin&utm_medium=in-plugin&utm_campaign=custom-fields">Upgrade to the Pro edition of WP All Import to Import Images and Custom Fields</a> <p>If you already own it, remove the free edition and install the Pro edition.</p>', 'wp_all_import_plugin');
+								$warning = __('<a class="upgrade_link" target="_blank" href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839966&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=images">Upgrade to the Pro edition of WP All Import to Import Images and Custom Fields</a> <p>If you already own it, remove the free edition and install the Pro edition.</p>', 'wp_all_import_plugin');
 							}
 							else if ( $is_show_cf_notice ){
-								$warning = __('<a class="upgrade_link" target="_blank" href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=1748&edd_options%5Bprice_id%5D=0&utm_source=free-plugin&utm_medium=in-plugin&utm_campaign=custom-fields">Upgrade to the Pro edition of WP All Import to Import Custom Fields</a> <p>If you already own it, remove the free edition and install the Pro edition.</p>', 'wp_all_import_plugin');
+								$warning = __('<a class="upgrade_link" target="_blank" href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839966&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=custom-fields">Upgrade to the Pro edition of WP All Import to Import Custom Fields</a> <p>If you already own it, remove the free edition and install the Pro edition.</p>', 'wp_all_import_plugin');
 							}
 							else if ( $is_show_images_notice ) {		
-								$warning = __('<a class="upgrade_link" target="_blank" href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=1748&edd_options%5Bprice_id%5D=0&utm_source=free-plugin&utm_medium=in-plugin&utm_campaign=custom-fields">Upgrade to the Pro edition of WP All Import to Import Images</a> <p>If you already own it, remove the free edition and install the Pro edition.</p>', 'wp_all_import_plugin');
+								$warning = __('<a class="upgrade_link" target="_blank" href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839966&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=images">Upgrade to the Pro edition of WP All Import to Import Images</a> <p>If you already own it, remove the free edition and install the Pro edition.</p>', 'wp_all_import_plugin');
 							}
 						}						
 					}					
@@ -659,12 +681,12 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 
 								if ( ! defined('PMWI_EDITION') ) {
 
-									$notice = __('<p class="wpallimport-bundle-notice">The import bundle you are using requires the Pro version of the WooCommerce Add-On.</p><a href="https://www.wpallimport.com/checkout/?edd_action=purchase_collection&taxonomy=download_category&terms=14&utm_source=free-plugin&utm_medium=dot-org&utm_campaign=woocommerce" class="upgrade_link" target="_blank">Purchase the WooCommerce Add-On</a>', 'wp_all_import_plugin');
+									$notice = __('<p class="wpallimport-bundle-notice">The import bundle you are using requires the Pro version of the WooCommerce Add-On.</p><a href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839961&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=import-wooco-bundle" class="upgrade_link" target="_blank">Purchase the WooCommerce Add-On</a>', 'wp_all_import_plugin');
 
 								}
 								elseif ( PMWI_EDITION != 'paid' ) {
 
-									$notice = __('<p class="wpallimport-bundle-notice">The import bundle you are using requires the Pro version of the WooCommerce Add-On, but you have the free version installed.</p><a href="https://www.wpallimport.com/checkout/?edd_action=purchase_collection&taxonomy=download_category&terms=14&utm_source=free-plugin&utm_medium=dot-org&utm_campaign=woocommerce" target="_blank" class="upgrade_link">Purchase the WooCommerce Add-On</a>', 'wp_all_import_plugin');
+									$notice = __('<p class="wpallimport-bundle-notice">The import bundle you are using requires the Pro version of the WooCommerce Add-On, but you have the free version installed.</p><a href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839961&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=import-wooco-bundle" target="_blank" class="upgrade_link">Purchase the WooCommerce Add-On</a>', 'wp_all_import_plugin');
 
 								}							
 							}
@@ -674,7 +696,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 						case 'import_users':
 
 							if ( ! class_exists('PMUI_Plugin') ) {
-								$notice = __('<p class="wpallimport-bundle-notice">The import bundle you are using requires the User Add-On.</p><a href="http://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=1921&edd_options%5Bprice_id%5D=1" target="_blank" class="upgrade_link">Purchase the User Add-On</a>.', 'wp_all_import_plugin');
+								$notice = __('<p class="wpallimport-bundle-notice">The import bundle you are using requires the User Add-On.</p><a href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839963&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=import-users" target="_blank" class="upgrade_link">Purchase the User Add-On</a>.', 'wp_all_import_plugin');
 							}
 
 							break;
@@ -686,7 +708,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 								$notice = __('<p class="wpallimport-bundle-notice">The import bundle you are using requires WooCommerce.</p><a class="upgrade_link" href="https://wordpress.org/plugins/woocommerce/" target="_blank">Get WooCommerce</a>.', 'wp_all_import_plugin');
 							}
 							elseif ( ! class_exists('PMUI_Plugin') ) {
-								$notice = __('<p class="wpallimport-bundle-notice">The import bundle you are using requires the User Add-On.</p><p class="wpallimport-upgrade-links-container"><a href="http://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=1921&edd_options%5Bprice_id%5D=1" target="_blank" class="upgrade_link">Purchase the User Add-On</a></p>', 'wp_all_import_plugin');
+								$notice = __('<p class="wpallimport-bundle-notice">The import bundle you are using requires the User Add-On.</p><p class="wpallimport-upgrade-links-container"><a href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839963&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=import-users" target="_blank" class="upgrade_link">Purchase the User Add-On</a></p>', 'wp_all_import_plugin');
 							}
 
 							break;
@@ -767,7 +789,7 @@ class PMXI_Admin_Settings extends PMXI_Controller_Admin {
 
 						$file_type = strtoupper(pmxi_getExtension($upload_result['source']['path']));
 
-						$error_message = sprintf(__("Please verify that the file you uploading is a valid %s file.", "wp_all_import_plugin"), $file_type);
+						$error_message = sprintf(__("Please verify that the file you uploading is a valid %s file.", "wp_all_import_plugin"), esc_attr($file_type));
 
 						exit(json_encode(array("jsonrpc" => "2.0", "error" => array("code" => 102, "message" => $error_message), "is_valid" => false, "id" => "id")));
 					

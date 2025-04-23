@@ -46,7 +46,7 @@ $.fn.wplupload  = function($options) {
 			//$('.auto-generate-template').removeAttr('rel').hide();
 
 			$('.wpallimport-upload-type-container[rel=upload_type]').find('.wpallimport-note').hide();
-			
+
 			$up.start();
 		});
 		
@@ -177,7 +177,7 @@ $.fn.wplupload  = function($options) {
 			$('#advanced_upload').show();
 		});
 		
-		$('#cancel-upload').click(function() {
+		$('#cancel-upload').on('click', function() {
 			var i, file;
 			
 			$up.stop();		

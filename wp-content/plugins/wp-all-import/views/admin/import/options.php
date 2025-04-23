@@ -3,8 +3,8 @@
 	$baseUrl  = $this->baseUrl;	
 ?>
 
-<input type="hidden" id="selected_post_type" value="<?php echo (!empty($post['custom_type'])) ? $post['custom_type'] : '';?>">
-<input type="hidden" id="selected_type" value="<?php echo (!empty($post['type'])) ? $post['type'] : '';?>">
+<input type="hidden" id="selected_post_type" value="<?php echo (!empty($post['custom_type'])) ? esc_attr($post['custom_type']) : '';?>">
+<input type="hidden" id="selected_type" value="<?php echo (!empty($post['type'])) ? esc_attr($post['type']) : '';?>">
 
 <div class="wpallimport-step-4">
 	
@@ -15,12 +15,9 @@
 		<div class="wpallimport-header">
 			<div class="wpallimport-logo"></div>
 			<div class="wpallimport-title">
-				<p><?php _e('WP All Import', 'wp_all_import_plugin'); ?></p>
-				<h2><?php _e('Import XML / CSV', 'wp_all_import_plugin'); ?></h2>					
+				<h2><?php _e('Import Settings', 'wp_all_import_plugin'); ?></h2>
 			</div>
-			<div class="wpallimport-links">
-				<a href="http://www.wpallimport.com/support/" target="_blank"><?php _e('Support', 'wp_all_import_plugin'); ?></a> | <a href="http://www.wpallimport.com/documentation/" target="_blank"><?php _e('Documentation', 'wp_all_import_plugin'); ?></a>
-			</div>
+			<?php echo apply_filters('wpallimport_links_block', '');?>
 		</div>	
 		<div class="clear"></div>		
 	</div>		
@@ -62,7 +59,7 @@
 							<h4 style="font-size:18px;"><?php _e("It has changed and is not compatible with this import template.", "wp_all_import_plugin"); ?></h4>
 						</div>		
 					</div>		
-					<a class="button button-primary button-hero wpallimport-large-button wpallimport-notify-read-more" href="http://www.wpallimport.com/documentation/troubleshooting/problems-with-import-files/#invalid" target="_blank"><?php _e('Read More', 'wp_all_import_plugin');?></a>		
+					<a class="button button-primary button-hero wpallimport-large-button wpallimport-notify-read-more" href="http://www.wpallimport.com/documentation/troubleshooting/problems-with-import-files/#invalid?utm_source=import-plugin-free&utm_medium=error&utm_campaign=import-file-changed" target="_blank"><?php _e('Read More', 'wp_all_import_plugin');?></a>		
 				</div>										
 
 				<form class="<?php echo ! $isWizard ? 'edit' : 'options' ?>" method="post" enctype="multipart/form-data" autocomplete="off" <?php echo ! $isWizard ? 'style="overflow:visible;"' : '' ?>>
@@ -93,9 +90,11 @@
 						?>
 					</div>
 
-				</form>					
-								
-				<a href="http://soflyy.com/" target="_blank" class="wpallimport-created-by"><?php _e('Created by', 'wp_all_import_plugin'); ?> <span></span></a>
+				</form>
+
+                <div class="wpallimport-display-columns wpallimport-margin-top-forty show-created-by-only">
+					<?php echo apply_filters('wpallimport_footer', ''); ?>
+                </div>
 					
 			</td>
 			<td class="right template-sidebar ">

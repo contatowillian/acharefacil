@@ -77,15 +77,16 @@ final class XmlImportTemplateScanner
       {
         case XmlImportTemplateScanner::STATE_TEXT:
 
-          if ($ch == '[')
-          {                        
+          if ($ch == '[' && PMXI_Plugin::$is_php_allowed)
+          {
             $this->previous_ch = '[';
             $this->currentState = XmlImportTemplateScanner::STATE_LANG;
             $this->isLangBegin = true;
             //omit [
             $input->read();
           }
-          elseif ($ch == '{')
+          else
+              if ($ch == '{')
           {
             $this->currentState = XmlImportTemplateScanner::STATE_XPATH;
             //omit {
@@ -231,7 +232,7 @@ final class XmlImportTemplateScanner
    *
    * @param XmlImportReaderInterface $input
    * @param bool $insideLang
-   * @return XmlImportToken
+   * @return XmlImportToken|array
    */
   private function scanXPath($input, $insideLang = true)
   {
@@ -269,7 +270,7 @@ final class XmlImportTemplateScanner
    * Scans name
    *
    * @param XmlImportReaderInterface $input
-   * @return XmlImportToken
+   * @return XmlImportToken|array
    */
   private function scanName(XmlImportReaderInterface $input)
   {
@@ -322,7 +323,7 @@ final class XmlImportTemplateScanner
    * Scans string literal
    *
    * @param XmlImportReaderInterface $input
-   * @return XmlImportToken
+   * @return XmlImportToken|array
    */
   private function scanString(XmlImportReaderInterface $input)
   {
@@ -355,7 +356,7 @@ final class XmlImportTemplateScanner
    * Scans number
    *
    * @param XmlImportReaderInterface $input
-   * @return XmlImportToken
+   * @return XmlImportToken|array
    */
   private function scanNumber(XmlImportReaderInterface $input)
   {

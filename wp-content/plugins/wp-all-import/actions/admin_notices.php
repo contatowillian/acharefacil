@@ -104,7 +104,7 @@ function pmxi_admin_notices() {
 		foreach ($messages as $type => $m) {
 			in_array((string)$type, array('updated', 'error')) or $type = 'updated';
 			?>
-			<div class="<?php echo $type ?>"><p><?php echo $m ?></p></div>
+			<div class="<?php echo esc_attr($type); ?>"><p><?php echo wp_kses_post($m); ?></p></div>
 			<?php 
 		}
 	}	
@@ -120,10 +120,10 @@ function pmxi_admin_notices() {
 					$m = __('<strong>Warning:</strong> your content is blank.', 'wp_all_import_plugin');
 					break;
 				case 3:
-					$m = __('<strong>Warning:</strong> You must <a href="http://www.wpallimport.com/upgrade-to-pro/?utm_source=free-plugin&utm_medium=in-plugin&utm_campaign=images" target="_blank">upgrade to the Pro edition of WP All Import</a> to import images. The settings you configured in the images section will be ignored.', 'wp_all_import_plugin');
+					$m = __('<strong>Warning:</strong> You must <a href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839966&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=images" target="_blank">upgrade to the Pro edition of WP All Import</a> to import images. The settings you configured in the images section will be ignored.', 'wp_all_import_plugin');
 					break;
 				case 4:
-					$m = __('<strong>Warning:</strong> You must <a href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=1748&edd_options%5Bprice_id%5D=0&utm_source=free-plugin&utm_medium=in-plugin&utm_campaign=custom-fields" target="_blank">upgrade to the Pro edition of WP All Import</a> to import data to Custom Fields. The settings you configured in the Custom Fields section will be ignored.', 'wp_all_import_plugin');
+					$m = __('<strong>Warning:</strong> You must <a href="https://www.wpallimport.com/checkout/?edd_action=add_to_cart&download_id=5839966&edd_options%5Bprice_id%5D=1&utm_source=import-plugin-free&utm_medium=upgrade-notice&utm_campaign=custom-fields" target="_blank">upgrade to the Pro edition of WP All Import</a> to import data to Custom Fields. The settings you configured in the Custom Fields section will be ignored.', 'wp_all_import_plugin');
 					break;					
 				default:
 					$m = false;
@@ -131,7 +131,7 @@ function pmxi_admin_notices() {
 			}
 			if ($m):
 			?>
-			<div class="error"><p><?php echo $m ?></p></div>
+			<div class="error"><p><?php echo wp_kses_post($m); ?></p></div>
 			<?php 
 			endif;
 		}

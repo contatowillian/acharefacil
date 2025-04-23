@@ -42,6 +42,21 @@ function pmxe_wp_ajax_wpae_preview(){
 		$custom_xml_template_line_count = substr_count($exportOptions['custom_xml_template'], "\n");
     }
 
+	if(empty($exportOptions['cpt'])) {
+		$postTypes           = [];
+		$exportqueryPostType = [];
+
+		if ( isset( $exportOptions['exportquery'] ) && ! empty( $exportOptions['exportquery']->query['post_type'] ) ) {
+			$exportqueryPostType = [ $exportOptions['exportquery']->query['post_type'] ];
+		}
+
+		if ( empty( $postTypes ) ) {
+			$postTypes = $exportqueryPostType;
+		}
+
+		$exportOptions['cpt'] = $postTypes;
+	}
+
     $errors = new WP_Error();
 
 	$engine = new XmlExportEngine($exportOptions, $errors);
@@ -109,7 +124,7 @@ function pmxe_wp_ajax_wpae_preview(){
 			$msgs = array($msgs);
 		}
 		foreach ($msgs as $msg): ?>
-			<div class="error"><p><?php echo $msg ?></p></div>
+			<div class="error"><p><?php echo wp_kses_post($msg); ?></p></div>
 		<?php endforeach;
 		exit( json_encode(array('html' => ob_get_clean())) );
 	}
@@ -161,19 +176,35 @@ function pmxe_wp_ajax_wpae_preview(){
 				$exportQuery = get_comments( array( 'orderby' => 'comment_ID', 'order' => 'ASC', 'number' => 10 ));
 			}
 			remove_action('comments_clauses', 'wp_all_export_comments_clauses');
-		}
-		else
-		{
-			remove_all_actions('parse_query');
-			remove_all_actions('pre_get_posts');
-			remove_all_filters('posts_clauses');
+		} else if(in_array('shop_order', $exportOptions['cpt']) && PMXE_Plugin::hposEnabled()) {
+			$exportQuery = new \Wpae\WordPress\OrderQuery();
 
-			add_filter('posts_join', 'wp_all_export_posts_join', 10, 1);
-			add_filter('posts_where', 'wp_all_export_posts_where', 10, 1);
-			$exportQuery = new WP_Query( array( 'post_type' => $exportOptions['cpt'], 'post_status' => 'any', 'orderby' => 'title', 'order' => 'ASC', 'posts_per_page' => 10 ));
-			
-			remove_filter('posts_where', 'wp_all_export_posts_where');
-			remove_filter('posts_join', 'wp_all_export_posts_join');
+		} else {
+
+            if(strpos($exportOptions['cpt'][0], 'custom_') === 0) {
+                $addon = GF_Export_Add_On::get_instance();
+
+                $filter_args = array(
+                    'filter_rules_hierarhy' => empty($exportOptions['filter_rules_hierarhy']) ? array() : $exportOptions['filter_rules_hierarhy'],
+                    'product_matching_mode' => empty($exportOptions['product_matching_mode']) ? 'strict' : $exportOptions['product_matching_mode'],
+                    'taxonomy_to_export' => empty($exportOptions['taxonomy_to_export']) ? '' : $exportOptions['taxonomy_to_export'],
+                    'sub_post_type_to_export' => empty($exportOptions['sub_post_type_to_export']) ? '' : $exportOptions['sub_post_type_to_export']
+                );
+
+                $exportQuery = $addon->add_on->get_query(0, 0, $filter_args);
+            } else {
+
+                remove_all_actions('parse_query');
+                remove_all_actions('pre_get_posts');
+                remove_all_filters('posts_clauses');
+
+                add_filter('posts_join', 'wp_all_export_posts_join', 10, 1);
+                add_filter('posts_where', 'wp_all_export_posts_where', 10, 1);
+                $exportQuery = new WP_Query(array('post_type' => $exportOptions['cpt'], 'post_status' => 'any', 'orderby' => 'title', 'order' => 'ASC', 'posts_per_page' => 10));
+
+                remove_filter('posts_where', 'wp_all_export_posts_where');
+                remove_filter('posts_join', 'wp_all_export_posts_join');
+            }
 		}
 	}
 
@@ -185,7 +216,7 @@ function pmxe_wp_ajax_wpae_preview(){
 
 	<div id="post-preview" class="wpallexport-preview">
 		
-		<p class="wpallexport-preview-title"><?php echo sprintf("Preview first 10 %s", wp_all_export_get_cpt_name($exportOptions['cpt'], 10, $exportOptions)); ?></p>
+		<p class="wpallexport-preview-title"><?php echo sprintf("Preview first 10 %s", esc_html(wp_all_export_get_cpt_name($exportOptions['cpt'], 10, $exportOptions))); ?></p>
 
 		<div class="wpallexport-preview-content">
 
@@ -202,7 +233,7 @@ function pmxe_wp_ajax_wpae_preview(){
 				$error_msg .= '</li>';
 			}
 			$error_msg .= '</ul>';
-			echo $error_msg;
+			echo wp_kses_post($error_msg);
 			exit( json_encode(array('html' => ob_get_clean())) );
 		}
 
@@ -228,7 +259,7 @@ function pmxe_wp_ajax_wpae_preview(){
 					}
 
 					$error_msg = '<span class="error">'.__($errorMessage, 'wp_all_import_plugin').'</span>';
-					echo $error_msg;
+					echo wp_kses_post($error_msg);
 					exit( json_encode(array('html' => ob_get_clean())) );
 				} catch (WpaeInvalidStringException $e) {
 					// Find the line where the function is
@@ -244,12 +275,12 @@ function pmxe_wp_ajax_wpae_preview(){
 					}
 
 					$error_msg = '<span class="error">'.__($errorMessage, 'wp_all_import_plugin').'</span>';
-					echo $error_msg;
+					echo wp_kses_post($error_msg);
 					exit( json_encode(array('html' => ob_get_clean())) );
 				} catch (WpaeTooMuchRecursionException $e) {
 					$errorMessage = __('There was a problem parsing the custom XML template');
 					$error_msg = '<span class="error">'.__($errorMessage, 'wp_all_import_plugin').'</span>';
-					echo $error_msg;
+					echo wp_kses_post($error_msg);
 					exit( json_encode(array('html' => ob_get_clean())) );
 				}
 
@@ -323,7 +354,7 @@ function pmxe_wp_ajax_wpae_preview(){
                           $error_msg .= __('You can continue export or try to use &lt;data&gt; tag as root element.', 'wp_all_import_plugin');
                           $error_msg .= '</li>';
                           $error_msg .= '</ul>';
-                          echo $error_msg;
+                          echo wp_kses_post($error_msg);
                           exit( json_encode(array('html' => ob_get_clean())) );
                         }
                     break;
@@ -349,7 +380,7 @@ function pmxe_wp_ajax_wpae_preview(){
 							$error_msg .= '</li>';
 						}
 						$error_msg .= '</ul>';
-						echo $error_msg;
+						echo wp_kses_post($error_msg);
 						exit( json_encode(array('html' => ob_get_clean())) );
 					}
 					else{
@@ -363,7 +394,7 @@ function pmxe_wp_ajax_wpae_preview(){
 							$error_msg .= __('You can continue export or try to use &lt;data&gt; tag as root element.', 'wp_all_import_plugin');
 							$error_msg .= '</li>';
 							$error_msg .= '</ul>';
-							echo $error_msg;
+							echo wp_kses_post($error_msg);
 							exit( json_encode(array('html' => ob_get_clean())) );
 						}
 					}
@@ -394,7 +425,7 @@ function pmxe_wp_ajax_wpae_preview(){
 											?>
 											<td>
 												<?php if (!$rkey):?><strong><?php endif;?>
-												<?php echo $value; ?>
+												<?php echo esc_html($value); ?>
 												<?php if (!$rkey):?></strong><?php endif;?>
 											</td>
 											<?php

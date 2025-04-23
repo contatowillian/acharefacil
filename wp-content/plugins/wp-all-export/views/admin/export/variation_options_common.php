@@ -1,3 +1,8 @@
+<?php
+if(!defined('ABSPATH')) {
+    die();
+}
+if(XmlExportEngine::get_addons_service()->isWooCommerceAddonActive()) { ?>
 <script type="text/javascript">
     (function ($) {
         $(function () {
@@ -6,10 +11,10 @@
                 var exportVariations = $('#export_variations').val();
                 var exportVariationsTitle = $('#export_variations_title').val();
 
-                $('.sub-options-' + exportVariations).css('display', 'block');
+                //$('.sub-options-' + exportVariations).css('display', 'block');
             }
 
-            $('.export_variations').change(function () {
+            $('.export_variations').on('change', function () {
 
                 var inputName = $(this).attr('name');
                 $('.sub-options').slideUp('fast');
@@ -23,7 +28,7 @@
                 }
             });
             
-            $('.export_variations_title').change(function(event){
+            $('.export_variations_title').on('change', function(event){
 
                 var inputName = $(this).attr('name');
                 var value = $('input[name='+inputName +']:checked').val();
@@ -37,6 +42,6 @@
         });
     })(jQuery);
 </script>
-
-<input type="hidden" id="export_variations" name="export_variations" value="<?php echo XmlExportEngine::getProductVariationMode();?>" />
-<input type="hidden" id="export_variations_title" name="export_variations_title" value="<?php echo XmlExportEngine::getProductVariationTitleMode();?>" />
+<?php } ?>
+<input type="hidden" id="export_variations" name="export_variations" value="<?php echo esc_attr(XmlExportEngine::getProductVariationMode()); ?>" />
+<input type="hidden" id="export_variations_title" name="export_variations_title" value="<?php echo esc_attr(XmlExportEngine::getProductVariationTitleMode());?>" />

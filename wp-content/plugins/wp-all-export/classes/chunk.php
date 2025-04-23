@@ -109,7 +109,6 @@ class PMXE_Chunk {
                 $this->cloud[str_replace(":", "_", $localName)] = 1;                          
               break;
             default:
-
               break;
          }
       }
@@ -132,8 +131,8 @@ class PMXE_Chunk {
           foreach ($this->cloud as $el => $count) {                        
               $this->options['element'] = $el;
               break;            
-          }          
-        }          
+          }
+        }
       }
     }                           
 
@@ -190,7 +189,7 @@ class PMXE_Chunk {
 
                   if ($this->loop < $this->options['pointer']){
                     $this->loop++;                              
-                    continue;
+                    continue 2;
                   }                
                   
                   $xml = @$this->reader->readOuterXML();                  
@@ -250,6 +249,7 @@ class PMXE_Chunk {
 
 class wpae_preprocessXml_filter extends php_user_filter {    
 
+    #[ReturnTypeWillChange]
     function filter($in, $out, &$consumed, $closing)
     {
       while ($bucket = stream_bucket_make_writeable($in)) {        

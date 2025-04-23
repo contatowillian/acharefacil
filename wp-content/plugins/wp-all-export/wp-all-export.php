@@ -3,7 +3,9 @@
 Plugin Name: WP All Export
 Plugin URI: http://www.wpallimport.com/upgrade-to-wp-all-export-pro/?utm_source=export-plugin-free&utm_medium=wp-plugins-page&utm_campaign=upgrade-to-pro
 Description: Export any post type to a CSV or XML file. Edit the exported data, and then re-import it later using WP All Import.
-Version: 1.2.7
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Version: 1.4.10
 Author: Soflyy
 */
 
@@ -33,35 +35,35 @@ define('PMXE_ROOT_URL', rtrim(plugin_dir_url(__FILE__), '/'));
 if ( class_exists('PMXE_Plugin') and PMXE_EDITION == "paid"){
 
 	function pmxe_notice(){
-		
+
 		?>
 		<div class="error">
 			<p>
-			<?php printf(__('Please de-activate and remove the free version of the WP All Export before activating the paid version.', 'wp_all_export_plugin')); ?>			
+			<?php printf(esc_html__('Please de-activate and remove the free version of the WP All Export before activating the paid version.', 'wp_all_export_plugin')); ?>
 			</p>
 		</div>
-		<?php				
+		<?php
 
 		deactivate_plugins( str_replace('\\', '/', dirname(__FILE__)) . '/wp-all-export.php');
 
 	}
 
-	add_action('admin_notices', 'pmxe_notice');	
+	add_action('admin_notices', 'pmxe_notice');
 
 }
 else {
 
 	/**
-	 * Plugin prefix for making names unique (be aware that this variable is used in conjuction with naming convention,
+	 * Plugin prefix for making names unique (be aware that this variable is used in conjunction with naming convention,
 	 * i.e. in order to change it one must not only modify this constant but also rename all constants, classes and functions which
 	 * names composed using this prefix)
 	 * @var string
 	 */
 	define('PMXE_PREFIX', 'pmxe_');
 
-	define('PMXE_VERSION', '1.2.7');
+	define('PMXE_VERSION', '1.4.10');
 
-    define('PMXE_ASSETS_VERSION', '-1.0.1');
+    define('PMXE_ASSETS_VERSION', '-1.0.3');
 
     define('PMXE_EDITION', 'free');
 
@@ -69,7 +71,7 @@ else {
 	 * Plugin root uploads folder name
 	 * @var string
 	 */
-	define('WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY', 'wpallexport');	
+	define('WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY', 'wpallexport');
 	/**
 	 * Plugin uploads folder name
 	 * @var string
@@ -80,13 +82,13 @@ else {
 	 * Plugin temp folder name
 	 * @var string
 	 */
-	define('WP_ALL_EXPORT_TEMP_DIRECTORY', WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY . DIRECTORY_SEPARATOR . 'temp');	
+	define('WP_ALL_EXPORT_TEMP_DIRECTORY', WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY . DIRECTORY_SEPARATOR . 'temp');
 
 	/**
 	 * Plugin temp folder name
 	 * @var string
 	 */
-	define('WP_ALL_EXPORT_CRON_DIRECTORY', WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY . DIRECTORY_SEPARATOR . 'exports');	
+	define('WP_ALL_EXPORT_CRON_DIRECTORY', WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY . DIRECTORY_SEPARATOR . 'exports');
 
 	/**
 	 * Main plugin file, Introduces MVC pattern
@@ -131,7 +133,7 @@ else {
 		 * Max allowed file size (bytes) to import in default mode
 		 * @var int
 		 */
-		const LARGE_SIZE = 0; // all files will importing in large import mode	
+		const LARGE_SIZE = 0; // all files will importing in large import mode
 
 		/**
 		 * WP All Import temp folder
@@ -153,9 +155,12 @@ else {
 
         public static $session = null;
 
-		public static $capabilities = 'manage_options';
+		public static $capabilities = 'setup_network';
 
         private static $hasActiveSchedulingLicense = null;
+
+        /** @var  \Wpae\App\Service\Addons\AddonService */
+        private $addons;
 
         public static $cache_key = '';
 
@@ -165,6 +170,10 @@ else {
          * @param string $pluginFilePath Plugin main file
          */
         protected function __construct() {
+
+            if(defined('WPAI_WPAE_ALLOW_INSECURE_MULTISITE') && 1 === WPAI_WPAE_ALLOW_INSECURE_MULTISITE){
+                self::$capabilities = 'manage_options';
+            }
 
             require_once (self::ROOT_DIR . '/classes/installer.php');
 
@@ -185,6 +194,8 @@ else {
             if (is_dir(self::ROOT_DIR . '/helpers')) foreach (PMXE_Helper::safe_glob(self::ROOT_DIR . '/helpers/*.php', PMXE_Helper::GLOB_RECURSE | PMXE_Helper::GLOB_PATH) as $filePath) {
                 require_once $filePath;
             }
+
+            $this->addons = new \Wpae\App\Service\Addons\AddonService();
 
             // init plugin options
             $option_name = get_class($this) . '_Options';
@@ -212,6 +223,8 @@ else {
                 add_action($actionName, self::PREFIX . str_replace('-', '_', $function), $priority, 99); // since we don't know at this point how many parameters each plugin expects, we make sure they will be provided with all of them (it's unlikely any developer will specify more than 99 parameters in a function)
             }
 
+            add_action("admin_enqueue_scripts", [$this, 'add_admin_scripts']);
+
             // register filter handlers
             if (is_dir(self::ROOT_DIR . '/filters')) foreach (PMXE_Helper::safe_glob(self::ROOT_DIR . '/filters/*.php', PMXE_Helper::GLOB_RECURSE | PMXE_Helper::GLOB_PATH) as $filePath) {
                 require_once $filePath;
@@ -232,10 +245,20 @@ else {
             }
 
             // register admin page pre-dispatcher
-            add_action('admin_init', array($this, 'adminInit'));
-            add_action('admin_init', array($this, 'fix_db_schema'));
-            add_action('init', array($this, 'init'));
+            add_action('admin_init', array($this, 'adminInit'), 11);
+            add_action('admin_init', array($this, 'fix_db_schema'), 10);
+            add_action('init', array($this, 'init'), 10);
+        }
 
+        public function add_admin_scripts() {
+            $cm_settings['codeEditor'] = wp_enqueue_code_editor(['type' => 'php']);
+
+            // Use our modified function if user has disabled the syntax editor.
+            if(false === $cm_settings['codeEditor']){
+                $cm_settings['codeEditor'] = wpae_wp_enqueue_code_editor(['type' => 'php']);
+            }
+
+            wp_localize_script('jquery', 'wpae_cm_settings', $cm_settings);
         }
 
         /**
@@ -318,7 +341,7 @@ else {
 		 */
 		public function getTablePrefix() {
 			global $wpdb;
-			
+
 			//return ($this->isNetwork() ? $wpdb->base_prefix : $wpdb->prefix) . self::PREFIX;
 			return $wpdb->prefix . self::PREFIX;
 		}
@@ -347,56 +370,79 @@ else {
             $notice->render();
         }
 
+        public function showDismissibleNotice($message, $noticeId)
+        {
+            $notice = new \Wpae\WordPress\SitewideAdminDismissibleNotice($message, $noticeId);
+            if (!$notice->isDismissed()) {
+                $notice->render();
+            }
+        }
+
 		/**
 		 * pre-dispatching logic for admin page controllers
 		 */
 		public function adminInit() {
 
-			// create history folder
-			$uploads = wp_upload_dir();
+            if(!wp_doing_ajax()) {
 
-			$wpallimportDirs = array( WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY, self::TEMP_DIRECTORY, self::UPLOADS_DIRECTORY, self::CRON_DIRECTORY);			
+                // create history folder
+                $uploads = wp_upload_dir();
 
-			foreach ($wpallimportDirs as $destination) {
+                $wpallimportDirs = array(WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY, self::TEMP_DIRECTORY, self::UPLOADS_DIRECTORY, self::CRON_DIRECTORY);
 
-				$dir = $uploads['basedir'] . DIRECTORY_SEPARATOR . $destination;
-				
-				if ( !is_dir($dir)) wp_mkdir_p($dir);			
+                foreach ($wpallimportDirs as $destination) {
 
-				if ( ! @file_exists($dir . DIRECTORY_SEPARATOR . 'index.php') ) @touch( $dir . DIRECTORY_SEPARATOR . 'index.php' );						
-				
-			}
+                    $dir = $uploads['basedir'] . DIRECTORY_SEPARATOR . $destination;
 
-            if ( ! is_dir($uploads['basedir'] . DIRECTORY_SEPARATOR . WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY) or ! is_writable($uploads['basedir'] . DIRECTORY_SEPARATOR . WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY)) {
-                $this->showNoticeAndDisablePlugin(sprintf(__('Uploads folder %s must be writable', 'wp_all_export_plugin'), $uploads['basedir'] . DIRECTORY_SEPARATOR . WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY));
+                    if (!is_dir($dir)) wp_mkdir_p($dir);
+
+                    if (!@file_exists($dir . DIRECTORY_SEPARATOR . 'index.php')) @touch($dir . DIRECTORY_SEPARATOR . 'index.php');
+
+                }
+
+                if (!is_dir($uploads['basedir'] . DIRECTORY_SEPARATOR . WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY) or !is_writable($uploads['basedir'] . DIRECTORY_SEPARATOR . WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY)) {
+                    $this->showNoticeAndDisablePlugin(sprintf(esc_html__('Uploads folder %s must be writable', 'wp_all_export_plugin'), $uploads['basedir'] . DIRECTORY_SEPARATOR . WP_ALL_EXPORT_UPLOADS_BASE_DIRECTORY));
+                }
+
+                if (!is_dir($uploads['basedir'] . DIRECTORY_SEPARATOR . self::UPLOADS_DIRECTORY) or !is_writable($uploads['basedir'] . DIRECTORY_SEPARATOR . self::UPLOADS_DIRECTORY)) {
+                    $this->showNoticeAndDisablePlugin(sprintf(esc_html__('Uploads folder %s must be writable', 'wp_all_export_plugin'), $uploads['basedir'] . DIRECTORY_SEPARATOR . self::UPLOADS_DIRECTORY));
+                }
+
+                if ($this->addons->userExportsExistAndAddonNotInstalled() && current_user_can(self::$capabilities)) {
+                    $this->showDismissibleNotice(__('<strong style="font-size:16px">A Configured Export Requires the User Export Add-On</strong><p>Your User exports will not be able to run until you install the User Export Add-On. That add-on is available from <a href="https://wordpress.org/plugins/export-wp-users-xml-csv/" target="_blank">wordpress.org</a>.</p>', 'wp_all_export_plugin'), 'wpae_user_addon_not_installed_notice');
+                }
+
+                if ($this->addons->wooCommerceExportsExistAndAddonNotInstalled() && current_user_can(self::$capabilities) && \class_exists('WooCommerce')) {
+                    $this->showDismissibleNotice(__('<strong style="font-size:16px">A Configured Export Requires the WooCommerce Export Add-On Pro</strong><p>Your Products, Orders, and Coupons exports will not be able to run until you install the WooCommerce Export Add-On Pro.</p>', 'wp_all_export_plugin')
+                        . '<p><a class="button button-primary" href="https://wpallimport.com/portal/downloads" target="_blank">' . __('Download Add-On', 'wp_all_export_plugin') . '</a></p>', 'wpae_woocommerce_addon_not_installed_notice');
+                }
+
+                if ($this->addons->acfExportsExistAndNotInstalled() && current_user_can(self::$capabilities)) {
+                    $this->showDismissibleNotice(__('<strong style="font-size:16px">A Configured Export Requires the ACF Export Add-On Pro</strong><p>Exports that contain ACF fields will not be able to run until you install the ACF Export Add-On Pro.</p>', 'wp_all_export_plugin')
+                        . '<p><a class="button button-primary" href="https://wpallimport.com/portal/downloads" target="_blank">' . __('Download Add-On', 'wp_all_export_plugin') . '</a></p>', 'wpae_acf_addon_not_installed_notice');
+                }
             }
 
-            if ( ! is_dir($uploads['basedir'] . DIRECTORY_SEPARATOR . self::UPLOADS_DIRECTORY) or ! is_writable($uploads['basedir'] . DIRECTORY_SEPARATOR . self::UPLOADS_DIRECTORY)) {
-                $this->showNoticeAndDisablePlugin(sprintf(__('Uploads folder %s must be writable', 'wp_all_export_plugin'), $uploads['basedir'] . DIRECTORY_SEPARATOR . self::UPLOADS_DIRECTORY));
-            }
-
-
-			self::$session = new PMXE_Handler();						
+			self::$session = new PMXE_Handler();
 
 			$input = new PMXE_Input();
-			$page = strtolower($input->getpost('page', ''));						
+			$page = strtolower($input->getpost('page', ''));
 
 			if (preg_match('%^' . preg_quote(str_replace('_', '-', self::PREFIX), '%') . '([\w-]+)$%', $page)) {
-				//$this->adminDispatcher($page, strtolower($input->getpost('action', 'index')));
 
 				$action = strtolower($input->getpost('action', 'index'));
 
-				// capitalize prefix and first letters of class name parts	
+				// capitalize prefix and first letters of class name parts
 				$controllerName = preg_replace_callback('%(^' . preg_quote(self::PREFIX, '%') . '|_).%', array($this, "replace_callback"),str_replace('-', '_', $page));
 				$actionName = str_replace('-', '_', $action);
 				if (method_exists($controllerName, $actionName)) {
 
 					if ( ! get_current_user_id() or ! current_user_can(self::$capabilities)) {
 					    // This nonce is not valid.
-					    die( 'Security check' ); 
+					    die( 'Security check' );
 
 					} else {
-						
+
 						$this->_admin_current_screen = (object)array(
 							'id' => $controllerName,
 							'base' => $controllerName,
@@ -417,6 +463,10 @@ else {
                             throw new Exception("Administration page `$page` matches to a wrong controller type.");
                         }
 
+                        $reviewsUI = new \Wpae\Reviews\ReviewsUI();
+
+                        add_action('admin_notices', [$reviewsUI, 'render']);
+
                             if($controller instanceof PMXE_Admin_Manage && ($action == 'update' || $action == 'template' || $action == 'options') && isset($_GET['id'])) {
                                 $addons = new \Wpae\App\Service\Addons\AddonService();
                                 $exportId = intval($_GET['id']);
@@ -429,23 +479,58 @@ else {
                                     $cpt = array($cpt);
                                 }
 
+                                if(isset($export->options['export_type']) && $export->options['export_type'] === 'advanced') {
+
+                                    if(!XmlExportEngine::get_addons_service()->isWooCommerceAddonActive() && strpos($export->options['wp_query'], 'product') !== false && \class_exists('WooCommerce')) {
+                                        die(\__('The WooCommerce Export Add-On Pro is required to run this export. If you already own it, you can download the add-on here: <a href="http://www.wpallimport.com/portal/downloads" target="_blank">http://www.wpallimport.com/portal/downloads</a>', 'wp_all_export_plugin'));
+                                    }
+                                    else if( (!XmlExportEngine::get_addons_service()->isWooCommerceAddonActive() && !XmlExportEngine::get_addons_service()->isWooCommerceOrderAddonActive() ) && strpos($export->options['wp_query'], 'shop_order') !== false) {
+                                        die(\__('The WooCommerce Export Add-On Pro is required to run this export. If you already own it, you can download the add-on here: <a href="http://www.wpallimport.com/portal/downloads" target="_blank">http://www.wpallimport.com/portal/downloads</a>', 'wp_all_export_plugin'));
+                                    }
+                                    else if(!XmlExportEngine::get_addons_service()->isWooCommerceAddonActive() && strpos($export->options['wp_query'], 'shop_coupon') !== false) {
+                                        die(\__('The WooCommerce Export Add-On Pro is required to run this export. If you already own it, you can download the add-on here: <a href="http://www.wpallimport.com/portal/downloads" target="_blank">http://www.wpallimport.com/portal/downloads</a>', 'wp_all_export_plugin'));
+                                    }
+                                }
+
                                 if (
                                     ((in_array('users', $cpt) || in_array('shop_customer', $cpt)) && !$addons->isUserAddonActive()) ||
                                     ($export->options['export_type'] == 'advanced' && $export->options['wp_query_selector'] == 'wp_user_query' && !$addons->isUserAddonActive())
                                 ) {
-                                    die(\__('The User Export Add-On Pro is required to run this export. You can download the add-on here: <a href="http://www.wpallimport.com/portal/" target="_blank">http://www.wpallimport.com/portal/</a>', \PMXE_Plugin::LANGUAGE_DOMAIN));
+                                    die(\__('The User Export Add-On Pro is required to run this export. You can download the add-on here: <a href="http://www.wpallimport.com/portal/" target="_blank">http://www.wpallimport.com/portal/</a>', 'wp_all_export_plugin'));
+                                }
+
+                                if (
+		                            (
+			                            (
+				                            ( in_array( 'product', $cpt ) && \class_exists('WooCommerce') && ! XmlExportEngine::get_addons_service()->isWooCommerceProductAddonActive() ) ||
+				                            ( in_array( 'shop_order', $cpt ) && ! XmlExportEngine::get_addons_service()->isWooCommerceOrderAddonActive() ) ||
+				                            in_array( 'shop_review', $cpt ) ||
+                                            in_array( 'shop_coupon', $cpt )
+                                        ) && ! $addons->isWooCommerceAddonActive()
+                                    ) ||
+		                            ( $export->options['export_type'] == 'advanced' && $export->options['wp_query_selector'] == 'wp_user_query' && ! $addons->isUserAddonActive() )
+	                            ) {
+		                            die( \__( 'The WooCommerce Export Add-On Pro is required to run this export. You can download the add-on here: <a href="http://www.wpallimport.com/portal/" target="_blank">http://www.wpallimport.com/portal/</a>', 'wp_all_export_plugin' ) );
+	                            }
+
+	                            if ( in_array('comments', $cpt) || in_array('shop_review', $cpt) ) {  // exporting comments
+		                            die(\__('WP All Export Pro is required to run this export. If you already own it, you can download it here: <a href="http://www.wpallimport.com/portal/downloads" target="_blank">http://www.wpallimport.com/portal/downloads</a>', 'wp_all_export_plugin'));
+	                            }
+
+                                if(in_array('acf', $export->options['cc_type']) && !$addons->isAcfAddonActive()) {
+                                    die(\__('The ACF Export Add-On Pro is required to run this export. You can download the add-on here: <a href="http://www.wpallimport.com/portal/" target="_blank">http://www.wpallimport.com/portal/</a>', 'wp_all_export_plugin'));
                                 }
                             }
 
 
-						if ($this->_admin_current_screen->is_ajax) { // ajax request						
+						if ($this->_admin_current_screen->is_ajax) { // ajax request
 							$controller->$action();
 							do_action('wpallexport_action_after');
 							die(); // stop processing since we want to output only what controller is randered, nothing in addition
-						} elseif ( ! $controller->isInline) {																																		
+						} elseif ( ! $controller->isInline) {
 							@ob_start();
 							$controller->$action();
-							self::$buffer = @ob_get_clean();													
+							self::$buffer = @ob_get_clean();
 						} else {
 							self::$buffer_callback = array($controller, $action);
 						}
@@ -491,9 +576,10 @@ else {
 		 * @internal param $string [optional] $page When $page set to empty string ealier buffered content is outputted, otherwise controller is called based on $page value
 		 */
 		public function adminDispatcher($page = '', $action = 'index') {
-			if ('' === $page) {				
+			if ('' === $page) {
 				if ( ! is_null(self::$buffer)) {
 					echo '<div class="wrap">';
+					// Contents are sanitized at a lower level
 					echo self::$buffer;
 					do_action('wpallexport_action_after');
 					echo '</div>';
@@ -505,7 +591,7 @@ else {
 				} else {
 					throw new Exception('There is no previousely buffered content to display.');
 				}
-			} 
+			}
 		}
 
 		public function replace_callback($matches){
@@ -541,11 +627,13 @@ else {
                     require_once $path;
                     return TRUE;
                 }
-                if ( ! $is_prefix) {
-                    $pathAlt = self::ROOT_DIR . '/' . $subdir . '/' . $filePathAlt;
-                    if(strpos($className, '_') !== false) {
-                        $pathAlt = $this->lreplace('_',DIRECTORY_SEPARATOR, $pathAlt);
+                if (!$is_prefix) {
+                    if (strpos($className, '_') !== false) {
+                        $filePathAlt = $this->lreplace('_', DIRECTORY_SEPARATOR, $filePathAlt);
                     }
+
+                    $pathAlt = self::ROOT_DIR . DIRECTORY_SEPARATOR . $subdir . DIRECTORY_SEPARATOR . $filePathAlt;
+
                     if (is_file($pathAlt)) {
                         require_once $pathAlt;
                         return TRUE;
@@ -570,7 +658,7 @@ else {
                 $len = strlen($prefix);
                 if (strncmp($prefix, $className, $len) !== 0) {
                     // no, move to the next registered autoloader
-                    return;
+                    return false;
                 }
 
                 // get the relative class name
@@ -597,7 +685,7 @@ else {
 		 * @throws Exception
 		 */
 		public function getOption($option = NULL) {
-			$options = apply_filters('wp_all_export_config_options', $this->options);			
+			$options = apply_filters('wp_all_export_config_options', $this->options);
 			if (is_null($option)) {
 				return $options;
 			} else if (isset($options[$option])) {
@@ -645,7 +733,7 @@ else {
 			global $wpdb;
 
 			if (function_exists('is_multisite') && is_multisite()) {
-		        // check if it is a network activation - if so, run the activation function for each blog id	        
+		        // check if it is a network activation - if so, run the activation function for each blog id
 		        if (isset($_GET['networkwide']) && ($_GET['networkwide'] == 1)) {
 		            $old_blog = $wpdb->blogid;
 		            // Get all blog ids
@@ -653,14 +741,14 @@ else {
 		            foreach ($blogids as $blog_id) {
 		                switch_to_blog($blog_id);
 		                require self::ROOT_DIR . '/schema.php';
-		                dbDelta($plugin_queries);	                
+		                dbDelta($plugin_queries);
 		            }
 		            switch_to_blog($old_blog);
-		            return;	         
-		        }	         
+		            return;
+		        }
 		    }
 
-			dbDelta($plugin_queries);		
+			dbDelta($plugin_queries);
 
 		}
 
@@ -673,18 +761,29 @@ else {
 		 * @return void
 		 */
 		public function load_plugin_textdomain() {
-			
-			$locale = apply_filters( 'plugin_locale', get_locale(), 'wp_all_export_plugin' );							
-			
+
+			$locale = apply_filters( 'plugin_locale', get_locale(), 'wp_all_export_plugin' );
+
 			load_plugin_textdomain( 'wp_all_export_plugin', false, dirname( plugin_basename( __FILE__ ) ) . "/i18n/languages" );
-		}	
+		}
 
 		public function fix_db_schema(){
 
 			global $wpdb;
-			$installed_ver = get_option( "wp_all_export_db_version" );
+
+			$db_version_old = get_option('wp_all_export_db_version');
+            $installed_ver = get_option('wp_all_export_free_db_version');
+
+            // We leave the old option so if it doesn't exist then this was installed after the export addons release.
+            // If it does exist we make sure it's not a Pro version.
+            if(!$db_version_old || version_compare($db_version_old, '1.2.10') == 1) {
+                update_option("wp_all_export_free_addons_not_included", true);
+            }
 
 			if ( $installed_ver == PMXE_VERSION ) return true;
+
+            // Declare variable to avoid nuisance notices when charset and collate aren't set.
+            $charset_collate = '';
 
 			if ( ! empty($wpdb->charset))
 				$charset_collate = "DEFAULT CHARACTER SET $wpdb->charset";
@@ -719,26 +818,34 @@ else {
 			$tablefields = $wpdb->get_results("DESCRIBE {$table};");
 			$iteration = false;
 			$parent_id = false;
-			$export_post_type = false;			
+			$export_post_type = false;
+            $created_at = false;
 
-			// Check if field exists
+            // Check if field exists
 			foreach ($tablefields as $tablefield) {
 				if ('iteration' == $tablefield->Field) $iteration = true;
 				if ('parent_id' == $tablefield->Field) $parent_id = true;
 				if ('export_post_type' == $tablefield->Field) $export_post_type = true;
+				if ('created_at' == $tablefield->Field) $created_at = true;
 			}
 
-			if ( ! $iteration ){				
+			if ( ! $iteration ){
 				$wpdb->query("ALTER TABLE {$table} ADD `iteration` BIGINT(20) NOT NULL DEFAULT 0;");
 			}
-			if ( ! $parent_id ){				
+			if ( ! $parent_id ){
 				$wpdb->query("ALTER TABLE {$table} ADD `parent_id` BIGINT(20) NOT NULL DEFAULT 0;");
 			}
-			if ( ! $export_post_type ){				
+			if ( ! $export_post_type ){
 				$wpdb->query("ALTER TABLE {$table} ADD `export_post_type` TEXT NOT NULL DEFAULT '';");
 			}
 
-			update_option( "wp_all_export_db_version", PMXE_VERSION );
+            if ( ! $created_at ){
+                $wpdb->query("ALTER TABLE {$table} ADD `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;");
+                $wpdb->query("UPDATE {$table} SET `created_at` = `registered_on` WHERE 1");
+            }
+
+
+			update_option( "wp_all_export_free_db_version", PMXE_VERSION );
 		}
 
 		/**
@@ -795,31 +902,31 @@ else {
 		 */
 		public static function get_default_import_options() {
 			return array(
-				'cpt' => array(),	
+				'cpt' => array(),
 				'whereclause' => '',
 				'joinclause' => '',
 				'filter_rules_hierarhy' => '',
 				'product_matching_mode' => 'parent',
 				'order_item_per_row' => 1,
 				'order_item_fill_empty_columns' => 1,
-				'filepath' => '',				
+				'filepath' => '',
 				'current_filepath' => '',
 				'bundlepath' => '',
 				'export_type' => 'specific',
-				'wp_query' => '',	
+				'wp_query' => '',
 				'wp_query_selector' => 'wp_query',
 				'is_user_export' => false,
 				'is_comment_export' => false,
-				'export_to' => 'csv',	
+				'export_to' => 'csv',
 				'export_to_sheet' => 'csv',
 				'delimiter' => ',',
 				'encoding' => 'UTF-8',
-				'is_generate_templates' => 1,				
-				'is_generate_import' => 1,				
-				'import_id' => 0,									
-				'template_name' => '',				
+				'is_generate_templates' => 1,
+				'is_generate_import' => 1,
+				'import_id' => 0,
+				'template_name' => '',
 				'is_scheduled' => 0,
-				'scheduled_period' => '',				
+				'scheduled_period' => '',
 				'scheduled_email' => '',
 				'cc_label' => array(),
 				'cc_type' => array(),
@@ -827,7 +934,7 @@ else {
 				'cc_name' => array(),
 				'cc_php' => array(),
 				'cc_code' => array(),
-				'cc_sql' => array(),				
+				'cc_sql' => array(),
 				'cc_options' => array(),
 				'cc_settings' => array(),
 				'friendly_name' => '',
@@ -835,7 +942,7 @@ else {
 				'ids' => array(),
 				'rules' => array(),
 				'records_per_iteration' => 50,
-				'include_bom' => 0,
+				'include_bom' => 1,
 				'include_functions' => 1,
 				'split_large_exports' => 0,
 				'split_large_exports_count' => 10000,
@@ -859,7 +966,7 @@ else {
 				'custom_xml_template' => '',
 				'custom_xml_template_header' => '',
 				'custom_xml_template_loop' => '',
-				'custom_xml_template_footer' => '',				
+				'custom_xml_template_footer' => '',
 				'custom_xml_template_options' => array(),
         		'custom_xml_cdata_logic' => 'auto',
 				'show_cdata_in_preview' => 0,
@@ -875,22 +982,33 @@ else {
                 'scheduling_run_on' => 'weekly',
                 'scheduling_monthly_day' => '',
                 'scheduling_times' => array(),
-                'scheduling_timezone' => 'UTC'
-			);
-		}		
+                'scheduling_timezone' => 'UTC',
+                'sub_post_type_to_export' => ''
+
+            );
+		}
 
 		public static function is_ajax(){
 			return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') ? true : false ;
 		}
 
-        public static function encode( $value ){
-            return base64_encode(md5(AUTH_SALT) . $value . md5(md5(AUTH_SALT)));
+        /**
+         * @param $value
+         * @return string
+         */
+        public static function encode($value){
+            $salt = defined('AUTH_SALT') ? AUTH_SALT : wp_salt();
+            return base64_encode(md5($salt) . $value . md5(md5($salt)));
         }
 
-        public static function decode( $encoded ){
-            return preg_match('/^[a-f0-9]{32}$/', $encoded) ? $encoded : str_replace(array(md5(AUTH_SALT), md5(md5(AUTH_SALT))), '', base64_decode($encoded));
+        /**
+         * @param $encoded
+         * @return mixed
+         */
+        public static function decode($encoded){
+            $salt = defined('AUTH_SALT') ? AUTH_SALT : wp_salt();
+            return preg_match('/^[a-f0-9]{32}$/', $encoded) ? $encoded : str_replace(array(md5($salt), md5(md5($salt))), '', base64_decode($encoded));
         }
-
 
         /**
          * Replace last occurence of string
@@ -908,6 +1026,11 @@ else {
             }
             return $subject;
         }
+
+		public static function hposEnabled()
+		{
+			return class_exists('Automattic\WooCommerce\Utilities\OrderUtil') && \Automattic\WooCommerce\Utilities\OrderUtil::custom_orders_table_usage_is_enabled();
+		}
     }
 
 	PMXE_Plugin::getInstance();

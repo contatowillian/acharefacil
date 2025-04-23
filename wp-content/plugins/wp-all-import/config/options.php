@@ -3,14 +3,15 @@
  * List of plugin optins, contains only default values, actual values are stored in database
  * and can be changed by corresponding wordpress function calls
  */
-$config = array(		
+$config = array(
+	"info_api_url" => "https://www.wpallimport.com",
 	"history_file_count" => 10000,
 	"history_file_age" => 365,
 	"highlight_limit" => 10000,
 	"upload_max_filesize" => 2048,
 	"post_max_size" => 2048,
 	"max_input_time" => -1,
-	"max_execution_time" => -1,
+	"max_execution_time" => 0,
 	"dismiss" => 0,
 	"dismiss_speed_up" => 0,
 	"dismiss_manage_top" => 0,
@@ -25,8 +26,7 @@ $config = array(
 	"session_mode" => 'default',
 	"enable_ftp_import" => 0,
 	"large_feed_limit" => 1000,
-	//"enable_cron_processing_time_limit" => 0,
-	"cron_processing_time_limit" => 120,
+	"cron_processing_time_limit" => 59,
 	"secure" => 1,
 	"log_storage" => 5,
 	"cron_sleep" => "",
