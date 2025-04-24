@@ -53,6 +53,49 @@
         width: 30%;
     }
 }
+
+.site-header-main .site-header-inner .site-quick-button {
+    display: none !important;
+}
+
+.page-id-3285 .info-secondary{
+    padding-top: 25px;
+}
+
+.page-id-3285 .destaque_quadro_resultado{
+  background-color: #f5f5f5;
+}
+
+.page-id-3285 .page-wrapper{
+    margin-top: 0rem !important;
+    padding-top: 0rem !important;
+    padding-bottom: 1.75rem;
+}
+
+
+.page-id-3285 .woocommerce-breadcrumb{
+    margin-top: 0.5rem;
+}
+
+
+.page-id-3285 .phones{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.page-id-3285 .imagem_anunciante_resultado{
+    max-width: 200px !important;
+    width: 140px !important;
+    border-radius: 10px;
+}
+
+.page-id-3285  .product .product-thumbnail-wrapper .product-buttons .product-button.product-wishlist a{
+    display: none !important;
+}
+
+.page-id-3285 .klb-page-title{
+  display: none !important;
+}
 .product-template-default #related-products .product{
     width: 67% !important; 
 }
@@ -1923,6 +1966,16 @@ z-index: 9999;
 background-size: cover;
 margin-left:15px;
 right: 8px;
+}
+
+.whatsapp_icon_resultado_busca{
+    width: 31px;
+    height: 31px;
+    cursor: pointer;
+    background-image: url('/wp-content/themes/bevesi/assets/img/icone_whats.webp');
+    background-size: cover;
+    margin-top: 20px;
+    
 }
 
 
