@@ -170,22 +170,6 @@
                       <?php } ?>
                      </div>
                   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  
-
               
                </div>
                <div id="sidebar" class="col col-12 col-lg-3 secondary-column filter-sidebar">
@@ -201,15 +185,21 @@
                      <form name="busca_site" method="get" >
 
                      <div class="site-scroll sticky-holder sticky-top-20">
+
+                  
                                                    
                         <div class="widget widget_block">
                            <div class="wp-block-group">
                               <div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
                                  <h2 class="wp-block-heading">Categorias</h2>
                                 <select name='categoria' id='categoria' onchange="this.form.submit()">
-                                <option value="">Escolha a Categoria</option>
+                                 <?php if(isset($_GET['categoria'])  and $_GET['categoria']!='') { ?>
+                                 <option value="<?php echo $_GET['categoria']; ?>"><?php echo $_GET['categoria']; ?></option>
+                                 <?php }else{  ?>
+                                 <option value="">Escolha a Categoria</option>
+                                 <?php }?>
                                 <?php foreach($categorias as $categoria){ ?>
-                                 <option value="<?php echo $categoria ?>"><?php echo $categoria ?></option>
+                                 <option value="<?php echo $categoria->categoria ?>"><?php echo $categoria->categoria ?></option>
                                 <?php } ?>
                                 </select>
                               </div>
@@ -218,11 +208,27 @@
                         <div class="widget woocommerce widget_layered_nav woocommerce-widget-layered-nav">
                            <h4 class="widget-title">Filtros por Cidades</h4>
                            <select name='cidade' id='cidade' onchange="this.form.submit()">
-                                <option value="">Escolha a Cidade</option>
+                                <?php if(isset($_GET['cidade'])  and $_GET['cidade']!='') { ?>
+                                 <option value="<?php echo $_GET['cidade']; ?>"><?php echo $_GET['cidade']; ?></option>
+                                 <?php }else{  ?>
+                                 <option value="">Escolha a Cidade</option>
+                                 <?php }?>
+
                                 <?php foreach($cidades as $cidade){ ?>
-                                 <option value="<?php echo $cidade ?>"><?php echo $cidade ?></option>
+                                 <option value="<?php echo $cidade->cidade ?>"><?php echo $cidade->cidade ?></option>
                                 <?php } ?>
                                 </select>
+                        </div>
+
+                        <div class="widget widget_block">
+                           <div class="wp-block-group">
+                              <div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                                 <h2 class="wp-block-heading">Palavra Chave</h2>
+                                <input type='text' name='palavra_chave' id='palavra_chave' 
+                                 value='<?php if(isset($_GET['palavra_chave'])  and $_GET['palavra_chave']!='') {  echo $_GET['palavra_chave'];  };?>' 
+                                >
+                              </div>
+                           </div>
                         </div>
                        
                      </div>

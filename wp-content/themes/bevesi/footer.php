@@ -54,6 +54,10 @@
     }
 }
 
+.input-escondido{
+    display: none !important;
+}
+
 .site-header-main .site-header-inner .site-quick-button {
     display: none !important;
 }

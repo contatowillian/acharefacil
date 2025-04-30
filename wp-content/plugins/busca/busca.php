@@ -15,8 +15,71 @@ function content_buscaUsuariosAnunciantes($content) {
 
     if (is_page('busca')) {
 
-        $user_query = new WP_User_Query( array( 'role' => 'subscriber' , 'user_status' => 'approved' ) );
-        $users = $user_query->get_results();
+        $filtro = '';
+        $filtro_extra = '';
+
+        if(isset($_REQUEST['pagina'])){
+          $_REQUEST['pagina'] = $_REQUEST['pagina']*20;
+          $paginacao = "limit ".$_REQUEST['pagina'].",20";
+        }else{
+          $paginacao = "limit 0,20";
+        }
+
+        if(isset($_REQUEST['categoria']) and $_REQUEST['categoria']!=''){
+
+          /************************************   Filtro nome da categoria  ************************************/
+          $filtro_extra .="AND us.user_status = 0 and  us.ID in
+                          (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
+                          where us.ID = nome_do_seu_negocio.user_id 
+                          AND nome_do_seu_negocio.meta_key = 'afreg_additional_3213'
+                          AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['categoria']."%')";
+        }
+
+
+        if(isset($_REQUEST['cidade']) and $_REQUEST['cidade']!=''){
+
+          /************************************   Filtro nome da cidade  ************************************/
+          $filtro_extra .="AND us.user_status = 0 and  us.ID in
+                          (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
+                          where us.ID = nome_do_seu_negocio.user_id 
+                          AND nome_do_seu_negocio.meta_key = 'afreg_additional_3244'
+                          AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['cidade']."%')";
+        }
+
+        if(isset($_REQUEST['palavra_chave']) and $_REQUEST['palavra_chave']!=''){
+
+          /************************************   Filtro nome do negocio  ************************************/
+          $filtro_extra .="AND us.user_status = 0 and  us.ID in
+                                (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
+                                where us.ID = nome_do_seu_negocio.user_id 
+                                AND nome_do_seu_negocio.meta_key = 'afreg_additional_3224'
+                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['palavra_chave']."%')";
+
+          /************************************   Filtro nome da categoria  ************************************/
+          $filtro_extra .="OR us.user_status = 0 and  us.ID in
+                                (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
+                                where us.ID = nome_do_seu_negocio.user_id 
+                                AND nome_do_seu_negocio.meta_key = 'afreg_additional_3213'
+                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['palavra_chave']."%')";
+
+          /************************************   Filtro descrição do anúncio ************************************/
+          $filtro_extra .="OR us.user_status = 0 and  us.ID in
+                                (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
+                                where us.ID = nome_do_seu_negocio.user_id 
+                                AND nome_do_seu_negocio.meta_key = 'afreg_additional_3226'
+                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['palavra_chave']."%')";              
+
+        }
+
+        $consulta_usuarios_anunciantes = "SELECT DISTINCT
+                                          us.ID,
+                                          us.user_login
+                                          FROM wp_users AS us
+                                          JOIN wp_usermeta AS nome_do_seu_negocio  ON  us.ID = nome_do_seu_negocio.user_id  AND nome_do_seu_negocio.meta_key = 'afreg_additional_3224' and nome_do_seu_negocio.meta_value !=''
+                                          where us.user_status = 0 $filtro_extra
+                                          ".$paginacao;
+
+        $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
         $afreg_args = array( 
           'posts_per_page'   => -1,
@@ -33,8 +96,41 @@ function content_buscaUsuariosAnunciantes($content) {
         print_r($users);
         echo '</pre>';
         exit;*/
-        $categorias = array();
+        
+        //$categorias = array();
         $cidades = array();
+
+        if(isset($_REQUEST['categoria']) and $_REQUEST['categoria']!=''){
+          $filtro_categoria_escolhida = "and trim(categorias.meta_value) !='".$_REQUEST['categoria']."'";
+        }else{
+          $filtro_categoria_escolhida="";
+        }
+        
+
+        /************************************   Filtro nome da categoria  ************************************/
+        $filtro_categoria ="select distinct(categorias.meta_value) as categoria  from wp_usermeta as categorias
+                            where  categorias.meta_key = 'afreg_additional_3213' and trim(categorias.meta_value) !=''
+                            $filtro_categoria_escolhida
+                            ";
+
+        $categorias = $wpdb->get_results($filtro_categoria);
+
+
+        if(isset($_REQUEST['cidade']) and $_REQUEST['cidade']!=''){
+            $filtro_cidade_escolhida = "and trim(cidades.meta_value) !='".$_REQUEST['cidade']."'";
+        }else{
+            $filtro_cidade_escolhida="";
+        }
+        
+        
+        /************************************   Filtro nome da cidade  ************************************/
+        $filtro_cidade ="select distinct(cidades.meta_value) as cidade  from wp_usermeta as cidades
+                            where  cidades.meta_key = 'afreg_additional_3244' and trim(cidades.meta_value) !=''
+                            $filtro_cidade_escolhida
+                            ";
+        
+        $cidades = $wpdb->get_results($filtro_cidade);
+
 
 
         if(!empty($users)){
@@ -52,14 +148,12 @@ function content_buscaUsuariosAnunciantes($content) {
               }
 
               if($afreg_field->post_name=='categoria'){
-              
-
-                if(trim($value)!=''){
+              /*    if(trim($value)!=''){
                   if (!in_array($value, $categorias)){
                     array_push($categorias,$value);
                   
                   }
-                }
+                } */
               
               }
 
@@ -106,12 +200,12 @@ function content_buscaUsuariosAnunciantes($content) {
               if($afreg_field->post_name=='cidade'){
                 $user->cidade = $value;
 
-                if(trim($value)!=''){
+             /*   if(trim($value)!=''){
 
                   if (!in_array($value, $cidades)){
                     array_push($cidades,$value);
                   }
-                }
+                }*/
               }
 
               if($afreg_field->post_name=='estado'){
@@ -137,9 +231,7 @@ function content_buscaUsuariosAnunciantes($content) {
          
         }
 
-      if(isset($_REQUEST['categoria']) and $_REQUEST['categoria']!=''){
-        $users = filtro_busca('categoria',$users,$_REQUEST['categoria']);
-      }
+    
         
        ob_start();
        include('tpl/buscaUsuariosAnunciantes.phtml');
@@ -153,26 +245,6 @@ function content_buscaUsuariosAnunciantes($content) {
 }
 
 
-function filtro_busca($filtro,$listagem,$request_categoria){
 
-  $contador_array = 0;
-
-  foreach($listagem as $registro_lista){
-
-    $contador_array++;
-
-   /* if($filtro=='categoria'){
-      if($registro_lista->categoria != $request_categoria){
-        $registro_lista->descricao = '';
-      }
-    }*/
-   
-
-  }
-
-  return $listagem;
-
-  
-}
 
 add_filter('the_content', 'content_buscaUsuariosAnunciantes');
