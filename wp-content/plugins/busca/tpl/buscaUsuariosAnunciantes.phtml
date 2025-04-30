@@ -58,17 +58,11 @@
                   <div class="woocommerce-notices-wrapper"></div>
                   <div class="before-shop-loop">
                      <div class="column left">
-                        <a href="#" class="filter-button"><i class="klb-icon-filter"></i> Filter</a>
                         <p class="woocommerce-result-count">
                            Exibindo todos <?php echo count($users); ?> resultados
                         </p>
                      </div>
-                    
                   </div>
-                
-
-
-
                   <div class="shop-products-wrapper">
                      <div class="products product-listing-style">
                         <?php $contador_destaques = 0; 
@@ -82,30 +76,40 @@
                               }
 
                               ?>
+
+                 
                         <div class="<?php echo $classe_destaque; ?> product type-product post-2871 status-publish first instock product_cat-auto-escola has-post-thumbnail shipping-taxable product-type-simple">
-                           <div class="product-wrapper with-content-fade product-type-1">
+               
+                           <div class="product-wrapper with-content-fade product-type-1 cursor_link">
                               <div class="product-inner">
                                  <div class="product-thumbnail-wrapper">
                                     <div class="product-buttons">
-                                       <div class="wishlist-button product-button product-wishlist"><a href="/wishlist/" class="klbwl-btn klbwl-btn-2871" data-product_id="2871" data-product_title="Jaraguá Veículos">Add to wishlist</a></div>
+                                       <div class="wishlist-button product-button product-wishlist"></div>
                                        <!-- wishlist-button -->
-                                       <div class="product-button product-quickview quick-view-1"><a class="quickview-button" data-product_id="2871"><i class="klb-icon-eye"></i></a></div>
-                                       <div class="product-button product-compare"><a href="?add-to-compare=2871" class="klbcp-btn klbcp-btn-2871" data-id="2871" data-product_name="<?php echo $dadosAnunciantes->nome_do_seu_negocio; ?>" data-product_image="/wp-content/uploads/2024/12/jaragua-150x150.webp">Compare</a></div>
+                                       <div class="product-button product-quickview quick-view-1"></div>
+                                       <div class="product-button product-compare"></div>
                                     </div>
                                     <!-- product-buttons -->
-                                    <div class="product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-slider"><a href="/detalhe/<?php echo $dadosAnunciantes->ID; ?>"><img fetchpriority="high"  src="<?php echo $dadosAnunciantes->foto_do_anunciante; ?>" class="imagem_anunciante_resultado" ></a></div>
+                                    <div class="product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-slider"><img fetchpriority="high"  src="<?php echo $dadosAnunciantes->foto_do_anunciante; ?>" class="imagem_anunciante_resultado" ></div>
                                     <!-- product-thumbnail -->
                                  </div>
+                          
                                  <!-- product-thumbnail-wrapper -->
                                  <div class="product-content-wrapper">
                                     <div class="product-content-body">
+                               
                                        <div class="product-content-row">
                                           <div class="col-lg-7 linha_desc_anuncio_texto">
                                              <!-- product-content-row col-lg-9 -->
                                              <div class="product-price-wrapper"><span class="price"></span> </div>
                                              <!-- product-price-wrapper -->
                                              <div class="titulo_produto_busca">
-                                                <h2 class="product-title"><a href="/detalhe/<?php echo $dadosAnunciantes->ID; ?>"><span><?php echo $dadosAnunciantes->nome_do_seu_negocio; ?></span></a></h2>
+                                                <h2 class="product-title">
+                                                <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>">
+                                                <span>    
+                                                <?php echo $dadosAnunciantes->nome_do_seu_negocio; ?>
+                                                   </span>
+                                               
                                              </div>
                                              <div class="limpa_linha"></div>
                                              <div class="entry-description"><?php echo $dadosAnunciantes->descricao; ?></div>
@@ -115,7 +119,9 @@
                                                     <div class="site_lista_busca"><a target='_blank' href="<?php echo $dadosAnunciantes->website; ?>"><i class="klb-icon-www"></i><?php echo $dadosAnunciantes->website; ?></a></div>
                                                 <?php } ?>
                                              </div>
+                                             </a>
                                           </div>
+                                        
                                           <!-- product-content-row col-lg-9 -->
                                           <div class="col-lg-4 coluna_info_anunciante_busca">
                                              <!-- product-content-row col-lg-3 -->
@@ -141,26 +147,24 @@
                                     <div class="product-content-footer">
                                        <div class="product-extra-content"></div>
                                        <!-- product-extra-content -->
-                                       <div class="product-cart-wrapper style-1  "><a href="/detalhe/<?php echo $dadosAnunciantes->ID; ?>" aria-describedby="woocommerce_loop_add_to_cart_link_describedby_2871" data-quantity="1" class="button product_type_simple" data-product_id="2871" data-product_sku="" aria-label="Leia mais sobre “Jaraguá Veículos”" rel="nofollow" data-success_message="">Leia mais</a>	<span id="woocommerce_loop_add_to_cart_link_describedby_2871" class="screen-reader-text">
-                                          </span>
-                                       </div>
+                                     
                                        <!-- product-cart -->
                                     </div>
                                     <!-- product-content-footer -->
                                  </div>
+                                
                                  <!-- product-content-wrapper -->
                               </div>
                               <!-- product-inner -->
                               <div class="product-hidden-content">
-                                 <div class="product-cart-wrapper style-1  "><a href="/detalhe/<?php echo $dadosAnunciantes->ID; ?>" aria-describedby="woocommerce_loop_add_to_cart_link_describedby_2871" data-quantity="1" class="button product_type_simple" data-product_id="2871" data-product_sku="" aria-label="Leia mais sobre “Jaraguá Veículos”" rel="nofollow" data-success_message="">Leia mais</a>	<span id="woocommerce_loop_add_to_cart_link_describedby_2871" class="screen-reader-text">
-                                    </span>
-                                 </div>
+                                 
                                  <!-- product-cart -->
                               </div>
                               <!-- product-hidden-content -->
                            </div>
                            <!-- product-wrapper -->
                         </div>
+                       
                         <div class="product">
                         </div>
 
@@ -176,7 +180,7 @@
                   <div class="filter-sidebar-header">
                      <h3 class="entry-title">Filter Products</h3>
                      <div class="site-button close-button">
-                        <a href="#"><i class="klb-icon-x"></i></a>
+                      
                      </div>
                      <!-- site-button -->        
                   </div>

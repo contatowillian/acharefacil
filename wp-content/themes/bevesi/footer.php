@@ -54,6 +54,9 @@
     }
 }
 
+.cursor_link{
+    cursor:pointer;
+}
 .input-escondido{
     display: none !important;
 }
@@ -133,6 +136,63 @@
 }
 
 .product-template-default .single-product-buttons{
+    display: none !important; 
+}
+
+.page-id-3290 #related-products .product{
+    width: 67% !important; 
+}
+.page-id-3290 .telefone_detalhe_anuncio{
+    font-size: 22px !important; 
+}
+.page-id-3290 .products .product{
+    width: 27%;
+}
+
+
+.page-id-3290 .klb-page-title{
+    display: none !important;
+}
+
+.page-id-3290 .klb-post ul{
+    list-style-type: none !important;
+}
+
+.page-id-3290 .klb-post ul li{
+    list-style-type: none !important;
+}
+
+.page-id-3290 .whats_icone_detalhe{
+
+float: left;
+display: inline-grid;
+margin-top: -20px;
+}
+
+.segunda_coluna_detalhes_anuncio .social-container{
+    display: none !important;
+}
+
+.page-id-3290 .single-ajax{
+    display: none !important;
+}
+
+.page-id-3290 .product-grid-style.grid-column-6{
+    width: 20% !important;
+}
+
+.page-id-3290 .product-iconbox{
+    display: none !important;
+}
+
+.page-id-3290 .wc-tabs-wrapper{
+    display: none !important;
+}
+.page-id-3290 .product-price-wrapper{
+    display: none !important;
+}
+
+.page-id-3290 .single-product-buttons{
     display: none !important; 
 }
 
@@ -1981,6 +2041,15 @@ right: 8px;
     
 }
 
+.whatsapp_icon_resultado_detalhe{
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    background-image: url('/wp-content/themes/bevesi/assets/img/icone_whats.webp');
+    background-size: cover;
+    margin-top: 20px;
+    margin-right: 4px;
+}
 
 
 .site-header .site-header-custom-button>a{
