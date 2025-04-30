@@ -71,21 +71,24 @@ function content_buscaUsuariosAnunciantes($content) {
 
         }
 
-        $consulta_usuarios_anunciantes = "SELECT DISTINCT
+        $consulta_usuarios_anunciantes = "(SELECT DISTINCT
                                           us.ID,
                                           us.user_login
                                           FROM wp_users AS us
                                           JOIN wp_usermeta AS nome_do_seu_negocio  ON  us.ID = nome_do_seu_negocio.user_id  AND nome_do_seu_negocio.meta_key = 'afreg_additional_3288'
                                           and nome_do_seu_negocio.meta_value ='sim'
-                                          where us.user_status = 0 $filtro_extra order by rand() limit 3 union ";
+                                          where us.user_status = 0 $filtro_extra order by rand() limit 3) union ";
 
-        $consulta_usuarios_anunciantes = "SELECT DISTINCT
+        $consulta_usuarios_anunciantes .= "SELECT DISTINCT
                                           us.ID,
                                           us.user_login
                                           FROM wp_users AS us
                                           JOIN wp_usermeta AS nome_do_seu_negocio  ON  us.ID = nome_do_seu_negocio.user_id  AND nome_do_seu_negocio.meta_key = 'afreg_additional_3224' and nome_do_seu_negocio.meta_value !=''
                                           where us.user_status = 0 $filtro_extra
                                           ".$paginacao;
+
+
+
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
