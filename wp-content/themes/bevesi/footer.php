@@ -88,7 +88,6 @@
 }
 
 .page-id-3285 .imagem_anunciante_resultado{
-    max-width: 200px !important;
     width: 184px !important;
     border-radius: 10px;
 }
