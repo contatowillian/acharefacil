@@ -50,7 +50,7 @@
                         <h1 class="product_title entry-title telefone_detalhe_anuncio"><i class="klb-icon-phone"></i><?php echo $users[0]->telefone; ?></h1>
                       <?php  }  ?>
                       <?php if(isset($users[0]->whatsapp)){  ?>
-                        <div class="whatsapp_icon_search  whats_icone_detalhe primary"><a target='_blank' href='https://wa.me/<?php echo $dadosAnunciantes->whatsapp; ?>?text=%F0%9F%91%8B%20Ol%C3%A1!%20Obrigado%20por%20entrar%20em%20contato.%20Como%20posso%20ajudar%20voc%C3%AA%20hoje%3F'><div class="whatsapp_icon_resultado_detalhe"></div></a></div>
+                        <div class="whatsapp_icon_search  whats_icone_detalhe primary"><a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $users[0]->whatsapp);  ?>?text=%F0%9F%91%8B%20Ol%C3%A1!%20Obrigado%20por%20entrar%20em%20contato.%20Como%20posso%20ajudar%20voc%C3%AA%20hoje%3F'><div class="whatsapp_icon_resultado_detalhe"></div></a></div>
                          <h1 class="product_title entry-title telefone_detalhe_anuncio"><?php echo $users[0]->whatsapp; ?></h1>
                       <?php  }  ?>
                      <div class="product-meta">

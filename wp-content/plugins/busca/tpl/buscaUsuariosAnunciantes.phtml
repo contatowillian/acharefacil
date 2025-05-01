@@ -113,7 +113,7 @@
                                                    <div class="locality"><i class="klb-icon-map"></i><?php echo $dadosAnunciantes->cidade; ?>,<?php echo $dadosAnunciantes->estado; ?></div>
                                                 </div>
                                                 <div class="phones phone primary"><i class="klb-icon-phone"></i><?php echo $dadosAnunciantes->telefone; ?></div>
-                                                <div class="whatsapp_icon_search primary"><a target='_blank' href='https://wa.me/<?php echo $dadosAnunciantes->whatsapp; ?>?text=%F0%9F%91%8B%20Ol%C3%A1!%20Obrigado%20por%20entrar%20em%20contato.%20Como%20posso%20ajudar%20voc%C3%AA%20hoje%3F'><div class="whatsapp_icon_resultado_busca"></div></a></div>
+                                                <div class="whatsapp_icon_search primary"><a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $dadosAnunciantes->whatsapp);  ?>?text=%F0%9F%91%8B%20Ol%C3%A1!%20Obrigado%20por%20entrar%20em%20contato.%20Como%20posso%20ajudar%20voc%C3%AA%20hoje%3F'><div class="whatsapp_icon_resultado_busca"></div></a></div>
 
                                              </div>
                                           </div>
