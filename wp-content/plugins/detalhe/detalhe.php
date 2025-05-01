@@ -140,68 +140,93 @@ function content_detalheUsuariosAnunciantes($content) {
 
               }
 
-              if($afreg_field->post_name=='horario-inicio-segunda'){
+              if($afreg_field->post_name=='horario-segunda-feira'){
                 $user->segunda_horario_inicio = $value;
-                echo  $value;
-                exit;
+              //  echo  $value;
+               // exit;
               }
 
-              if($afreg_field->post_name=='horario-inicio-terca'){
+              if($afreg_field->post_name=='horario-terca-feira'){
                 $user->terca_horario_inicio = $value;
               }
 
-              if($afreg_field->post_name=='horario-inicio-quarta'){
-                $user->quarta_horario_inicio = $value;
+              if($afreg_field->post_name=='horario-quarta-feira'){
+                if(!empty($value)) {
+                    $user->quarta_horario_inicio = $value;
+                }
+                
               }
 
-              if($afreg_field->post_name=='horario-inicio-quinta'){
+              if($afreg_field->post_name=='horario-quinta-feira'){
+                if(!empty($value)) {
                 $user->quinta_horario_inicio = $value;
+                }
               }
 
-              if($afreg_field->post_name=='horario-inicio-sexta'){
+              if($afreg_field->post_name=='horario-sexta-feira'){
+                if(!empty($value)) {
                 $user->sexta_horario_inicio = $value;
+                }
               }
 
-              if($afreg_field->post_name=='horario-inicio-sabado'){
+              if($afreg_field->post_name=='horario-sabado'){
+                if(!empty($value)) {
                 $user->sabado_horario_inicio = $value;
+                }
               }
 
-              if($afreg_field->post_name=='horario-inicio-domingo'){
+              if($afreg_field->post_name=='horario-domingo'){
+                if(!empty($value)) {
                 $user->domingo_horario_inicio = $value;
+                }
               }
 
-              if($afreg_field->post_name=='horario-fim-segunda'){
+              if($afreg_field->post_name=='horario-fim-segunda-feira'){
+                if(!empty($value)) {
                 $user->segunda_horario_fim = $value;
+                }
               }
               
-              if($afreg_field->post_name=='horario-fim-terca'){
+              if($afreg_field->post_name=='horario-fim-terca-feira'){
+                if(!empty($value)) {
                 $user->terca_horario_fim = $value;
+                }
               }
               
-              if($afreg_field->post_name=='horario-fim-quarta'){
+              if($afreg_field->post_name=='horario-fim-quarta-feira'){
+                if(!empty($value)) {
                 $user->quarta_horario_fim = $value;
+                }
               }
               
-              if($afreg_field->post_name=='horario-fim-quinta'){
+              if($afreg_field->post_name=='horario-fim-quinta-feira'){
+                if(!empty($value)) {
                  $user->quinta_horario_fim = $value;
+                }
               }
               
-              if($afreg_field->post_name=='horario-fim-sexta'){
+              if($afreg_field->post_name=='horario-fim-sexta-feira'){
+                if(!empty($value)) {
                 $user->sexta_horario_fim = $value;
+                }
               }
               
               if($afreg_field->post_name=='horario-fim-sabado'){
+                if(!empty($value)) {
                  $user->sabado_horario_fim = $value;
+                }
               }
               
               if($afreg_field->post_name=='horario-fim-domingo'){
+                if(!empty($value)) {
                 $user->domingo_horario_fim = $value;
+                }
               }
             
 
-              if($afreg_field->ID=='3270'){
+              if($afreg_field->ID=='3246'){
               //  print_r($afreg_field);
-               // exit;
+                //exit;
               }
 
               if($afreg_field->post_name=='estado'){
@@ -230,8 +255,10 @@ function content_detalheUsuariosAnunciantes($content) {
           } 
          
         }
-
-    
+      /*  echo '<pre>';
+        print_r($users);
+        echo '</pre>';
+        exit;*/
         
        ob_start();
        include('tpl/detalheUsuariosAnunciantes.phtml');

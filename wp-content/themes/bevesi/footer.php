@@ -52,6 +52,10 @@
     .single-product-wrapper .column {
         width: 30%;
     }
+
+    .page-id-3290 .single-product-wrapper .column {
+        width: 46%;
+    }
 }
 
 .cursor_link{
@@ -112,9 +116,7 @@
     width: 27%;
 }
 
-.segunda_coluna_detalhes_anuncio .social-container{
-    display: none !important;
-}
+
 
 .product-template-default .single-ajax{
     display: none !important;
@@ -149,6 +151,19 @@
     width: 27%;
 }
 
+.page-id-3290 .endereco_detalhe_titulo{
+    color: #000000;
+    padding-bottom: 7px;
+    display: block;
+}
+.page-id-3290 .detalhes_horario_funcionanemto li{
+    list-style-type: initial !important; 
+    font-size: 0.875rem;
+    color: var(--color-slate-600);
+}
+.page-id-3290 .detalhes_horario_funcionanemto{
+    display: block  !important; 
+}
 
 .page-id-3290 .klb-page-title{
     display: none !important;
@@ -158,7 +173,7 @@
     list-style-type: none !important;
 }
 
-.page-id-3290 .klb-post ul li{
+.page-id-3290 .klb-post .lista_rede_social ul li{
     list-style-type: none !important;
 }
 
@@ -169,9 +184,7 @@ display: inline-grid;
 margin-top: -20px;
 }
 
-.segunda_coluna_detalhes_anuncio .social-container{
-    display: none !important;
-}
+
 
 .page-id-3290 .single-ajax{
     display: none !important;
@@ -2061,6 +2074,9 @@ margin: 6px !important;
 height:35px !important;
 
 }
+
+
+
 @media (min-width: 600px) {
 .form_cadastro_divulgue_seu_negocio{
     width: 60%;

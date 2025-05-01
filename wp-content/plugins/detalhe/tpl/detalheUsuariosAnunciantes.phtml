@@ -9,26 +9,7 @@
 
    <div id="primary" class="content-area">
       <main id="main" class="site-main" role="main">
-         <script type="text/javascript">
-            var loadmore = {
-            	"ajaxurl":"http://acharefacil.test/wp-admin/admin-ajax.php",
-            	"current_page":1,
-            	"per_page":0,
-            	"max_page":0,
-            	"term_id":"",
-            	"taxonomy":"",
-            	"filter_cat":"",
-            	"layered_nav":[],
-            	"on_sale":[],
-            	"orderby":"",
-            	"shop_view":"",
-            	"min_price":"",
-            	"max_price":"",
-            	"no_more_products":"No More Products",
-            	"is_search":"",
-            	"s":"",
-            }
-         </script>
+       
          <div class="woocommerce-notices-wrapper"></div>
         
          <div id="product-2887" class="single-product product type-product post-2887 status-publish first instock product_cat-auto-escola product_cat-automotivo product_cat-toys-video-games product_cat-cosmeticos product_cat-eletronicos product_cat-imobiliarias product_cat-lavanderias product_cat-moda-accessorios product_cat-sorveterias has-post-thumbnail shipping-taxable product-type-simple">
@@ -43,8 +24,7 @@
                          <img alt="" src="<?php echo $users[0]->foto_do_anunciante; ?>" class="zoomImg" style="position: absolute; top: -0.481929px; left: -558.986px; opacity: 0; width: 984px; height: 554px; border: none; max-width: none; max-height: none;" aria-hidden="true"></div>
                      </div>
                   </div>
-               </div>
-               <div class="column single-product-detail segunda_coluna_detalhes_anuncio">
+
                   <div class="product-detail-inner">
                      <div class="product-category">
                         <a href="#"><?php echo $users[0]->categoria; ?></a></div>
@@ -54,10 +34,17 @@
                      <div class="woocommerce-product-details__short-description">
                         <p><?php echo $users[0]->descricao; ?></p>
                      </div>		
+
+                     
                   </div>
                </div>
+          
                <div class="column single-product-detail">
                   <div class="product-detail-inner">
+                  <div class="woocommerce-product-details__short-description">
+                     <span class='endereco_detalhe_titulo'>Endereço:</span>
+                        <p><i class="klb-icon-home"></i> <?php echo $users[0]->endereco; ?>, <?php echo $users[0]->numero; ?> - <?php echo $users[0]->cidade; ?>,<?php echo $users[0]->estado; ?> - <?php echo $users[0]->cep; ?></p>
+                     </div>
 
                      <?php if(isset($users[0]->telefone)){  ?>
                         <h1 class="product_title entry-title telefone_detalhe_anuncio"><i class="klb-icon-phone"></i><?php echo $users[0]->telefone; ?></h1>
@@ -68,9 +55,7 @@
                       <?php  }  ?>
                      <div class="product-meta">
                      </div>
-                     <div class="woocommerce-product-details__short-description">
-                        <p><i class="klb-icon-home"></i><?php echo $users[0]->endereco; ?>, <?php echo $users[0]->numero; ?> - <?php echo $users[0]->cidade; ?>,<?php echo $users[0]->estado; ?></p>
-                     </div>
+                  
                      <?php if(isset($users[0]->website)){  ?>
                      <div class="woocommerce-product-details__short-description">
                         <p><i class="klb-icon-www"></i><?php echo $users[0]->website; ?></p>
@@ -78,7 +63,7 @@
                      <?php } ?>
                      <div class="product-share social-container">
                         <span>Redes Sociais:</span>
-                        <div class="site-social">
+                        <div class="site-social lista_rede_social">
                            <ul class="color-social">
                               <?php if(isset($users[0]->endereco_facebook)){  ?>
                                <li><a href="<?php echo $users[0]->endereco_facebook; ?>" class="filled social-color facebook" target="_blank"><i class="klb-social-icon-facebook"></i></a></li>
@@ -95,10 +80,11 @@
                         <!-- site-social -->
                      </div>
                      <br>
+                     <?php if(isset($users[0]->segunda_horario_inicio) and isset($users[0]->segunda_horario_fim) ){  ?>
                      <div class="product-share social-container">
                         <span>Horário de Funcionamento:</span>
                         <div class="site-social">
-                           <ul class="color-social">
+                           <ul class="color-social detalhes_horario_funcionanemto">
                               <?php if(isset($users[0]->segunda_horario_inicio) and isset($users[0]->segunda_horario_fim) ){  ?>
                                <li>Segunda - <?php echo $users[0]->segunda_horario_inicio; ?>:<?php echo $users[0]->segunda_horario_fim; ?> </li>
                               <?php } ?>
@@ -124,364 +110,14 @@
                         </div>
                         <!-- site-social -->
                      </div>
+                  <?php } ?>
                      <!-- product-share -->		
                      <!-- product-share -->			
                   </div>
                </div>
             </div>
             <div class="single-product-tabs-wrapper style-1">
-               <div class="woocommerce-tabs wc-tabs-wrapper">
-                  <ul class="tabs wc-tabs" role="tablist">
-                     <li class="description_tab active" id="tab-title-description" role="tab" aria-controls="tab-description" aria-selected="true">
-                        <a href="#tab-description">
-                        Descrição					</a>
-                     </li>
-                     <li class="specification_tab" id="tab-title-specification" role="tab" aria-controls="tab-specification" aria-selected="false">
-                        <a href="#tab-specification">
-                        Specification					</a>
-                     </li>
-                     <li class="reviews_tab" id="tab-title-reviews" role="tab" aria-controls="tab-reviews" aria-selected="false">
-                        <a href="#tab-reviews">
-                        Avaliações (0)					</a>
-                     </li>
-                     <li class="more_seller_product_tab" id="tab-title-more_seller_product" role="tab" aria-controls="tab-more_seller_product" aria-selected="false">
-                        <a href="#tab-more_seller_product">
-                        More Products					</a>
-                     </li>
-                  </ul>
-                  <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description" style="">
-                     <h2>Descrição</h2>
-                     <p>Há 14 anos no mercado, a Jaraguá Veículos é referência na comercialização de carros populares.&nbsp; Há 14 anos no mercado, a Jaraguá Veículos é referência na comercialização de carros populares.</p>
-                  </div>
-                  <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--specification panel entry-content wc-tab" id="tab-specification" role="tabpanel" aria-labelledby="tab-title-specification" style="display: none;">
-                     <div class="specification-content">
-                        <p>Ao analisar aula prática para habilitados auto escola valores Curitiba, perceba que é ideal para ensinar a dirigir na prática.</p>
-                     </div>
-                  </div>
-                  <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews" style="display: none;">
-                     <div id="reviews" class="woocommerce-Reviews">
-                        <div id="comments">
-                           <h2 class="woocommerce-Reviews-title">
-                              Reviews		
-                           </h2>
-                           <p class="woocommerce-noreviews">There are no reviews yet.</p>
-                        </div>
-                        <div id="review_form_wrapper">
-                           <div id="review_form">
-                              <div id="respond" class="comment-respond">
-                                 <span id="reply-title" class="comment-reply-title">Reviews cannot be posted for products that you own. <small><a rel="nofollow" id="cancel-comment-reply-link" href="/produto/jaragua-veiculos-4/#respond" style="display:none;">Cancelar resposta</a></small></span>
-                                 <form action="http://acharefacil.test/wp-comments-post.php" method="post" id="commentform" class="comment-form">
-                                    <input type="hidden" id="_wp_unfiltered_html_comment_disabled" name="_wp_unfiltered_html_comment" value="38c50112e5"><script type="text/javascript">
-                                       /* <![CDATA[ */
-                                       (function(){if(window===window.parent){document.getElementById('_wp_unfiltered_html_comment_disabled').name='_wp_unfiltered_html_comment';}})();
-                                       /* ]]> */
-                                    </script>
-                                 </form>
-                              </div>
-                              <!-- #respond -->
-                           </div>
-                        </div>
-                        <div class="clear"></div>
-                     </div>
-                  </div>
-                  <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--more_seller_product panel entry-content wc-tab" id="tab-more_seller_product" role="tabpanel" aria-labelledby="tab-title-more_seller_product" style="display: none;">
-                     <div class="shop-products-wrapper">
-                        <div class="products product-grid-style grid-column-2-mobile grid-column-5 grid-gap-30">
-                           <div class="product type-product post-2885 status-publish first instock product_cat-cosmeticos has-post-thumbnail shipping-taxable product-type-simple">
-                              <div class="product-wrapper with-content-fade product-type-1 product-type-4">
-                                 <div class="product-inner">
-                                    <div class="product-thumbnail-wrapper">
-                                       <div class="product-buttons">
-                                          <div class="wishlist-button product-button product-wishlist"><a href="http://acharefacil.test/wishlist/" class="klbwl-btn klbwl-btn-2885 klbwl-product-in-list" data-product_id="2885" data-product_title="Jaraguá Veículos">View wishlist</a><span>View wishlist</span></div>
-                                          <!-- wishlist-button -->
-                                          <div class="product-button product-quickview quick-view-1"><a class="quickview-button" data-product_id="2885"><i class="klb-icon-eye"></i></a></div>
-                                          <div class="product-button product-compare"><a href="?add-to-compare=2885" class="klbcp-btn klbcp-btn-2885" data-id="2885" data-product_name="Jaraguá Veículos" data-product_image="http://acharefacil.test/wp-content/uploads/2024/12/jaragua-150x150.webp">Compare</a></div>
-                                       </div>
-                                       <!-- product-buttons -->
-                                       <div class="product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-hover"><a href="http://acharefacil.test/produto/jaragua-veiculos-2/"><img width="984" height="554" src="http://acharefacil.test/wp-content/uploads/2024/12/jaragua.webp" class="attachment-1000x1000 size-1000x1000" alt="" decoding="async" srcset="http://acharefacil.test/wp-content/uploads/2024/12/jaragua.webp 984w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-300x169.webp 300w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-768x432.webp 768w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-600x338.webp 600w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-90x51.webp 90w" sizes="(max-width: 984px) 100vw, 984px"></a></div>
-                                       <!-- product-thumbnail -->
-                                    </div>
-                                    <!-- product-thumbnail-wrapper -->
-                                    <div class="product-content-wrapper">
-                                       <div class="product-content-body">
-                                          <div class="product-content-row">
-                                             <div class="product-brand"><a href="http://acharefacil.test/product-category/cosmeticos/" rel="tag">Cosmeticos</a></div>
-                                             <!-- product-brand -->
-                                             <h2 class="product-title"><a href="http://acharefacil.test/produto/jaragua-veiculos-2/"><span>Jaraguá Veículos</span></a></h2>
-                                          </div>
-                                          <!-- product-content-row -->
-                                          <div class="product-content-row">
-                                             <div class="product-price-wrapper"><span class="price"></span></div>
-                                             <!-- product-price-wrapper -->
-                                          </div>
-                                          <!-- product-content-row -->
-                                       </div>
-                                       <!-- product-content-body -->
-                                       <div class="product-content-footer"></div>
-                                       <!-- product-content-footer -->
-                                    </div>
-                                    <!-- product-content-wrapper -->
-                                 </div>
-                                 <!-- product-inner -->
-                                 <div class="product-hidden-content">
-                                    <div class="product-cart-wrapper style-1  "><a href="http://acharefacil.test/produto/jaragua-veiculos-2/" aria-describedby="woocommerce_loop_add_to_cart_link_describedby_2885" data-quantity="1" class="button product_type_simple" data-product_id="2885" data-product_sku="" aria-label="Leia mais sobre “Jaraguá Veículos”" rel="nofollow" data-success_message="">Leia mais</a>	<span id="woocommerce_loop_add_to_cart_link_describedby_2885" class="screen-reader-text">
-                                       </span>
-                                    </div>
-                                    <!-- product-cart -->
-                                 </div>
-                                 <!-- product-hidden-content -->
-                              </div>
-                              <!-- product-wrapper -->
-                              <div class="product-content-fade style-3" style="margin-bottom: 0px;"></div>
-                           </div>
-                           <div class="product type-product post-2871 status-publish instock product_cat-auto-escola has-post-thumbnail shipping-taxable product-type-simple">
-                              <div class="product-wrapper with-content-fade product-type-1 product-type-4">
-                                 <div class="product-inner">
-                                    <div class="product-thumbnail-wrapper">
-                                       <div class="product-buttons">
-                                          <div class="wishlist-button product-button product-wishlist"><a href="http://acharefacil.test/wishlist/" class="klbwl-btn klbwl-btn-2871 klbwl-product-in-list" data-product_id="2871" data-product_title="Jaraguá Veículos">View wishlist</a><span>View wishlist</span></div>
-                                          <!-- wishlist-button -->
-                                          <div class="product-button product-quickview quick-view-1"><a class="quickview-button" data-product_id="2871"><i class="klb-icon-eye"></i></a></div>
-                                          <div class="product-button product-compare"><a href="?add-to-compare=2871" class="klbcp-btn klbcp-btn-2871" data-id="2871" data-product_name="Jaraguá Veículos" data-product_image="http://acharefacil.test/wp-content/uploads/2024/12/jaragua-150x150.webp">Compare</a></div>
-                                       </div>
-                                       <!-- product-buttons -->
-                                       <div class="product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-hover"><a href="http://acharefacil.test/produto/aula-pratica-para-habilitados-curitiba/"><img width="984" height="554" src="http://acharefacil.test/wp-content/uploads/2024/12/jaragua.webp" class="attachment-1000x1000 size-1000x1000" alt="" decoding="async" srcset="http://acharefacil.test/wp-content/uploads/2024/12/jaragua.webp 984w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-300x169.webp 300w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-768x432.webp 768w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-600x338.webp 600w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-90x51.webp 90w" sizes="(max-width: 984px) 100vw, 984px"></a></div>
-                                       <!-- product-thumbnail -->
-                                    </div>
-                                    <!-- product-thumbnail-wrapper -->
-                                    <div class="product-content-wrapper">
-                                       <div class="product-content-body">
-                                          <div class="product-content-row">
-                                             <div class="product-brand"><a href="http://acharefacil.test/product-category/auto-escola/" rel="tag">Auto Escola</a></div>
-                                             <!-- product-brand -->
-                                             <h2 class="product-title"><a href="http://acharefacil.test/produto/aula-pratica-para-habilitados-curitiba/"><span>Jaraguá Veículos</span></a></h2>
-                                          </div>
-                                          <!-- product-content-row -->
-                                          <div class="product-content-row">
-                                             <div class="product-price-wrapper"><span class="price"></span></div>
-                                             <!-- product-price-wrapper -->
-                                          </div>
-                                          <!-- product-content-row -->
-                                       </div>
-                                       <!-- product-content-body -->
-                                       <div class="product-content-footer"></div>
-                                       <!-- product-content-footer -->
-                                    </div>
-                                    <!-- product-content-wrapper -->
-                                 </div>
-                                 <!-- product-inner -->
-                                 <div class="product-hidden-content">
-                                    <div class="product-cart-wrapper style-1  "><a href="http://acharefacil.test/produto/aula-pratica-para-habilitados-curitiba/" aria-describedby="woocommerce_loop_add_to_cart_link_describedby_2871" data-quantity="1" class="button product_type_simple" data-product_id="2871" data-product_sku="" aria-label="Leia mais sobre “Jaraguá Veículos”" rel="nofollow" data-success_message="">Leia mais</a>	<span id="woocommerce_loop_add_to_cart_link_describedby_2871" class="screen-reader-text">
-                                       </span>
-                                    </div>
-                                    <!-- product-cart -->
-                                 </div>
-                                 <!-- product-hidden-content -->
-                              </div>
-                              <!-- product-wrapper -->
-                              <div class="product-content-fade style-3" style="margin-bottom: 0px;"></div>
-                           </div>
-                           <div class="product type-product post-449 status-publish instock product_cat-eletronicos has-post-thumbnail sale shipping-taxable product-type-simple">
-                              <div class="product-wrapper with-content-fade product-type-1 product-type-4">
-                                 <div class="product-inner">
-                                    <div class="product-thumbnail-wrapper">
-                                       <div class="product-buttons">
-                                          <div class="wishlist-button product-button product-wishlist"><a href="http://acharefacil.test/wishlist/" class="klbwl-btn klbwl-btn-449" data-product_id="449" data-product_title="Mestre informatica">Add to wishlist</a><span>Add to wishlist</span></div>
-                                          <!-- wishlist-button -->
-                                          <div class="product-button product-quickview quick-view-1"><a class="quickview-button" data-product_id="449"><i class="klb-icon-eye"></i></a></div>
-                                          <div class="product-button product-compare"><a href="?add-to-compare=449" class="klbcp-btn klbcp-btn-449" data-id="449" data-product_name="Mestre informatica" data-product_image="http://acharefacil.test/wp-content/uploads/2024/04/mestre_informatica-1-150x150.jpg">Compare</a></div>
-                                       </div>
-                                       <!-- product-buttons -->
-                                       <div class="product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-hover"><a href="http://acharefacil.test/produto/lenovo-ideapad-1i-15-6_-intel-core-i5-1235u-8gb-ram-512-gb-ssd-cloud-grey-windows-11-in-s-mode-82qd00cjus/"><img width="984" height="554" src="http://acharefacil.test/wp-content/uploads/2024/04/mestre_informatica-1.jpg" class="attachment-1000x1000 size-1000x1000" alt="" decoding="async" srcset="http://acharefacil.test/wp-content/uploads/2024/04/mestre_informatica-1.jpg 984w, http://acharefacil.test/wp-content/uploads/2024/04/mestre_informatica-1-300x169.jpg 300w, http://acharefacil.test/wp-content/uploads/2024/04/mestre_informatica-1-768x432.jpg 768w, http://acharefacil.test/wp-content/uploads/2024/04/mestre_informatica-1-600x338.jpg 600w, http://acharefacil.test/wp-content/uploads/2024/04/mestre_informatica-1-90x51.jpg 90w" sizes="(max-width: 984px) 100vw, 984px"></a></div>
-                                       <!-- product-thumbnail -->
-                                    </div>
-                                    <!-- product-thumbnail-wrapper -->
-                                    <div class="product-content-wrapper">
-                                       <div class="product-content-body">
-                                          <div class="product-content-row">
-                                             <div class="product-brand"><a href="http://acharefacil.test/product-category/eletronicos/" rel="tag">Eletrônicos</a></div>
-                                             <!-- product-brand -->
-                                             <h2 class="product-title"><a href="http://acharefacil.test/produto/lenovo-ideapad-1i-15-6_-intel-core-i5-1235u-8gb-ram-512-gb-ssd-cloud-grey-windows-11-in-s-mode-82qd00cjus/"><span>Mestre informatica</span></a></h2>
-                                             <div class="product-rating black">
-                                                <div class="star-rating" role="img" aria-label="Avaliação 5.00 de 5"><span style="width:100%">Avaliação <strong class="rating">5.00</strong> de 5</span></div>
-                                                <div class="rating-count"><span class="count-text">5.00</span></div>
-                                                <!-- rating-count -->
-                                             </div>
-                                             <!-- product-rating -->
-                                          </div>
-                                          <!-- product-content-row -->
-                                          <div class="product-content-row">
-                                             <div class="product-price-wrapper">
-                                                <span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>396.45</bdi></span></del> <span class="screen-reader-text">Original price was: $396.45.</span><ins aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>312.25</bdi></span></ins><span class="screen-reader-text">Current price is: $312.25.</span></span>
-                                                <div class="thumbnail-badges product-badges"><span class="badge red  sale">22%</span></div>
-                                             </div>
-                                             <!-- product-price-wrapper -->
-                                          </div>
-                                          <!-- product-content-row -->
-                                       </div>
-                                       <!-- product-content-body -->
-                                       <div class="product-content-footer"></div>
-                                       <!-- product-content-footer -->
-                                    </div>
-                                    <!-- product-content-wrapper -->
-                                 </div>
-                                 <!-- product-inner -->
-                                 <div class="product-hidden-content">
-                                    <div class="product-cart-wrapper style-1  "><a href="http://acharefacil.test/produto/lenovo-ideapad-1i-15-6_-intel-core-i5-1235u-8gb-ram-512-gb-ssd-cloud-grey-windows-11-in-s-mode-82qd00cjus/" aria-describedby="woocommerce_loop_add_to_cart_link_describedby_449" data-quantity="1" class="button product_type_simple" data-product_id="449" data-product_sku="" aria-label="Leia mais sobre “Mestre informatica”" rel="nofollow" data-success_message="">Leia mais</a>	<span id="woocommerce_loop_add_to_cart_link_describedby_449" class="screen-reader-text">
-                                       </span>
-                                    </div>
-                                    <!-- product-cart -->
-                                 </div>
-                                 <!-- product-hidden-content -->
-                              </div>
-                              <!-- product-wrapper -->
-                              <div class="product-content-fade style-3" style="margin-bottom: 0px;"></div>
-                           </div>
-                           <div class="product type-product post-2886 status-publish instock product_cat-moda-accessorios has-post-thumbnail shipping-taxable product-type-simple">
-                              <div class="product-wrapper with-content-fade product-type-1 product-type-4">
-                                 <div class="product-inner">
-                                    <div class="product-thumbnail-wrapper">
-                                       <div class="product-buttons">
-                                          <div class="wishlist-button product-button product-wishlist"><a href="http://acharefacil.test/wishlist/" class="klbwl-btn klbwl-btn-2886 klbwl-product-in-list" data-product_id="2886" data-product_title="Jaraguá Veículos">View wishlist</a><span>View wishlist</span></div>
-                                          <!-- wishlist-button -->
-                                          <div class="product-button product-quickview quick-view-1"><a class="quickview-button" data-product_id="2886"><i class="klb-icon-eye"></i></a></div>
-                                          <div class="product-button product-compare"><a href="?add-to-compare=2886" class="klbcp-btn klbcp-btn-2886" data-id="2886" data-product_name="Jaraguá Veículos" data-product_image="http://acharefacil.test/wp-content/uploads/2024/12/jaragua-150x150.webp">Compare</a></div>
-                                       </div>
-                                       <!-- product-buttons -->
-                                       <div class="product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-hover"><a href="http://acharefacil.test/produto/jaragua-veiculos-3/"><img width="984" height="554" src="http://acharefacil.test/wp-content/uploads/2024/12/jaragua.webp" class="attachment-1000x1000 size-1000x1000" alt="" decoding="async" srcset="http://acharefacil.test/wp-content/uploads/2024/12/jaragua.webp 984w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-300x169.webp 300w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-768x432.webp 768w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-600x338.webp 600w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-90x51.webp 90w" sizes="(max-width: 984px) 100vw, 984px"></a></div>
-                                       <!-- product-thumbnail -->
-                                    </div>
-                                    <!-- product-thumbnail-wrapper -->
-                                    <div class="product-content-wrapper">
-                                       <div class="product-content-body">
-                                          <div class="product-content-row">
-                                             <div class="product-brand"><a href="http://acharefacil.test/product-category/moda-accessorios/" rel="tag">Moda &amp; Acessorios</a></div>
-                                             <!-- product-brand -->
-                                             <h2 class="product-title"><a href="http://acharefacil.test/produto/jaragua-veiculos-3/"><span>Jaraguá Veículos</span></a></h2>
-                                          </div>
-                                          <!-- product-content-row -->
-                                          <div class="product-content-row">
-                                             <div class="product-price-wrapper"><span class="price"></span></div>
-                                             <!-- product-price-wrapper -->
-                                          </div>
-                                          <!-- product-content-row -->
-                                       </div>
-                                       <!-- product-content-body -->
-                                       <div class="product-content-footer"></div>
-                                       <!-- product-content-footer -->
-                                    </div>
-                                    <!-- product-content-wrapper -->
-                                 </div>
-                                 <!-- product-inner -->
-                                 <div class="product-hidden-content">
-                                    <div class="product-cart-wrapper style-1  "><a href="http://acharefacil.test/produto/jaragua-veiculos-3/" aria-describedby="woocommerce_loop_add_to_cart_link_describedby_2886" data-quantity="1" class="button product_type_simple" data-product_id="2886" data-product_sku="" aria-label="Leia mais sobre “Jaraguá Veículos”" rel="nofollow" data-success_message="">Leia mais</a>	<span id="woocommerce_loop_add_to_cart_link_describedby_2886" class="screen-reader-text">
-                                       </span>
-                                    </div>
-                                    <!-- product-cart -->
-                                 </div>
-                                 <!-- product-hidden-content -->
-                              </div>
-                              <!-- product-wrapper -->
-                              <div class="product-content-fade style-3" style="margin-bottom: 0px;"></div>
-                           </div>
-                           <div class="product type-product post-2883 status-publish last instock product_cat-automotivo has-post-thumbnail shipping-taxable product-type-simple">
-                              <div class="product-wrapper with-content-fade product-type-1 product-type-4">
-                                 <div class="product-inner">
-                                    <div class="product-thumbnail-wrapper">
-                                       <div class="product-buttons">
-                                          <div class="wishlist-button product-button product-wishlist"><a href="http://acharefacil.test/wishlist/" class="klbwl-btn klbwl-btn-2883" data-product_id="2883" data-product_title="Jaraguá Veículos">Add to wishlist</a><span>Add to wishlist</span></div>
-                                          <!-- wishlist-button -->
-                                          <div class="product-button product-quickview quick-view-1"><a class="quickview-button" data-product_id="2883"><i class="klb-icon-eye"></i></a></div>
-                                          <div class="product-button product-compare"><a href="?add-to-compare=2883" class="klbcp-btn klbcp-btn-2883" data-id="2883" data-product_name="Jaraguá Veículos" data-product_image="http://acharefacil.test/wp-content/uploads/2024/12/jaragua-150x150.webp">Compare</a></div>
-                                       </div>
-                                       <!-- product-buttons -->
-                                       <div class="product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-hover"><a href="http://acharefacil.test/produto/jaragua-veiculos-referencia-na-comercializacao-de-carros-populares/"><img width="984" height="554" src="http://acharefacil.test/wp-content/uploads/2024/12/jaragua.webp" class="attachment-1000x1000 size-1000x1000" alt="" decoding="async" srcset="http://acharefacil.test/wp-content/uploads/2024/12/jaragua.webp 984w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-300x169.webp 300w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-768x432.webp 768w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-600x338.webp 600w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-90x51.webp 90w" sizes="(max-width: 984px) 100vw, 984px"></a></div>
-                                       <!-- product-thumbnail -->
-                                    </div>
-                                    <!-- product-thumbnail-wrapper -->
-                                    <div class="product-content-wrapper">
-                                       <div class="product-content-body">
-                                          <div class="product-content-row">
-                                             <div class="product-brand"></div>
-                                             <!-- product-brand -->
-                                             <h2 class="product-title"><a href="http://acharefacil.test/produto/jaragua-veiculos-referencia-na-comercializacao-de-carros-populares/"><span>Jaraguá Veículos</span></a></h2>
-                                          </div>
-                                          <!-- product-content-row -->
-                                          <div class="product-content-row">
-                                             <div class="product-price-wrapper"><span class="price"></span></div>
-                                             <!-- product-price-wrapper -->
-                                          </div>
-                                          <!-- product-content-row -->
-                                       </div>
-                                       <!-- product-content-body -->
-                                       <div class="product-content-footer"></div>
-                                       <!-- product-content-footer -->
-                                    </div>
-                                    <!-- product-content-wrapper -->
-                                 </div>
-                                 <!-- product-inner -->
-                                 <div class="product-hidden-content">
-                                    <div class="product-cart-wrapper style-1  "><a href="http://acharefacil.test/produto/jaragua-veiculos-referencia-na-comercializacao-de-carros-populares/" aria-describedby="woocommerce_loop_add_to_cart_link_describedby_2883" data-quantity="1" class="button product_type_simple" data-product_id="2883" data-product_sku="" aria-label="Leia mais sobre “Jaraguá Veículos”" rel="nofollow" data-success_message="">Leia mais</a>	<span id="woocommerce_loop_add_to_cart_link_describedby_2883" class="screen-reader-text">
-                                       </span>
-                                    </div>
-                                    <!-- product-cart -->
-                                 </div>
-                                 <!-- product-hidden-content -->
-                              </div>
-                              <!-- product-wrapper -->
-                              <div class="product-content-fade style-3" style="margin-bottom: 0px;"></div>
-                           </div>
-                           <div class="product type-product post-2884 status-publish first instock product_cat-imobiliarias has-post-thumbnail shipping-taxable product-type-simple">
-                              <div class="product-wrapper with-content-fade product-type-1 product-type-4">
-                                 <div class="product-inner">
-                                    <div class="product-thumbnail-wrapper">
-                                       <div class="product-buttons">
-                                          <div class="wishlist-button product-button product-wishlist"><a href="http://acharefacil.test/wishlist/" class="klbwl-btn klbwl-btn-2884" data-product_id="2884" data-product_title="Jaraguá Veículos">Add to wishlist</a><span>Add to wishlist</span></div>
-                                          <!-- wishlist-button -->
-                                          <div class="product-button product-quickview quick-view-1"><a class="quickview-button" data-product_id="2884"><i class="klb-icon-eye"></i></a></div>
-                                          <div class="product-button product-compare"><a href="?add-to-compare=2884" class="klbcp-btn klbcp-btn-2884" data-id="2884" data-product_name="Jaraguá Veículos" data-product_image="http://acharefacil.test/wp-content/uploads/2024/12/jaragua-150x150.webp">Compare</a></div>
-                                       </div>
-                                       <!-- product-buttons -->
-                                       <div class="product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-hover"><a href="http://acharefacil.test/produto/jaragua-veiculos/"><img width="984" height="554" src="http://acharefacil.test/wp-content/uploads/2024/12/jaragua.webp" class="attachment-1000x1000 size-1000x1000" alt="" decoding="async" srcset="http://acharefacil.test/wp-content/uploads/2024/12/jaragua.webp 984w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-300x169.webp 300w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-768x432.webp 768w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-600x338.webp 600w, http://acharefacil.test/wp-content/uploads/2024/12/jaragua-90x51.webp 90w" sizes="(max-width: 984px) 100vw, 984px"></a></div>
-                                       <!-- product-thumbnail -->
-                                    </div>
-                                    <!-- product-thumbnail-wrapper -->
-                                    <div class="product-content-wrapper">
-                                       <div class="product-content-body">
-                                          <div class="product-content-row">
-                                             <div class="product-brand"><a href="http://acharefacil.test/product-category/imobiliarias/" rel="tag">Imobiliarias</a></div>
-                                             <!-- product-brand -->
-                                             <h2 class="product-title"><a href="http://acharefacil.test/produto/jaragua-veiculos/"><span>Jaraguá Veículos</span></a></h2>
-                                          </div>
-                                          <!-- product-content-row -->
-                                          <div class="product-content-row">
-                                             <div class="product-price-wrapper"><span class="price"></span></div>
-                                             <!-- product-price-wrapper -->
-                                          </div>
-                                          <!-- product-content-row -->
-                                       </div>
-                                       <!-- product-content-body -->
-                                       <div class="product-content-footer"></div>
-                                       <!-- product-content-footer -->
-                                    </div>
-                                    <!-- product-content-wrapper -->
-                                 </div>
-                                 <!-- product-inner -->
-                                 <div class="product-hidden-content">
-                                    <div class="product-cart-wrapper style-1  "><a href="http://acharefacil.test/produto/jaragua-veiculos/" aria-describedby="woocommerce_loop_add_to_cart_link_describedby_2884" data-quantity="1" class="button product_type_simple" data-product_id="2884" data-product_sku="" aria-label="Leia mais sobre “Jaraguá Veículos”" rel="nofollow" data-success_message="">Leia mais</a>	<span id="woocommerce_loop_add_to_cart_link_describedby_2884" class="screen-reader-text">
-                                       </span>
-                                    </div>
-                                    <!-- product-cart -->
-                                 </div>
-                                 <!-- product-hidden-content -->
-                              </div>
-                              <!-- product-wrapper -->
-                              <div class="product-content-fade style-3" style="margin-bottom: 0px;"></div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+              
                <section class="site-module klb-module related" id="related-products">
                   <div class="klb-module-header d-flex align-items-center flex-wrap mb-30 gap-2 gap-md-4">
                      <div class="column">
