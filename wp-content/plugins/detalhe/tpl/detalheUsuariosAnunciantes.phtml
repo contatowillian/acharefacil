@@ -58,7 +58,7 @@
                   
                      <?php if(isset($users[0]->website)){  ?>
                      <div class="woocommerce-product-details__short-description">
-                        <p><i class="klb-icon-www"></i><?php echo $users[0]->website; ?></p>
+                        <p><a href='https://<?php echo $users[0]->website; ?>'><i class="klb-icon-www"></i><?php echo $users[0]->website; ?></a></p>
                      </div>
                      <?php } ?>
                      <div class="product-share social-container">

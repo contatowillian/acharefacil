@@ -242,10 +242,8 @@ function content_detalheUsuariosAnunciantes($content) {
               }
 
               if($afreg_field->post_name=='website'){
-                $user->website = $value;
-              }
-
-              if($afreg_field->post_name=='website'){
+                $value = str_replace("https://","",$value);
+                $value = str_replace("http://","",$value);
                 $user->website = $value;
               }
               
