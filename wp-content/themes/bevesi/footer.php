@@ -58,6 +58,8 @@
     }
 }
 
+
+
 .cursor_link{
     cursor:pointer;
 }
@@ -185,7 +187,13 @@ margin-top: -20px;
 }
 
 
-
+.page-id-3290 .anuncios_semelhantes_bloco .product-content-footer{
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-slate-600);
+}
 .page-id-3290 .single-ajax{
     display: none !important;
 }
