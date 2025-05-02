@@ -64,12 +64,13 @@
      padding-block-end: 0px !important;
 }
 
-
-
 .home .elementor-1134 .elementor-element.elementor-element-e486072 > .elementor-widget-container{
     margin: 10px 0px 0px 0px !important;
 }
 
+.home .elementor-1134 .elementor-element.elementor-element-6530e6e > .elementor-widget-container{
+    margin: 51px 0px 0px 0px !important;
+}
 .cursor_link{
     cursor:pointer;
 }
