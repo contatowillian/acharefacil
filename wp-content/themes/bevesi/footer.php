@@ -65,6 +65,11 @@
 }
 
 
+
+.home .elementor-1134 .elementor-element.elementor-element-e486072 > .elementor-widget-container{
+    margin: 10px 0px 0px 0px !important;
+}
+
 .cursor_link{
     cursor:pointer;
 }
