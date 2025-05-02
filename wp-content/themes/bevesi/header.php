@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.2/css/all.css">
 	<?php wp_head(); ?>
 </head>
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6Y78S55WE"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-TCJS4620D6'); </script>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
