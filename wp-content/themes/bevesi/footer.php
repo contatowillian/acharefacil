@@ -59,6 +59,11 @@
 }
 
 
+.home .e-con-full, .e-con>.e-con-inner{
+     padding-block-start: 0px !important;
+     padding-block-end: 0px !important;
+}
+
 
 .cursor_link{
     cursor:pointer;
