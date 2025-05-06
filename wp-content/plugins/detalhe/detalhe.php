@@ -66,6 +66,7 @@ function content_detalheUsuariosAnunciantes($content) {
                 $user->descricao = $value;
               }
 
+              
               if($afreg_field->post_name=='foto-do-anunciante'){
                 if(trim($value)==''){
                   $user->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
@@ -253,11 +254,32 @@ function content_detalheUsuariosAnunciantes($content) {
           } 
          
         }
-      /*  echo '<pre>';
-        print_r($users);
-        echo '</pre>';
-        exit;*/
+     
         
+
+
+        $consulta_usuarios_anunciantes_semelhantes = "SELECT DISTINCT
+        us.ID,
+        us.user_login,
+        nome_do_seu_negocio.meta_value as nome_do_seu_negocio,
+        descricao.meta_value  as descricao,
+        foto_do_anunciante.meta_value  as foto_do_anunciante
+        FROM wp_users AS us
+        JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
+        JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
+        JOIN wp_usermeta AS nome_do_seu_negocio  ON  us.ID = nome_do_seu_negocio.user_id  AND nome_do_seu_negocio.meta_key = 'afreg_additional_3224'
+        JOIN wp_usermeta AS descricao  ON  us.ID = descricao.user_id  AND descricao.meta_key = 'afreg_additional_3226'
+        JOIN wp_usermeta AS foto_do_anunciante  ON  us.ID = foto_do_anunciante.user_id  AND foto_do_anunciante.meta_key = 'afreg_additional_3212'
+        where us.user_status = 0  and categoria.meta_value = '".$users[0]->categoria."' ";
+
+
+        $users_anunciantes_semelhantes = $wpdb->get_results($consulta_usuarios_anunciantes_semelhantes);
+
+        /* echo '<pre>';
+        print_r($users_anunciantes_semelhantes);
+        echo '</pre>';
+        exit; */
+
        ob_start();
        include('tpl/detalheUsuariosAnunciantes.phtml');
        $template = ob_get_clean();

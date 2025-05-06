@@ -57,6 +57,24 @@
         width: 46%;
     }
 }
+ .single-product-wrapper .linha_divisoria_detalhe{
+    border: 2px solid #eee;
+    float: left;
+    background-color: #fff;
+    width: 100% !important;
+    padding: 1%;
+
+}
+.single-product-wrapper .linha_divisoria_detalhe:first{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+
+ .single-product-wrapper .woocommerce-product-details__short-description{
+    margin-bottom:0px;
+}
+
 
 
 .home .e-con-full, .e-con>.e-con-inner{
