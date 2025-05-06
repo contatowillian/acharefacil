@@ -36,7 +36,7 @@
                    
                   
                      <?php if(isset($users[0]->website)){  ?>
-                        <div class='linha_divisoria_detalhe'>
+                        <div class='linha_divisoria_detalhe site_linha_detalhe'>
                            <div class="woocommerce-product-details__short-description">
                               <p><a href='https://<?php echo $users[0]->website; ?>'><i class="klb-icon-www"></i><?php echo $users[0]->website; ?></a></p>
                            </div>
@@ -46,7 +46,7 @@
                      <div class="product-share social-container">
                         <span>Redes Sociais:</span>
                         <div class="site-social lista_rede_social">
-                           <ul class="color-social">
+                           <ul class="color-social rede_social_padding">
                               <?php if(isset($users[0]->endereco_facebook)){  ?>
                                <li><a href="<?php echo $users[0]->endereco_facebook; ?>" class="filled social-color facebook" target="_blank"><i class="klb-social-icon-facebook"></i></a></li>
                               <?php } ?>

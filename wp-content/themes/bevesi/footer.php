@@ -63,8 +63,30 @@
     background-color: #fff;
     width: 100% !important;
     padding: 1%;
-
+    padding-left: 20px !important;
+    margin-top: -2px;
 }
+
+.single-product-wrapper .whatsapp_icon_resultado_detalhe{
+    margin-top: 31px;
+}
+
+.site_linha_detalhe{
+    padding-top: 18px !important
+}
+
+
+.page-id-3290 .main-content .single-product-wrapper .klb-post ul{
+    padding-left: 0px !important;
+}
+
+.rede_social_padding{
+    padding-left: 0px !important; 
+    padding-bottom: 15px !important
+}
+
+
+
 .single-product-wrapper .linha_divisoria_detalhe:first{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
