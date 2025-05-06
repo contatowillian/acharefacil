@@ -67,6 +67,14 @@
     margin-top: -2px;
 }
 
+.descricao_carrosel_anunciante{
+    color: gray !important;
+}
+
+.imagem_carrosel_anunciantes{
+    border-radius: 15px;
+}
+
 .single-product-wrapper .whatsapp_icon_resultado_detalhe{
     margin-top: 31px;
 }
