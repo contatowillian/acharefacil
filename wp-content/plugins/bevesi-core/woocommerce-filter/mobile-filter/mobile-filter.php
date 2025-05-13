@@ -65,10 +65,10 @@ function bevesi_mobile_filter() {
 						<li>
 							<?php if(!is_shop()){ ?>
 								 
-								<a href="<?php echo wc_get_page_permalink( 'shop' ); ?>">
+							<!--	<a href="<?php echo wc_get_page_permalink( 'shop' ); ?>">
 									<i class="klb-icon-store-minimal"></i>
 									<span class="mobile-navbar-label"><?php esc_html_e('STORE','bevesi-core'); ?></span>
-								</a>							
+								</a> -->							
 							<?php } else { ?>
 								<a href="<?php echo esc_url( home_url( "/" ) ); ?>">
 									<i class="klb-icon-home"></i>
@@ -78,46 +78,46 @@ function bevesi_mobile_filter() {
 						</li>
 
 						<?php if(is_shop()){ ?>
-							<li>
+							<!--	<li>
 								<a href="#" class="filter-button">
 									<i class="klb-icon-filter"></i>
 									<span class="mobile-navbar-label"><?php esc_html_e('FILTER', 'bevesi-core'); ?></span>
 								</a>
-							</li>
+							</li>-->	
 						<?php } ?>
 						
 						<li>
 							<a href="#" class="drawer-button" data-drawer="search-drawer">
 								<i class="klb-icon-search"></i>
-								<span class="mobile-navbar-label"><?php esc_html_e('SEARCH','bevesi-core'); ?></span>
+								<span class="mobile-navbar-label"><?php esc_html_e('Buscar','bevesi-core'); ?></span>
 							</a>
 						</li>	
 						
 						<?php if ( class_exists( 'KlbWishlist' ) ) { ?>
-							<li>
+						<!--	<li>
 								<a href="<?php echo KlbWishlist::get_url(); ?>">
 									<i class="klb-icon-hearth"></i>
 									<span class="mobile-navbar-label"><?php esc_html_e('WISHLIST','bevesi-core'); ?></span>
 								</a>
-							</li>	
+							</li>	-->
 						<?php } ?>
 						
 						<li>
 							<a href="<?php echo wc_get_page_permalink( 'myaccount' ); ?>">
 								<i class="klb-icon-user"></i>
-								<span class="mobile-navbar-label"><?php esc_html_e('ACCOUNT','bevesi-core'); ?></span>
+								<span class="mobile-navbar-label"><?php esc_html_e('Entrar na Conta','bevesi-core'); ?></span>
 							</a>
 						</li>
 
 						<?php $sidebarmenu = get_theme_mod('bevesi_header_sidebar','0'); ?>
 						<?php if($sidebarmenu == '1'){ ?>
 							<?php if(!is_shop()){ ?>
-								<li>
+							<!--	<li>
 									<a href="#" class="drawer-button" data-drawer="categories-drawer">
 										<i class="klb-icon-layout-list"></i>
 										<span class="mobile-navbar-label"><?php esc_html_e('CATEGORIES','bevesi-core'); ?></span>
 									</a>
-								</li>
+								</li>-->
 							<?php } ?>
 						<?php } ?>
 					

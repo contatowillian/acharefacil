@@ -2146,10 +2146,9 @@ height:35px !important;
     width: 60%;
     margin:0px auto;
 }
-
+.site-header .site-header-custom-button>a{
+margin: 0px !important;
 }
-
-@media (max-width: 600px) {
 .site-banner .site-banner-image img{
 object-fit: none !important;
 }
