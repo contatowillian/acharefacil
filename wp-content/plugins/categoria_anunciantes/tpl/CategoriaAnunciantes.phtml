@@ -1,3 +1,7 @@
+
+
+<?php //exit; 
+?>
 <div class="elementor-element elementor-element-b16ad1f e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="b16ad1f" data-element_type="container">
    <div class="e-con-inner">
       <div class="elementor-element elementor-element-d50318c e-con-full e-flex e-con e-child" data-id="d50318c" data-element_type="container">
@@ -22,11 +26,11 @@
                            <div class="slider-item slick-slide <?php if($contador==1){ ?>slick-current <?php } ?> slick-active" role="tabpanel" id="slick-slide00" style="width: 175px;" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
                               <div class="site-category-box style-2">
                                  <div class="site-category-thumbnail">
-                                    <a href="http://acharefacil.test/product-category/auto-escola/" tabindex="0">
-                                    <img decoding="async" src="http://acharefacil.test/wp-content/uploads/2024/12/7165339-semaforo-icone-semaforo-design-sinal-sinal-simples-sinal-de-semaforo-icone-design-ilustracao-gratis-vetor.jpg" alt="Auto Escola"></a></div>
+                                    <a href="/busca/?palavra_chave=<?php echo $dadosCategoria->categoria ?>" tabindex="0">
+                                    <span class="im <?php echo $dadosCategoria->icone ?>"></span></a></div>
                                  <!-- site-category-thumbnail -->
                                  <div class="site-category-content">
-                                    <h4 class="category-name"><a href="http://acharefacil.test/product-category/auto-escola/" tabindex="0"><?php $dadosCategoria->categoria ?></a></h4>
+                                    <h4 class="category-name"><a href="http://acharefacil.test/product-category/auto-escola/" tabindex="0"><?php echo $dadosCategoria->categoria ?></a></h4>
                                     <!-- <span class="category-count">2 Products</span>-->
                                  </div>
                                  <!-- site-category-content -->

@@ -2173,6 +2173,11 @@ height:35px !important;
 }
 
 
+.home .elementor-1134  .im {
+    font-size: 56px;
+
+}
+
 
 
 @media (max-width: 600px) {
