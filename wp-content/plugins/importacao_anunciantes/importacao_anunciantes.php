@@ -25,8 +25,8 @@ function content_importaUsuariosAnunciantes($content) {
         if(!empty($anunciantes)){
           foreach ($anunciantes as $registro_anunciantes){
             
-            echo "<pre>";
-            print_r($registro_anunciantes->Email);
+           // echo "<pre>";
+            //print_r($registro_anunciantes->Email);
             $senha_randomica = date("Y_M_S_i").rand(100,99999999999999999);
 
             $usuario_criado = wp_create_user($registro_anunciantes->Email,$senha_randomica,$registro_anunciantes->Email);
