@@ -47,7 +47,7 @@
                               $file_headers = get_headers($upload_url.$dadosAnunciantes->foto_do_anunciante);
                               //echo $upload_url.$dadosAnunciantes->foto_do_anunciante;
                
-                              if (!strripos($file_headers[0], '404') and $file_headers !='') {
+                              if (!strripos($file_headers[0], '404') and $file_headers !='' and $dadosAnunciantes->foto_do_anunciante!='' ) {
                                  $dadosAnunciantes->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante;
                               }else{
                                  $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
