@@ -28,18 +28,31 @@
                            
    
                            if(trim($dadosAnunciantes->foto_do_anunciante)=='' or $dadosAnunciantes->foto_do_anunciante=='00000000-0000-0000-0000-000000000000'){
-                              $user->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
+                              $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
                             }else{
           
                             $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.$dadosAnunciantes->foto_do_anunciante.'.jpeg';
+
+                            //$file = 'https://acharefacil.blob.core.windows.net/publico/foto/0839947d-9950-4aa7-94a1-2b403609df1a.jpeg';
                             $file_headers = @get_headers($file);
+               
                             if (!strripos($file_headers[0], '404')) {
-                              $user->foto_do_anunciante = $file;
+                              $dadosAnunciantes->foto_do_anunciante = $file;
+                            
                             }else {
+                            
                               $upload_url = wp_upload_dir();
                               $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
-                              $user->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante;
 
+                              $file_headers = get_headers($upload_url.$dadosAnunciantes->foto_do_anunciante);
+                              //echo $upload_url.$dadosAnunciantes->foto_do_anunciante;
+               
+                              if (!strripos($file_headers[0], '404') and $file_headers !='') {
+                                 $dadosAnunciantes->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante;
+                              }else{
+                                 $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
+                              }
+                             
                             }
                           }
 
@@ -78,7 +91,7 @@
                                              <!-- product-price-wrapper -->
                                              <h2 class="product-title">
                                                 <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>" 
-                                                tabindex="0"><span><?php echo $dadosAnunciantes->nome_do_seu_negocio; ?>
+                                                tabindex="0"><span><?php echo ucfirst($dadosAnunciantes->nome_do_seu_negocio); ?>
                                                 </span><br><br></a></h2>
                                           </div>
                                           <!-- product-content-row -->

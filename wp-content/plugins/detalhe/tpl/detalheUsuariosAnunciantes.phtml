@@ -21,7 +21,7 @@
 
             <div class="column single-product-detail">
                   <div class="product-detail-inner">
-                  <h1 class="product_title entry-title"><?php echo $users[0]->nome_do_seu_negocio; ?></h1>
+                  <h1 class="product_title entry-title"><?php echo substr(ucfirst($users[0]->nome_do_seu_negocio),0,100); ?></h1>
 
                   <div class="woocommerce-product-details__short-description linha_divisoria_detalhe">
                      <span class='endereco_detalhe_titulo'>Endereço:</span>
@@ -169,11 +169,34 @@
                               if(trim($dadosAnunciantes->foto_do_anunciante)==''){
                                 $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
                               }else{
-                                $upload_url = wp_upload_dir();
-                                $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
-                                $dadosAnunciantes->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante;
+                           
+
+                               $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.$value.'.jpeg';
+                               $file_headers = @get_headers($file);
+             
+             
+                               if (!strripos($file_headers[0], '404')) {
+                                 $dadosAnunciantes->foto_do_anunciante = $file;
+                               }else {
+             
+                                 $upload_url = wp_upload_dir();
+                                 $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
+                                 $file_headers = get_headers($upload_url.$dadosAnunciantes->foto_do_anunciante);     
+                                 if (!strripos($file_headers[0], '404') and $file_headers !='') {
+                                    $dadosAnunciantes->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante;
+                                 }else{
+                                    $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
+                                 }
+                               }
+
+
                               }
                             
+
+
+
+                           
+                             
                            
                            ?>
 
@@ -195,7 +218,7 @@
                                           <div class="product-content-row">
                                              <div class="product-brand"><a href="#" rel="tag"><?php echo $dadosAnunciantes->categoria; ?></a></div>
                                              <!-- product-brand -->
-                                             <h2 class="product-title"><a href="#"><span><?php echo $dadosAnunciantes->nome_do_seu_negocio; ?></span></a></h2>
+                                             <h2 class="product-title"><a href="#"><span><?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,50); ?></span></a></h2>
                                           </div>
                                           <!-- product-content-row -->
                                           <div class="product-content-row">

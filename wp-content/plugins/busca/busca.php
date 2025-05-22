@@ -123,9 +123,11 @@ function content_buscaUsuariosAnunciantes($content) {
         $filtro_categoria ="select distinct(categorias.meta_value) as categoria  from wp_usermeta as categorias
                             where  categorias.meta_key = 'afreg_additional_3213' and trim(categorias.meta_value) !=''
                             $filtro_categoria_escolhida
+                            order by categorias.meta_value ASC
                             ";
 
         $categorias = $wpdb->get_results($filtro_categoria);
+
 
 
         if(isset($_REQUEST['cidade']) and $_REQUEST['cidade']!=''){
@@ -136,11 +138,17 @@ function content_buscaUsuariosAnunciantes($content) {
         
         
         /************************************   Filtro nome da cidade  ************************************/
-        $filtro_cidade ="select distinct(cidades.meta_value) as cidade  from wp_usermeta as cidades
-                            where  cidades.meta_key = 'afreg_additional_3244' and trim(cidades.meta_value) !=''
+        $filtro_cidade ="select distinct cidades.meta_value as cidade,  estado.meta_value as estado
+                            from wp_users as us
+                            JOIN wp_usermeta as cidades   ON  us.ID = cidades.user_id  AND cidades.meta_key = 'afreg_additional_3244'
+                            JOIN wp_usermeta AS estado  ON  us.ID = estado.user_id  AND estado.meta_key = 'afreg_additional_3245'
+                            where  trim(cidades.meta_value) !=''
                             $filtro_cidade_escolhida
+                            order by estado.meta_value, cidades.meta_value ASC
+
                             ";
-        
+     
+
         $cidades = $wpdb->get_results($filtro_cidade);
 
 
@@ -185,9 +193,20 @@ function content_buscaUsuariosAnunciantes($content) {
                   if (!strripos($file_headers[0], '404')) {
                     $user->foto_do_anunciante = $file;
                   }else {
+
+
                     $upload_url = wp_upload_dir();
                     $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
-                    $user->foto_do_anunciante = $upload_url.$value;
+                    $file_headers = get_headers($upload_url.$user->foto_do_anunciante);     
+                    if (!strripos($file_headers[0], '404') and $file_headers !='') {
+                       $user->foto_do_anunciante = $upload_url.$user->foto_do_anunciante;
+                    }else{
+                       $user->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
+                    }
+
+
+
+                  
                   }
                 }
                

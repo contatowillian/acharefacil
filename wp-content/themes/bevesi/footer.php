@@ -148,6 +148,8 @@
 .page-id-3285 .destaque_quadro_resultado{
   background-color: #f5f5f5;
   padding-left: 12px;
+  padding-top: 0.2rem !important;
+  margin-top:20px;
 }
 
 .page-id-3285 .page-wrapper{
@@ -161,13 +163,23 @@
     margin-top: 0.5rem;
 }
 
+.page-id-3285 .info-secondary .locality{
+ padding-bottom:15px;
+}
+
+.page-id-3285  .product + .product{
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+}
 
 .page-id-3285 .phones{
     font-weight: bold;
     font-size: 16px;
 }
-
-
+.page-id-3285 .phones .klb-icon-phone{
+    font-size: 25px;
+    margin-left: -3px;
+}
 .page-id-3285  .product .product-thumbnail-wrapper .product-buttons .product-button.product-wishlist a{
     display: none !important;
 }
@@ -2164,6 +2176,20 @@ height:35px !important;
 
 
 @media (max-width: 600px) {
+
+    .page-id-3285 .klb-post img{
+        width: 75vw;
+        border-radius: 10px;
+    }
+    .page-id-3285  .single-product-wrapper .product_title{
+        font-size: 5.2vw;
+        font-weight: 600;
+        width: 99%;
+        padding-left: 9px;
+    }
+  
+    
+
     .form_cadastro_divulgue_seu_negocio{
     width: 60%;
     margin:0px auto;

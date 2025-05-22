@@ -16,7 +16,7 @@ function content_importaUsuariosAnunciantes($content) {
 
   
 
-        $consulta_usuarios_anunciantes = "SELECT * from Anuncio  where cpf ='571.611.865-87'  limit 1";
+        $consulta_usuarios_anunciantes = "SELECT * from Anuncio  where anunciante_cadastrado is null limit 500";
 
 
         $anunciantes = $wpdb->get_results($consulta_usuarios_anunciantes);
@@ -32,12 +32,15 @@ function content_importaUsuariosAnunciantes($content) {
             $usuario_criado = wp_create_user($registro_anunciantes->Email,$senha_randomica,$registro_anunciantes->Email);
 
             wp_update_user(
-              array(
-                  'ID'            => $usuario_criado,
-                  'first_name'    => $registro_anunciantes->Nome
-              )
-          );
-            
+                array(
+                    'ID'            => $usuario_criado,
+                    'first_name'    => $registro_anunciantes->Nome
+                )
+            );
+
+            $wpdb->query(
+              $wpdb->prepare(  "update Anuncio set anunciante_cadastrado = 'sim' where id_anuncio = '".$registro_anunciantes->id_anuncio."' limit 1 ")
+            );
 
             update_user_meta( $usuario_criado, 'afreg_new_user_status','approved');
             update_user_meta( $usuario_criado, 'afreg_additional_3239', $registro_anunciantes->Cep);
@@ -87,12 +90,8 @@ function content_importaUsuariosAnunciantes($content) {
             update_user_meta( $usuario_criado, 'afreg_additional_3270'	"18:00"*/
           //  update_user_meta( $usuario_criado, 'afreg_additional_3216'	"www.instagram.com/jacquesfreitas"
 
-
-
-
-
-            echo "</pre>";
-            exit;
+          //  echo "</pre>";
+          //  exit;
           
           } 
          

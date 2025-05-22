@@ -45,11 +45,11 @@
                   </div>
                   <div class="shop-products-wrapper">
                      <div class="products product-listing-style">
-                        <?php $contador_destaques = 0; 
+                        <?php $contador_destaques = 1; 
                         foreach($users as $dadosAnunciantes){ 
-                            
+                           $contador_destaques++;
                            if($dadosAnunciantes->descricao!=''){ 
-                              if($dadosAnunciantes->destaque=='sim'  or $contador_destaques==0){
+                              if($dadosAnunciantes->destaque=='sim'  or $contador_destaques<=3){
                                  $classe_destaque = 'destaque_quadro_resultado';
                               }else{
                                  $classe_destaque = '';
@@ -92,9 +92,8 @@
                                                 <h2 class="product-title">
                                                 <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>">
                                                 <span>    
-                                                <?php echo $dadosAnunciantes->nome_do_seu_negocio; ?><i class="klb-icon-star"></i>
+                                                <?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,35); ?><i class="klb-icon-star"></i>
                                                    </span>
-                                               
                                              </div>
                                              <div class="limpa_linha"></div>
                                              <div class="entry-description"><?php echo $dadosAnunciantes->descricao; ?></div>
@@ -110,7 +109,6 @@
                                           <!-- product-content-row col-lg-9 -->
                                           <div class="col-lg-4 coluna_info_anunciante_busca">
                                              <!-- product-content-row col-lg-3 -->
-                                             <div class="linha_top_info_lista_imoveis"></div>
                                              <div class="info-section info-secondary">
 
                                                 <div class="adr">
@@ -195,7 +193,7 @@
                                  <option value="">Escolha a Categoria</option>
                                  <?php }?>
                                 <?php foreach($categorias as $categoria){ ?>
-                                 <option value="<?php echo $categoria->categoria ?>"><?php echo $categoria->categoria ?></option>
+                                 <option value="<?php echo ucfirst($categoria->categoria) ?>"><?php echo ucfirst($categoria->categoria); ?></option>
                                 <?php } ?>
                                 </select>
                               </div>
@@ -211,7 +209,7 @@
                                  <?php }?>
 
                                 <?php foreach($cidades as $cidade){ ?>
-                                 <option value="<?php echo $cidade->cidade ?>"><?php echo $cidade->cidade ?></option>
+                                 <option value="<?php echo $cidade->cidade ?>"><?php echo ucfirst($cidade->estado); ?> - <?php echo ucfirst($cidade->cidade); ?></option>
                                 <?php } ?>
                                 </select>
                         </div>
