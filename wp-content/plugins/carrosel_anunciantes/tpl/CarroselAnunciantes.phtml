@@ -26,13 +26,24 @@
 
                            $contador++;
                            
-                           if(trim($dadosAnunciantes->foto_do_anunciante)==''){
-                             $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
-                           }else{
-                             $upload_url = wp_upload_dir();
-                             $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
-                             $dadosAnunciantes->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante;
-                           }
+   
+                           if(trim($dadosAnunciantes->foto_do_anunciante)=='' or $dadosAnunciantes->foto_do_anunciante=='00000000-0000-0000-0000-000000000000'){
+                              $user->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
+                            }else{
+          
+                            $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.$dadosAnunciantes->foto_do_anunciante.'.jpeg';
+                            $file_headers = @get_headers($file);
+                            if (!strripos($file_headers[0], '404')) {
+                              $user->foto_do_anunciante = $file;
+                            }else {
+                              $upload_url = wp_upload_dir();
+                              $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
+                              $user->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante;
+
+                            }
+                          }
+
+                          
                            
                            if($contador==1){
                               $classe_slick  = 'slider-item slick-slide slick-current slick-active';
@@ -74,7 +85,7 @@
                                        </div>
                                        <!-- product-content-body -->
                                        <div class="product-content-footer descricao_carrosel_anunciante">
-                                          <?php echo substr($dadosAnunciantes->descricao,0,100).' ...'; ?>
+                                          <?php echo substr($dadosAnunciantes->descricao,0,50).' ...'; ?>
                                        </div>
 
                                     </div>

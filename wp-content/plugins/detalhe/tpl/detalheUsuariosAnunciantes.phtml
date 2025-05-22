@@ -2,7 +2,11 @@
    <nav class="woocommerce-breadcrumb">
       <ul>
             <li><a href="https://sorvetedecerveja.com.br">Início</a></li>
-            <li><a href="detalhe/?detalhe_anunciante=<?php echo $users[0]->ID; ?>">Detalhe</a></li>
+            <?php if (strripos($_SERVER['HTTP_REFERER'], '/busca/')) { ?>
+               <li><a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Busca</a></li>
+            <?php } ?>
+            <li><a href="#"><?php echo $users[0]->categoria; ?></a></li>
+            <li><a href="#">Detalhe</a></li>
             <li><?php echo $users[0]->nome_do_seu_negocio; ?></li>
       </ul>
    </nav>
@@ -17,51 +21,67 @@
 
             <div class="column single-product-detail">
                   <div class="product-detail-inner">
+                  <h1 class="product_title entry-title"><?php echo $users[0]->nome_do_seu_negocio; ?></h1>
+
                   <div class="woocommerce-product-details__short-description linha_divisoria_detalhe">
                      <span class='endereco_detalhe_titulo'>Endereço:</span>
+                     <?php if(isset($users[0]->endereco) and $users[0]->endereco!=''){  ?>
                         <p><i class="klb-icon-home"></i> <?php echo $users[0]->endereco; ?>, <?php echo $users[0]->numero; ?> - <?php echo $users[0]->cidade; ?>,<?php echo $users[0]->estado; ?> - <?php echo $users[0]->cep; ?></p>
+                     <?php  }else if($users[0]->cidade!=''){  ?>
+                     <p><i class="klb-icon-home"></i><?php echo $users[0]->cidade; ?>,<?php echo $users[0]->estado; ?> - <?php echo $users[0]->cep; ?></p>
+                     <?php  }  ?>
                      </div>
 
-                     <?php if(isset($users[0]->telefone)){  ?>
+                     <?php if(isset($users[0]->telefone) and $users[0]->telefone!=''){  ?>
                         <div class='linha_divisoria_detalhe'>
-                              <h1 class="product_title entry-title telefone_detalhe_anuncio "><i class="klb-icon-phone"></i><?php echo $users[0]->telefone; ?></h1>
+                              <h1 class="product_title entry-title telefone_detalhe_anuncio ">
+                                 <a href="tel:+55<?php echo preg_replace("/[^0-9]/", "", $users[0]->telefone);  ?>">
+                                    <i class="klb-icon-phone"></i><?php echo $users[0]->telefone; ?>
+                                 </a>   
+                              
+                              </h1>
                         </div> 
                         <?php  }  ?>
-                      <?php if(isset($users[0]->whatsapp)){  ?>
+                      <?php if(isset($users[0]->whatsapp)  and $users[0]->whatsapp!=''){  ?>
                         <div class='linha_divisoria_detalhe'>
-                            <div class="whatsapp_icon_search  whats_icone_detalhe primary "><a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $users[0]->whatsapp);  ?>?text=%F0%9F%91%8B%20Ol%C3%A1!%20Obrigado%20por%20entrar%20em%20contato.%20Como%20posso%20ajudar%20voc%C3%AA%20hoje%3F'><div class="whatsapp_icon_resultado_detalhe"></div></a></div>
+                            <div class="whatsapp_icon_search  whats_icone_detalhe primary "><a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $users[0]->whatsapp);  ?>?text=Ol%C3%A1,%20vi%20seu%20an%C3%BAncio%20no%20site%20Achar%20%C3%A9%20F%C3%A1cil%20www.acharefacil.com.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.'><div class="whatsapp_icon_resultado_detalhe"></div></a></div>
                             <h1 class="product_title entry-title telefone_detalhe_anuncio"><?php echo $users[0]->whatsapp; ?></h1>
                         </div> 
                       <?php  }  ?>
                    
                   
-                     <?php if(isset($users[0]->website)){  ?>
+                     <?php if(isset($users[0]->website) and $users[0]->website!=''){  ?>
                         <div class='linha_divisoria_detalhe site_linha_detalhe'>
                            <div class="woocommerce-product-details__short-description">
-                              <p><a href='https://<?php echo $users[0]->website; ?>'><i class="klb-icon-www"></i><?php echo $users[0]->website; ?></a></p>
+                              <p><a  target='_blank' href='https://<?php echo $users[0]->website; ?>'><i class="klb-icon-www"></i>Acessar Website</a></p>
                            </div>
                         </div>
                      <?php } ?>
+                     <?php if(isset($users[0]->endereco_facebook) and $users[0]->endereco_facebook!=''
+                              or    isset($users[0]->endereco_instagram)  and $users[0]->endereco_instagram!=''
+                              or isset($users[0]->endereco_linkedin)  and $users[0]->endereco_linkedin!=''
+                     ){  ?>
                      <div class='linha_divisoria_detalhe'>
-                     <div class="product-share social-container">
-                        <span>Redes Sociais:</span>
-                        <div class="site-social lista_rede_social">
-                           <ul class="color-social rede_social_padding">
-                              <?php if(isset($users[0]->endereco_facebook)){  ?>
-                               <li><a href="<?php echo $users[0]->endereco_facebook; ?>" class="filled social-color facebook" target="_blank"><i class="klb-social-icon-facebook"></i></a></li>
-                              <?php } ?>
-                              <?php if(isset($users[0]->endereco_instagram)){  ?>
-                               <li><a href="<?php echo $users[0]->endereco_instagram; ?>" class="filled social-color instagram" target="_blank"><i class="klb-social-icon-instagram"></i></a></li>
-                              <?php } ?>
-                              <?php if(isset($users[0]->endereco_linkedin)){  ?>
-                               <li><a href="<?php echo $users[0]->endereco_linkedin; ?>" class="filled social-color linkedin" target="_blank"><i class="klb-social-icon-linkedin"></i></a></li>
-                              <?php } ?>
+                        <div class="product-share social-container">
+                           <span>Redes Sociais:</span>
+                           <div class="site-social lista_rede_social">
+                              <ul class="color-social rede_social_padding">
+                                 <?php if(isset($users[0]->endereco_facebook) and $users[0]->endereco_facebook!=''){  ?>
+                                 <li><a href="<?php echo $users[0]->endereco_facebook; ?>" class="filled social-color facebook" target="_blank"><i class="klb-social-icon-facebook"></i></a></li>
+                                 <?php } ?>
+                                 <?php if(isset($users[0]->endereco_instagram)  and $users[0]->endereco_instagram!=''){  ?>
+                                 <li><a href="<?php echo $users[0]->endereco_instagram; ?>" class="filled social-color instagram" target="_blank"><i class="klb-social-icon-instagram"></i></a></li>
+                                 <?php } ?>
+                                 <?php if(isset($users[0]->endereco_linkedin)  and $users[0]->endereco_linkedin!=''){  ?>
+                                 <li><a href="<?php echo $users[0]->endereco_linkedin; ?>" class="filled social-color linkedin" target="_blank"><i class="klb-social-icon-linkedin"></i></a></li>
+                                 <?php } ?>
 
-                           </ul>
+                              </ul>
+                           </div>
+                           <!-- site-social -->
                         </div>
-                        <!-- site-social -->
                      </div>
-                     </div>
+                     <?php }  ?>
                      <br>
                      <?php if(isset($users[0]->segunda_horario_inicio) and isset($users[0]->segunda_horario_fim) ){  ?>
                      <div class='linha_divisoria_detalhe'>
@@ -116,7 +136,7 @@
                   <div class="product-detail-inner">
                      <div class="product-category">
                         <a href="#"><?php echo $users[0]->categoria; ?></a></div>
-                     <h1 class="product_title entry-title"><?php echo $users[0]->nome_do_seu_negocio; ?></h1>
+                  
                      <div class="product-meta">
                      </div>
                      <div class="woocommerce-product-details__short-description">

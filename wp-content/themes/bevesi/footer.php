@@ -36,7 +36,7 @@
     </body>
     
     <div id="container">
-        <a href="https://wa.me/5511993112353?text=%F0%9F%91%8B%20Ol%C3%A1!%20Obrigado%20por%20entrar%20em%20contato.%20Como%20posso%20ajudar%20voc%C3%AA%20hoje%3F" target="_blank">
+        <a href="https://wa.me/5511993112353?text=Ol%C3%A1,%20vi%20seu%20an%C3%BAncio%20no%20site%20Achar%20%C3%A9%20F%C3%A1cil%20www.acharefacil.com.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank">
             <div class="corpo">
                 <div class="painelvermelho"></div>
             </div>
@@ -147,6 +147,7 @@
 
 .page-id-3285 .destaque_quadro_resultado{
   background-color: #f5f5f5;
+  padding-left: 12px;
 }
 
 .page-id-3285 .page-wrapper{
@@ -2094,7 +2095,9 @@ span.Goodup-apr-rates i{
     background-position: center center;
 }
 
-
+.whatsapp_icon_search{
+    display: ruby;
+}
 .corpo img {
 position: absolute;
 width:100%;
@@ -2115,14 +2118,25 @@ margin-left:15px;
 right: 8px;
 }
 
+.busca_usuario_anunciantes .klb-icon-star{
+   color: #cccc09
+}
+
 .whatsapp_icon_resultado_busca{
     width: 31px;
-    height: 31px;
+    height: 34px;
     cursor: pointer;
-    background-image: url('/wp-content/themes/bevesi/assets/img/icone_whats.webp');
-    background-size: cover;
-    margin-top: 20px;
+    background-image: url(/wp-content/themes/bevesi/assets/img/icone_whats.webp);
+    background-size: 30px;
+    margin-top: 0px;
+    margin-right: 2px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
     
+}
+
+.whats_telefone_texto{
+    padding-bottom: 15px;
 }
 
 .whatsapp_icon_resultado_detalhe{

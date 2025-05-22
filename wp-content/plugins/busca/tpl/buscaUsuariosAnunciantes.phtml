@@ -49,7 +49,7 @@
                         foreach($users as $dadosAnunciantes){ 
                             
                            if($dadosAnunciantes->descricao!=''){ 
-                              if($dadosAnunciantes->destaque=='sim'){
+                              if($dadosAnunciantes->destaque=='sim'  or $contador_destaques==0){
                                  $classe_destaque = 'destaque_quadro_resultado';
                               }else{
                                  $classe_destaque = '';
@@ -63,7 +63,7 @@
                            <div class="product-wrapper with-content-fade product-type-1 cursor_link">
 
                            <div class="some_desk imagem_produto_lista_mobile product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-slider"><img fetchpriority="high"  src="<?php echo $dadosAnunciantes->foto_do_anunciante; ?>" class="imagem_anunciante_resultado" ></div>
-                              <br>
+                           
                               <div class="product-inner">
                                  <div class="product-thumbnail-wrapper">
                                     <div class="product-buttons">
@@ -92,7 +92,7 @@
                                                 <h2 class="product-title">
                                                 <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>">
                                                 <span>    
-                                                <?php echo $dadosAnunciantes->nome_do_seu_negocio; ?>
+                                                <?php echo $dadosAnunciantes->nome_do_seu_negocio; ?><i class="klb-icon-star"></i>
                                                    </span>
                                                
                                              </div>
@@ -101,7 +101,7 @@
                                              <!-- product-details -->
                                              <div class="info_extra_anunciante_busca">
                                                 <?php if($dadosAnunciantes->website!=''){  ?>
-                                                    <div class="site_lista_busca"><a target='_blank' href="https://<?php echo $dadosAnunciantes->website; ?>"><i class="klb-icon-www"></i><?php echo $dadosAnunciantes->website; ?></a></div>
+                                                    <div class="site_lista_busca"><a target='_blank' href="https://<?php echo $dadosAnunciantes->website; ?>"><i class="klb-icon-www"></i>Acessar Website</a></div>
                                                 <?php } ?>
                                              </div>
                                              </a>
@@ -114,12 +114,20 @@
                                              <div class="info-section info-secondary">
 
                                                 <div class="adr">
+                                                <?php if(isset($dadosAnunciantes->endereco) and $dadosAnunciantes->endereco!=''){  ?>
                                                    <div class="street-address"><i class="klb-icon-home"></i><?php echo $dadosAnunciantes->endereco; ?>, <?php echo $dadosAnunciantes->numero; ?> <?php echo $dadosAnunciantes->complemento; ?></div>
+                                                <?php } ?>
+                                                <?php if(isset($dadosAnunciantes->cidade) and $dadosAnunciantes->cidade!=''){  ?>
                                                    <div class="locality"><i class="klb-icon-map"></i><?php echo $dadosAnunciantes->cidade; ?>,<?php echo $dadosAnunciantes->estado; ?></div>
-                                                </div>
-                                                <div class="phones phone primary"><i class="klb-icon-phone"></i><?php echo $dadosAnunciantes->telefone; ?></div>
-                                                <div class="whatsapp_icon_search primary"><a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $dadosAnunciantes->whatsapp);  ?>?text=%F0%9F%91%8B%20Ol%C3%A1!%20Obrigado%20por%20entrar%20em%20contato.%20Como%20posso%20ajudar%20voc%C3%AA%20hoje%3F'><div class="whatsapp_icon_resultado_busca"></div></a></div>
+                                                <?php } ?>
 
+                                                </div>
+                                                <?php if(isset($dadosAnunciantes->telefone) and $dadosAnunciantes->telefone!=''){  ?>
+                                                  <div class="phones phone primary"><i class="klb-icon-phone"></i><?php echo $dadosAnunciantes->telefone; ?></div>
+                                                <?php } ?>
+                                                <?php if(isset($dadosAnunciantes->whatsapp) and $dadosAnunciantes->whatsapp!=''){  ?>
+                                                   <div class="whatsapp_icon_search primary phones phone"><a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $dadosAnunciantes->whatsapp);  ?>?text=Ol%C3%A1,%20vi%20seu%20an%C3%BAncio%20no%20site%20Achar%20%C3%A9%20F%C3%A1cil%20www.acharefacil.com.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.'><div class="whatsapp_icon_resultado_busca"></div><span class='whats_telefone_texto'><?php echo $dadosAnunciantes->whatsapp;  ?><span></a></div>
+                                                <?php } ?>
                                              </div>
                                           </div>
                                           <!-- product-content-row  col-lg-3-->

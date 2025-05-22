@@ -69,14 +69,22 @@ function content_detalheUsuariosAnunciantes($content) {
               
               if($afreg_field->post_name=='foto-do-anunciante'){
                 if(trim($value)==''){
-                  $user->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
-                }else{
-                  $upload_url = wp_upload_dir();
+                    $user->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
+                  }else{
 
-                  $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
-                  $user->foto_do_anunciante = $upload_url.$value;
+                  $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.$value.'.jpeg';
+                  $file_headers = @get_headers($file);
+
+
+                  if (!strripos($file_headers[0], '404')) {
+                    $user->foto_do_anunciante = $file;
+                  }else {
+                    $upload_url = wp_upload_dir();
+                    $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
+                    $user->foto_do_anunciante = $upload_url.$value;
+                  }
                 }
-               
+                  
               }
 
 
