@@ -31,7 +31,7 @@
                               $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
                             }else{
           
-                            $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.$dadosAnunciantes->foto_do_anunciante.'.jpeg';
+                            $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.strtolower($dadosAnunciantes->foto_do_anunciante).'.jpeg';
 
                             //$file = 'https://acharefacil.blob.core.windows.net/publico/foto/0839947d-9950-4aa7-94a1-2b403609df1a.jpeg';
                             $file_headers = @get_headers($file);

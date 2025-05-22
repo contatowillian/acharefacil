@@ -72,7 +72,7 @@ function content_detalheUsuariosAnunciantes($content) {
                     $user->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
                   }else{
 
-                  $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.$value.'.jpeg';
+                  $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.strtolower($value).'.jpeg';
                   $file_headers = @get_headers($file);
 
 
