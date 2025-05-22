@@ -1,0 +1,59 @@
+<div class="elementor-element elementor-element-b16ad1f e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="b16ad1f" data-element_type="container">
+   <div class="e-con-inner">
+      <div class="elementor-element elementor-element-d50318c e-con-full e-flex e-con e-child" data-id="d50318c" data-element_type="container">
+         <div class="elementor-element elementor-element-2d49846 elementor-widget elementor-widget-bevesi-product-categories" data-id="2d49846" data-element_type="widget" data-widget_type="bevesi-product-categories.default">
+            <div class="elementor-widget-container">
+               <div class="site-slider-wrapper">
+                  <div class="site-slider carousel-style loader-default arrows-style-rounded arrows-white site-categories-small slick-initialized slick-slider slick-dotted" data-items="8" data-itemslaptop="6" data-itemstablet="4" data-itemsmobile="2" data-itemsmobilexs="1" data-slidescroll="1" data-speed="700" data-arrows="true" data-arrowslaptop="true" data-arrowstablet="true" data-arrowsmobile="true" data-dots="true" data-dotslaptop="true" data-dotstablet="true" data-dotsmobile="true" data-infinite="false" data-centermode="false" data-autoplay="false" data-autospeed="">
+                     <button type="button" class="slick-nav slick-prev slick-button unset slick-arrow slick-disabled" aria-disabled="true" style="top: 25px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" fill="currentColor">
+                           <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="17.2,22.4 6.8,12 17.2,1.6 "></polyline>
+                        </svg>
+                     </button>
+                     <!-- slider-item --><!-- slider-item --><!-- slider-item --><!-- slider-item --><!-- slider-item --><!-- slider-item --><!-- slider-item --><!-- slider-item --><!-- slider-item -->
+                     <div class="slick-list">
+                        <div class="slick-track" style="opacity: 1; width: 1575px; transform: translate3d(0px, 0px, 0px);">
+                        <?php
+                           $contador= 0;
+                           foreach($users_anunciantes_Categoria as $dadosCategoria){ 
+
+                           $contador++; ?>   
+                        
+                           <div class="slider-item slick-slide <?php if($contador==1){ ?>slick-current <?php } ?> slick-active" role="tabpanel" id="slick-slide00" style="width: 175px;" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
+                              <div class="site-category-box style-2">
+                                 <div class="site-category-thumbnail">
+                                    <a href="http://acharefacil.test/product-category/auto-escola/" tabindex="0">
+                                    <img decoding="async" src="http://acharefacil.test/wp-content/uploads/2024/12/7165339-semaforo-icone-semaforo-design-sinal-sinal-simples-sinal-de-semaforo-icone-design-ilustracao-gratis-vetor.jpg" alt="Auto Escola"></a></div>
+                                 <!-- site-category-thumbnail -->
+                                 <div class="site-category-content">
+                                    <h4 class="category-name"><a href="http://acharefacil.test/product-category/auto-escola/" tabindex="0"><?php $dadosCategoria->categoria ?></a></h4>
+                                    <!-- <span class="category-count">2 Products</span>-->
+                                 </div>
+                                 <!-- site-category-content -->
+                              </div>
+                              <!-- site-category-box -->
+                           </div>
+                           <?php } ?>
+                       
+                        </div>
+
+                           
+                     </div>
+                     <button type="button" class="slick-nav slick-next slick-button unset slick-arrow" aria-disabled="false" style="top: 25px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" fill="currentColor">
+                           <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="6.8,22.4 17.2,12 6.8,1.6 "></polyline>
+                        </svg>
+                     </button>
+                     <ul class="slick-dots" style="" role="tablist">
+                        <li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 2" tabindex="0" aria-selected="true">1</button></li>
+                        <li role="presentation"><button type="button" role="tab" id="slick-slide-control01" aria-controls="slick-slide01" aria-label="2 of 2" tabindex="-1">2</button></li>
+                     </ul>
+                  </div>
+                  <!-- site-slider -->
+               </div>
+               <!-- site-slider-wrapper -->		
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

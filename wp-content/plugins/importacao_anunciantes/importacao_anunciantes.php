@@ -2,7 +2,7 @@
 /*
 Plugin Name: Faz a Importação dos Anúnciantes
 Plugin URI: http://www.acharefacil.com.br
-Description: Faz a Importação dos Anúnciantes
+Description: Faz  carrosel da home do Importação dos Anúnciantes
 Version: 1.0
 Author: Willian Batista
 Author URI: http://www.acharefacil.com.br
