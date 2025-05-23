@@ -175,7 +175,7 @@
                      
                       while($quantidade_paginas>=$pagina and $pagina<=10){
                         
-                         if(!$_REQUEST['pagina'] or $_REQUEST['pagina']==''){
+                         if(!isset($_REQUEST['pagina']) or $_REQUEST['pagina']==''){
                            $pagina_atual = 1;
                          }else{
                            $pagina_atual = $_REQUEST['pagina'];
