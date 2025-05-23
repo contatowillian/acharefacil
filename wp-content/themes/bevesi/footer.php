@@ -176,6 +176,15 @@
     font-weight: bold;
     font-size: 16px;
 }
+
+.page-id-3285 .klb-post .woocommerce-pagination  ul li{
+    list-style-type: none !important; 
+}
+
+.page-id-3285  .site-pagination ul li > *.current, .woocommerce-pagination ul li > *.current, .pagination-wrap ul li > *.current{
+     color:  #aaa !important;
+}
+
 .page-id-3285 .phones .klb-icon-phone{
     font-size: 25px;
     margin-left: -3px;

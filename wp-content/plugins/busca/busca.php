@@ -17,12 +17,13 @@ function content_buscaUsuariosAnunciantes($content) {
 
         $filtro = '';
         $filtro_extra = '';
+        $qtd_por_pagina = 10;
 
         if(isset($_REQUEST['pagina'])){
-          $_REQUEST['pagina'] = $_REQUEST['pagina']*10;
-          $paginacao = "limit ".$_REQUEST['pagina'].",10";
+          $_REQUEST['pagina'] = $_REQUEST['pagina']*$qtd_por_pagina;
+          $paginacao = "limit ".$_REQUEST['pagina'].",$qtd_por_pagina";
         }else{
-          $paginacao = "limit 0,10";
+          $paginacao = "limit 0,$qtd_por_pagina";
         }
 
         if(isset($_REQUEST['categoria']) and $_REQUEST['categoria']!=''){
@@ -92,6 +93,22 @@ function content_buscaUsuariosAnunciantes($content) {
 
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
+
+
+        $consulta_usuarios_anunciantes_paginacao = "SELECT count(*) as quantidade
+                                                    FROM wp_users AS us
+                                                    JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
+                                                    where us.user_status = 0 $filtro_extra";
+
+
+
+
+        $paginacao_busca = $wpdb->get_results($consulta_usuarios_anunciantes_paginacao);
+
+         $quantidade_paginas =  (int)$paginacao_busca[0]->quantidade/$qtd_por_pagina;
+         $quantidade_paginas = round($quantidade_paginas);
+
+
 
         $afreg_args = array( 
           'posts_per_page'   => -1,
