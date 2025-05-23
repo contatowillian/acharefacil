@@ -54,8 +54,10 @@
                            if($dadosAnunciantes->descricao!=''){ 
                               if($dadosAnunciantes->destaque=='sim'  or $contador_destaques<=3){
                                  $classe_destaque = 'destaque_quadro_resultado';
+                                 $estrela_destaque = '<i class="klb-icon-star"></i>';
                               }else{
                                  $classe_destaque = '';
+                                 $estrela_destaque = '';
                               }
 
                               ?>
@@ -95,7 +97,7 @@
                                                 <h2 class="product-title">
                                                 <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>">
                                                 <span>    
-                                                <?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,35); ?><i class="klb-icon-star"></i>
+                                                <?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,30); ?><?php echo $estrela_destaque; ?>
                                                    </span>
                                              </div>
                                              <div class="limpa_linha"></div>
