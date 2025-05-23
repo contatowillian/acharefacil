@@ -5,7 +5,7 @@
             <?php if (strripos($_SERVER['HTTP_REFERER'], '/busca/')) { ?>
                <li><a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Busca</a></li>
             <?php } ?>
-            <li><a href="#"><?php echo $users[0]->categoria; ?></a></li>
+            <li><a href="/busca/?categoria=<?php echo $users[0]->categoria ?>"><?php echo $users[0]->categoria; ?></a></li>
             <li><a href="#">Detalhe</a></li>
             <li><?php echo $users[0]->nome_do_seu_negocio; ?></li>
       </ul>
@@ -219,7 +219,7 @@
                                           <div class="product-content-row">
                                              <div class="product-brand"><a href="#" rel="tag"><?php echo $dadosAnunciantes->categoria; ?></a></div>
                                              <!-- product-brand -->
-                                             <h2 class="product-title"><a href="#"><span><?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,50); ?></span></a></h2>
+                                             <h2 class="product-title"><a href="#"><span><?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,40); ?></span></a></h2>
                                           </div>
                                           <!-- product-content-row -->
                                           <div class="product-content-row">
