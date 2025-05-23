@@ -19,10 +19,10 @@ function content_buscaUsuariosAnunciantes($content) {
         $filtro_extra = '';
 
         if(isset($_REQUEST['pagina'])){
-          $_REQUEST['pagina'] = $_REQUEST['pagina']*20;
-          $paginacao = "limit ".$_REQUEST['pagina'].",20";
+          $_REQUEST['pagina'] = $_REQUEST['pagina']*10;
+          $paginacao = "limit ".$_REQUEST['pagina'].",10";
         }else{
-          $paginacao = "limit 0,20";
+          $paginacao = "limit 0,10";
         }
 
         if(isset($_REQUEST['categoria']) and $_REQUEST['categoria']!=''){
@@ -120,11 +120,13 @@ function content_buscaUsuariosAnunciantes($content) {
         
 
         /************************************   Filtro nome da categoria  ************************************/
-        $filtro_categoria ="select distinct(categorias.meta_value) as categoria  from wp_usermeta as categorias
-                            where  categorias.meta_key = 'afreg_additional_3213' and trim(categorias.meta_value) !=''
-                            $filtro_categoria_escolhida
-                            order by categorias.meta_value ASC
-                            ";
+
+        $filtro_categoria = "SELECT  distinct(categorias.meta_value) as categoria 
+        FROM wp_users AS us
+        JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
+        JOIN Categoria_icones AS Categoria_icones  ON trim(Categoria_icones.Nome) = trim(categoria.meta_value) 
+        JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
+        where us.user_status = 0 order by  categoria.meta_value asc  ";
 
         $categorias = $wpdb->get_results($filtro_categoria);
 
