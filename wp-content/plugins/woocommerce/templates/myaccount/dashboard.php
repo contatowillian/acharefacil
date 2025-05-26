@@ -42,10 +42,13 @@ $allowed_html = array(
 <p>
 	<?php
 	/* translators: 1: Orders URL 2: Address URL 3: Account URL. */
-	$dashboard_desc = __( '<a href="/my-account/edit-account?etapa_cadastro=2"><button class="button botato_atualize_seu_cadastro">Clique aqui para editar seus dados.</button></a><a href="/lista_planos"><button class="button botato_atualize_seu_cadastro_Destaque">Clique aqui para colocar seu anúncio em destaque</button></a>', 'woocommerce' );
-	$dashboard_desc = __( '', 'woocommerce' );
+	$dashboard_desc = __( '<a href="/my-account/edit-account?etapa_cadastro=2"><button class="button botato_atualize_seu_cadastro">Clique aqui para editar seus dados.</button></a>', 'woocommerce' );
+	$dashboard_desc = __( '<a href="/lista_planos"><button class="button botato_atualize_seu_cadastro_Destaque">Clique aqui para colocar seu anúncio em destaque</button></a>', 'woocommerce' );
 
-
+//	if ( wc_shipping_enabled() ) {
+		/* translators: 1: Orders URL 2: Addresses URL 3: Account URL. */
+		$dashboard_desc = __( '<a href="/my-account/edit-account?etapa_cadastro=2"><button class="button botato_atualize_seu_cadastro">Clique aqui para editar seus dados.</button></a>' , 'woocommerce' );
+	//}
 	printf(
 		wp_kses( $dashboard_desc, $allowed_html ),
 		esc_url( wc_get_endpoint_url( 'orders' ) ),
