@@ -68,7 +68,11 @@ function content_buscaCategoriaAnunciantes($content) {
       JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
       JOIN Categoria_icones AS Categoria_icones  ON trim(Categoria_icones.Nome) = trim(categoria.meta_value) 
       JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-      where us.user_status = 0 order by  categoria.meta_value asc  limit 7  ";
+      where us.user_status = 0 
+      and categoria.meta_value !='Artigos eróticos'
+      order by  categoria.meta_value asc  
+      
+      limit 7  ";
     /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 
