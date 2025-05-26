@@ -204,24 +204,31 @@ function content_buscaUsuariosAnunciantes($content) {
                   $user->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
                   }else{
 
-                  /* 
-                  $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.strtolower($value).'.jpeg';
-                  $file_headers = @get_headers($file);
-
-
-                  if (!strripos($file_headers[0], '404')) {
-                    $user->foto_do_anunciante = $file;
-                  }else {
+                    /* 
+                    $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.strtolower($value).'.jpeg';
+                    $file_headers = @get_headers($file);
+                    if (!strripos($file_headers[0], '404')) {
+                      $user->foto_do_anunciante = $file;
+                    }else {
                     */
-
+                    
                     $upload_url = wp_upload_dir();
                     $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
-                    $file_headers = get_headers($upload_url.$value);     
-                    if (file_exists($upload_url.$value)) {
-                       $user->foto_do_anunciante = $upload_url.$value;
 
-                    }else if (file_exists($upload_url.$value.'.jpeg')){ 
-                      $user->foto_do_anunciante = $upload_url.$value.'.jpeg';
+                    $caminho_1 = $upload_url.$value;
+                    $caminho_2 = $upload_url.$value.'.jpeg';
+                    
+                    $file_headers1 = @get_headers($caminho_1);
+                    $file_headers2 = get_headers($caminho_2);
+
+                
+
+                    if (!strripos($file_headers1[0], '404')) {
+                       $user->foto_do_anunciante = $caminho_1;
+
+                    }else  if (!strripos($file_headers2[0], '404')) {
+                      $user->foto_do_anunciante = $caminho_2;
+
                     }else{
                        $user->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
                     }
