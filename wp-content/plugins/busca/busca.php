@@ -72,7 +72,7 @@ function content_buscaUsuariosAnunciantes($content) {
 
         }
 
-        $consulta_usuarios_anunciantes = "(SELECT DISTINCT
+         $consulta_usuarios_anunciantes = "(SELECT DISTINCT
                                           us.ID,
                                           us.user_login
                                           FROM wp_users AS us

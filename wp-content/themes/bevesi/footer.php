@@ -57,6 +57,13 @@
         border-radius: 10px;
     }
 
+    .home .elementor-1134 .carrosel_anunciantes_home .site-slider.products .slick-slide{
+        width: 236px;
+        height: 350px;
+        max-height: 350px;
+
+    }
+
 }
 
 @media screen and (min-width: 1024.1px) {
@@ -142,6 +149,8 @@
 .home .elementor-1134 .elementor-element.elementor-element-6530e6e > .elementor-widget-container{
     margin: 0px 0px 0px 0px !important;
 }
+
+
 .cursor_link{
     cursor:pointer;
 }
@@ -2204,6 +2213,11 @@ height:35px !important;
 @media (max-width: 600px) {
 
 
+
+    .page-id-3285 .destaque_quadro_resultado{
+        width: 79% !important ;
+        padding-top: 25px !important ;
+    }
     .elementor-1134 .elementor-element.elementor-element-6530e6e .site-banner-image img {
         object-fit: contain !important;
         border-radius: 15px;
@@ -2224,8 +2238,9 @@ height:35px !important;
     }
 
     .page-id-3285 .klb-post img{
-        width: 75vw;
+        width: 56vw;
         border-radius: 10px;
+        margin-left: 10%;
     }
     .page-id-3285  .single-product-wrapper .product_title{
         font-size: 5.2vw;
