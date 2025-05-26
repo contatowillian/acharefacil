@@ -169,6 +169,8 @@
                       <?php } ?>
                      </div>
                   </div>
+
+                  <?php if(count($users)>0){  ?>
                   <nav class="woocommerce-pagination" aria-label="Product Pagination">
                      <ul class="page-numbers">
                      <?php $pagina = 1; 
@@ -200,6 +202,7 @@
                      <li><a class="next page-numbers" href="#"><i class="klb-icon-chevron-right"></i></a></li>
                   </ul>
                   </nav>
+                  <?php } ?>
                </div>
                <div id="sidebar" class="col col-12 col-lg-3 secondary-column filter-sidebar">
                   <div class="sidebar-overlay"></div>
