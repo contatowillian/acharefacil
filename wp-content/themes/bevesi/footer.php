@@ -140,7 +140,7 @@
 }
 
 .home .elementor-1134 .elementor-element.elementor-element-6530e6e > .elementor-widget-container{
-    margin: 51px 0px 0px 0px !important;
+    margin: 0px 0px 0px 0px !important;
 }
 .cursor_link{
     cursor:pointer;
@@ -2202,6 +2202,26 @@ height:35px !important;
 
 
 @media (max-width: 600px) {
+
+
+    .elementor-1134 .elementor-element.elementor-element-6530e6e .site-banner-image img {
+        object-fit: contain !important;
+        border-radius: 15px;
+     
+
+    }
+
+    .home .elementor-1134 .elementor-element.elementor-element-6530e6e > .elementor-widget-container{
+        margin: 0px 0px 42px 0px !important;
+    }
+
+    .elementor-1134 .site-banner .site-banner-image {
+        height: 125px;
+        width: 100%;
+        padding-bottom: 10px;
+        display: block;
+        margin-top: -16px;
+    }
 
     .page-id-3285 .klb-post img{
         width: 75vw;
