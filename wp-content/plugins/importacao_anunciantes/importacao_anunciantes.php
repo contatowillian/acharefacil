@@ -12,6 +12,11 @@ License: Copyright
 function content_importaUsuariosAnunciantes($content) {
     global $wpdb;
 
+    if (is_page('atualiza_latitude_longitude')) {
+
+
+    }
+
     if (is_page('importacao_anunciantes')) {
 
   

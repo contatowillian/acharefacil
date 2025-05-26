@@ -27,7 +27,7 @@ $current_user = wp_get_current_user();
 	<div class="my-account-user">
 	  <div class="user-avatar"><i class="klb-icon-user-cut"></i></div>
 	  <div class="user-detail">
-			<span><?php esc_html_e('Welcome back,', 'bevesi'); ?></span>
+			<span><?php esc_html_e('Bem-vindo', 'bevesi'); ?></span>
 			<p><?php echo esc_html($current_user->display_name); ?></p>
 	  </div><!-- user-detail -->
 		<div class="user-menu-toggle">
