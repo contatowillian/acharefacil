@@ -9,11 +9,69 @@ Author URI: http://www.acharefacil.com.br
 License: Copyright
 */
 
+
+
+ function get_coordenates_by_adress($endere_loc_google,$chave){
+
+  // pega a latitude e longitude
+  $url = html_entity_decode('https://maps.google.com/maps/api/geocode/json?key='.$chave.'&address='.$endere_loc_google);
+    $url = str_replace(" ", '%20', $url);
+
+  $curl = curl_init($url);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
+  $return = curl_exec($curl);
+  curl_close($curl);
+  $arrResp = json_decode($return, true);
+  $array = json_decode(json_encode($arrResp), true);
+
+
+  //retorna os dados da localização
+  if(isset($array['results']['0']['geometry']['location']['lat'])  and isset($array['results']['0']['geometry']['location']['lng']) ){
+    $array['results']['0']['geometry']['location'];
+  } 
+
+  return $array;
+}
+
+
+
 function content_importaUsuariosAnunciantes($content) {
     global $wpdb;
 
+
+
     if (is_page('atualiza_latitude_longitude')) {
 
+      $chave='AIzaSyCfoajxoXAuaRQns0gtbxP9ys6VDBT8ZMs';
+
+      $consulta_usuarios_anunciantes = "SELECT * from wp_users  where atualizado_lat_long !='sim' limit 500";
+
+      $anunciantes = $wpdb->get_results($consulta_usuarios_anunciantes);
+
+ 
+      if(!empty($anunciantes)){
+        foreach ($anunciantes as $registro_anunciantes){
+          
+          $cep = get_user_meta( $registro_anunciantes->ID, 'afreg_additional_3239', true );
+
+          if($cep!=''){
+            $coordenadas =  get_coordenates_by_adress($cep,$chave);
+           /* echo '<pre>';
+            print_r($coordenadas['results']['0']);
+            echo '</pre>';
+            exit;*/
+          }
+
+          $query_update = "update wp_users set atualizado_lat_long = 'sim' , geo_long = '".$coordenadas['results']['0']['geometry']['location']['lng']."',geo_lat = '".$coordenadas['results']['0']['geometry']['location']['lat']."' where ID = '".$registro_anunciantes->ID."' limit 1 ";
+
+          $wpdb->query(
+            $wpdb->prepare($query_update)
+          );
+
+        }
+      }
+
+    
 
     }
 
