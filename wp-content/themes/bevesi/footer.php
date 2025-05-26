@@ -123,6 +123,18 @@
      padding-block-end: 0px !important;
 }
 
+
+.home .elementor-1134   .carrosel_anunciantes_home img{
+    border-radius: 10px;
+    width: 163px;
+    margin: 0px auto;
+    border: 1px solid #eee;
+}
+
+.home .elementor-1134   .carrosel_anunciantes_home .site-slider.products .slick-list .slider-item{
+    width: 193px;
+}
+
 .home .elementor-1134 .elementor-element.elementor-element-e486072 > .elementor-widget-container{
     margin: 10px 0px 0px 0px !important;
 }
@@ -2202,7 +2214,9 @@ height:35px !important;
         padding-left: 9px;
     }
   
-    
+    .site-banner-image img{
+        object-fit: contain !important;
+    }
 
     .form_cadastro_divulgue_seu_negocio{
     width: 60%;
@@ -2211,8 +2225,11 @@ height:35px !important;
     .site-header .site-header-custom-button>a{
     margin: 0px !important;
     }
-    .site-banner .site-banner-image img{
-    object-fit: none !important;
+    #page-id-1134 .site-banner-image img{
+    object-fit: contain !important;
+    }
+    #page-id-1134 .elementor-element-6530e6e{
+        display: none;
     }
     .some_mobile{
         display:none;
