@@ -33,8 +33,7 @@ function content_buscaCategoriaAnunciantes($content) {
       foreach($users_anunciantes_Categoria as $registro_users_anunciantes_Categoria){
 
         $query_icone = "select Icone from Categoria_icones where trim(Nome) like trim('".$registro_users_anunciantes_Categoria->categoria."')";
-       
-        $nome_do_icone = $wpdb->get_results();
+        $nome_do_icone = $wpdb->get_results($query_icone);
         $registro_users_anunciantes_Categoria->Icone =  $nome_do_icone[0]->Icone;
        
 
