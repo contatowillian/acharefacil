@@ -29,14 +29,16 @@ function content_buscaCategoriaAnunciantes($content) {
 
 
       $users_anunciantes_Categoria = $wpdb->get_results($consulta_anunciantes_Categoria);
+      
+      $contador_icones = 0;
 
       foreach($users_anunciantes_Categoria as $registro_users_anunciantes_Categoria){
 
         $query_icone = "select Icone from Categoria_icones where trim(Nome) like trim('".$registro_users_anunciantes_Categoria->categoria."')";
         $nome_do_icone = $wpdb->get_results($query_icone);
-        $registro_users_anunciantes_Categoria->Icone =  $nome_do_icone[0]->Icone;
+        $users_anunciantes_Categoria[$contador_icones]->Icone =  $nome_do_icone[0]->Icone;
        
-
+        $contador_icones++;
       }
 
 
