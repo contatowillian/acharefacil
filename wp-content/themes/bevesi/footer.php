@@ -2628,7 +2628,7 @@ jQuery( document ).ready(function( $ ) {
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(success, error);
-            console.log(position.coords);
+        
         } else {
             console.log('Geolocation is not supported by this browser.');
         }
