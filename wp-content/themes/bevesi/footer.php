@@ -2611,7 +2611,16 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
         return retVal;
     }
 
-    jQuery( document ).ready(function( $ ) {
+  
+
+</script>
+<?php }?>
+
+
+<script>
+
+
+jQuery( document ).ready(function( $ ) {
         getLocation();
     })
 
@@ -2634,9 +2643,8 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
         console.log("Sorry, no position available.");
     }
 
-
 </script>
-<?php }?>
+
 
 <div class="alert alert-primary col-md-16" role="alert" id='status_busca_cep'> </div>
 
