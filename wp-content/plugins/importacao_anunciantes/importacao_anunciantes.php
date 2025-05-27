@@ -42,9 +42,13 @@ function content_importaUsuariosAnunciantes($content) {
 
     if (is_page('atualiza_latitude_longitude')) {
 
+      $consulta_usuarios_anunciantes = "SELECT * from wp_users  where atualizado_lat_long !='sim' limit 1";
+
+
+
       $chave='AIzaSyCfoajxoXAuaRQns0gtbxP9ys6VDBT8ZMs';
 
-      $consulta_usuarios_anunciantes = "SELECT * from wp_users  where atualizado_lat_long !='sim' limit 500";
+      $consulta_usuarios_anunciantes = "SELECT * from wp_users  where atualizado_lat_long !='sim' limit 1";
 
       $anunciantes = $wpdb->get_results($consulta_usuarios_anunciantes);
 
@@ -71,13 +75,46 @@ function content_importaUsuariosAnunciantes($content) {
         }
       }
 
+
+
     
 
     }
 
     if (is_page('importacao_anunciantes')) {
 
+
+       /*
+      if(isset($_GET['importa_fotos'])){
+        $consulta_anunciantes_Categoria = "SELECT DISTINCT
+         AN.Foto,
+         AN.id_anuncio
+        FROM Anuncio AS  AN
+        where AN.Foto!='00000000-0000-0000-0000-000000000000'  
+        and AN.anunciante_foto_baixada is null
+        limit 1000  ";
   
+        $lista_fotos = $wpdb->get_results($consulta_anunciantes_Categoria);
+        foreach($lista_fotos as $registro_lista_fotos){
+
+          $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.strtolower($registro_lista_fotos->Foto).'.jpeg';
+          $file_headers = @get_headers($file);
+
+          if (!strripos($file_headers[0], '404')) {
+            $wpdb->query(
+              $wpdb->prepare(  "update Anuncio set anunciante_foto_baixada = 'sim' where id_anuncio = '".$registro_lista_fotos->id_anuncio."' limit 1 ")
+            );
+
+          $img = $registro_lista_fotos->Foto.'.jpeg';
+          file_put_contents('./wp-content/uploads/addify_registration_uploads/'.$img, file_get_contents($file));
+
+          }
+
+         
+        }
+      }*/
+
+    /*
 
         $consulta_usuarios_anunciantes = "SELECT * from Anuncio  where anunciante_cadastrado is null limit 500";
 
@@ -88,8 +125,7 @@ function content_importaUsuariosAnunciantes($content) {
         if(!empty($anunciantes)){
           foreach ($anunciantes as $registro_anunciantes){
             
-           // echo "<pre>";
-            //print_r($registro_anunciantes->Email);
+        
             $senha_randomica = date("Y_M_S_i").rand(100,99999999999999999);
 
             $usuario_criado = wp_create_user($registro_anunciantes->Email,$senha_randomica,$registro_anunciantes->Email);
@@ -110,7 +146,6 @@ function content_importaUsuariosAnunciantes($content) {
             update_user_meta( $usuario_criado, 'afreg_additional_3224',$registro_anunciantes->Titulo);
             update_user_meta( $usuario_criado, 'afreg_additional_3213',$registro_anunciantes->nome_categoria);
 
-            //Valida se é whats app
             $celular1      = strripos($registro_anunciantes->Telefone, ') 9');
             $celular2      = strripos($registro_anunciantes->Telefone, ') 8');
             $celular3      = strripos($registro_anunciantes->Telefone, ') 7');
@@ -119,7 +154,6 @@ function content_importaUsuariosAnunciantes($content) {
             if ($celular1 === false && $celular2 === false && $celular3 === false) {
               update_user_meta( $usuario_criado, 'afreg_additional_3254',$registro_anunciantes->Telefone);
             }else{
-              //WhatsApp
               update_user_meta( $usuario_criado, 'afreg_additional_3214',$registro_anunciantes->Telefone);
             }
             
@@ -139,27 +173,13 @@ function content_importaUsuariosAnunciantes($content) {
             update_user_meta( $usuario_criado, 'afreg_additional_3255',$registro_anunciantes->UrlSite);
             update_user_meta( $usuario_criado, 'afreg_additional_3217',$registro_anunciantes->UrlFacebook);
             update_user_meta( $usuario_criado, 'afreg_additional_3234',$registro_anunciantes->UrlLinkedin);
-      /*      update_user_meta( $usuario_criado, 'afreg_additional_3246'	"09:00"
-            update_user_meta( $usuario_criado, 'afreg_additional_3263'	"18:00"
-            update_user_meta( $usuario_criado, 'afreg_additional_3248'	"09:00"
-            update_user_meta( $usuario_criado, 'afreg_additional_3264'	"18:00"
-            update_user_meta( $usuario_criado, 'afreg_additional_3249'	"09:00"
-            update_user_meta( $usuario_criado, 'afreg_additional_3266'	"18:00"
-            update_user_meta( $usuario_criado, 'afreg_additional_3250'	"09:00"
-            update_user_meta( $usuario_criado, 'afreg_additional_3267'	"18:00"
-            update_user_meta( $usuario_criado, 'afreg_additional_3247'	"09:00"
-            update_user_meta( $usuario_criado, 'afreg_additional_3268'	"18:00"
-            update_user_meta( $usuario_criado, 'afreg_additional_3252'	"09:00"
-            update_user_meta( $usuario_criado, 'afreg_additional_3270'	"18:00"*/
-          //  update_user_meta( $usuario_criado, 'afreg_additional_3216'	"www.instagram.com/jacquesfreitas"
-
-          //  echo "</pre>";
-          //  exit;
+     
+        
           
           } 
          
         }
-
+      */
     
     
     }
