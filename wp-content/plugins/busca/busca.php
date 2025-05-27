@@ -119,8 +119,9 @@ function content_buscaUsuariosAnunciantes($content) {
 
             $user_lat=$divide_lat_long[0];
             $user_lng = $divide_lat_long[1];
+            $order_by_next_la_long= "ORDER BY ABS(us.geo_lat-'$user_lat') + ABS(us.geo_long  - '$user_lng') ASC";
 
-            $order_by_next_la_long=' ORDER BY ((us.geo_lat-'.$user_lat.')(us.geo_lat-'.$user_lat.')) + ((us.geo_long - '.$user_lng.')(us.geo_long - '.$user_lng.')) ASC';
+            //$order_by_next_la_long=' ORDER BY ((us.geo_lat-'.$user_lat.')(us.geo_lat-'.$user_lat.')) + ((us.geo_long - '.$user_lng.')(us.geo_long - '.$user_lng.')) ASC';
           }
 
         }
@@ -136,7 +137,7 @@ function content_buscaUsuariosAnunciantes($content) {
                                           JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                           where us.user_status = 0 $filtro_extra order by rand() limit 3) union ";*/
 
-       echo  $consulta_usuarios_anunciantes .= "SELECT DISTINCT
+        $consulta_usuarios_anunciantes .= "SELECT DISTINCT
                                           us.ID,
                                           us.user_login
                                           FROM wp_users AS us
