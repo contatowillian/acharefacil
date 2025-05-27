@@ -9,6 +9,35 @@ Author URI: http://www.acharefacil.com.br
 License: Copyright
 */
 
+function get_ip_lat_long(){
+
+  $retorno = array();
+  $ip  = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+  $url = "http://freegeoip.net/json/$ip";
+  $ch  = curl_init();
+  
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+  $data = curl_exec($ch);
+  curl_close($ch);
+  
+  if ($data) {
+      $location = json_decode($data);
+  
+      echo $retorno['lat']= $location->latitude;
+      $retorno['long']=  $lon = $location->longitude;
+    
+      exit;
+      //$sun_info = date_sun_info(time(), $lat, $lon);
+      //print_r($sun_info);
+  }
+  return $retorno;
+
+}
+
+
+
 function content_buscaUsuariosAnunciantes($content) {
     global $grupo,
            $wpdb;
@@ -25,6 +54,8 @@ function content_buscaUsuariosAnunciantes($content) {
         }else{
           $paginacao = "limit 0,$qtd_por_pagina";
         }
+
+
 
         if(isset($_REQUEST['categoria']) and $_REQUEST['categoria']!=''){
 
@@ -72,14 +103,38 @@ function content_buscaUsuariosAnunciantes($content) {
 
         }
 
-         $consulta_usuarios_anunciantes = "(SELECT DISTINCT
+
+
+        // $dados_lat_long_ip_user = get_ip_lat_long();
+
+        // print_r($dados_lat_long_ip_user);
+        // exit;
+        $order_by_next_la_long='';
+
+        if(isset($_GET['us_pos']) and $_GET['us_pos']!=''){
+
+          $divide_lat_long = explode("_",$_GET['us_pos']);
+
+          if(isset($divide_lat_long[1]) and $divide_lat_long[1]!=''){
+
+            $user_lat=$divide_lat_long[0];
+            $user_lng = $divide_lat_long[1];
+
+            $order_by_next_la_long=' ORDER BY ((us.geo_lat-'.$user_lat.')(us.geo_lat-'.$user_lat.')) + ((us.geo_long - '.$user_lng.')(us.geo_long - '.$user_lng.')) ASC';
+          }
+
+        }
+
+        $consulta_usuarios_anunciantes = "";
+
+         /*$consulta_usuarios_anunciantes = "(SELECT DISTINCT
                                           us.ID,
                                           us.user_login
                                           FROM wp_users AS us
                                           JOIN wp_usermeta AS nome_do_seu_negocio  ON  us.ID = nome_do_seu_negocio.user_id  AND nome_do_seu_negocio.meta_key = 'afreg_additional_3288'
                                           and nome_do_seu_negocio.meta_value ='sim'
                                           JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                          where us.user_status = 0 $filtro_extra order by rand() limit 3) union ";
+                                          where us.user_status = 0 $filtro_extra order by rand() limit 3) union ";*/
 
         $consulta_usuarios_anunciantes .= "SELECT DISTINCT
                                           us.ID,
@@ -87,10 +142,7 @@ function content_buscaUsuariosAnunciantes($content) {
                                           FROM wp_users AS us
                                           JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                           where us.user_status = 0 $filtro_extra
-                                          ".$paginacao;
-
-
-
+                                          $order_by_next_la_long ".$paginacao;
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
