@@ -19,21 +19,23 @@ function content_buscaCategoriaAnunciantes($content) {
      
       
       $consulta_anunciantes_Categoria = "
-      SELECT count(us.ID) AS qtd_anuncio,  Categoria_icones.Nome
+      SELECT count(us.ID) AS qtd_anuncio , categoria.meta_value as Nome
       FROM wp_users AS us
       JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
-      JOIN Categoria_icones AS Categoria_icones  ON trim(Categoria_icones.Nome) = trim(categoria.meta_value) 
-      JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  
-      AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-      where us.user_status = 0 
-      and categoria.meta_value !='Artigos eróticos'
-      GROUP BY Categoria_icones.Nome
+      GROUP BY categoria.meta_value
       ORDER BY 1 desc
-      limit 7  ";
+      LIMIT 7 ";
     /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 
       $users_anunciantes_Categoria = $wpdb->get_results($consulta_anunciantes_Categoria);
+
+      foreach($users_anunciantes_Categoria as $registro_users_anunciantes_Categoria){
+        
+        $nome_do_icone = $wpdb->get_results("select Icone from Categoria_icones where Nome like '".$registro_users_anunciantes_Categoria->Nome."'");
+        $registro_users_anunciantes_Categoria->Icone =  $nome_do_icone[0]->Icone;
+
+      }
 
 
         
