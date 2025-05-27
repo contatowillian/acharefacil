@@ -2612,7 +2612,6 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
     }
 
     jQuery( document ).ready(function( $ ) {
-
         getLocation();
     })
 
@@ -2627,11 +2626,8 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
     }
 
     function success(position) {
-
-        console.log(position.coords);
-
+        console.log(position);
         document.querySelector(".us_pos").value = position.coords.latitude +"_"+position.coords.longitude;
- 
     }
 
     function error() {
