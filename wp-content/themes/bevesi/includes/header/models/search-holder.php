@@ -13,6 +13,7 @@ if ( ! function_exists( 'bevesi_search_holder' ) ) {
 								<i class="klb-icon-search"></i>
 							</div><!-- search-form-icon -->
 							<input type="search" value="" class="form-control search-input size-lg" name="palavra_chave" placeholder="Procure os melhores serviços próximos à você" autocomplete="off">
+							<input type="hidden" class='us_pos' name="us_pos">
 						</form>
 					</div><!-- site-header-row -->
 				</div><!-- site-drawer-inner -->

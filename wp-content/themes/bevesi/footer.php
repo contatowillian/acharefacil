@@ -2610,6 +2610,35 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
         }
         return retVal;
     }
+
+    jQuery( document ).ready(function( $ ) {
+
+        getLocation();
+    })
+
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error);
+            console.log(position.coords);
+        } else {
+            console.log('Geolocation is not supported by this browser.');
+        }
+    }
+
+    function success(position) {
+
+        console.log(position.coords);
+
+        document.querySelector(".us_pos").value = position.coords.latitude +"_"+position.coords.longitude;
+ 
+    }
+
+    function error() {
+        console.log("Sorry, no position available.");
+    }
+
+
 </script>
 <?php }?>
 
