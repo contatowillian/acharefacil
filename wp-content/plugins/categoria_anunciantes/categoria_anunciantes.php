@@ -19,7 +19,7 @@ function content_buscaCategoriaAnunciantes($content) {
      
       
       $consulta_anunciantes_Categoria = "
-      SELECT count(us.ID) AS qtd_anuncio , categoria.meta_value as Nome
+      SELECT count(us.ID) AS qtd_anuncio , categoria.meta_value as categoria
       FROM wp_users AS us
       JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
       GROUP BY categoria.meta_value
@@ -31,9 +31,12 @@ function content_buscaCategoriaAnunciantes($content) {
       $users_anunciantes_Categoria = $wpdb->get_results($consulta_anunciantes_Categoria);
 
       foreach($users_anunciantes_Categoria as $registro_users_anunciantes_Categoria){
-        
-        $nome_do_icone = $wpdb->get_results("select Icone from Categoria_icones where Nome like '".$registro_users_anunciantes_Categoria->Nome."'");
+
+        $query_icone = "select Icone from Categoria_icones where trim(Nome) like trim('".$registro_users_anunciantes_Categoria->categoria."')";
+       
+        $nome_do_icone = $wpdb->get_results();
         $registro_users_anunciantes_Categoria->Icone =  $nome_do_icone[0]->Icone;
+       
 
       }
 
