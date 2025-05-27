@@ -136,7 +136,7 @@ function content_buscaUsuariosAnunciantes($content) {
                                           JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                           where us.user_status = 0 $filtro_extra order by rand() limit 3) union ";*/
 
-        $consulta_usuarios_anunciantes .= "SELECT DISTINCT
+       echo  $consulta_usuarios_anunciantes .= "SELECT DISTINCT
                                           us.ID,
                                           us.user_login
                                           FROM wp_users AS us
