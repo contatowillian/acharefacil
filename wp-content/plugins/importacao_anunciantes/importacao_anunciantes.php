@@ -36,14 +36,10 @@ License: Copyright
 
 
 function content_importaUsuariosAnunciantes($content) {
+
     global $wpdb;
 
-
-
     if (is_page('atualiza_latitude_longitude')) {
-
-      $consulta_usuarios_anunciantes = "SELECT * from wp_users  where atualizado_lat_long !='sim' limit 1";
-
 
 
       $chave='AIzaSyCfoajxoXAuaRQns0gtbxP9ys6VDBT8ZMs';
