@@ -2618,65 +2618,7 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
 
 </script>
 <?php }?>
-<div class="your-class">
-<div class="" role="tabpanel" id="slick-slide00" style="width: 175px;" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
-    <div class="site-category-box style-2">
-        <div class="site-category-thumbnail">
-        <a href="/busca/?categoria=Artesão	" tabindex="0">
-        <span class="im im-icon-Car-Coins"></span></a></div>
-        <!-- site-category-thumbnail -->
-        <div class="site-category-content">
-        <h4 class="category-name"><a href="/busca/?categoria=Artesão	" tabindex="0">Artesão	</a></h4>
-        <span class="category-count">25 - Anúncios</span>
-        </div>
-        <!-- site-category-content -->
-    </div>
-    <!-- site-category-box -->
-</div>
-<div class="" role="tabpanel" id="slick-slide00" style="width: 175px;" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
-    <div class="site-category-box style-2">
-        <div class="site-category-thumbnail">
-        <a href="/busca/?categoria=Artesão	" tabindex="0">
-        <span class="im im-icon-Car-Coins"></span></a></div>
-        <!-- site-category-thumbnail -->
-        <div class="site-category-content">
-        <h4 class="category-name"><a href="/busca/?categoria=Artesão	" tabindex="0">Artesão	</a></h4>
-        <span class="category-count">25 - Anúncios</span>
-        </div>
-        <!-- site-category-content -->
-    </div>
-    <!-- site-category-box -->
-</div>
-<div class="" role="tabpanel" id="slick-slide00" style="width: 175px;" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
-    <div class="site-category-box style-2">
-        <div class="site-category-thumbnail">
-        <a href="/busca/?categoria=Artesão	" tabindex="0">
-        <span class="im im-icon-Car-Coins"></span></a></div>
-        <!-- site-category-thumbnail -->
-        <div class="site-category-content">
-        <h4 class="category-name"><a href="/busca/?categoria=Artesão	" tabindex="0">Artesão	</a></h4>
-        <span class="category-count">25 - Anúncios</span>
-        </div>
-        <!-- site-category-content -->
-    </div>
-    <!-- site-category-box -->
-</div>
-<div class="" role="tabpanel" id="slick-slide00" style="width: 175px;" aria-describedby="slick-slide-control00" data-slick-index="0" aria-hidden="false">
-    <div class="site-category-box style-2">
-        <div class="site-category-thumbnail">
-        <a href="/busca/?categoria=Artesão	" tabindex="0">
-        <span class="im im-icon-Car-Coins"></span></a></div>
-        <!-- site-category-thumbnail -->
-        <div class="site-category-content">
-        <h4 class="category-name"><a href="/busca/?categoria=Artesão	" tabindex="0">Artesão	</a></h4>
-        <span class="category-count">25 - Anúncios</span>
-        </div>
-        <!-- site-category-content -->
-    </div>
-    <!-- site-category-box -->
-</div>
-</div>
-		
+
 
 <script>
 
