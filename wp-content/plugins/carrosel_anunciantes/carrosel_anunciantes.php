@@ -31,12 +31,14 @@ function content_buscaCarroselAnunciantes($content) {
       JOIN wp_usermeta AS nome_do_seu_negocio  ON  us.ID = nome_do_seu_negocio.user_id  AND nome_do_seu_negocio.meta_key = 'afreg_additional_3224'
       JOIN wp_usermeta AS descricao  ON  us.ID = descricao.user_id  AND descricao.meta_key = 'afreg_additional_3226'
       JOIN wp_usermeta AS foto_do_anunciante  ON  us.ID = foto_do_anunciante.user_id  AND foto_do_anunciante.meta_key = 'afreg_additional_3212'
-      where us.user_status = 0  order by rand() limit 7 ";
+      where us.user_status = 0   and  foto_do_anunciante.meta_value!='' and  foto_do_anunciante.meta_value!='00000000-0000-0000-0000-000000000000'  order by rand() limit 15 ";
     /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 
-      $users_anunciantes_carrosel = $wpdb->get_results($consulta_anunciantes_carrosel);
-      $textotitulocat = 'Veja nosso destaques';
+       $users_anunciantes_carrosel = $wpdb->get_results($consulta_anunciantes_carrosel);
+       $textotitulocat = 'Veja nosso destaques';
+       $nome_carrosel = 'site-slider-anunciantes1';
+       $classe_carrosel = 'carrosel_destaque_lista';
         
        ob_start();
        include('tpl/CarroselAnunciantes.phtml');
@@ -79,12 +81,14 @@ function content_buscaCarroselAnunciantesRecentes($content) {
     JOIN wp_usermeta AS nome_do_seu_negocio  ON  us.ID = nome_do_seu_negocio.user_id  AND nome_do_seu_negocio.meta_key = 'afreg_additional_3224'
     JOIN wp_usermeta AS descricao  ON  us.ID = descricao.user_id  AND descricao.meta_key = 'afreg_additional_3226'
     JOIN wp_usermeta AS foto_do_anunciante  ON  us.ID = foto_do_anunciante.user_id  AND foto_do_anunciante.meta_key = 'afreg_additional_3212'
-    where us.user_status = 0  order by user_registered desc limit 7 ";
+    where us.user_status = 0 and  foto_do_anunciante.meta_value!='' and  foto_do_anunciante.meta_value!='00000000-0000-0000-0000-000000000000'  order by user_registered desc limit 15 ";
   /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 
     $users_anunciantes_carrosel = $wpdb->get_results($consulta_anunciantes_carrosel);
     $textotitulocat = 'Veja nosso anúncios recentes';
+    $nome_carrosel = 'site-slider-anunciantes1';
+    $classe_carrosel = 'carrosel_recentes_lista';
 
      ob_start();
      include('tpl/CarroselAnunciantes.phtml');

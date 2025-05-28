@@ -1,138 +1,117 @@
 
 
-<div class="e-con-inner carrosel_anunciantes_home">
+<div class="e-con-inner carrosel_anunciantes_home <?php echo  $classe_carrosel; ?> ">
    <div class="elementor-element elementor-element-ae0b646 elementor-widget__width-inherit elementor-widget elementor-widget-bevesi-product-tab-carousel" data-id="ae0b646" data-element_type="widget" data-widget_type="bevesi-product-tab-carousel.default">
       <div class="elementor-widget-container">
          <div class="klb-module">
             <div class="site-module-header style-1">
                <div class="col left">
                   <h3 class="entry-title"><?php echo $textotitulocat; ?> </h3>
-                
                </div>
-             
             </div>
-            <div class="klb-products-tab site-slider-wrapper">
-               <div class="site-slider carousel-style loader-default arrows-style-rounded arrows-white products slick-initialized slick-slider slick-dotted" data-items="6" data-itemslaptop="4" data-itemstablet="3" data-itemsmobile="2" data-itemsmobilexs="1" data-slidescroll="1" data-autoplay="false" data-autospeed="" data-speed="600" data-arrows="true" data-arrowslaptop="true" data-arrowstablet="true" data-arrowsmobile="true" data-dots="true" data-dotslaptop="true" data-dotstablet="true" data-dotsmobile="true" data-producttype="type2" data-perpage="8" data-best_selling="false" data-featured="false" data-onsale="false" data-stockprogressbar="false" data-countdown="false" data-stockstatus="false" data-shippingclass="false" data-infinite="false" data-centermode="false">
-                  <button type="button" class="slick-nav slick-prev slick-button unset slick-arrow slick-disabled" aria-disabled="true" style="top: 36.169px;">
-                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" fill="currentColor">
-                        <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="17.2,22.4 6.8,12 17.2,1.6 "></polyline>
-                     </svg>
-                  </button>
-                  <div class="slick-list" style="">
-                     <div class="slick-track" style="opacity: 1; width: 1652px; transform: translate3d(0px, 0px, 0px);">
+               <div class="  <?php echo  $nome_carrosel; ?>">
+            
+                        <?php
+                              $contador= 0;
+                              foreach($users_anunciantes_carrosel as $dadosAnunciantes){ 
 
-
-                     <?php
-                           $contador= 0;
-                           foreach($users_anunciantes_carrosel as $dadosAnunciantes){ 
-
-                           $contador++;
-                           
-   
-                           if(trim($dadosAnunciantes->foto_do_anunciante)=='' or $dadosAnunciantes->foto_do_anunciante=='00000000-0000-0000-0000-000000000000'){
-                              $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
-                            }else{
-          
-                                 /* $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.strtolower($dadosAnunciantes->foto_do_anunciante).'.jpeg';
-                                 $file_headers = @get_headers($file);
-                     
-                                 if (!strripos($file_headers[0], '404')) {
-                                    $dadosAnunciantes->foto_do_anunciante = $file;
-                                 
-                                 }else {
-                                 */
-                                    $upload_url = wp_upload_dir();
-                                    $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
-
-                                 // $file_headers = get_headers($upload_url.$dadosAnunciantes->foto_do_anunciante);
-                                    //echo $upload_url.$dadosAnunciantes->foto_do_anunciante;
-                                    //echo  $dadosAnunciantes->foto_do_anunciante = $upload_url.strtolower($dadosAnunciantes->foto_do_anunciante).'.jpeg';
-                                    //exit;
-
-                                    if (file_exists($upload_url.$dadosAnunciantes->foto_do_anunciante)
-                                    ) {
-                                       $dadosAnunciantes->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante;
-                                    }else if (file_exists($upload_url.$dadosAnunciantes->foto_do_anunciante).'.jpeg'){ 
-                                        $dadosAnunciantes->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante.'.jpeg';
-                                    }else{
-                                       $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
-                                    }
-                                 
-                                 // }
-                              }
-
-                          
-                           
-                           if($contador==1){
-                              $classe_slick  = 'slider-item slick-slide slick-current slick-active';
-                           }else{
-                              $classe_slick  =  'slider-item slick-slide slick-active';
-                           }
-                           
+                              $contador++;
+                              ?>
+                              <div class="site-slider">
+                              
+                              <?php
+                              if(trim($dadosAnunciantes->foto_do_anunciante)=='' or $dadosAnunciantes->foto_do_anunciante=='00000000-0000-0000-0000-000000000000'){
+                                 $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
+                              }else{
+            
+                                    /* $file = 'https://acharefacil.blob.core.windows.net/publico/foto/'.strtolower($dadosAnunciantes->foto_do_anunciante).'.jpeg';
+                                    $file_headers = @get_headers($file);
                         
-                        ?>
+                                    if (!strripos($file_headers[0], '404')) {
+                                       $dadosAnunciantes->foto_do_anunciante = $file;
+                                    
+                                    }else {
+                                    */
+                                       $upload_url = wp_upload_dir();
+                                       $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
 
+                                    // $file_headers = get_headers($upload_url.$dadosAnunciantes->foto_do_anunciante);
+                                       //echo $upload_url.$dadosAnunciantes->foto_do_anunciante;
+                                       //echo  $dadosAnunciantes->foto_do_anunciante = $upload_url.strtolower($dadosAnunciantes->foto_do_anunciante).'.jpeg';
+                                       //exit;
 
-                    
+                                       if (file_exists($upload_url.$dadosAnunciantes->foto_do_anunciante)
+                                       ) {
+                                          $dadosAnunciantes->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante;
+                                       }else if (file_exists($upload_url.$dadosAnunciantes->foto_do_anunciante).'.jpeg'){ 
+                                          $dadosAnunciantes->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante.'.jpeg';
+                                       }else{
+                                          $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
+                                       }
+                                    
+                                    // }
+                                 }
+
+                           
+                              
+                           
+                              
+                           
+                           ?>
+
 
                      
-                        <div class="<?php echo $classe_slick;?>" data-slick-index="0" aria-hidden="false" role="tabpanel" id="slick-slide10" style="width: 236px;">
-                           <div class="product type-product post-2887 status-publish first instock product_cat-auto-escola product_cat-automotivo product_cat-toys-video-games product_cat-cosmeticos product_cat-eletronicos product_cat-imobiliarias product_cat-lavanderias product_cat-moda-accessorios product_cat-sorveterias has-post-thumbnail shipping-taxable product-type-simple">
-                              <div class="product-wrapper with-content-fade product-type-1 xxxy">
-                                 <div class="product-inner">
-                                    <div class="product-thumbnail-wrapper">
-                                     
-                                       <!-- product-buttons -->
-                                       <div class="product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-hover">
-                                          <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>" tabindex="0">
-                                             <img fetchpriority="high" decoding="async"   src="<?php echo $dadosAnunciantes->foto_do_anunciante; ?>" class="imagem_carrosel_anunciantes" ></a></div>
-                                       <!-- product-thumbnail -->
-                                    </div>
-                                    <!-- product-thumbnail-wrapper -->
-                                    <div class="product-content-wrapper">
-                                       <div class="product-content-body">
-                                          <div class="product-content-row">
-                                             <div class="product-price-wrapper"><span class="price"></span></div>
-                                             <!-- product-price-wrapper -->
-                                             <h2 class="product-title">
-                                                <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>" 
-                                                tabindex="0"><span><?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,30); ?>
-                                                </span><br><br></a></h2>
+
+                        
+                           <div  aria-hidden="false"style="width: 236px;">
+                              <div class="product type-product post-2887 status-publish first instock product_cat-auto-escola product_cat-automotivo product_cat-toys-video-games product_cat-cosmeticos product_cat-eletronicos product_cat-imobiliarias product_cat-lavanderias product_cat-moda-accessorios product_cat-sorveterias has-post-thumbnail shipping-taxable product-type-simple">
+                                 <div class="product-wrapper with-content-fade product-type-1 xxxy">
+                                    <div class="product-inner">
+                                       <div class="product-thumbnail-wrapper">
+                                       
+                                          <!-- product-buttons -->
+                                          <div class="product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-hover">
+                                             <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>" tabindex="0">
+                                                <img fetchpriority="high" decoding="async"   src="<?php echo $dadosAnunciantes->foto_do_anunciante; ?>" class="imagem_carrosel_anunciantes" ></a></div>
+                                          <!-- product-thumbnail -->
+                                       </div>
+                                       <!-- product-thumbnail-wrapper -->
+                                       <div class="product-content-wrapper">
+                                          <div class="product-content-body">
+                                             <div class="product-content-row">
+                                                <div class="product-price-wrapper"><span class="price"></span></div>
+                                                <!-- product-price-wrapper -->
+                                                <h2 class="product-title">
+                                                   <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>" 
+                                                   tabindex="0"><span><?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,30); ?>
+                                                   </span><br><br></a></h2>
+                                             </div>
+                                             <!-- product-content-row -->
                                           </div>
-                                          <!-- product-content-row -->
-                                       </div>
-                                       <!-- product-content-body -->
-                                       <div class="product-content-footer descricao_carrosel_anunciante">
-                                          <?php echo substr($dadosAnunciantes->descricao,0,50).' ...'; ?>
-                                       </div>
+                                          <!-- product-content-body -->
+                                          <div class="product-content-footer descricao_carrosel_anunciante">
+                                             <?php echo substr($dadosAnunciantes->descricao,0,50).' ...'; ?>
+                                          </div>
 
+                                       </div>
+                                       <!-- product-content-wrapper -->
                                     </div>
-                                    <!-- product-content-wrapper -->
+                                    <!-- product-inner -->
+                                    <div class="product-hidden-content"></div>
+                                    <!-- product-hidden-content -->
                                  </div>
-                                 <!-- product-inner -->
-                                 <div class="product-hidden-content"></div>
-                                 <!-- product-hidden-content -->
+                                 <!-- product-wrapper -->
+                                 <div class="product-content-fade style-1" style="margin-bottom: -16px;"></div>
                               </div>
-                              <!-- product-wrapper -->
-                              <div class="product-content-fade style-1" style="margin-bottom: -16px;"></div>
                            </div>
-                        </div>
-
-                        <?php }  ?>
-                     
+                           </div>
+                           <?php }  ?>
+                        
+                        
                      
                      </div>
-                  </div>
-                  <button type="button" class="slick-nav slick-next slick-button unset slick-arrow" aria-disabled="false" style="top: 36.169px;">
-                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" fill="currentColor">
-                        <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="6.8,22.4 17.2,12 6.8,1.6 "></polyline>
-                     </svg>
-                  </button>
-                  <ul class="slick-dots" style="" role="tablist">
-                     <li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control10" aria-controls="slick-slide10" aria-label="1 of 2" tabindex="0" aria-selected="true">1</button></li>
-                     <li role="presentation"><button type="button" role="tab" id="slick-slide-control11" aria-controls="slick-slide11" aria-label="2 of 2" tabindex="-1">2</button></li>
-                  </ul>
-               </div>
+            
+</div>
             </div>
          </div>
       </div>

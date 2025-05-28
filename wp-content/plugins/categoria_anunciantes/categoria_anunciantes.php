@@ -24,7 +24,7 @@ function content_buscaCategoriaAnunciantes($content) {
       JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
       GROUP BY categoria.meta_value
       ORDER BY 1 desc
-      LIMIT 7 ";
+      LIMIT 15 ";
     /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 
