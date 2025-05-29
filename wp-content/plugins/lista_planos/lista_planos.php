@@ -14,7 +14,7 @@ function content_mostraListasPlanos($content) {
 
     global $wpdb;
 
-    if (is_page('atualiza_latitude_longitude') or is_front_page() ) {
+    if (is_page('atualiza_latitude_longitude') or is_front_page()  or is_page('lista_planos')) {
 
       ob_start();
       include('tpl/ListaPlanos.phtml');
