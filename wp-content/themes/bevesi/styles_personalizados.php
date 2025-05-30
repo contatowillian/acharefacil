@@ -2839,6 +2839,7 @@ height:35px !important;
         display: block;
         margin-left: 2.5%;
         border-radius:15px;
+        max-height: 124px !important;
     }
     .elementor-page-1134 .elementor-element-e486072 .site-banner {
         height: 104px !important;
