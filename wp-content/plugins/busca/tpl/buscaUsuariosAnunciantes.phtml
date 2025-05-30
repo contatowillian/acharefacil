@@ -103,11 +103,7 @@
                                              <div class="limpa_linha"></div>
                                              <div class="entry-description"><?php echo $dadosAnunciantes->descricao; ?></div>
                                              <!-- product-details -->
-                                             <div class="info_extra_anunciante_busca">
-                                                <?php if($dadosAnunciantes->website!=''){  ?>
-                                                    <div class="site_lista_busca"><a target='_blank' href="https://<?php echo $dadosAnunciantes->website; ?>"><i class="klb-icon-www"></i>Acessar Website</a></div>
-                                                <?php } ?>
-                                             </div>
+                                           
                                              </a>
                                           </div>
                                         
@@ -115,6 +111,10 @@
                                           <div class="col-lg-4 coluna_info_anunciante_busca">
                                              <!-- product-content-row col-lg-3 -->
                                              <div class="info-section info-secondary">
+
+                                                <?php if(isset($dadosAnunciantes->whatsapp) and $dadosAnunciantes->whatsapp!=''){  ?>
+                                                   <div class="whatsapp_icon_search primary phones phone"><a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $dadosAnunciantes->whatsapp);  ?>?text=Ol%C3%A1,%20vi%20seu%20an%C3%BAncio%20no%20site%20Achar%20%C3%A9%20F%C3%A1cil%20www.acharefacil.com.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.'><div class="whatsapp_icon_resultado_busca"></div><span class='whats_telefone_texto'><?php echo $dadosAnunciantes->whatsapp;  ?><span></a></div>
+                                                <?php } ?>
 
                                                 <div class="adr">
                                                 <?php if(isset($dadosAnunciantes->endereco) and $dadosAnunciantes->endereco!=''){  ?>
@@ -128,9 +128,38 @@
                                                 <?php if(isset($dadosAnunciantes->telefone) and $dadosAnunciantes->telefone!=''){  ?>
                                                   <div class="phones phone primary"><i class="klb-icon-phone"></i><?php echo $dadosAnunciantes->telefone; ?></div>
                                                 <?php } ?>
-                                                <?php if(isset($dadosAnunciantes->whatsapp) and $dadosAnunciantes->whatsapp!=''){  ?>
-                                                   <div class="whatsapp_icon_search primary phones phone"><a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $dadosAnunciantes->whatsapp);  ?>?text=Ol%C3%A1,%20vi%20seu%20an%C3%BAncio%20no%20site%20Achar%20%C3%A9%20F%C3%A1cil%20www.acharefacil.com.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.'><div class="whatsapp_icon_resultado_busca"></div><span class='whats_telefone_texto'><?php echo $dadosAnunciantes->whatsapp;  ?><span></a></div>
+                                            
+
+                                                <div class="info_extra_anunciante_busca">
+                                                <?php if($dadosAnunciantes->website!=''){  ?>
+                                                    <div class="site_lista_busca"><a target='_blank' href="https://<?php echo $dadosAnunciantes->website; ?>"><i class="klb-icon-www"></i>Acessar Website</a></div>
                                                 <?php } ?>
+                                                <?php if(isset($dadosAnunciantes->endereco_facebook) and $dadosAnunciantes->endereco_facebook!=''
+                                                            or isset($dadosAnunciantes->endereco_instagram)  and $dadosAnunciantes->endereco_instagram!=''
+                                                            or isset($dadosAnunciantes->endereco_linkedin)  and $dadosAnunciantes->endereco_linkedin!=''
+                                                   ){  ?>
+                                                   <div class='linha_divisoria_detalhe'>
+                                                      <div class="product-share social-container">
+                                                         <span>Redes Sociais:</span>
+                                                         <div class="site-social lista_rede_social">
+                                                            <ul class="color-social rede_social_padding">
+                                                               <?php if(isset($dadosAnunciantes->endereco_facebook) and $dadosAnunciantes->endereco_facebook!=''){  ?>
+                                                               <li><a href="<?php echo $dadosAnunciantes->endereco_facebook; ?>" class="filled social-color facebook" target="_blank"><i class="klb-social-icon-facebook"></i></a></li>
+                                                               <?php } ?>
+                                                               <?php if(isset($dadosAnunciantes->endereco_instagram)  and $dadosAnunciantes->endereco_instagram!=''){  ?>
+                                                               <li><a href="<?php echo $dadosAnunciantes->endereco_instagram; ?>" class="filled social-color instagram" target="_blank"><i class="klb-social-icon-instagram"></i></a></li>
+                                                               <?php } ?>
+                                                               <?php if(isset($dadosAnunciantes->endereco_linkedin)  and $dadosAnunciantes->endereco_linkedin!=''){  ?>
+                                                               <li><a href="<?php echo $dadosAnunciantes->endereco_linkedin; ?>" class="filled social-color linkedin" target="_blank"><i class="klb-social-icon-linkedin"></i></a></li>
+                                                               <?php } ?>
+                                                            </ul>
+                                                         </div>
+                                                         <!-- site-social -->
+                                                      </div>
+                                                   </div>
+
+                                                <?php } ?>
+                                             </div>
                                              </div>
                                           </div>
                                           <!-- product-content-row  col-lg-3-->
