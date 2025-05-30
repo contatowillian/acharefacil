@@ -2841,7 +2841,7 @@ height:35px !important;
         border-radius:15px;
         max-height: 124px !important;
     }
-    .elementor-page-1134 .elementor-element-e486072 .site-banner {
+    .site-banner.banner-color-custom{ 
         height: 104px !important;
     }
 }
