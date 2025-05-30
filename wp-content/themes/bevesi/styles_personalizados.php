@@ -2844,6 +2844,10 @@ height:35px !important;
     .site-banner.banner-color-custom{ 
         height: 104px !important;
     }
+
+    .elementor-page-1134 .gray {
+        padding-top: 0px !important;
+    }
 }
  .site-slider-anunciantes1.products:has(.product-content-fade) .slick-nav {
    z-index: 11;
