@@ -2826,10 +2826,10 @@ height:35px !important;
         display: none !important;
     }
     .elementor-page-1134 .elementor-element-ae0b646 h3{
-        margin-top: 10px;
+        margin-top: 25px;
         text-align: center;
         width: 100%;
-        font-size: 6.5vw !important;
+        font-size: 6vw !important;
     }
 
     .site-banner .site-banner-image img{
