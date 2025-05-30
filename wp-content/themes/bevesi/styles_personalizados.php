@@ -2838,6 +2838,10 @@ height:35px !important;
         margin: 0px auto;
         display: block;
         margin-left: 2.5%;
+        border-radius:15px;
+    }
+    .elementor-page-1134 .elementor-element-e486072 .site-banner {
+        height: 104px !important;
     }
 }
  .site-slider-anunciantes1.products:has(.product-content-fade) .slick-nav {
