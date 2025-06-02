@@ -308,8 +308,8 @@ margin-top: -20px;
 
 .busca_usuario_anunciantes .products:not(.slick-slider).product-listing-style .product-inner .product-content-wrapper .product-title{
     color: #0678B1 !important;
-    font-weight: 300 !important;
-    font-size: 0.9rem !important;
+    font-weight: 400 !important;
+    font-size: 1.1rem !important;
 }
 .linha_desc_anuncio_texto{
     vertical-align: top;
