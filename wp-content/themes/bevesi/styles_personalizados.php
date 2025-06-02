@@ -315,9 +315,10 @@ margin-top: -20px;
     vertical-align: top;
 }
 .coluna_info_anunciante_busca{
-    
+
     font-size: 0.7125rem;
     color: #333;
+    text-align: right;
 }
 .coluna_info_anunciante_busca strong{
     color: #333;
