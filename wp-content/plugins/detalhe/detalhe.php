@@ -288,6 +288,7 @@ function content_detalheUsuariosAnunciantes($content) {
         $consulta_usuarios_anunciantes_semelhantes = "SELECT DISTINCT
         us.ID,
         us.user_login,
+        categoria.meta_value as categoria,
         nome_do_seu_negocio.meta_value as nome_do_seu_negocio,
         descricao.meta_value  as descricao,
         foto_do_anunciante.meta_value  as foto_do_anunciante
@@ -298,6 +299,7 @@ function content_detalheUsuariosAnunciantes($content) {
         JOIN wp_usermeta AS descricao  ON  us.ID = descricao.user_id  AND descricao.meta_key = 'afreg_additional_3226'
         JOIN wp_usermeta AS foto_do_anunciante  ON  us.ID = foto_do_anunciante.user_id  AND foto_do_anunciante.meta_key = 'afreg_additional_3212'
         where us.user_status = 0  and categoria.meta_value = '".$users[0]->categoria."'
+        and foto_do_anunciante.meta_value  !=''
         and us.ID != ".$_GET['detalhe_anunciante']." limit 3 ";
 
 
