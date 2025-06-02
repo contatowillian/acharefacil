@@ -130,8 +130,9 @@ window.onload = function() {
 
     document.getElementById("afreg_additional_3239").required = true;
     document.getElementById("afreg_additional_3224").required = true;
+    document.getElementById("afreg_additional_3224").setAttribute('maxlength',30);
+
     document.getElementById("afreg_additional_3213").required = true;
-    document.getElementById("afreg_additional_3213").setAttribute('maxlength',30);
     document.getElementById("afreg_additional_3214").required = true;
     document.getElementById("afreg_additional_3226").required = true;
 
