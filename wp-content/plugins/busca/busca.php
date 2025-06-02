@@ -46,7 +46,7 @@ function content_buscaUsuariosAnunciantes($content) {
 
         $filtro = '';
         $filtro_extra = '';
-        $qtd_por_pagina = 10;
+        $qtd_por_pagina = 20;
 
         if(isset($_REQUEST['pagina'])){
           $_REQUEST['pagina'] = $_REQUEST['pagina']*$qtd_por_pagina;
@@ -158,6 +158,8 @@ function content_buscaUsuariosAnunciantes($content) {
 
         $paginacao_busca = $wpdb->get_results($consulta_usuarios_anunciantes_paginacao);
 
+        $qtd_total_busca = (int)$paginacao_busca[0]->quantidade;
+
          $quantidade_paginas =  (int)$paginacao_busca[0]->quantidade/$qtd_por_pagina;
          $quantidade_paginas = round($quantidade_paginas);
 
@@ -239,14 +241,9 @@ function content_buscaUsuariosAnunciantes($content) {
               }
 
               if($afreg_field->post_name=='categoria'){
-              /*    if(trim($value)!=''){
-                  if (!in_array($value, $categorias)){
-                    array_push($categorias,$value);
-                  
-                  }
-                } */
-              
+                $user->categoria = $value;
               }
+
 
               if($afreg_field->post_name=='descricao'){
                 $user->descricao = $value;

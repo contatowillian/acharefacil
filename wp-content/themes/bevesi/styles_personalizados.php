@@ -119,7 +119,7 @@
 }
 
 .page-id-3285 .info-secondary{
-    padding-top: 25px;
+    padding-top: 30px;
 }
 
 .page-id-3285 .destaque_quadro_resultado{
@@ -151,7 +151,7 @@
 
 .page-id-3285 .phones{
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .page-id-3285 .klb-post .woocommerce-pagination  ul li{
@@ -163,7 +163,7 @@
 }
 
 .page-id-3285 .phones .klb-icon-phone{
-    font-size: 25px;
+    font-size: 20px;
     margin-left: -3px;
 }
 .page-id-3285  .product .product-thumbnail-wrapper .product-buttons .product-button.product-wishlist a{
@@ -302,18 +302,25 @@ margin-top: -20px;
 
 .products:not(.slick-slider).product-listing-style .product-inner .product-content-wrapper .product-title{
     font-size: 1.1rem !important;
+    
+    
 }
 
+.busca_usuario_anunciantes .products:not(.slick-slider).product-listing-style .product-inner .product-content-wrapper .product-title{
+    color: #0678B1 !important;
+    font-weight: 300 !important;
+    font-size: 0.9rem !important;
+}
 .linha_desc_anuncio_texto{
     vertical-align: top;
 }
 .coluna_info_anunciante_busca{
     
-    font-size: 0.8125rem;
-    color: var(--color-slate-600);
+    font-size: 0.7125rem;
+    color: #333;
 }
 .coluna_info_anunciante_busca strong{
-    color: var(--color-black);
+    color: #333;
 }
 .product .product-content-wrapper .product-content-body > *{
     display: ruby !important;
@@ -2120,12 +2127,20 @@ right: 8px;
    color: #cccc09
 }
 
+.busca_usuario_anunciantes .categoria_busca_linha{
+padding-bottom: 12px;
+    display: block;
+    padding-top: 11px;
+    color: #414344;
+    font-size: 0.8rem;
+}
+
 .whatsapp_icon_resultado_busca{
     width: 31px;
     height: 34px;
     cursor: pointer;
     background-image: url(/wp-content/themes/bevesi/assets/img/icone_whats.webp);
-    background-size: 30px;
+    background-size: 23px;
     margin-top: 0px;
     margin-right: 2px;
     background-repeat: no-repeat;

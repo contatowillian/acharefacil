@@ -4,7 +4,9 @@
          <ul>
             <li><a href="https://sorvetedecerveja.com.br">Início</a></li>
             <li><a href="/Buscar/">Buscar</a></li>
-            <li>Resultados da pesquisa para ”<?php if(isset($_GET['palavra_chave']) and $_GET['palavra_chave']!=''){echo $_GET['palavra_chave'];} ?>”
+            <?php if(isset($_GET['palavra_chave']) and $_GET['palavra_chave']!=''){?>
+            <li>Resultados da pesquisa para  ”<?php  echo $_GET['palavra_chave']; ?>”
+            <?php } ?> 
             <?php if(isset($_GET['categoria']) and $_GET['categoria']!=''){echo " -  Categoria: ".$_GET['categoria']." "; ;} ?>
             <?php if(isset($_GET['cidade'])  and $_GET['cidade']!=''){echo " -  Cidade: ".$_GET['cidade']." "; ;} ?>
             </li>
@@ -42,7 +44,7 @@
                   <div class="before-shop-loop">
                      <div class="column left">
                         <p class="woocommerce-result-count">
-                           Exibindo todos <?php echo count($users); ?> resultados
+                        Exibindo 20  de <?php echo $qtd_total_busca; ?> resultados
                         </p>
                      </div>
                   </div>
@@ -99,6 +101,8 @@
                                                 <span>    
                                                 <?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,26); ?><?php echo $estrela_destaque; ?>
                                                    </span>
+                                                   <br>
+                                                  <span class='categoria_busca_linha'> <?php echo $dadosAnunciantes->categoria; ?></span>
                                              </div>
                                              <div class="limpa_linha"></div>
                                              <div class="entry-description"><?php echo $dadosAnunciantes->descricao; ?></div>
