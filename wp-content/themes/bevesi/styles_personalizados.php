@@ -576,7 +576,7 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
     display: none !important;
 }
 
-<?php if(!isset($_GET['opcao_deslogar'])){ ?>
+<?php if(isset($_GET['etapa_cadastro'])){ ?>
 .page-id-10  .my-account-navigation{
     display: none !important;
 }

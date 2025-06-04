@@ -1,4 +1,9 @@
 <?php
+
+if(!isset($_GET['etapa_cadastro']) and is_user_logged_in()){
+	header("location: /my-account/edit-account");
+}
+
 /**
  * My Account Dashboard
  *
@@ -41,6 +46,11 @@ $allowed_html = array(
 
 <p>
 	<?php
+	
+	my-account/edit-account/
+
+
+
 	/* translators: 1: Orders URL 2: Address URL 3: Account URL. */
 	$dashboard_desc = __( '<a href="/my-account/edit-account?etapa_cadastro=2"><button class="button botato_atualize_seu_cadastro">Clique aqui para editar seus dados.</button></a>', 'woocommerce' );
 	$dashboard_desc = __( '<a href="/lista_planos"><button class="button botato_atualize_seu_cadastro_Destaque">Clique aqui para colocar seu anúncio em destaque</button></a>', 'woocommerce' );
