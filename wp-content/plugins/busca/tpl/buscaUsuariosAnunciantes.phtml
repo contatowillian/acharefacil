@@ -297,7 +297,32 @@
                               </div>
                            </div>
                         </div>
-                       
+
+                        <div class="widget widget_block">
+                           <div class="wp-block-group">
+                           <h2 class="wp-block-heading">Permitir conteúdo adulto:</h2>
+                              <p class="form-row form-group user-role vendor-customer-registration">
+                              <label class="radio">
+                                 <input type="radio" name="permite_conteudo_adulto" value="sim" 
+                                 <?php if(isset($_GET['permite_conteudo_adulto'])  and $_GET['permite_conteudo_adulto']=='sim') {  echo 'checked="checked"';  };?>
+                                  class="dokan-role-customer">
+                                 Sim
+                              </label>
+                              <br>
+                              <label class="radio">
+                                 <input type="radio" name="permite_conteudo_adulto" 
+                                 
+                                 <?php if(!isset($_GET['permite_conteudo_adulto'])  or $_GET['permite_conteudo_adulto']!='sim') {  echo 'checked="checked"';  };?>
+                                  class="dokan-role-seller">
+                                 Não
+                              </label>
+                              </p>
+                        </div>
+                        </div>
+
+
+                        <button type="submit" class="button">Filtrar</button>
+
                      </div>
                      </form>
                   </div>
