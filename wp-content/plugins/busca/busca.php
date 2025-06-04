@@ -45,6 +45,7 @@ function content_buscaUsuariosAnunciantes($content) {
     if (is_page('busca')) {
 
         $filtro = '';
+        $filtro_categoria = '';
         $filtro_extra = '';
         $qtd_por_pagina = 20;
 
@@ -80,6 +81,8 @@ function content_buscaUsuariosAnunciantes($content) {
 
         if(isset($_REQUEST['palavra_chave']) and $_REQUEST['palavra_chave']!=''){
 
+          $filtro_categoria.='';
+
           /************************************   Filtro nome do negocio  ************************************/
           $filtro_extra .="AND us.user_status = 0 and  us.ID in
                                 (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
@@ -100,6 +103,7 @@ function content_buscaUsuariosAnunciantes($content) {
                                 where us.ID = nome_do_seu_negocio.user_id 
                                 AND nome_do_seu_negocio.meta_key = 'afreg_additional_3226'
                                 AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['palavra_chave']."%')";              
+
 
         }
 
@@ -128,22 +132,37 @@ function content_buscaUsuariosAnunciantes($content) {
 
         $consulta_usuarios_anunciantes = "";
 
-         /*$consulta_usuarios_anunciantes = "(SELECT DISTINCT
+        $consulta_usuarios_anunciantes .= "(SELECT DISTINCT
                                           us.ID,
-                                          us.user_login
+                                          us.user_login,
+                                          destaque.meta_value as data_destaque
                                           FROM wp_users AS us
-                                          JOIN wp_usermeta AS nome_do_seu_negocio  ON  us.ID = nome_do_seu_negocio.user_id  AND nome_do_seu_negocio.meta_key = 'afreg_additional_3288'
-                                          and nome_do_seu_negocio.meta_value ='sim'
+                                          JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288'
+                                          and destaque.meta_value !=''
                                           JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                          where us.user_status = 0 $filtro_extra order by rand() limit 3) union ";*/
+                                          where us.user_status = 0 
+                                          and
+                                          DATE(
+                                            CONCAT(SUBSTR(destaque.meta_value, 7, 4),
+                                            CONCAT('-',
+                                            CONCAT(SUBSTR(destaque.meta_value, 4, 2), 
+                                            CONCAT('-',SUBSTR(destaque.meta_value, 1, 2)
+                                            )))))
+                                            >=  NOW()
+                                          $filtro_extra order by rand() limit 3) union ";
 
-        $consulta_usuarios_anunciantes .= "SELECT DISTINCT
+    
+       $consulta_usuarios_anunciantes .= "SELECT DISTINCT
                                           us.ID,
-                                          us.user_login
+                                          us.user_login,
+                                          '' as destaque
                                           FROM wp_users AS us
                                           JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                           where us.user_status = 0 $filtro_extra
-                                          $order_by_next_la_long ".$paginacao;
+                                          $order_by_next_la_long
+                                          group by 1,2,3
+                                          
+                                           ".$paginacao;
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
@@ -197,7 +216,9 @@ function content_buscaUsuariosAnunciantes($content) {
         FROM wp_users AS us
         JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
         JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-        where us.user_status = 0  $filtro_categoria_escolhida order by  categoria.meta_value asc  ";
+        where us.user_status = 0 
+        $filtro_extra
+        $filtro_categoria_escolhida order by  categoria.meta_value asc  ";
 
         $categorias = $wpdb->get_results($filtro_categoria);
 
@@ -217,6 +238,7 @@ function content_buscaUsuariosAnunciantes($content) {
                             JOIN wp_usermeta AS estado  ON  us.ID = estado.user_id  AND estado.meta_key = 'afreg_additional_3245'
                             where  trim(cidades.meta_value) !=''
                             $filtro_cidade_escolhida
+                            $filtro_extra
                             order by estado.meta_value, cidades.meta_value ASC
 
                             ";
