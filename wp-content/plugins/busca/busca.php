@@ -95,14 +95,18 @@ function content_buscaUsuariosAnunciantes($content) {
                                 (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
                                 where us.ID = nome_do_seu_negocio.user_id 
                                 AND nome_do_seu_negocio.meta_key = 'afreg_additional_3213'
-                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['palavra_chave']."%')";
+                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['palavra_chave']."%')
+                                $filtro_extra
+                                ";
 
           /************************************   Filtro descrição do anúncio ************************************/
           $filtro_extra .="OR us.user_status = 0 and  us.ID in
                                 (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
                                 where us.ID = nome_do_seu_negocio.user_id 
                                 AND nome_do_seu_negocio.meta_key = 'afreg_additional_3226'
-                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['palavra_chave']."%')";              
+                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['palavra_chave']."%')
+                                $filtro_extra
+                                ";              
 
 
         }
