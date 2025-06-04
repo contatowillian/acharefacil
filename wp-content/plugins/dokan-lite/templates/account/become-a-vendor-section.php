@@ -1,4 +1,4 @@
-<?php header("location: /my-account/edit-account/?etapa_cadastro=2&opcao_deslogar=1");
+<?php header("location: /my-account/edit-account");
 
 /**
  * Dokan Become A Vendor Section Template.
