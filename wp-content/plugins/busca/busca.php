@@ -113,7 +113,7 @@ function content_buscaUsuariosAnunciantes($content) {
 
         // print_r($dados_lat_long_ip_user);
         // exit;
-        $order_by_next_la_long=", '' as lat_long";
+        $order_by_next_la_long=" '' as lat_long";
 
         if(isset($_GET['us_pos']) and $_GET['us_pos']!=''){
 
