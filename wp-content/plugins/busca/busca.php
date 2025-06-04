@@ -164,6 +164,8 @@ function content_buscaUsuariosAnunciantes($content) {
                                           
                                            ".$paginacao;
 
+                                           
+
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
 
@@ -217,7 +219,7 @@ function content_buscaUsuariosAnunciantes($content) {
         JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
         JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
         where us.user_status = 0 
-        $filtro_extra
+       
         $filtro_categoria_escolhida order by  categoria.meta_value asc  ";
 
         $categorias = $wpdb->get_results($filtro_categoria);
@@ -238,7 +240,7 @@ function content_buscaUsuariosAnunciantes($content) {
                             JOIN wp_usermeta AS estado  ON  us.ID = estado.user_id  AND estado.meta_key = 'afreg_additional_3245'
                             where  trim(cidades.meta_value) !=''
                             $filtro_cidade_escolhida
-                            $filtro_extra
+                          
                             order by estado.meta_value, cidades.meta_value ASC
 
                             ";
