@@ -129,6 +129,7 @@ function content_buscaUsuariosAnunciantes($content) {
           }
 
         }
+        $order_by_next_la_long='';
 
         $consulta_usuarios_anunciantes = "";
 
