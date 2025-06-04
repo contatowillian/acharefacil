@@ -113,7 +113,7 @@ function content_buscaUsuariosAnunciantes($content) {
 
         // print_r($dados_lat_long_ip_user);
         // exit;
-        $order_by_next_la_long='';
+        $order_by_next_la_long=", '' as lat_long";
 
         if(isset($_GET['us_pos']) and $_GET['us_pos']!=''){
 
@@ -123,20 +123,20 @@ function content_buscaUsuariosAnunciantes($content) {
 
             $user_lat=$divide_lat_long[0];
             $user_lng = $divide_lat_long[1];
-            $order_by_next_la_long= "ORDER BY ABS(us.geo_lat-'$user_lat') + ABS(us.geo_long  - '$user_lng') ASC";
+            $order_by_next_la_long= "(ABS(us.geo_lat-'$user_lat') + ABS(us.geo_long  - '$user_lng')) as lat_long";
 
             //$order_by_next_la_long=' ORDER BY ((us.geo_lat-'.$user_lat.')(us.geo_lat-'.$user_lat.')) + ((us.geo_long - '.$user_lng.')(us.geo_long - '.$user_lng.')) ASC';
           }
 
         }
-        $order_by_next_la_long='';
 
         $consulta_usuarios_anunciantes = "";
 
-        $consulta_usuarios_anunciantes .= "(SELECT DISTINCT
+        $consulta_usuarios_anunciantes .= " SELECT * FROM (SELECT DISTINCT
                                           us.ID,
                                           us.user_login,
-                                          destaque.meta_value as data_destaque
+                                          destaque.meta_value as data_destaque,
+                                          $order_by_next_la_long
                                           FROM wp_users AS us
                                           JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288'
                                           and destaque.meta_value !=''
@@ -150,22 +150,26 @@ function content_buscaUsuariosAnunciantes($content) {
                                             CONCAT('-',SUBSTR(destaque.meta_value, 1, 2)
                                             )))))
                                             >=  NOW()
-                                          $filtro_extra order by rand() limit 3) union ";
+                                          $filtro_extra  union all  ";
 
     
        $consulta_usuarios_anunciantes .= "SELECT DISTINCT
                                           us.ID,
                                           us.user_login,
-                                          '' as destaque
+                                          '' as destaque,
+                                          $order_by_next_la_long
                                           FROM wp_users AS us
                                           JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                          where us.user_status = 0 $filtro_extra
-                                          $order_by_next_la_long
+                                          where us.user_status = 0 $filtro_extra 
+                                          ORDER BY 4 ASC
+                                          ) a
                                           
                                            ".$paginacao;
 
                                             
-   
+        echo $consulta_usuarios_anunciantes;
+
+        exit;
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
