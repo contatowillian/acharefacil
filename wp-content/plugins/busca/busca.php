@@ -167,9 +167,7 @@ function content_buscaUsuariosAnunciantes($content) {
                                            ".$paginacao;
 
                                             
-        echo $consulta_usuarios_anunciantes;
-
-        exit;
+     
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
