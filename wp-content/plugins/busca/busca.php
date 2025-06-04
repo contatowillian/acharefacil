@@ -165,11 +165,12 @@ function content_buscaUsuariosAnunciantes($content) {
                                            ".$paginacao;
 
                                             
-        echo $consulta_usuarios_anunciantes;
-        exit;
+   
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
+
+                      
 
         $consulta_usuarios_anunciantes_paginacao = "SELECT count(*) as quantidade
                                                     FROM wp_users AS us
