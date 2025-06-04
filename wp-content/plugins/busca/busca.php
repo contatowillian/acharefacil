@@ -162,7 +162,7 @@ function content_buscaUsuariosAnunciantes($content) {
                                           JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                           where us.user_status = 0 $filtro_extra 
                                           ORDER BY 4 ASC
-                                          ) a
+                                          ) a GROUP BY 1,2,3,4
                                           
                                            ".$paginacao;
 
