@@ -2201,20 +2201,20 @@ padding-right: 11px !important;
 border-radius: 11px !important;
 margin: 6px !important;
 height:35px !important;
-
 }
-
 
 .home .elementor-1134  .im {
     font-size: 56px;
-
 }
 
 
 
 @media (max-width: 600px) {
 
-
+    .coluna_info_anunciante_busca {
+        width: 77vw;
+        text-align: left !important;
+    }
 
     .page-id-3285 .destaque_quadro_resultado{
         width: 79% !important ;
