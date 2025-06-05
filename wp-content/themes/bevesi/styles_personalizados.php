@@ -2213,6 +2213,7 @@ height:35px !important;
 
     .page-id-3290  .klb-post h1{
         font-size: 6vw !important;
+        margin-bottom: 30px !important;
     }
 
     .coluna_info_anunciante_busca {
