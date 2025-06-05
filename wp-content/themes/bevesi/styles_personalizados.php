@@ -2211,6 +2211,10 @@ height:35px !important;
 
 @media (max-width: 600px) {
 
+    .page-id-3290  .klb-post h1{
+        font-size: 6vw !important;
+    }
+
     .coluna_info_anunciante_busca {
         width: 77vw;
         text-align: left !important;
