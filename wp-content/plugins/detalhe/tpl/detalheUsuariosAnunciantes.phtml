@@ -13,7 +13,8 @@
 
    <div id="primary" class="content-area">
       <main id="main" class="site-main" role="main">
-       
+      <h1 class="product_title entry-title"><?php echo substr(ucfirst($users[0]->nome_do_seu_negocio),0,100); ?></h1>
+
          <div class="woocommerce-notices-wrapper"></div>
         
          <div id="product-2887" class="single-product product type-product post-2887 status-publish first instock product_cat-auto-escola product_cat-automotivo product_cat-toys-video-games product_cat-cosmeticos product_cat-eletronicos product_cat-imobiliarias product_cat-lavanderias product_cat-moda-accessorios product_cat-sorveterias has-post-thumbnail shipping-taxable product-type-simple">
@@ -21,7 +22,6 @@
 
             <div class="column single-product-detail">
                   <div class="product-detail-inner">
-                  <h1 class="product_title entry-title"><?php echo substr(ucfirst($users[0]->nome_do_seu_negocio),0,100); ?></h1>
 
                   <div class="woocommerce-product-details__short-description linha_divisoria_detalhe">
                      <span class='endereco_detalhe_titulo'>Endereço:</span>
@@ -127,10 +127,19 @@
                      <div class="woocommerce-product-gallery__wrapper">
                         <div class="woocommerce-product-gallery__image" style="position: relative; overflow: hidden;">
                         <a href="#">
-                        <img width="600" height="338" src="<?php echo $users[0]->foto_do_anunciante; ?>" class="wp-post-image" alt="" title="jaragua"
-                         data-large_image_width="984" data-large_image_height="554" decoding="async" ></a>
-                         <img alt="" src="<?php echo $users[0]->foto_do_anunciante; ?>" class="zoomImg" style="position: absolute; top: -0.481929px; left: -558.986px; opacity: 0; width: 984px; height: 554px; border: none; max-width: none; max-height: none;" aria-hidden="true"></div>
+                        <img width="400" height="338" src="<?php echo $users[0]->foto_do_anunciante; ?>" class="wp-post-image" alt="" title="jaragua"
+                          decoding="async" ></a>
+                         <img alt="" src="<?php echo $users[0]->foto_do_anunciante; ?>" class="zoomImg" style="position: absolute; top: -0.481929px; left: -558.986px; opacity: 0; " aria-hidden="true"></div>
                      </div>
+                  </div>
+
+              
+               </div>
+
+
+               <div class="column single-product-gallery ultima_coluna ">
+                  <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-8 images" data-columns="8" style="opacity: 1; transition: opacity 0.25s ease-in-out;">
+                    
                   </div>
 
                   <div class="product-detail-inner">
@@ -139,7 +148,7 @@
                   
                      <div class="product-meta">
                      </div>
-                     <div class="woocommerce-product-details__short-description">
+                     <div class="woocommerce-product-details__short-description descricao_negocio">
                         <p><?php echo $users[0]->descricao; ?></p>
                      </div>		
 
@@ -168,10 +177,10 @@
 
 
                            if(trim($dadosAnunciantes->foto_do_anunciante)==''){
-                              $user->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
+                              $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
                            }else{
 
-                              $caminho = 'wp-content/uploads/addify_registration_uploads/'.$user->foto_do_anunciante;
+                              $caminho = 'wp-content/uploads/addify_registration_uploads/'.$dadosAnunciantes->foto_do_anunciante;
 
                               if(file_exists($caminho)){ 
                                  $dadosAnunciantes->foto_do_anunciante = '/'.$caminho;
@@ -204,9 +213,9 @@
                                     <div class="product-content-wrapper">
                                        <div class="product-content-body">
                                           <div class="product-content-row">
-                                             <div class="product-brand"><a href="#" rel="tag"><?php echo $dadosAnunciantes->categoria; ?></a></div>
+                                             <div class="product-brand"><a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>" rel="tag"><?php echo $dadosAnunciantes->categoria; ?></a></div>
                                              <!-- product-brand -->
-                                             <h2 class="product-title"><a href="#"><span><?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,40); ?></span></a></h2>
+                                             <h2 class="product-title"><a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>"><span><?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,40); ?></span></a></h2>
                                           </div>
                                           <!-- product-content-row -->
                                           <div class="product-content-row">

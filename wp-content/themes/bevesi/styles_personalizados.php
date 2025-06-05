@@ -24,9 +24,30 @@
         width: 30%;
     }
 
+ 
+
     .page-id-3290 .single-product-wrapper .column {
-        width: 46%;
+        width: 30%;
     }
+
+    .page-id-3290 .klb-post h1{
+        font-size: 32.5px;
+        text-transform: inherit;
+        margin-bottom: 34px;
+        display: block;
+
+    }
+
+    .page-id-3290 .descricao_negocio p{
+        font-size: 1.2rem !important;
+    }
+
+    .page-id-3290 .single-product-wrapper .product-category a{
+        font-size: 1.5rem !important;
+        color: rgb(var(--site-primary-color)) !important;
+    }
+    
+
 }
  .single-product-wrapper .linha_divisoria_detalhe{
     border: 2px solid #eee;
@@ -256,6 +277,15 @@ margin-top: -20px;
     font-size: 13px;
     color: #575252;
 }
+
+.anuncios_semelhantes_bloco  .product-title span{
+    font-size: 18px !important ;
+}
+
+.anuncios_semelhantes_bloco .product-brand a{
+    font-size: 16px;
+}
+
 .page-id-3290 .single-ajax{
     display: none !important;
 }
@@ -2576,9 +2606,9 @@ height:35px !important;
  }
 
  .elementor-page-1134 .carrosel_recentes_lista{
-    width: 93%;
+    width: 80%;
     display: flex;
-    margin-left: 3%;
+    margin-left: 10%;
  }
  .site-slider-anunciantes1 .slick-nav svg {
    position: relative !important;
