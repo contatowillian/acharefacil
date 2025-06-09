@@ -276,6 +276,14 @@ function content_buscaUsuariosAnunciantes($content) {
         if(!empty($users)){
           foreach ($users as $user){
 
+            $quantidade_vizualizacao_busca = get_user_meta( $_GET['detalhe_anunciante'], 'afreg_additional_3341', true );
+        
+            if($quantidade_vizualizacao_busca==''){
+              $quantidade_vizualizacao_busca=0; 
+            }
+    
+            update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca+1 );
+
        
 
             foreach ($afreg_extra_fields as $afreg_field) {
