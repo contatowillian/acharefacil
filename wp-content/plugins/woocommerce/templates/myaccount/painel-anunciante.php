@@ -52,6 +52,8 @@ $quantas_vezes_apareceu_pesquisa = 0;
 $quantas_vezes_detalhe_anuncio = 0;
 
 
+$quantas_vezes_apareceu_pesquisa = 0;
+$quantas_vezes_detalhe_anuncio = 0;
 
 if(count($dados_usuario_anunciante_painel)>0){
     if(count($verifica_destaque)>0){
@@ -65,8 +67,7 @@ if(count($dados_usuario_anunciante_painel)>0){
 
 }
 
-$quantas_vezes_apareceu_pesquisa = 0;
-$quantas_vezes_detalhe_anuncio = 0;
+
 
 ?>
 
