@@ -14,6 +14,12 @@ jQuery( document ).ready(function( $ ) {
     $(".horario_atendimento input").mask('00:00', {clearIfNotMatch: true});
 
     <?php if($_GET['etapa_cadastro']==2){ ?>
+
+        document.getElementById("afreg_additional_3342").value =  document.getElementById("utm_source").value;
+        document.getElementById("afreg_additional_3343").value =  document.getElementById("utm_campaign").value;
+        document.getElementById("afreg_additional_3344").value =  document.getElementById("gclid").value;
+
+
         $("#afreg_additional_3224").on("keyup change", function(e) {
 
             let valor = $(this).val();
@@ -398,3 +404,139 @@ jQuery( document ).ready(function( $ ) {
 
 
 <div class="alert alert-primary col-md-16" role="alert" id='status_busca_cep'> </div>
+
+
+
+
+<input  maxlength="255"  type="hidden" id="utm_source" name="utm_source"  value='' />
+<input  maxlength="255"  type="hidden" id="utm_campaign" name="utm_campaign"  value='' />
+<input  maxlength="255"  type="hidden" id="gclid" name="gclid"  value='' />
+
+
+<script>
+
+
+
+// Obter parâmetros da URL
+   var xQueryString = window.location.search;
+   var xUrlParams = new URLSearchParams(xQueryString);
+
+   function set_utm_input_form(name,valorcampo){
+      try {
+
+      //   console.log('set_utm_input_form_name'+name);
+        // console.log('set_utm_input_form_value'+valorcampo);
+
+         if(name=='utm_source'){
+            document.querySelectorAll('input[name="utm_source"]').forEach((input) => {
+               input.value=valorcampo;
+            });
+       
+         }
+
+         if(name=='utm_campaign'){
+
+            document.querySelectorAll('input[name="utm_campaign"]').forEach((input) => {
+                input.value=valorcampo;
+             });
+         
+         }
+
+         if(name=='gclid'){
+            document.querySelectorAll('input[name="gclid"]').forEach((input) => {
+               input.value=valorcampo;
+            });
+       
+         }
+
+         } catch (e) {
+            console.log('Erro ao setar valor utm')
+         }
+   }
+
+// Função para ler um cookie
+ function x_readCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1, c.length);
+   }
+   if (c.indexOf(nameEQ) == 0) {
+      var value = c.substring(nameEQ.length, c.length);
+        //    console.log("Cookie read:", name, "Value:", decodeURIComponent(value)); // Log para depuração
+
+            set_utm_input_form(name,value)
+
+            return value;
+         }
+      }
+    console.log("Cookie not found:", name); // Log para depuração
+
+    
+
+    return null;
+ }
+
+// Expressão regular para referenciador
+ var reX = /(utm_source\d+(\.\d)*)/i;
+ var refX = window.parent.location.href;
+
+ var refX2 = document.referrer;
+
+// Função para definir cookies UTM
+ function setUTMCookie(paramName, defaultValue) {
+
+   console.log(refX);
+
+
+  if (xUrlParams.has(paramName)) {
+    var value = xUrlParams.get(paramName);
+
+    
+    if(value!==''){
+      setCookie(paramName, value, 365);
+    }
+   
+   }
+   
+
+
+}
+function setutmcookies(){
+// Definir todos os cookies UTM
+console.log("Setting cookies...");
+setUTMCookie("utm_id", "organic");
+setUTMCookie("gclid", "organic");
+setUTMCookie("utm_source", "organic");
+setUTMCookie("utm_medium", "organic");
+setUTMCookie("utm_campaign", "organic");
+setUTMCookie("utm_term", "organic");
+setUTMCookie("utm_content", "organic");
+
+
+setInterval(function () {x_readCookie("utm_source")}, 5000);
+setInterval(function () {x_readCookie("utm_campaign")}, 5000);
+setInterval(function () {x_readCookie("gclid")}, 5000);
+
+}
+
+
+
+window.addEventListener("load", setutmcookies);
+
+
+function setCookie(name,value,days) {
+   var expires = "";
+   if (days) {
+       var date = new Date();
+       date.setTime(date.getTime() + (days*24*60*60*1000));
+       expires = "; expires=" + date.toUTCString();
+   }
+   document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+
+
+
+}
+</script>
