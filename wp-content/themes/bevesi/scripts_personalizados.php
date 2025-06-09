@@ -159,7 +159,7 @@ window.onload = function() {
 
         <?php 
             if (strpos($_SERVER['HTTP_REFERER'], '?etapa_cadastro=3') !== false) { ?>
-                window.location=('/lista_planos');
+                window.location=('/cadastro_sucesso');
         <?php }  ?>
 
     setInterval(function() { limpa_campos_etapa(2); }, 200);

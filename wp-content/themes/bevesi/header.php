@@ -16,7 +16,9 @@
 	<link rel="shortcut icon" href="/wp-content/uploads/2024/03/logo-dark.png">
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/vaakash/socializer@f794acd/css/socializer.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.2/css/all.css">
-	<link rel="stylesheet" href="/wp-content/themes/bevesi/assets/css/iconsmind.css">
+    <link rel="stylesheet" href="/wp-content/themes/bevesi/assets/css/iconsmind.css">
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=68471409bde97c0013e1e105&product=sop' async='async'></script>
+
 	<?php wp_head(); ?>
 </head>
 <style>
