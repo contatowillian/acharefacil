@@ -17,6 +17,29 @@ function content_mostraListasPlanos($content) {
 
     if (is_page('checkout_plano')) {
 
+
+      ob_start();
+      include('tpl/PaginaCompartilharCadastro.phtml');
+      $template = ob_get_clean();
+
+
+
+      if ( is_user_logged_in() ) {
+       
+        $user = wp_get_current_user();
+
+        $id_usuario_logado = $user->ID;
+        $content = str_replace('[[botoes_compartilhar]]', $template, $content);
+      }
+
+      return $content;
+    }
+
+
+    
+
+    if (is_page('checkout_plano')) {
+
       if(!isset($_GET['plano']) or empty($_GET['plano'])){
         
         echo "Parametrô plano não encontrado";
