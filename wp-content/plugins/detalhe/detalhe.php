@@ -42,7 +42,17 @@ function content_detalheUsuariosAnunciantes($content) {
         
   
         $afreg_extra_fields = get_posts($afreg_args);
- 
+
+
+        $quantidade_vizualizacao_detalhes = get_user_meta( $_GET['detalhe_anunciante'], 'afreg_additional_3340', true );
+        
+        if($quantidade_vizualizacao_detalhes==''){
+          $quantidade_vizualizacao_detalhes=0;
+        }
+
+        update_user_meta( $_GET['detalhe_anunciante'], 'afreg_additional_3340',$quantidade_vizualizacao_detalhes+1 );
+
+
 
         if(!empty($users)){
           foreach ($users as $user){
