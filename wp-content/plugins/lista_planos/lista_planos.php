@@ -15,7 +15,7 @@ function content_mostraListasPlanos($content) {
     global $wpdb;
 
 
-    if (is_page('checkout_plano')) {
+    if (is_page('cadastro_sucesso')) {
 
 
       ob_start();
