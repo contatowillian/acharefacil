@@ -87,7 +87,7 @@ function content_mostraListasPlanos($content) {
           CONCAT('-',SUBSTR(destaque.meta_value, 1, 2)
           )))))
           >=  NOW() 
-          and ud.id  = ". $id_usuario_logado."
+          and us.id  = ". $id_usuario_logado."
           limit 1 ";
 
         $lista_planos = $wpdb->get_results($consulta_usuarios_anunciantes);
@@ -150,15 +150,15 @@ function gera_token_pag_seguro(){
         "type": "CREDIT_CARD"
       }
     ],
-    "redirect_url": "https://acharefacil.test/conclusao_plano"
+    "redirect_url": "https://sorvetedecerveja.com.br/conclusao_plano"
   }
   ',
     CURLOPT_HTTPHEADER => array(
       'Authorization: Bearer '.$token_achar_facil,
       'Content-type: application/json',
       'accept: application/json',
-      'x-client-id: <your-client-id>',
-      'x-client-secret: <your-client-secret>'
+      'x-client-id: 0ea39b37-5e5f-4995-ad22-62f2663ca0f8',
+      'x-client-secret: db4ab4a6-87fc-4122-b4eb-a437b24fb9fb'
     ),
   ));
   
