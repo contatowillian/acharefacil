@@ -1,15 +1,12 @@
 
-
 <?php if(isset($_GET['etapa_cadastro'])){ ?>
 
 <script>
 
 
-
-
-
 jQuery( document ).ready(function( $ ) {
 
+  
     $(".campo_telefone input").mask('(00) 00000-0009', {clearIfNotMatch: true});
     $(".horario_atendimento input").mask('00:00', {clearIfNotMatch: true});
 
@@ -539,4 +536,22 @@ function setCookie(name,value,days) {
 
 
 }
+</script>
+
+
+
+<script>
+
+
+jQuery( document ).ready(function( $ ) {
+
+    $('input[name="escolhe_permite_conteudo_adulto"]').on("click", function(e) {
+        console.log(this);
+        if(this.value=='sim'){
+            $('.mais_18_form').show();
+        }else{
+            $('.mais_18_form').hide();
+        }
+    });
+});
 </script>

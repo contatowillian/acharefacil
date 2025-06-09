@@ -2207,6 +2207,9 @@ height:35px !important;
     font-size: 56px;
 }
 
+.mais_18_form{
+    display: none;
+}
 
 
 @media (max-width: 600px) {

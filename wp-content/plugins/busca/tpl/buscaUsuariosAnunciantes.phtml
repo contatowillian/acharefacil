@@ -221,7 +221,7 @@
                            $href_paginacao ='#';
                          }else{
                            $classe_pagina_atual ='';
-                           $href_paginacao = '/busca?categoria='.$_GET['categoria'].'&palavra_chave='.$_GET['palavra_chave'].'&cidade='.$_GET['cidade'].'&pagina='.$pagina;
+                           $href_paginacao = '/busca?categoria='.$_GET['categoria'].'&palavra_chave='.$_GET['palavra_chave'].'&cidade='.$_GET['cidade'].'&permite_conteudo_adulto='.$_GET['permite_conteudo_adulto'].'&pagina='.$pagina;
                          }
 
                          
@@ -300,25 +300,52 @@
 
                         <div class="widget widget_block">
                            <div class="wp-block-group">
-                           <h2 class="wp-block-heading">Permitir conteúdo adulto:</h2>
-                              <p class="form-row form-group user-role vendor-customer-registration">
-                              <label class="radio">
-                                 <input type="radio" name="permite_conteudo_adulto" value="sim" 
-                                 <?php if(isset($_GET['permite_conteudo_adulto'])  and $_GET['permite_conteudo_adulto']=='sim') {  echo 'checked="checked"';  };?>
-                                  class="dokan-role-customer">
-                                 Sim
-                              </label>
-                              <br>
-                              <label class="radio">
-                                 <input type="radio" name="permite_conteudo_adulto" 
-                                 
-                                 <?php if(!isset($_GET['permite_conteudo_adulto'])  or $_GET['permite_conteudo_adulto']!='sim') {  echo 'checked="checked"';  };?>
-                                  class="dokan-role-seller">
-                                 Não
-                              </label>
-                              </p>
+                              <h2 class="wp-block-heading">Permitir conteúdo adulto:</h2>
+                                 <p class="form-row form-group user-role vendor-customer-registration">
+                                 <label class="radio">
+                                    <input type="radio" name="escolhe_permite_conteudo_adulto" value="sim" 
+                                    <?php if(isset($_GET['permite_conteudo_adulto'])  and $_GET['permite_conteudo_adulto']=='sim') {  echo 'checked="checked"';  };?>
+                                    class="dokan-role-customer">
+                                    Sim
+                                 </label>
+                                 <br>
+                                 <label class="radio">
+                                    <input type="radio" name="escolhe_permite_conteudo_adulto" 
+                                    
+                                    <?php if(!isset($_GET['permite_conteudo_adulto'])  or $_GET['permite_conteudo_adulto']!='sim') {  echo 'checked="checked"';  };?>
+                                    class="dokan-role-seller">
+                                    Não
+                                 </label>
+                                 </p>
+                           </div>
                         </div>
+
+
+                        <div class="widget widget_block mais_18_form">
+                           <div class="wp-block-group">
+                              <h2 class="wp-block-heading">Você tem mais de 18 ?</h2>
+                                 <p class="form-row form-group user-role vendor-customer-registration">
+                                 <label class="radio">
+                                    <input type="radio" name="permite_conteudo_adulto" value="sim" 
+                                    <?php if(isset($_GET['permite_conteudo_adulto'])  and $_GET['permite_conteudo_adulto']=='sim') {  echo 'checked="checked"';  };?>
+                                    class="dokan-role-customer">
+                                    Sim
+                                 </label>
+                                 <br>
+                                 <label class="radio">
+                                    <input type="radio" name="permite_conteudo_adulto" 
+                                    
+                                    <?php if(!isset($_GET['permite_conteudo_adulto'])  or $_GET['permite_conteudo_adulto']!='sim') {  echo 'checked="checked"';  };?>
+                                    class="dokan-role-seller">
+                                    Não
+                                 </label>
+                               
+                                 </p>
+                           </div>
                         </div>
+
+
+
 
 
                         <button type="submit" class="button">Filtrar</button>
