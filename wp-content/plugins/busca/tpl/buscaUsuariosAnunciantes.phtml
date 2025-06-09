@@ -44,7 +44,7 @@
                   <div class="before-shop-loop">
                      <div class="column left">
                         <p class="woocommerce-result-count">
-                        Exibindo 20  de <?php echo $qtd_total_busca; ?> resultados
+                        Exibindo <?php if($qtd_total_busca<20){ echo $qtd_total_busca;  }else{ echo "20"; } ?>  de <?php echo $qtd_total_busca; ?> resultados
                         </p>
                      </div>
                   </div>
