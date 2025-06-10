@@ -9,10 +9,152 @@ Author URI: http://www.acharefacil.com.br
 License: Copyright
 */
 
+function atualiza_data_destaque_usuario($id_pagamento) {
+  global $wpdb;
+  
+  $select_ultimo_pagamento = "select id_pagamento,user_id,tipo_plano from `pagamento` where id_pagamento = ".$id_pagamento;
+  $dados_pagamento = $wpdb->get_results($select_ultimo_pagamento);  
+ 
+  if(isset($dados_pagamento[0]->user_id)){
+
+    $data_cadastro = get_user_meta( $dados_pagamento[0]->user_id, 'afreg_additional_3288', true );
+
+    if($data_cadastro==''){
+      $data_formatada = date('Y-m-d');
+    }else{
+      $dia_data = substr($data_cadastro,0,2);
+      $mes_data = substr($data_cadastro,2,2);
+      $ano_data = substr($data_cadastro,4,4);
+      $data_formatada = $ano_data."-".$mes_data."-".$dia_data;
+    }
+
+        
+    if($dados_pagamento[0]->tipo_plano=='plano_mensal'){
+      $data_cadastro = date('d/m/Y', strtotime($data_formatada. ' + 30 days'));
+    }
+
+    if($dados_pagamento[0]->tipo_plano=='plano_semestral'){
+      $data_cadastro = date('d/m/Y',strtotime($data_formatada. ' + 180 days'));
+    }
+
+    if($dados_pagamento[0]->tipo_plano=='plano_anual'){
+      $data_cadastro = date('d/m/Y', strtotime($data_formatada. ' + 360 days'));
+    }
+
+    
+    update_user_meta( $dados_pagamento[0]->user_id, 'afreg_additional_3288',$data_cadastro);
+
+  }else{ 
+    print_r($wpdb);
+    echo  "Erro ao atualizar pagamento, entre com contato com o Adminstrador ";
+    exit;  
+  }
+
+}
+
+
+
+function atualiza_pagamento_realizado($id_pagamento) {
+  global $wpdb;
+  
+  $result_check =  $wpdb->update( 'pagamento', array(
+      'pagamento_efetuado' => 'sim'
+  ), array(
+      'id_pagamento' =>  $id_pagamento
+  )
+  );
+ 
+ 
+  if(!$result_check){
+     print_r($wpdb);
+    echo  "Erro ao atualizar pagamento ";
+    exit;  
+  }else{
+    return true;
+  }
+
+}
+
+
+
+
+function atualiza_dados_pagamento($dados) {
+  global $wpdb;
+  
+  $result_check =  $wpdb->update( 'pagamento', array(
+      'dados_retorno' => $dados['dados_retorno']
+  ), array(
+      'id_pagamento' =>  $dados['id_pagamento']
+  )
+  );
+ 
+ 
+  if(!$result_check){
+     print_r($wpdb);
+    echo  "Erro ao atualizar pagamento ";
+    exit;  
+  }else{
+    return true;
+  }
+
+}
+
+
+function inseri_dados_pagamento($dados) {
+  global $wpdb;
+
+  $result_check = $wpdb->insert( 'pagamento', array("user_id"  => $dados['user_id'],"tipo_plano"  => $dados['tipo_plano'], "dados_envio" => $dados['dados_envio']));
+  
+  
+  $select_ultimo_pagamento = "select id_pagamento from `pagamento` order by id_pagamento desc";
+ 
+ 
+  if($result_check){
+  return $wpdb->get_results($select_ultimo_pagamento);               
+
+  }else{
+    echo $wpdb->last_error;
+    echo  "Erro ao gravar pagamento ";
+    exit;
+  }
+
+}
+
 
 function content_mostraListasPlanos($content) {
 
     global $wpdb;
+
+
+
+    if (is_page('conclusao_plano')) {
+
+
+      if ( is_user_logged_in() ) {
+
+
+        if(!isset($_GET['id_pagamento']) or empty($_GET['id_pagamento'])){
+
+          echo "Codigo do pagamento não enviado, informe ao adminstrador !";
+
+        }else{
+
+          $id_pagamento  = base64_decode($_GET['id_pagamento']);
+          atualiza_pagamento_realizado($id_pagamento);
+          atualiza_data_destaque_usuario($id_pagamento);
+
+        }
+      
+
+      }
+
+      return $content;
+    }
+
+
+
+
+  }
 
 
     if (is_page('cadastro_sucesso')) {
@@ -47,20 +189,40 @@ function content_mostraListasPlanos($content) {
 
       }else{
 
+
+        $user = wp_get_current_user();
+
+        $dados_usuario_logado = $user;
+
+        $dados_compra = array();
+
+        $dados_compra['user_id'] = $dados_usuario_logado->ID;
+        $dados_compra['dados_comprador']['nome'] = $dados_usuario_logado->display_name;
+        $dados_compra['dados_comprador']['email'] =   $dados_usuario_logado->user_email;
+
+
         if($_GET['plano']=='plano_mensal'){
           $valor = '1990';
-          $retorno_gera_checkout=  gera_token_pag_seguro($valor,$_GET['plano']);
+          $dados_compra['valor_plano'] = $valor;
+          $dados_compra['descricao_plano'] = "plano_mensal";
+          
+
+          $retorno_gera_checkout=  gera_token_pag_seguro($dados_compra);
 
         }
 
         if($_GET['plano']=='plano_semestral'){
           $valor = '4990';
+          $dados_compra['valor_plano'] = $valor;
+          $dados_compra['descricao_plano'] = "plano_semestral";
           $retorno_gera_checkout=  gera_token_pag_seguro($valor,$_GET['plano']);
 
         }
 
         if($_GET['plano']=='plano_anual'){
           $valor = '11890';
+          $dados_compra['valor_plano'] = $valor;
+          $dados_compra['descricao_plano'] = "plano_anual";
           $retorno_gera_checkout=   gera_token_pag_seguro($valor,$_GET['plano']);
 
         }
@@ -136,32 +298,26 @@ function content_mostraListasPlanos($content) {
 
 
 
-function gera_token_pag_seguro(){
+function gera_token_pag_seguro($dados_compra){
 
   $curl = curl_init();
 
   $token_achar_facil = '14a84a4a-8d7a-43ba-9b4c-19965eccfd99f50b68984ffaba08f4a980aafeb8a3f3eda0-c784-4720-a814-bb2650fde987';
 
+
+  $dados_pagamento['user_id'] = $dados_compra['user_id'];
   
-  curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://sandbox.api.pagseguro.com/checkouts',
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => '',
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 0,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => 'POST',
-    CURLOPT_POSTFIELDS =>'
+
+  $dados_pagamento['dados_envio'] = '
   {
     "expiration_date": "2030-08-14T19:09:10-03:00",
     "reference_id": "1",
     "items": [
       {
-        "reference_id": "plano_mensal",
-        "name": "plano_mensal",
-        "description": "plano_mensal",
-        "unit_amount": 1990,
+        "reference_id": "'.$dados_compra['descricao_plano'].'",
+        "name": "'.$dados_compra['descricao_plano'].'",
+        "description": "Compra Plano Achar é facil - '.$dados_compra['descricao_plano'].'",
+        "unit_amount": "'.$dados_compra['valor_plano'].'",
         "quantity": 1
       }
     ],
@@ -173,9 +329,27 @@ function gera_token_pag_seguro(){
         "type": "CREDIT_CARD"
       }
     ],
-    "redirect_url": "https://sorvetedecerveja.com.br/conclusao_plano"
+    "redirect_url": "https://sorvetedecerveja.com.br/conclusao_plano?id_pagamento={{id_pagamento}}"
   }
-  ',
+  ';
+
+  $dados_pagamento['tipo_plano'] =$dados_compra['descricao_plano'];
+
+  $inseri_dados_pagamento = inseri_dados_pagamento($dados_pagamento);
+
+  $dados_pagamento['dados_envio'] = str_replace('{{id_pagamento}}',base64_encode($inseri_dados_pagamento[0]->id_pagamento),$dados_pagamento['dados_envio']);
+
+
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => 'https://sandbox.api.pagseguro.com/checkouts',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS =>$dados_pagamento['dados_envio'],
     CURLOPT_HTTPHEADER => array(
       'Authorization: Bearer '.$token_achar_facil,
       'Content-type: application/json',
@@ -188,6 +362,14 @@ function gera_token_pag_seguro(){
   $response = curl_exec($curl);
   
   curl_close($curl);
+
+  $dados_pagamento['dados_retorno'] = $response;
+
+  $dados_pagamento['id_pagamento'] = $inseri_dados_pagamento[0]->id_pagamento;
+
+
+  $inseri_dados_pagamento = atualiza_dados_pagamento($dados_pagamento);
+
   return json_decode($response);
   
 
