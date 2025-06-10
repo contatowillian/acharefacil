@@ -154,7 +154,7 @@ function content_mostraListasPlanos($content) {
 
 
 
-  }
+  
 
 
     if (is_page('cadastro_sucesso')) {
