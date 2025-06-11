@@ -15,9 +15,12 @@ function atualiza_data_destaque_usuario($id_pagamento) {
   $select_ultimo_pagamento = "select id_pagamento,user_id,tipo_plano from `pagamento` where id_pagamento = ".$id_pagamento;
   $dados_pagamento = $wpdb->get_results($select_ultimo_pagamento);  
  
-  if(isset($dados_pagamento[0]->user_id)){
+  if(isset($dados_pagamento[0]->user_id) && $dados_pagamento[0]->validado!='sim'){
 
     $data_cadastro = get_user_meta( $dados_pagamento[0]->user_id, 'afreg_additional_3288', true );
+    echo "data_cadasotro".$data_cadastro;
+
+    atualiza_pagamento_validado($dados_pagamento[0]->id_pagamento);
 
     if($data_cadastro==''){
       $data_formatada = date('Y-m-d');
@@ -51,6 +54,30 @@ function atualiza_data_destaque_usuario($id_pagamento) {
   }
 
 }
+
+
+function atualiza_pagamento_validado($id_pagamento) {
+  global $wpdb;
+  
+  $result_check =  $wpdb->update( 'pagamento', array(
+      'validado' => 'sim'
+  ), array(
+      'id_pagamento' =>  $id_pagamento
+  )
+  );
+ 
+ 
+  if(!$result_check){
+     print_r($wpdb);
+    echo  "Erro ao atualizar pagamento ";
+    exit;  
+  }else{
+    return true;
+  }
+
+}
+
+
 
 
 
