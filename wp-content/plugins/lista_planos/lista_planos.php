@@ -29,10 +29,10 @@ function atualiza_data_destaque_usuario($id_pagamento) {
       $dia_data = substr($data_cadastro,0,2);
       $mes_data = substr($data_cadastro,3,2);
       $ano_data = substr($data_cadastro,6,4);
-   echo   $data_formatada = $ano_data."-".$mes_data."-".$dia_data;
+      $data_formatada = $ano_data."-".$mes_data."-".$dia_data;
     }
 
-    
+
         
     if($dados_pagamento[0]->tipo_plano=='plano_mensal'){
       $data_cadastro = date('d/m/Y', strtotime($data_formatada. ' + 30 days'));
@@ -54,7 +54,8 @@ function atualiza_data_destaque_usuario($id_pagamento) {
     echo  "Erro ao atualizar pagamento, entre com contato com o Adminstrador ";
     exit;  
   }
-
+ 
+  return $dados_pagamento[0]->id_pagamento;
 }
 
 
@@ -170,7 +171,16 @@ function content_mostraListasPlanos($content) {
 
           $id_pagamento  = base64_decode($_GET['id_pagamento']);
           atualiza_pagamento_realizado($id_pagamento);
-          atualiza_data_destaque_usuario($id_pagamento);
+          $id_pagamento  = atualiza_data_destaque_usuario($id_pagamento);
+
+
+         $botao_compartilhar = '<a class="elementor-button elementor-button-link elementor-size-sm" href="https://sorvetedecerveja.com.br/detalhe/?detalhe_anunciante='.$id_pagamento.'" id="ver-meu-anuncio-botao">
+                                  <span class="elementor-button-content-wrapper">
+                                        <span class="elementor-button-text">Quero ser destaque</span>
+                                  </span>
+                                </a>';
+          
+          $content = str_replace('[[botoes_compartilhar]]', $botao_compartilhar, $content);
 
         }
       
@@ -180,10 +190,6 @@ function content_mostraListasPlanos($content) {
       return $content;
     }
 
-
-
-
-  
 
 
     if (is_page('cadastro_sucesso')) {
