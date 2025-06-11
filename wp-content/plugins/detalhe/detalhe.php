@@ -32,6 +32,10 @@ function content_detalheUsuariosAnunciantes($content) {
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
+        echo strtolower($users[0]->aprovacao);
+
+        exit;
+        
         if(strtolower($users[0]->aprovacao)!='approved'){
           echo "<h3>Seu anúncio está em fase de aprovação ...<br> Estamos analisando e seu cadastro será liberado em breve !</h3>";
           ?>
