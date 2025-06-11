@@ -27,11 +27,12 @@ function atualiza_data_destaque_usuario($id_pagamento) {
       $data_formatada = date('Y-m-d');
     }else{
       $dia_data = substr($data_cadastro,0,2);
-      $mes_data = substr($data_cadastro,2,2);
-      $ano_data = substr($data_cadastro,4,4);
-      $data_formatada = $ano_data."-".$mes_data."-".$dia_data;
+      $mes_data = substr($data_cadastro,3,2);
+      $ano_data = substr($data_cadastro,6,4);
+   echo   $data_formatada = $ano_data."-".$mes_data."-".$dia_data;
     }
 
+    
         
     if($dados_pagamento[0]->tipo_plano=='plano_mensal'){
       $data_cadastro = date('d/m/Y', strtotime($data_formatada. ' + 30 days'));
