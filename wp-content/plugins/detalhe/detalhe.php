@@ -33,7 +33,7 @@ function content_detalheUsuariosAnunciantes($content) {
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
         if(strtolower($users[0]->aprovacao)!='approved'){
-          echo "<h2>Seu anúncio está em aprovaçao ...<br> Estamos analisando e seu cadastro será liberado em breve !</h2>";
+          echo "<h3>Seu anúncio está em fase de aprovação ...<br> Estamos analisando e seu cadastro será liberado em breve !</h3>";
           ?>
           <style>
           .container .woocommerce-breadcrumb{
