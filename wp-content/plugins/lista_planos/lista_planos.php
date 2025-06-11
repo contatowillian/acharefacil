@@ -174,7 +174,7 @@ function content_mostraListasPlanos($content) {
           $id_pagamento  = atualiza_data_destaque_usuario($id_pagamento);
 
 
-         $botao_compartilhar = '<a class="elementor-button elementor-button-link elementor-size-sm" href="https://sorvetedecerveja.com.br/detalhe/?detalhe_anunciante='.$id_pagamento.'" id="ver-meu-anuncio-botao">
+         $botao_compartilhar = '<a style="background-color: #336838" class="elementor-button elementor-button-link elementor-size-sm" href="https://sorvetedecerveja.com.br/detalhe/?detalhe_anunciante='.$id_pagamento.'" id="ver-meu-anuncio-botao">
                                   <span class="elementor-button-content-wrapper">
                                         <span class="elementor-button-text">Ver meu anúncio</span>
                                   </span>
