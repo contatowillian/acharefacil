@@ -23,7 +23,7 @@ function content_detalheUsuariosAnunciantes($content) {
          $consulta_usuarios_anunciantes = "SELECT DISTINCT
                                           us.ID,
                                           us.user_login,
-                                          wp_usermeta.meta_value as aprovacao
+                                          afreg_new_user_status.meta_value as aprovacao
                                           FROM wp_users AS us
                                           LEFT JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status'
                                           where us.user_status = 0  and us.ID = '".$_GET['detalhe_anunciante']."'";
