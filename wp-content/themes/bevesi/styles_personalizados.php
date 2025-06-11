@@ -2621,9 +2621,9 @@ height:35px !important;
  }
 
  .elementor-page-1134 .carrosel_recentes_lista{
-    width: 80%;
+    width: 92%;
     display: flex;
-    margin-left: 10%;
+    margin-left: 4%;
  }
  .site-slider-anunciantes1 .slick-nav svg {
    position: relative !important;
