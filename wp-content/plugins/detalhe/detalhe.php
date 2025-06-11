@@ -34,8 +34,16 @@ function content_detalheUsuariosAnunciantes($content) {
 
         if(strtolower($users[0]->aprovacao)!='approved'){
           echo "<h2>Seu anúncio está em aprovaçao ...<br> Estamos analisando e seu cadastro será liberado em breve !</h2>";
-          
-        }
+          ?>
+          <style>
+          .container .woocommerce-breadcrumb{
+            display: none !important;
+          }
+          .single-product-wrapper {
+            display: none !important;
+          }
+          </style>
+       <?php }
 
         $afreg_args = array( 
           'posts_per_page'   => -1,
