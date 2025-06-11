@@ -70,7 +70,7 @@ function atualiza_pagamento_validado($id_pagamento) {
  
   if(!$result_check){
      print_r($wpdb);
-    echo  "Erro ao atualizar pagamento ";
+    echo  "Erro ao validar pagamento ";
     exit;  
   }else{
     return true;
