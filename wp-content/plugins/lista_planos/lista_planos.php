@@ -180,7 +180,7 @@ function content_mostraListasPlanos($content) {
                                   </span>
                                 </a>';
           
-          $content = str_replace('[[botoes_compartilhar]]', $botao_compartilhar, $content);
+          $content = str_replace('[[botoes_ver_anuncio]]', $botao_compartilhar, $content);
 
         }
       
