@@ -10,11 +10,18 @@
         border-radius: 10px;
     }
 
-    .home .elementor-1134 .carrosel_anunciantes_home .site-slider.products .slick-slide{
+    .home .elementor-1134 .carrosel_anunciantes_home .site-slider .slick-slide{
         width: 236px;
         height: 350px;
         max-height: 350px;
 
+    }
+
+    .home  .imagem_carrosel_anunciantes{
+        border-radius: 10px;
+        width: 163px !important;
+        margin: 0px auto;
+        border: 1px solid #eee;
     }
 
 }
