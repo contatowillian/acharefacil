@@ -22,14 +22,19 @@ function content_detalheUsuariosAnunciantes($content) {
 
          $consulta_usuarios_anunciantes = "SELECT DISTINCT
                                           us.ID,
-                                          us.user_login
+                                          us.user_login,
+                                          wp_usermeta.meta_value as aprovacao
                                           FROM wp_users AS us
-                                          JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
+                                          LEFT JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                           where us.user_status = 0  and us.ID = '".$_GET['detalhe_anunciante']."'";
 
     
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
+
+        if(strtolower($users[0]->aprovacao)!='approved'){
+          echo "<h2>Seu anúncio está em aprovaçao ...<br> Estamos analisando e seu cadastro será liberado em breve !</h2>";
+        }
 
         $afreg_args = array( 
           'posts_per_page'   => -1,
