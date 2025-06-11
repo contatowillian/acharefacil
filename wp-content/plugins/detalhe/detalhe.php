@@ -44,7 +44,7 @@ function content_detalheUsuariosAnunciantes($content) {
           .single-product-wrapper {
             display: none !important;
           }
-          .product_title .entry-title{
+          .page-id-3290 .klb-post h1{
             display: none !important;
           }
           </style>
