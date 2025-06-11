@@ -176,7 +176,7 @@ function content_mostraListasPlanos($content) {
 
          $botao_compartilhar = '<a class="elementor-button elementor-button-link elementor-size-sm" href="https://sorvetedecerveja.com.br/detalhe/?detalhe_anunciante='.$id_pagamento.'" id="ver-meu-anuncio-botao">
                                   <span class="elementor-button-content-wrapper">
-                                        <span class="elementor-button-text">Quero ser destaque</span>
+                                        <span class="elementor-button-text">Ver meu anúncio</span>
                                   </span>
                                 </a>';
           
