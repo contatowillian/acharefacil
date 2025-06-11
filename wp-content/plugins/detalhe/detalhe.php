@@ -47,6 +47,9 @@ function content_detalheUsuariosAnunciantes($content) {
           .page-id-3290 .klb-post h1{
             display: none !important;
           }
+          .anuncios_semelhantes_bloco{
+            display: none !important;
+          }
           </style>
         
         <?php }
