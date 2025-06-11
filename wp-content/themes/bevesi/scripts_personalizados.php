@@ -32,6 +32,7 @@ jQuery( document ).ready(function( $ ) {
 
     <?php if($_GET['etapa_cadastro']==3){ ?>
 
+        document.getElementById("afreg_additional_3212").remove();
         
         cria_preenche_horario_funcionamento(3246,3263,'Segunda-Feira');
         cria_preenche_horario_funcionamento(3248,3264,'Terça-Feira');
