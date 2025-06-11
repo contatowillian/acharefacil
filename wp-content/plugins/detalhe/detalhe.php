@@ -46,7 +46,7 @@ function content_detalheUsuariosAnunciantes($content) {
           }
           </style>
          <?php }
-        }
+        
 
         $afreg_args = array( 
           'posts_per_page'   => -1,
