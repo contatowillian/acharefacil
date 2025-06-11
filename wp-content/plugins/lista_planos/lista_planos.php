@@ -195,6 +195,9 @@ function content_mostraListasPlanos($content) {
     if (is_page('cadastro_sucesso')) {
 
 
+      ob_start();
+      include('tpl/PaginaCompartilharCadastro.phtml');
+      $template = ob_get_clean();
 
 
 
@@ -203,12 +206,9 @@ function content_mostraListasPlanos($content) {
         $user = wp_get_current_user();
 
         $id_usuario_logado = $user->ID;
+        
 
-
-        ob_start();
-        include('tpl/PaginaCompartilharCadastro.phtml');
-        $template = ob_get_clean();
-
+        $template = str_replace("{{id_user}}",$id_usuario_logado,$template);
 
         $content = str_replace('[[botoes_compartilhar]]', $template, $content);
       }
