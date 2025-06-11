@@ -19,7 +19,7 @@ function atualiza_data_destaque_usuario($id_pagamento) {
   if(isset($dados_pagamento[0]->user_id) && $dados_pagamento[0]->validado!='sim'){
 
     $data_cadastro = get_user_meta( $dados_pagamento[0]->user_id, 'afreg_additional_3288', true );
-    echo "data_cadasotro".$data_cadastro;
+   // echo "data_cadasotro".$data_cadastro;
 
     atualiza_pagamento_validado($dados_pagamento[0]->id_pagamento);
 
