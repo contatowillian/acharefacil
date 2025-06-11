@@ -34,7 +34,7 @@ function content_detalheUsuariosAnunciantes($content) {
 
         if(strtolower($users[0]->aprovacao)!='approved'){
           echo "<h2>Seu anúncio está em aprovaçao ...<br> Estamos analisando e seu cadastro será liberado em breve !</h2>";
-          exit;
+          
         }
 
         $afreg_args = array( 
