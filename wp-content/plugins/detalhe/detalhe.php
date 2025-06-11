@@ -38,7 +38,7 @@ function content_detalheUsuariosAnunciantes($content) {
 
         if(strtolower($users[0]->aprovacao)!='approved'){
           echo "<h3>Seu anúncio está em fase de aprovação ...<br> Estamos analisando e seu cadastro será liberado em breve !</h3>";
-        
+        }
 
         $afreg_args = array( 
           'posts_per_page'   => -1,
