@@ -4,6 +4,12 @@
 <script>
 
 
+function set_utm_cadastro(){
+    document.getElementById("afreg_additional_3342").value =  document.getElementById("utm_source").value;
+    document.getElementById("afreg_additional_3343").value =  document.getElementById("utm_campaign").value;
+    document.getElementById("afreg_additional_3344").value =  document.getElementById("gclid").value;
+}
+
 jQuery( document ).ready(function( $ ) {
 
   
@@ -12,10 +18,8 @@ jQuery( document ).ready(function( $ ) {
 
     <?php if($_GET['etapa_cadastro']==2){ ?>
 
-        document.getElementById("afreg_additional_3342").value =  document.getElementById("utm_source").value;
-        document.getElementById("afreg_additional_3343").value =  document.getElementById("utm_campaign").value;
-        document.getElementById("afreg_additional_3344").value =  document.getElementById("gclid").value;
-
+        
+        setInterval(function () {set_utm_cadastro()}, 5000);
 
         $("#afreg_additional_3224").on("keyup change", function(e) {
 
