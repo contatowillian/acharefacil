@@ -12,7 +12,7 @@ License: Copyright
 function atualiza_data_destaque_usuario($id_pagamento) {
   global $wpdb;
   
-  $select_ultimo_pagamento = "select id_pagamento,user_id,tipo_plano from `pagamento` where id_pagamento = ".$id_pagamento;
+  $select_ultimo_pagamento = "select id_pagamento,user_id,tipo_plano,validado from `pagamento` where id_pagamento = ".$id_pagamento;
   $dados_pagamento = $wpdb->get_results($select_ultimo_pagamento);  
  
   if(isset($dados_pagamento[0]->user_id) && $dados_pagamento[0]->validado!='sim'){
