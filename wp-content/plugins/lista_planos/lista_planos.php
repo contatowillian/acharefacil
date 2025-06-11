@@ -289,7 +289,7 @@ function content_mostraListasPlanos($content) {
 
 
       if ( is_user_logged_in() ) {
-       
+        $url_compra= '/checkout_plano';
         $user = wp_get_current_user();
 
         $id_usuario_logado = $user->ID;
@@ -326,6 +326,7 @@ function content_mostraListasPlanos($content) {
 
         
       } else {
+        $url_compra= '/criar-anuncio';
         $content = str_replace('[[lista_planos]]', $template, $content);
       }
 
