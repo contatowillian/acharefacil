@@ -44,6 +44,9 @@ function content_detalheUsuariosAnunciantes($content) {
           .single-product-wrapper {
             display: none !important;
           }
+          .product_title .entry-title{
+            display: none !important;
+          }
           </style>
         
         <?php }
