@@ -32,7 +32,7 @@ function content_detalheUsuariosAnunciantes($content) {
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
-        echo strtolower($users[0]->aprovacao);
+        print_r($users[0]);
 
         exit;
 
