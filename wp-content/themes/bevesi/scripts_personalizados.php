@@ -30,9 +30,12 @@ jQuery( document ).ready(function( $ ) {
     <?php } ?>
 
 
-    <?php if($_GET['etapa_cadastro']==3){ ?>
+    <?php if($_GET['etapa_cadastro']==3){ 
+          $user = wp_get_current_user();
+          $id_usuario_logado = $user->ID;
+        ?>
 
-        document.getElementById("afreg_additional_3212").remove();
+        document.getElementById("afreg_additional_3212").value =  '<?php echo get_user_meta($id_usuario_logado, 'afreg_additional_3212', true ); ?>'; 
         
         cria_preenche_horario_funcionamento(3246,3263,'Segunda-Feira');
         cria_preenche_horario_funcionamento(3248,3264,'Terça-Feira');
