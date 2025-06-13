@@ -3408,7 +3408,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 			if (!empty($afreg_extra_fields)) {
 
-
+	
 
 				foreach ($afreg_extra_fields as $afreg_field) {
 
@@ -3416,7 +3416,9 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 					$afreg_field_read_only = get_post_meta( $afreg_field->ID, 'afreg_field_read_only', true );
 
-					update_user_meta( $customer_id, 'afreg_additional_' . intval($afreg_field->ID), '' );
+					if($afreg_field->ID!=3212){
+						update_user_meta( $customer_id, 'afreg_additional_' . intval($afreg_field->ID), '' );
+					}
 
 
 					if ('on' != $afreg_field_read_only) {
