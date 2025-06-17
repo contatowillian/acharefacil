@@ -3533,12 +3533,10 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 										$temp = move_uploaded_file(sanitize_text_field($_FILES['afreg_additional_' . intval($afreg_field->ID)]['tmp_name']), $target_path);
 									
 										if( $temp ) {
-											echo "Successfully uploaded";  
-											exit;       
+										//	echo "Successfully uploaded";  
+										///	exit;       
 										  } else {
 											echo $this->codeToMessage($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]["error"]);
-
-
 											echo "Not uploaded because of error #".$_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]["error"];
 											print_r($_FILES[ 'afreg_additional_' . intval($afreg_field->ID)]);
 											exit;
