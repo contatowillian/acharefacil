@@ -35,18 +35,20 @@
                                        $upload_url = wp_upload_dir();
                                        $upload_url = $upload_url['baseurl'] . '/addify_registration_uploads/';
 
+                                       $caminho = 'wp-content/uploads/addify_registration_uploads/'.$dadosAnunciantes->foto_do_anunciante;
+
+
                                     // $file_headers = get_headers($upload_url.$dadosAnunciantes->foto_do_anunciante);
                                        //echo $upload_url.$dadosAnunciantes->foto_do_anunciante;
                                        //echo  $dadosAnunciantes->foto_do_anunciante = $upload_url.strtolower($dadosAnunciantes->foto_do_anunciante).'.jpeg';
                                        //exit;
-
-                                       if (file_exists($upload_url.$dadosAnunciantes->foto_do_anunciante)
-                                       ) {
-                                          $dadosAnunciantes->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante;
-                                       }else if (file_exists($upload_url.$dadosAnunciantes->foto_do_anunciante).'.jpeg'){ 
-                                          $dadosAnunciantes->foto_do_anunciante = $upload_url.$dadosAnunciantes->foto_do_anunciante.'.jpeg';
+                                       if(file_exists($caminho)){ 
+                                          $dadosAnunciantes->foto_do_anunciante = '/'.$caminho;
+                                       }else if(file_exists($caminho.'.jpeg')){
+                                          $dadosAnunciantes->foto_do_anunciante ='/'.$caminho.'.jpeg';
                                        }else{
                                           $dadosAnunciantes->foto_do_anunciante = 'https://2.gravatar.com/avatar/ec65a0d5f2c7d6732407df4c552409c9?s=64&d=mm&r=g';
+         
                                        }
                                     
                                     // }
