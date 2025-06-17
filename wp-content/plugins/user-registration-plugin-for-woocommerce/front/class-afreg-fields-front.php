@@ -3443,7 +3443,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 									$target_path = $_SERVER['DOCUMENT_ROOT'].'/wp-content/uploads/addify_registration_uploads/';
 
-									if(file_exists($folder)){
+									if(file_exists($target_path)){
 										echo "Pasta Existe";  
 										exit; 
 									}else{
