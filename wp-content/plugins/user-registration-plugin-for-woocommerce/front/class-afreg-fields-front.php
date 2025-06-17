@@ -3527,7 +3527,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 										//echo $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['tmp_name'];
 										//exit;
 
-										$temp = move_uploaded_file(sanitize_text_field($_FILES['afreg_additional_' . intval($afreg_field->ID)]['tmp_name']), 'teste.jpg');
+										$temp = move_uploaded_file(sanitize_text_field($_FILES['afreg_additional_' . intval($afreg_field->ID)]['tmp_name']), __DIR__.'/teste.jpg');
 									
 										if( $temp ) {
 											echo "Successfully uploaded";  
