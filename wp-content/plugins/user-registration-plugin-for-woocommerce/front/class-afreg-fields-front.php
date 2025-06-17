@@ -3507,7 +3507,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 								
 
-									if(!file_put_contents(__DIR__.'/../teste.txt' , 'hello')){
+									if(!file_put_contents(__DIR__.'/../../../teste7.txt' , 'hello')){
 										echo "erro no file_put_contents";    
 										exit; 
 									}else{
