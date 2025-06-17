@@ -3433,20 +3433,24 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 								if ( isset($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['name']) && '' != $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['name']) { 
 
-	
-
-
 									if ( isset( $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['name'])) {
 										$file = time() . sanitize_text_field($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['name']);
 									} else {
 										$file = '';
 									}
 
-							
-
 									//$target_path = $upload_url['basedir'] . '/addify_registration_uploads/';
 
 									$target_path = $_SERVER['DOCUMENT_ROOT'].'/wp-content/uploads/addify_registration_uploads/';
+
+									if(file_exists($folder)){
+										echo "Pasta Existe";  
+										exit; 
+									}else{
+										echo "Pasta Não Existe";  
+										exit; 
+									}
+
 								echo	$target_path = $target_path . $file;
 
 
