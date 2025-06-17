@@ -241,7 +241,7 @@ function content_mostraListasPlanos($content) {
 
 
         if($_GET['plano']=='plano_mensal'){
-          $valor = '1990';
+          $valor = '990';
           $dados_compra['valor_plano'] = $valor;
           $dados_compra['descricao_plano'] = "plano_mensal";
           
@@ -251,7 +251,7 @@ function content_mostraListasPlanos($content) {
         }
 
         if($_GET['plano']=='plano_semestral'){
-          $valor = '4990';
+          $valor = '1990';
           $dados_compra['valor_plano'] = $valor;
           $dados_compra['descricao_plano'] = "plano_semestral";
           $retorno_gera_checkout=  gera_token_pag_seguro($valor,$_GET['plano']);
@@ -259,7 +259,7 @@ function content_mostraListasPlanos($content) {
         }
 
         if($_GET['plano']=='plano_anual'){
-          $valor = '11890';
+          $valor = '4990';
           $dados_compra['valor_plano'] = $valor;
           $dados_compra['descricao_plano'] = "plano_anual";
           $retorno_gera_checkout=   gera_token_pag_seguro($valor,$_GET['plano']);
