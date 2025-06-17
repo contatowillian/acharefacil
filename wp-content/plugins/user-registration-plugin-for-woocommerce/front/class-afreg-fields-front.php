@@ -3524,7 +3524,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 											echo "Successfully uploaded";  
 											exit;       
 										  } else {
-											$this->codeToMessage($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]["error"]);
+											echo $this->codeToMessage($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]["error"]);
 
 
 											echo "Not uploaded because of error #".$_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]["error"];
