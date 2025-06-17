@@ -3503,11 +3503,11 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 									//$target_path = $upload_url['basedir'] . '/addify_registration_uploads/'
 
-									$target_path = '/wp-content/uploads/addify_registration_uploads/';
+									$target_path = __DIR__.'/../../../uploads/addify_registration_uploads/';
 
 								
 
-									if(!file_put_contents(__DIR__.'/../../../uploads/addify_registration_uploads/teste19.txt' , 'hello')){
+								/*	if(!file_put_contents(__DIR__.'/../../../uploads/addify_registration_uploads/teste19.txt' , 'hello')){
 										echo "erro no file_put_contents";    
 										exit; 
 									}else{
@@ -3518,7 +3518,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 									if(!file_exists($target_path)){
 										echo "Pasta Não Existe";    
 										exit; 
-									}
+									}*/
 
 									$target_path = $target_path . $file;
 
@@ -3530,7 +3530,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 										//echo $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['tmp_name'];
 										//exit;
 
-										$temp = move_uploaded_file(sanitize_text_field($_FILES['afreg_additional_' . intval($afreg_field->ID)]['tmp_name']), __DIR__.'/teste.jpg');
+										$temp = move_uploaded_file(sanitize_text_field($_FILES['afreg_additional_' . intval($afreg_field->ID)]['tmp_name']), $target_path);
 									
 										if( $temp ) {
 											echo "Successfully uploaded";  
