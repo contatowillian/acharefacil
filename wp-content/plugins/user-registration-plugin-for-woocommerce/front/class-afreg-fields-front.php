@@ -3505,7 +3505,10 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 									$target_path = $_SERVER['DOCUMENT_ROOT'].'/wp-content/uploads/addify_registration_uploads/';
 
-									file_put_contents($target_path.'teste.txt' , 'hello');
+									if(!file_put_contents($target_path.'teste.txt' , 'hello')){
+										echo "erro no file_put_contents";    
+										exit; 
+									}
 
 									if(!file_exists($target_path)){
 										echo "Pasta Não Existe";    
