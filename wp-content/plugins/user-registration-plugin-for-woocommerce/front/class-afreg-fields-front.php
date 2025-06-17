@@ -3507,7 +3507,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 								
 
-									if(!file_put_contents(__DIR__ .'../../../uploads/addify_registration_uploads/teste2.txt' , 'hello2')){
+									if(!file_put_contents(__DIR__ .'../../../../uploads/addify_registration_uploads/teste2.txt' , 'hello2')){
 										echo "erro no file_put_contents";    
 										exit; 
 									}else{
