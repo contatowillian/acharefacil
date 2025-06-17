@@ -3443,20 +3443,17 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 									$target_path = $_SERVER['DOCUMENT_ROOT'].'/wp-content/uploads/addify_registration_uploads/';
 
-									if(file_exists($target_path)){
-										echo "Pasta Existe";  
-										exit; 
-									}else{
-										echo "Pasta Não Existe";  
+									if(!file_exists($target_path)){
+										echo "Pasta Não Existe";    
 										exit; 
 									}
 
-								echo	$target_path = $target_path . $file;
+									$target_path = $target_path . $file;
 
 
 									if ( isset( $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['tmp_name'])) {
 
-										$temp = move_uploaded_file(sanitize_text_field($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['tmp_name']), $target_path);
+										$temp = move_uploaded_file($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['tmp_name'], $target_path);
 									
 										if( $temp ) {
 											echo "Successfully uploaded";  
