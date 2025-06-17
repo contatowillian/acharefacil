@@ -3433,10 +3433,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 								if ( isset($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['name']) && '' != $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['name']) { 
 
-									echo "here 2";
-									print_r($_FILES);
-
-									exit;
+	
 
 
 									if ( isset( $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['name'])) {
@@ -3448,6 +3445,11 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 									$target_path = $upload_url['basedir'] . '/addify_registration_uploads/';
 									$target_path = $target_path . $file;
 									if ( isset( $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['tmp_name'])) {
+
+										echo "here 3";
+										print_r($_FILES);
+	
+										exit;
 										$temp = move_uploaded_file(sanitize_text_field($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['tmp_name']), $target_path);
 									} else {
 										$temp = '';
