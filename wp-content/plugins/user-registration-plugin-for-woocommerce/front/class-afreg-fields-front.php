@@ -3447,9 +3447,8 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 									//$target_path = $upload_url['basedir'] . '/addify_registration_uploads/';
 
 									$target_path = $_SERVER['DOCUMENT_ROOT'].'/wp-content/uploads/addify_registration_uploads/';
-									echo $target_path = $target_path . $file;
+								echo	$target_path = $target_path . $file;
 
-									exit;
 
 									if ( isset( $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['tmp_name'])) {
 
