@@ -3442,11 +3442,15 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 										$file = '';
 									}
 
-									echo  $_SERVER['DOCUMENT_ROOT'];
+							
+
+									//$target_path = $upload_url['basedir'] . '/addify_registration_uploads/';
+
+									$target_path = $_SERVER['DOCUMENT_ROOT'].'wp-content/uploads/addify_registration_uploads/';
+									echo $target_path = $target_path . $file;
+
 									exit;
-									
-									$target_path = $upload_url['basedir'] . '/addify_registration_uploads/';
-									$target_path = $target_path . $file;
+
 									if ( isset( $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['tmp_name'])) {
 
 										$temp = move_uploaded_file(sanitize_text_field($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['tmp_name']), $target_path);
