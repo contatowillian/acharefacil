@@ -3427,13 +3427,17 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 							if ( 'fileupload' == $afreg_field_type) {
 
-								print_r($_FILES);
-
-								exit;
+			
 
 								$upload_url = wp_upload_dir();
 
 								if ( isset($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['name']) && '' != $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['name']) { 
+
+									echo "here 2";
+									print_r($_FILES);
+
+									exit;
+
 
 									if ( isset( $_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['name'])) {
 										$file = time() . sanitize_text_field($_FILES[ 'afreg_additional_' . intval($afreg_field->ID) ]['name']);
