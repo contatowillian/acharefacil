@@ -3503,13 +3503,16 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 
 									//$target_path = $upload_url['basedir'] . '/addify_registration_uploads/'
 
-									$target_path = $_SERVER['DOCUMENT_ROOT'].'/wp-content/uploads/addify_registration_uploads/';
+									$target_path = '/wp-content/uploads/addify_registration_uploads/';
 
 								
 
-									if(!file_put_contents(__DIR__.'/teste.txt' , 'hello')){
+									if(!file_put_contents('../../../uploads/addify_registration_uploads/teste2.txt' , 'hello2')){
 										echo "erro no file_put_contents";    
 										exit; 
+									}else{
+										echo "foi no file_put_contents";    
+										exit;
 									}
 
 									if(!file_exists($target_path)){
