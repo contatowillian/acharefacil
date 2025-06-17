@@ -481,6 +481,10 @@ input[type=checkbox], .woocommerce-form__input-checkbox{
     display: grid;
 }
 
+.Goodup-price-currency .Goodup-old-price del{
+    text-decoration: line-through !important;
+}
+
 .page-id-10 .woocommerce-my-account .my-account-inner .woocommerce-MyAccount-content p a{
     color:white !important;
 }
