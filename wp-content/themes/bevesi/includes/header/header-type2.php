@@ -89,7 +89,22 @@
 						<?php echo bevesi_header_product_search(); ?> 
 					</div><!-- col -->
 				</div><!-- col -->
-				
+
+
+				<?php 
+    
+    
+
+				//Aprovao usuario caso esteja logado na etapa do cadastro
+				if ( is_user_logged_in() ) {
+					$texto_botao = 'Divulgue seu negócio';
+					$icone_botao = 'klb-icon-plus';
+				}else{
+					$texto_botao = 'Minha conta';
+					$icone_botao = 'klb-icon-user';
+				}
+					
+				?>
 
 				<div class="site-header-custom-button">
 					<a href="/criar-anuncio" >
@@ -98,7 +113,7 @@
 							<span class="custom-button-name">x<?php echo bevesi_sanitize_data(get_theme_mod('bevesi_header_products_button_title')); ?></span>
 						</div>
 						<div class="custom-button-label criar_anuncio_botao_header">
-						<span class="custom-button-name"><i class="klb-icon-plus"></i>Divulgue seu negócio</span>
+						<span class="custom-button-name"><i class="<?php echo $icone_botao; ?>"></i><?php echo $texto_botao; ?></span>
 					</div>
 					</a>
 				</div>
