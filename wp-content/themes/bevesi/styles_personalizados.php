@@ -2226,6 +2226,10 @@ height:35px !important;
     border-radius: 10px;
 }
 
+.elementor-1134 .elementor-element.elementor-element-1a47d44 .page-header-image img{
+    filter: none !important;
+}
+
 @media (max-width: 600px) {
 
     .page-id-3290  .klb-post h1{
