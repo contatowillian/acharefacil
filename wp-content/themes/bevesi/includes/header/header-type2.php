@@ -97,11 +97,11 @@
 
 				//Aprovao usuario caso esteja logado na etapa do cadastro
 				if ( is_user_logged_in() ) {
-					$texto_botao = 'Divulgue seu negócio';
-					$icone_botao = 'klb-icon-plus';
-				}else{
 					$texto_botao = 'Minha conta';
 					$icone_botao = 'klb-icon-user';
+				}else{
+					$texto_botao = 'Divulgue seu negócio';
+					$icone_botao = 'klb-icon-plus';
 				}
 					
 				?>
