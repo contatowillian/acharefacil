@@ -623,8 +623,11 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
 }
 <?php }else{ ?>
 
-.page-id-10  .my-account-navigation{
-    position: absolute;
+
+
+.woocommerce-my-account .my-account-inner > *.my-account-navigation{
+    width: 7.2rem !important;
+
 }
 .page-id-10  .my-account-navigation li{
     border: 1px solid black;
