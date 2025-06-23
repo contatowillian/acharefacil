@@ -2221,7 +2221,10 @@ height:35px !important;
 .mais_18_form{
     display: none;
 }
-
+.page-id-3290 .klb-post img{
+    width: 11.5vw;
+    border-radius: 10px;
+}
 
 @media (max-width: 600px) {
 
@@ -2259,6 +2262,13 @@ height:35px !important;
     }
 
     .page-id-3285 .klb-post img{
+        width: 56vw;
+        border-radius: 10px;
+        margin-left: 10%;
+    }
+
+
+    .page-id-3290 .klb-post img{
         width: 56vw;
         border-radius: 10px;
         margin-left: 10%;
