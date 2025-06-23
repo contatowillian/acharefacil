@@ -393,12 +393,25 @@ margin-top: -20px;
 input[type=checkbox], .woocommerce-form__input-checkbox{
     background-color: #aaa;
 }
+
+<?php 
+
+//Aprovao usuario caso esteja logado na etapa do cadastro
+if ( !is_user_logged_in() ) {?>
 .header-type4  .site-header-custom-button>a{ 
     min-width: 209px;
     border-radius: 15px;
     height: 50px;
     min-width: 210px !important;
 }
+<?php }else{?>
+.header-type4  .site-header-custom-button>a{ 
+    min-width: 209px;
+    border-radius: 15px;
+    height: 50px;
+    min-width: 150px !important;
+}
+<?php }?>
 
 
 .site-footer .img-selo-seguro-rodape{
