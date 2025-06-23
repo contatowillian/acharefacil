@@ -122,8 +122,10 @@
 
                                                 <div class="adr">
                                                 <?php if(isset($dadosAnunciantes->endereco) and $dadosAnunciantes->endereco!=''){  ?>
+                                                   <a href='https://www.google.com/maps/place/<?php echo $dadosAnunciantes->endereco; ?>, <?php echo $dadosAnunciantes->numero; ?> - <?php echo $dadosAnunciantes->cep; ?>' target='_new'>
                                                    <div class="street-address"><i class="klb-icon-home"></i><?php echo $dadosAnunciantes->endereco; ?>, <?php echo $dadosAnunciantes->numero; ?> <?php echo $dadosAnunciantes->complemento; ?></div>
-                                                <?php } ?>
+                                                   </a>
+                                               <?php } ?>
                                                 <?php if(isset($dadosAnunciantes->cidade) and $dadosAnunciantes->cidade!=''){  ?>
                                                    <div class="locality"><i class="klb-icon-map"></i><?php echo $dadosAnunciantes->cidade; ?>,<?php echo $dadosAnunciantes->estado; ?></div>
                                                 <?php } ?>

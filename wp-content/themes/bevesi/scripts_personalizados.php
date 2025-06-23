@@ -1,5 +1,16 @@
 
-<?php if(isset($_GET['etapa_cadastro'])){ ?>
+<?php if(isset($_GET['etapa_cadastro'])){ 
+    
+    
+
+    //Aprovao usuario caso esteja logado na etapa do cadastro
+    if ( is_user_logged_in() ) {
+            $current_user = wp_get_current_user();
+            $user_id      = $current_user->ID;
+            update_user_meta( $user_id, 'afreg_new_user_status','approved');
+    }
+        
+    ?>
 
 <script>
 

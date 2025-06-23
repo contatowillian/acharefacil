@@ -26,9 +26,13 @@
                   <div class="woocommerce-product-details__short-description linha_divisoria_detalhe">
                      <span class='endereco_detalhe_titulo'>Endereço:</span>
                      <?php if(isset($users[0]->endereco) and $users[0]->endereco!=''){  ?>
-                        <p><i class="klb-icon-home"></i> <?php echo $users[0]->endereco; ?>, <?php echo $users[0]->numero; ?> - <?php echo $users[0]->cidade; ?>,<?php echo $users[0]->estado; ?> - <?php echo $users[0]->cep; ?></p>
+                        <a href='https://www.google.com/maps/place/<?php echo $users[0]->endereco; ?>, <?php echo $users[0]->numero; ?> - <?php echo $users[0]->cep; ?>' target='_new'>
+                           <p><i class="klb-icon-home"></i> <?php echo $users[0]->endereco; ?>, <?php echo $users[0]->numero; ?> - <?php echo $users[0]->cidade; ?>,<?php echo $users[0]->estado; ?> - <?php echo $users[0]->cep; ?></p>
+                        </a>
                      <?php  }else if($users[0]->cidade!=''){  ?>
-                     <p><i class="klb-icon-home"></i><?php echo $users[0]->cidade; ?>,<?php echo $users[0]->estado; ?> - <?php echo $users[0]->cep; ?></p>
+                        <a href='https://www.google.com/maps/place/<?php echo $users[0]->cep; ?>' target='_new'>
+                          <p><i class="klb-icon-home"></i><?php echo $users[0]->cidade; ?>,<?php echo $users[0]->estado; ?> - <?php echo $users[0]->cep; ?></p>
+                        </a>
                      <?php  }  ?>
                      </div>
 

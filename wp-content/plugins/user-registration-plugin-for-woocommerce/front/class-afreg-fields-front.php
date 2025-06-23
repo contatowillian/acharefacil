@@ -4421,11 +4421,7 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 							return 'https://sorvetedecerveja.com.br/my-account/';
 
 						} elseif ('pending' == $approved_status) {
-						//	wp_logout();
-						echo "cadastrado";
-						exit;
-						
-							update_user_meta( $user_id, 'afreg_new_user_status','approved');
+						//	wp_logout()
 							return 'https://sorvetedecerveja.com.br/my-account/edit-account/?etapa_cadastro=2';
 						} elseif ('disapproved' == $approved_status) {
 
