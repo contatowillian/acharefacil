@@ -26,7 +26,7 @@ do_action( 'woocommerce_before_edit_account_form' );
 
 <div class="elementor-element elementor-element-d778c1f elementor-widget elementor-widget-bevesi-page-banner" data-id="d778c1f" data-element_type="widget" data-widget_type="bevesi-page-banner.default">
 	<div class="elementor-widget-container">
-<div class="site-page-header style-1"><div class="container"><div class="site-page-header-inner"><h1 class="page-title">Divulgue seu Negócio</h1><div class="entry-description"><p>Escolha um plano abaixo que melhor se adequá as suas necessidades, divulgue seu negócio gratuitamente no Achar é Fácil</p></div><!-- entry-description --></div><!-- site-page-header-inner --></div><!-- container --></div><!-- site-page-header -->		</div>
+<div class="site-page-header style-1"><div class="container"><div class="site-page-header-inner"><h1 class="page-title">Divulgue seu Negócio</h1><div class="entry-description"><p>Divulgue seu negócio gratuitamente no Achar é Fácil</p></div><!-- entry-description --></div><!-- site-page-header-inner --></div><!-- container --></div><!-- site-page-header -->		</div>
 	</div>
 
 <?php
