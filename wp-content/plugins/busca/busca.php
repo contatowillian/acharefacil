@@ -99,7 +99,6 @@ function content_buscaUsuariosAnunciantes($content) {
           $filtro_extra .="AND us.user_status = 0 and  us.ID in
                                 (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
                                 where us.ID = nome_do_seu_negocio.user_id 
-                                AND nome_do_seu_negocio.meta_key = 'afreg_additional_3224'
                                 AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['palavra_chave']."%')";
 
           /************************************   Filtro nome da categoria  ************************************/
