@@ -169,7 +169,7 @@ function content_buscaUsuariosAnunciantes($content) {
                                           $filtro_extra  union all  ";
 
     
-       $consulta_usuarios_anunciantes .= "SELECT DISTINCT
+      echo  $consulta_usuarios_anunciantes .= "SELECT DISTINCT
                                           us.ID,
                                           us.user_login,
                                           '' as destaque,
@@ -183,6 +183,7 @@ function content_buscaUsuariosAnunciantes($content) {
                                           
                                            ".$paginacao;
 
+exit;
                                             
                                         
 
