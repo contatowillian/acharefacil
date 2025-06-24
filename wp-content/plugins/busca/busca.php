@@ -180,7 +180,7 @@ function content_buscaUsuariosAnunciantes($content) {
                                           $filtro_categoria_adulta
                                           ORDER BY 4 ASC
                                           ) a GROUP BY 1,2,3,4
-                                          
+                                          ORDER BY 4 ASC
                                            ".$paginacao;
 
                                             
