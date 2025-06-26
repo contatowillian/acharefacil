@@ -70,14 +70,26 @@ function content_buscaUsuariosAnunciantes($content) {
         }
 
 
+        if(isset($_REQUEST['categoria_principal']) and $_REQUEST['categoria_principal']!=''){
+
+          /************************************   Filtro nome da categoria  ************************************/
+          $filtro_extra .="AND us.user_status = 0 and  us.ID in
+                          (select nome_da_categoria.user_id from wp_usermeta as nome_da_categoria
+                          join Categoria_icones as CI on CI.Nome =  nome_da_categoria.meta_value 
+                          where us.ID = nome_da_categoria.user_id 
+                          AND nome_da_categoria.meta_key = 'afreg_additional_3213'
+                          AND CI.id_categoria_principal = '".$_REQUEST['categoria_principal']."')";
+        }
+
+
         if(isset($_REQUEST['categoria']) and $_REQUEST['categoria']!=''){
 
           /************************************   Filtro nome da categoria  ************************************/
           $filtro_extra .="AND us.user_status = 0 and  us.ID in
-                          (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
-                          where us.ID = nome_do_seu_negocio.user_id 
-                          AND nome_do_seu_negocio.meta_key = 'afreg_additional_3213'
-                          AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['categoria']."%')";
+                          (select nome_da_categoria.user_id from wp_usermeta as nome_da_categoria
+                          where us.ID = nome_da_categoria.user_id 
+                          AND nome_da_categoria.meta_key = 'afreg_additional_3213'
+                          AND nome_da_categoria.meta_value like '%".$_REQUEST['categoria']."%')";
         }
 
 

@@ -15,32 +15,14 @@ function content_buscaCategoriaAnunciantes($content) {
 
      if (is_front_page()) {
 
-     
-     
+    
       
-      $consulta_anunciantes_Categoria = "
-      SELECT count(us.ID) AS qtd_anuncio , categoria.meta_value as categoria
-      FROM wp_users AS us
-      JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
-      GROUP BY categoria.meta_value
-      ORDER BY 1 desc
-      LIMIT 15 ";
+      $consulta_anunciantes_Categoria = "SELECT * FROM Categoria_principal";
     /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 
       $users_anunciantes_Categoria = $wpdb->get_results($consulta_anunciantes_Categoria);
-      
-      $contador_icones = 0;
-
-      foreach($users_anunciantes_Categoria as $registro_users_anunciantes_Categoria){
-
-      $query_icone = "select Icone from Categoria_icones where Nome like trim('".rtrim($registro_users_anunciantes_Categoria->categoria)."')";
-   
-      $nome_do_icone = $wpdb->get_results($query_icone);
-        $users_anunciantes_Categoria[$contador_icones]->Icone =  $nome_do_icone[0]->Icone;
-        $contador_icones++;
-      }
-
+  
 
         
        ob_start();

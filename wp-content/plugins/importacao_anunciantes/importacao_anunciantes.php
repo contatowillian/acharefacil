@@ -44,7 +44,7 @@ function content_importaUsuariosAnunciantes($content) {
 
       $chave='AIzaSyCfoajxoXAuaRQns0gtbxP9ys6VDBT8ZMs';
 
-      $consulta_usuarios_anunciantes = "SELECT * from wp_users  where atualizado_lat_long !='sim' limit 1";
+      $consulta_usuarios_anunciantes = "SELECT * from wp_users  where atualizado_lat_long !='sim' limit 5";
 
       $anunciantes = $wpdb->get_results($consulta_usuarios_anunciantes);
 

@@ -1,7 +1,7 @@
+<iframe id='iframe_atualiza_latitude_longitude' style='display:none' src="#"></iframe>
+
 
 <?php if(isset($_GET['etapa_cadastro'])){ 
-    
-    
 
     //Aprovao usuario caso esteja logado na etapa do cadastro
     if ( is_user_logged_in() ) {
@@ -22,8 +22,9 @@ function set_utm_cadastro(){
 }
 
 jQuery( document ).ready(function( $ ) {
-
   
+    $("#iframe_atualiza_latitude_longitude").attr('src', "/atualiza_latitude_longitude")
+
     $(".campo_telefone input").mask('(00) 00000-0009', {clearIfNotMatch: true});
     $(".horario_atendimento input").mask('00:00', {clearIfNotMatch: true});
 
