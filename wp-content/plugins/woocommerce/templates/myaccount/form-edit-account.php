@@ -31,14 +31,15 @@ do_action( 'woocommerce_before_edit_account_form' );
 
 <?php
 	if(!isset($_GET['etapa_cadastro'])){
-	include('painel-anunciante.php');
-}
+		include('painel-anunciante.php');
+		$link_etapa = '';
+	}else{
+		
+		$link_etapa = '?etapa_cadastro=3';
+	}
 ?>
 
-
-
-
-<form class="woocommerce-EditAccountForm edit-account" action="/my-account/edit-account?etapa_cadastro=3" id='form_cadastro_anunco_wizard' method="post" <?php do_action( 'woocommerce_edit_account_form_tag' ); ?> >
+<form class="woocommerce-EditAccountForm edit-account" action="/my-account/edit-account<?php echo $link_etapa; ?>" id='form_cadastro_anunco_wizard' method="post" <?php do_action( 'woocommerce_edit_account_form_tag' ); ?> >
 
 	<?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 
