@@ -280,7 +280,7 @@ function content_mostraListasPlanos($content) {
 
 
 
-    if (is_front_page()  or is_page('lista_planos')) {
+    if (is_front_page()  or is_page('lista_planos') or is_page('cadastro_sucesso')) {
      
 
       if ( is_user_logged_in() ) {
