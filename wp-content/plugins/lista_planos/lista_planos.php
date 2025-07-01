@@ -174,7 +174,7 @@ function content_mostraListasPlanos($content) {
           $id_user_id = atualiza_data_destaque_usuario($id_pagamento);
 
 
-         $botao_compartilhar = '<a style="background-color: #336838" class="elementor-button elementor-button-link elementor-size-sm" href="https://sorvetedecerveja.com.br/detalhe/?detalhe_anunciante='.$id_user_id.'" id="ver-meu-anuncio-botao">
+         $botao_compartilhar = '<a style="background-color: #336838" class="elementor-button elementor-button-link elementor-size-sm" href="https://acharefacil.com.br/detalhe/?detalhe_anunciante='.$id_user_id.'" id="ver-meu-anuncio-botao">
                                   <span class="elementor-button-content-wrapper">
                                         <span class="elementor-button-text">Ver meu anúncio</span>
                                   </span>
@@ -375,7 +375,7 @@ function gera_token_pag_seguro($dados_compra){
         "type": "CREDIT_CARD"
       }
     ],
-    "redirect_url": "https://sorvetedecerveja.com.br/conclusao_plano?id_pagamento={{id_pagamento}}"
+    "redirect_url": "https://acharefacil.com.br/conclusao_plano?id_pagamento={{id_pagamento}}"
   }
   ';
 
