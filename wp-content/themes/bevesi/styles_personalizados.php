@@ -2,6 +2,14 @@
 <style>
 
 @media screen and (min-width: 769px)  {
+
+    .elementor-page-1134 .carrosel_recentes_lista{
+
+        display: flex;
+        margin-left: 16vw !important;
+        max-width: var(--content-width) !important;
+        }
+
     .some_desk{
         display:none;
     }
@@ -2248,6 +2256,23 @@ height:35px !important;
 
 @media (max-width: 600px) {
 
+    body .elementor-page-1134 .carrosel_recentes_lista{
+
+    display: flex;
+    margin-left: 1vw !important;
+    max-width: var(--content-width) !important;
+    }
+
+    body  .elementor-page-1134 .slick-slide img{
+
+    max-width: 150px !important;
+    }
+
+    .imagem_carrosel_anunciantes{
+            max-width: 150px !important;
+    }
+
+
     .page-id-3290  .klb-post h1{
         font-size: 6vw !important;
         margin-bottom: 30px !important;
@@ -2654,11 +2679,7 @@ height:35px !important;
    z-index: 2;
  }
 
- .elementor-page-1134 .carrosel_recentes_lista{
-    width: 92%;
-    display: flex;
-    margin-left: 4%;
- }
+
  .site-slider-anunciantes1 .slick-nav svg {
    position: relative !important;
    width: 90% !important;
