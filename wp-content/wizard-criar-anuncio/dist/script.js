@@ -132,7 +132,7 @@ class Wizard {
 
   handleWizardConclusion() {
     this.wizard.classList.add('completed');
-    top.location.href=('https://sorvetedecerveja.com.br/lista_planos');
+    top.location.href=('https://acharefacil.com.br/lista_planos');
   }
 
   addControls(previousControl, nextControl) {

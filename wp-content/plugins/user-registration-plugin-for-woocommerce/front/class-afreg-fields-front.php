@@ -4418,27 +4418,27 @@ if ( !class_exists( 'Addify_Registration_Fields_Addon_Front' ) ) {
 						$approved_status = get_user_meta($user_id, 'afreg_new_user_status', true);
 						//if the user hasn't been approved yet by WP Approve User plugin, destroy the cookie to kill the session and log them out
 						if ( 'approved' == $approved_status ) {
-							return 'https://sorvetedecerveja.com.br/my-account/';
+							return 'https://acharefacil.com.br/my-account/';
 
 						} elseif ('pending' == $approved_status) {
 						//	wp_logout()
-							return 'https://sorvetedecerveja.com.br/my-account/edit-account/?etapa_cadastro=2';
+							return 'https://acharefacil.com.br/my-account/edit-account/?etapa_cadastro=2';
 						} elseif ('disapproved' == $approved_status) {
 
 							wp_logout();
 							return get_permalink(wc_get_page_id('myaccount')) . '?approved=disapproved';
 						} else {
-							return 'https://sorvetedecerveja.com.br/my-account/';
+							return 'https://acharefacil.com.br/my-account/';
 							
 						}
 					} else {
-						return 'https://sorvetedecerveja.com.br/my-account/';
+						return 'https://acharefacil.com.br/my-account/';
 					}
 
 
 				} else {
 
-					return 'https://sorvetedecerveja.com.br/my-account/';
+					return 'https://acharefacil.com.br/my-account/';
 				}
 			}
 		}

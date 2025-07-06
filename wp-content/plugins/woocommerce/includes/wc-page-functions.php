@@ -66,7 +66,7 @@ function wc_get_page_id( $page ) {
 function wc_get_page_permalink( $page, $fallback = null ) {
 
 	if($page=='myaccount'){
-		return 'https://sorvetedecerveja.com.br/my-account/';
+		return 'https://acharefacil.com.br/my-account/';
 	}
 
 	$page_id   = wc_get_page_id( $page );
