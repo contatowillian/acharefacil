@@ -84,7 +84,7 @@
 					</div><!-- site-brand -->        
 				</div><!-- col -->
            
-				<div class="col display-none display-inline-flex-laptop align-items-center flex-1">
+				<div class="col display-inline-flex-laptop align-items-center flex-1">
 					<div class="site-search-form search-form-desktop style-2">
 						<?php echo bevesi_header_product_search(); ?> 
 					</div><!-- col -->

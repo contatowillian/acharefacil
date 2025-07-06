@@ -2271,6 +2271,25 @@ height:35px !important;
 
 @media (max-width: 600px) {
 
+    .site-mobile-navbar{
+        display: none !important;
+    }
+
+    .site-search-form{
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        top: 85px;
+    }
+
+    .site-header{
+        height: 158px;
+    }
+
+    .site-header .site-header-row.header-row-bg-white{
+        border-bottom: transparent !important;
+    }
+
     body .elementor-page-1134 .carrosel_recentes_lista{
 
     display: flex;
