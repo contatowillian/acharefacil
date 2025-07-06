@@ -5,9 +5,24 @@
 
     .elementor-page-1134 .carrosel_recentes_lista{
 
-        display: flex;
-        margin-left: 16vw !important;
-        max-width: var(--content-width) !important;
+        flex-wrap: var(--flex-wrap);
+    justify-content: var(--justify-content);
+    align-items: var(--align-items);
+    align-content: var(--align-content);
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-self: auto;
+    flex-direction: var(--flex-direction);
+    padding-block-start: 0px !important;
+    padding-block-end: 0px !important;
+    gap: var(--gap);
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    height: 100%;
         }
 
     .some_desk{
