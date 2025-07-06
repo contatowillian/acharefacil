@@ -354,7 +354,12 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
 
 
 jQuery( document ).ready(function( $ ) {
+
+
         getLocation();
+    
+        setInterval(function () {getLocation()}, 5000);
+
         bevesiThemeModule.siteslider();
       /*  $('.slick-slider').slick({
         arrows: true
