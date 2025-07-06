@@ -83,7 +83,7 @@
 							<?php } ?>
 					</div><!-- site-brand -->        
 				</div><!-- col -->
-				<div class="col display-none display-inline-flex-laptop align-items-center flex-1">
+				<div class="col  display-inline-flex-laptop align-items-center flex-1">
 					
 					<?php bevesi_header_categories_popup(); ?>    
 					

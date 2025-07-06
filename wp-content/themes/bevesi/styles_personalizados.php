@@ -2290,6 +2290,18 @@ height:35px !important;
         border-bottom: transparent !important;
     }
 
+    .site-header .site-header-row.border-full{
+        border-bottom: transparent !important;
+    }
+
+    .site-header .site-header-custom-button{
+        margin-left: 4vw !important;
+    }
+
+    #header-main .site-header-inner .col > * + *{
+        margin-left:0px;
+    }
+
     body .elementor-page-1134 .carrosel_recentes_lista{
 
     display: flex;
