@@ -51,6 +51,8 @@ function content_importaUsuariosAnunciantes($content) {
  
       if(!empty($anunciantes)){
         foreach ($anunciantes as $registro_anunciantes){
+
+          echo "codigo_anunciante_".$registro_anunciantes->ID;    
           
           $cep = get_user_meta( $registro_anunciantes->ID, 'afreg_additional_3239', true );
 
