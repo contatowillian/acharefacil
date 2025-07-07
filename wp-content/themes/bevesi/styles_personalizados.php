@@ -803,6 +803,7 @@ color: white !important;
 
 .site-header .site-header-main .site-brand img, .site-drawer .site-brand a img{
 	width: 136px !important; 
+    margin-left: 16px;
 }
 
 
