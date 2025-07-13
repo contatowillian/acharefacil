@@ -26,7 +26,7 @@ function content_buscaCarroselAnunciantes($content) {
         $args  = array(
           's'           => 'adestrador de cães',
           'numberposts' => 10,
-          'post_types'  => array( 'post', 'page', 'custom_cpt' ),
+          'post_types'  => array( 'post', 'afreg_fields','page', 'custom_cpt' ),
           'relevanssi'  => true,
           // add other parameters here...
       );
