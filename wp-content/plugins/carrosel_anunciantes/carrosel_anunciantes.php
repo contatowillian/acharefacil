@@ -25,7 +25,7 @@ function content_buscaCarroselAnunciantes($content) {
       if(isset($_GET['teste_cachorro'])){
             
            // A string de pesquisa que o usuário digitou (por exemplo, "São Paulo" ou "Maria")
-        $search_query_term = 'Cachorro';
+        $search_query_term = 'DonaldSep';
 
         // Array para armazenar os IDs dos usuários encontrados pelo Relevanssi
         $found_user_ids = array();
