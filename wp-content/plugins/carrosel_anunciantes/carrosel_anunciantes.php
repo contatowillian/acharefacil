@@ -15,14 +15,14 @@ function content_buscaCarroselAnunciantes($content) {
 
      if (is_front_page()) {
 
-      if($_GET['teste_caes']){
+      if(isset($_GET['teste_caes'])){
         $user_query = new WP_User_Query( array( 'search' => 'adestrador de cães' ) );
         echo "<pre>";
         print_r($user_query );
         echo "</pre>";
         exit;
       }
-      if($_GET['teste_cachorro']){
+      if(isset($_GET['teste_cachorro'])){
         $user_query = new WP_User_Query( array( 'search' => 'adestrador de cachorro' ) );
         echo "<pre>";
         print_r($user_query );
