@@ -36,7 +36,7 @@ function content_buscaCarroselAnunciantes($content) {
             // Importante: 'post_type' => 'user' direciona o Relevanssi para pesquisar em usuários.
             // 'fields' => 'ids' otimiza para retornar apenas os IDs dos resultados.
             $relevanssi_args = array(
-                's'           => $search_query_term, // O termo de pesquisa será aplicado aos campos user_meta indexados
+                's'           => '%a%', // O termo de pesquisa será aplicado aos campos user_meta indexados
                 'posts_per_page' => -1,               // Retorna todos os usuários correspondentes
                 'post_type'   => 'user',
                 'fields'      => 'ids',
