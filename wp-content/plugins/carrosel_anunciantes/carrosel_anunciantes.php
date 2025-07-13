@@ -30,20 +30,32 @@ function content_buscaCarroselAnunciantes($content) {
           // add other parameters here...
       );
       
-       $query = new WP_Query( $args );
+       $the_query = new WP_Query( $args );
 
        echo "<pre>";
-       print_r($query);
+       print_r($the_query);
        echo "</pre>";
 
 
-       $posts = $query->get_posts();
+       if ( $the_query->have_posts() ) {
 
-        foreach( $posts as $post ) {
-          echo "<pre>";
-          print_r($post );
-          echo "</pre>";
+        echo '<ul>';
+     
+        while ( $the_query->have_posts() ) {
+     
+            $the_query->the_post();
+     
+            echo '<li>' . get_the_title() . '</li>';
+     
         }
+     
+        echo '</ul>';
+     
+     } else {
+     
+       // no posts found
+     
+     }
 
        
         exit;
