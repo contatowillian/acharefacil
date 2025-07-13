@@ -23,42 +23,41 @@ function content_buscaCarroselAnunciantes($content) {
         exit;
       }
       if(isset($_GET['teste_cachorro'])){
-        $args  = array(
-          's'           => '%adestrador%',
-          'numberposts' => 10,
-          'relevanssi'  => true,
-          // add other parameters here...
-      );
-      
-       $the_query = new WP_Query( $args );
+                $args  = array(
+                  's'           => '%adestrador%',
+                  'relevanssi'  => true,
+                  // add other parameters here...
+              );
+              
+              $the_query = new WP_Meta_Query( $args );
 
-       echo "<pre>";
-      // print_r($the_query);
-       echo "</pre>";
+              echo "<pre>";
+              print_r($the_query);
+              echo "</pre>";
 
 
-       if ( $the_query->have_posts() ) {
+              /* if ( $the_query->have_posts() ) {
 
-        echo '<ul>';
-     
-        while ( $the_query->have_posts() ) {
-     
-            $the_query->the_post();
-     
-            echo '<li>' . get_the_title() . '</li>';
-     
-        }
-     
-        echo '</ul>';
-     
-     } else {
-     
-       // no posts found
-     
-     }
+                echo '<ul>';
+            
+                while ( $the_query->have_posts() ) {
+            
+                    $the_query->the_post();
+            
+                    echo '<li>' . get_the_title() . '</li>';
+            
+                }
+            
+                echo '</ul>';
+            
+            } else {
+            
+              // no posts found
+            
+            }*/
 
-       
-        exit;
+              
+                exit;
       }
     
 
