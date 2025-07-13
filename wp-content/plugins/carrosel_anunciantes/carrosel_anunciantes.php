@@ -56,9 +56,9 @@ function content_buscaCarroselAnunciantes($content) {
             $relevanssi_results_query = new WP_Query( $relevanssi_args );
 
             // Se o Relevanssi encontrou resultados (usuários cujos user_meta correspondem ao termo)
-            if ( $relevanssi_results_query->have_posts() ) {
+            foreach ( $relevanssi_results_query->results() as $user ) {
                 // Os IDs dos usuários são armazenados na propriedade 'posts' da WP_Query
-                $found_user_ids = $relevanssi_results_query->posts;
+                array_push($found_user_ids,$user->ID);
             }
         }
 
