@@ -9003,3 +9003,10 @@ function wp_admin_notice( $message, $args = array() ) {
 
 	echo wp_kses_post( wp_get_admin_notice( $message, $args ) );
 }
+
+add_filter('pre_option_relevanssi_index_user_meta', 'myprefix_relevanssi_index_user_meta_for_query');
+
+function myprefix_relevanssi_index_user_meta_for_query( $value ) {
+    // Liste os campos user_meta que você quer pesquisar com Relevanssi
+    return 'first_name,last_name,description,afreg_additional_3226';
+}
