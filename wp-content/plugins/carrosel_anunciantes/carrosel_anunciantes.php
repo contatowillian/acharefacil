@@ -24,7 +24,7 @@ function content_buscaCarroselAnunciantes($content) {
       }
       if(isset($_GET['teste_cachorro'])){
                 $args  = array(
-                  's'           => '%adestrador%',
+                  's'           => '%adestrador de cães%',
                   'relevanssi'  => true,
                   // add other parameters here...
               );
