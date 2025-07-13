@@ -43,6 +43,13 @@ function content_buscaCarroselAnunciantes($content) {
                 // Outros parâmetros do Relevanssi podem ser adicionados aqui, se necessário
             );
 
+
+            $relevanssi_args = array(
+              'meta_key' => 'afreg_additional_3226',
+              'meta_value' => 'cachorro',
+              'meta_compare' => 'like',
+            );
+
             // Cria uma nova WP_Query. O Relevanssi "intercepta" essa query e aplica sua lógica de pesquisa.
             $relevanssi_results_query = new WP_Query( $relevanssi_args );
 
