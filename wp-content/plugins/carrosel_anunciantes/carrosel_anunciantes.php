@@ -23,9 +23,18 @@ function content_buscaCarroselAnunciantes($content) {
         exit;
       }
       if(isset($_GET['teste_cachorro'])){
-        $user_query = new WP_User_Query( array( 'search' => 'adestrador de cachorro' ) );
+        $args  = array(
+          's'           => 'adestrador de cães',
+          'numberposts' => 10,
+          'post_types'  => array( 'post', 'page', 'custom_cpt' ),
+          'relevanssi'  => true,
+          // add other parameters here...
+      );
+      
+       $query = new WP_Query( $args );
+
         echo "<pre>";
-        print_r($user_query );
+        print_r($query );
         echo "</pre>";
         exit;
       }
