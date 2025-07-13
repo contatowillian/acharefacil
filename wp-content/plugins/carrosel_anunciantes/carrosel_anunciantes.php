@@ -33,9 +33,15 @@ function content_buscaCarroselAnunciantes($content) {
       
        $query = new WP_Query( $args );
 
-        echo "<pre>";
-        print_r($query );
-        echo "</pre>";
+       $posts = $query->get_posts();
+
+        foreach( $posts as $post ) {
+          echo "<pre>";
+          print_r($post );
+          echo "</pre>";
+        }
+
+       
         exit;
       }
     
