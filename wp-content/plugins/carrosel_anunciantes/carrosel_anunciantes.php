@@ -23,41 +23,42 @@ function content_buscaCarroselAnunciantes($content) {
         exit;
       }
       if(isset($_GET['teste_cachorro'])){
-                $args  = array(
-                  's'           => '%adestrador de cães%',
-                  'relevanssi'  => true,
-                  // add other parameters here...
-              );
-              
-              $the_query = new WP_Meta_Query( $args );
-
-              echo "<pre>";
-              print_r($the_query);
-              echo "</pre>";
-
-
-              /* if ( $the_query->have_posts() ) {
-
-                echo '<ul>';
             
-                while ( $the_query->have_posts() ) {
-            
-                    $the_query->the_post();
-            
-                    echo '<li>' . get_the_title() . '</li>';
-            
+            // Sua string de pesquisa
+            $search_query = 'cães';
+
+            // Inicializa a variável para armazenar os IDs dos usuários
+            $user_ids = array();
+
+            // Verifica se o Relevanssi está ativo
+            if ( function_exists( 'relevanssi_do_query' ) ) {
+                // Cria um array de argumentos para a pesquisa Relevanssi
+                $args = array(
+                    's'           => ' \'%' . $search_query . '%\'', // A string de pesquisa
+                    'posts_per_page' => -1,          // Obtenha todos os resultados
+                    'post_type'   => 'user',          // Muito importante: Pesquisar o tipo de post 'user'
+                                                      // (Relevanssi indexa usuários como post_type 'user')
+                    'fields'      => 'ids',           // Retorna apenas os IDs dos posts/usuários
+                );
+
+                // Executa a pesquisa Relevanssi
+                $relevanssi_query = new WP_Query( $args );
+
+                // Verifica se há resultados e armazena os IDs dos usuários
+                if ( $relevanssi_query->have_posts() ) {
+                    $user_ids = $relevanssi_query->posts; // Os IDs são armazenados diretamente em $posts
                 }
-            
-                echo '</ul>';
-            
-            } else {
-            
-              // no posts found
-            
-            }*/
+           
+                print_r($user_ids);
 
+            }
+
+
+
+            // Agora, $user_ids conterá um array de IDs de usuários que correspondem à pesquisa Relevanssi.
+            // Se não houver resultados, $user_ids será um array vazio.
               
-                exit;
+            exit;
       }
     
 
