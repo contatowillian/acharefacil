@@ -24,7 +24,7 @@ function content_buscaCarroselAnunciantes($content) {
       }
       if(isset($_GET['teste_cachorro'])){
         $args  = array(
-          's'           => 'adestrador de cães',
+          's'           => '%adestrador%',
           'numberposts' => 10,
           'relevanssi'  => true,
           // add other parameters here...
@@ -33,7 +33,7 @@ function content_buscaCarroselAnunciantes($content) {
        $the_query = new WP_Query( $args );
 
        echo "<pre>";
-       print_r($the_query);
+      // print_r($the_query);
        echo "</pre>";
 
 
