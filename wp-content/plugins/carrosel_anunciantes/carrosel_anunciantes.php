@@ -46,7 +46,7 @@ function content_buscaCarroselAnunciantes($content) {
 
             $relevanssi_args = array(
               'meta_key' => 'afreg_additional_3226',
-              'meta_value' => 'cachorro',
+              'meta_value' => 'festa',
               'meta_compare' => 'like',
             );
 
