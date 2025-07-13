@@ -24,7 +24,8 @@ function content_buscaCarroselAnunciantes($content) {
       }
       if(isset($_GET['teste_cachorro'])){
             
-           buscar_usuarios_por_meta_like('afreg_additional_3226', '%festa%');
+
+           buscar_usuarios_por_meta_like('afreg_additional_3226', '%Eventos%');
             exit;
       }
     
