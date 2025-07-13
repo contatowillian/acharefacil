@@ -26,12 +26,16 @@ function content_buscaCarroselAnunciantes($content) {
         $args  = array(
           's'           => 'adestrador de cães',
           'numberposts' => 10,
-          'post_types'  => array( 'post', 'afreg_fields','page', 'custom_cpt' ),
           'relevanssi'  => true,
           // add other parameters here...
       );
       
        $query = new WP_Query( $args );
+
+       echo "<pre>";
+       print_r($query);
+       echo "</pre>";
+
 
        $posts = $query->get_posts();
 
