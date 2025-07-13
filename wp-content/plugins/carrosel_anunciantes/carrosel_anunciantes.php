@@ -24,57 +24,7 @@ function content_buscaCarroselAnunciantes($content) {
       }
       if(isset($_GET['teste_cachorro'])){
             
-           // A string de pesquisa que o usuário digitou (por exemplo, "São Paulo" ou "Maria")
-        $search_query_term = 'DonaldSep';
-
-        // Array para armazenar os IDs dos usuários encontrados pelo Relevanssi
-        $found_user_ids = array();
-
-        // Verifica se a função do Relevanssi existe (se o plugin está ativo)
-        if ( function_exists( 'relevanssi_do_query' ) ) {
-
-          echo 'existe o relevanssi_do_query';
-            // Configura os argumentos para a WP_Query que o Relevanssi irá processar.
-            // Importante: 'post_type' => 'user' direciona o Relevanssi para pesquisar em usuários.
-            // 'fields' => 'ids' otimiza para retornar apenas os IDs dos resultados.
-            $relevanssi_args = array(
-                's'           => '%willlian%', // O termo de pesquisa será aplicado aos campos user_meta indexados
-                'posts_per_page' => -1,               // Retorna todos os usuários correspondentes
-                'post_type'   => 'user',
-                'fields'      => 'ids',
-                // Outros parâmetros do Relevanssi podem ser adicionados aqui, se necessário
-            );
-
-
-            $relevanssi_args = array(
-              'meta_key' => 'afreg_additional_3226',
-              'meta_value' => '%festa%',
-              'meta_compare' => 'like',
-            );
-
-            // Cria uma nova WP_Query. O Relevanssi "intercepta" essa query e aplica sua lógica de pesquisa.
-            $relevanssi_results_query = new WP_Query( $relevanssi_args );
-
-            // Se o Relevanssi encontrou resultados (usuários cujos user_meta correspondem ao termo)
-            foreach ( $relevanssi_results_query->results() as $user ) {
-                // Os IDs dos usuários são armazenados na propriedade 'posts' da WP_Query
-                array_push($found_user_ids,$user->ID);
-            }
-        }
-
-        echo "<pre>";
-        print_r($found_user_ids);
-        echo "</pre>";
-
-        // Neste ponto, $found_user_ids contém os IDs de todos os usuários
-        // que têm 'São Paulo' em qualquer um dos campos user_meta que você indexou
-        // (como 'cidade' neste exemplo).
-
-
-
-            // Agora, $user_ids conterá um array de IDs de usuários que correspondem à pesquisa Relevanssi.
-            // Se não houver resultados, $user_ids será um array vazio.
-              
+           buscar_usuarios_por_meta_like('afreg_additional_3226', '%festa%');
             exit;
       }
     
@@ -119,6 +69,33 @@ function content_buscaCarroselAnunciantes($content) {
 }
 
 
+
+// Função para buscar usuários com meta_valor LIKE '%%'
+function buscar_usuarios_por_meta_like($meta_key, $search_term) {
+  $args = array(
+      'meta_query' => array(
+          array(
+              'key'     => $meta_key,
+              'value'   => $search_term,
+              'compare' => 'LIKE'
+          )
+      )
+  );
+
+  $user_query = new WP_User_Query($args);
+
+  if (!empty($user_query->results)) {
+      echo '<h2>Usuários encontrados para meta_key "' . esc_html($meta_key) . '" e busca "' . esc_html($search_term) . '":</h2>';
+      echo '<ul>';
+      foreach ($user_query->results as $user) {
+          echo '<li>' . esc_html($user->display_name) . ' (ID: ' . esc_html($user->ID) . ')</li>';
+          // Você pode adicionar mais informações do usuário aqui
+      }
+      echo '</ul>';
+  } else {
+      echo '<p>Nenhum usuário encontrado com os critérios especificados.</p>';
+  }
+}
 
 
 add_filter('the_content', 'content_buscaCarroselAnunciantes');
