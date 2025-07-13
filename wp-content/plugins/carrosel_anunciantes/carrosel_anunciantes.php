@@ -32,6 +32,8 @@ function content_buscaCarroselAnunciantes($content) {
 
         // Verifica se a função do Relevanssi existe (se o plugin está ativo)
         if ( function_exists( 'relevanssi_do_query' ) ) {
+
+          echo 'existe o relevanssi_do_query';
             // Configura os argumentos para a WP_Query que o Relevanssi irá processar.
             // Importante: 'post_type' => 'user' direciona o Relevanssi para pesquisar em usuários.
             // 'fields' => 'ids' otimiza para retornar apenas os IDs dos resultados.
