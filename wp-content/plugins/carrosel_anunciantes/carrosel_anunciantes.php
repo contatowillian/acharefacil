@@ -24,34 +24,42 @@ function content_buscaCarroselAnunciantes($content) {
       }
       if(isset($_GET['teste_cachorro'])){
             
-            // Sua string de pesquisa
-            $search_query = 'cães';
+           // A string de pesquisa que o usuário digitou (por exemplo, "São Paulo" ou "Maria")
+        $search_query_term = 'Cachorro';
 
-            // Inicializa a variável para armazenar os IDs dos usuários
-            $user_ids = array();
+        // Array para armazenar os IDs dos usuários encontrados pelo Relevanssi
+        $found_user_ids = array();
 
-            // Verifica se o Relevanssi está ativo
-            if ( function_exists( 'relevanssi_do_query' ) ) {
-                // Cria um array de argumentos para a pesquisa Relevanssi
-                $args = array(
-                    's'           => ' \'%' . $search_query . '%\'', // A string de pesquisa
-                    'posts_per_page' => -1,          // Obtenha todos os resultados
-                    'post_type'   => 'user',          // Muito importante: Pesquisar o tipo de post 'user'
-                                                      // (Relevanssi indexa usuários como post_type 'user')
-                    'fields'      => 'ids',           // Retorna apenas os IDs dos posts/usuários
-                );
+        // Verifica se a função do Relevanssi existe (se o plugin está ativo)
+        if ( function_exists( 'relevanssi_do_query' ) ) {
+            // Configura os argumentos para a WP_Query que o Relevanssi irá processar.
+            // Importante: 'post_type' => 'user' direciona o Relevanssi para pesquisar em usuários.
+            // 'fields' => 'ids' otimiza para retornar apenas os IDs dos resultados.
+            $relevanssi_args = array(
+                's'           => $search_query_term, // O termo de pesquisa será aplicado aos campos user_meta indexados
+                'posts_per_page' => -1,               // Retorna todos os usuários correspondentes
+                'post_type'   => 'user',
+                'fields'      => 'ids',
+                // Outros parâmetros do Relevanssi podem ser adicionados aqui, se necessário
+            );
 
-                // Executa a pesquisa Relevanssi
-                $relevanssi_query = new WP_Query( $args );
+            // Cria uma nova WP_Query. O Relevanssi "intercepta" essa query e aplica sua lógica de pesquisa.
+            $relevanssi_results_query = new WP_Query( $relevanssi_args );
 
-                // Verifica se há resultados e armazena os IDs dos usuários
-                if ( $relevanssi_query->have_posts() ) {
-                    $user_ids = $relevanssi_query->posts; // Os IDs são armazenados diretamente em $posts
-                }
-           
-                print_r($user_ids);
-
+            // Se o Relevanssi encontrou resultados (usuários cujos user_meta correspondem ao termo)
+            if ( $relevanssi_results_query->have_posts() ) {
+                // Os IDs dos usuários são armazenados na propriedade 'posts' da WP_Query
+                $found_user_ids = $relevanssi_results_query->posts;
             }
+        }
+
+        echo "<pre>";
+        print_r($found_user_ids);
+        echo "</pre>";
+
+        // Neste ponto, $found_user_ids contém os IDs de todos os usuários
+        // que têm 'São Paulo' em qualquer um dos campos user_meta que você indexou
+        // (como 'cidade' neste exemplo).
 
 
 
