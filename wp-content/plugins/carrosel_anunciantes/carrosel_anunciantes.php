@@ -94,14 +94,20 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
         array(
           'compare_key' => 'LIKE',
           'key'     => 'afreg_additional_',
-          'value'   => 'c',
-          'compare' => 'LIKE'
+          'value'   => 'CABO',
+          'compare' => 'like'
         )
     )
   );
 
 
   $user_query = new WP_User_Query($args);
+
+  // Usa Relevanssi para ordenar a consulta
+  if ( function_exists( 'relevanssi_do_query' ) ) {
+    relevanssi_do_query( $user_query );
+  }
+
 
   $resultado =  $user_query->get_results();
   
