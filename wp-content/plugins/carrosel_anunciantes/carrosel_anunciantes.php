@@ -24,7 +24,7 @@ function content_buscaCarroselAnunciantes($content) {
       }
       if(isset($_GET['teste_cachorro'])){
 
-        buscar_usuarios_por_meta_like_get_users('afreg_additional_', 'cães');
+        buscar_usuarios_por_meta_like_get_users('afreg_additional_', 'cachorro');
         exit;
       }
     
