@@ -94,7 +94,7 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
         array(
           'compare_key' => 'LIKE',
           'key'     => 'afreg_additional_',
-          'value'   => 'cachorro',
+          'value'   => 'adestrador de cachorro',
           'compare' => 'like'
         )
     )
