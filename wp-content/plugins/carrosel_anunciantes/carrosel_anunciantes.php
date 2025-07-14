@@ -23,10 +23,9 @@ function content_buscaCarroselAnunciantes($content) {
         exit;
       }
       if(isset($_GET['teste_cachorro'])){
-            
 
-           buscar_usuarios_por_meta_like('nickname', '%Eventos%');
-            exit;
+        buscar_usuarios_por_meta_like_get_users('afreg_additional_', 'cães');
+        exit;
       }
     
 
@@ -71,6 +70,28 @@ function content_buscaCarroselAnunciantes($content) {
 
 
 
+function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
+  $args = array(
+      'meta_query' => array(
+          array(
+            'compare_key' => 'LIKE',
+              'key'     => $meta_key,    // A chave do metadado que você quer buscar
+              'value'   => $search_term, // O valor que você quer buscar, incluindo os curingas '%'
+              'compare' => 'LIKE'       // O operador de comparação, neste caso, LIKE
+          )
+      )
+  );
+
+  $users = get_users($args); // Executa a busca pelos usuários
+
+  echo count($users).'<br><br>';
+
+  print_r($users);
+}
+
+
+
+
 // Função para buscar usuários com meta_valor LIKE '%%'
 function buscar_usuarios_por_meta_like($meta_key, $search_term) {
   $args = array(
@@ -83,7 +104,7 @@ function buscar_usuarios_por_meta_like($meta_key, $search_term) {
       )
   );
 
-  $user_query = new WP_User_Query($args);
+  $user_query = new WP_Query($args);
 
   if (!empty($user_query->results)) {
       echo '<h2>Usuários encontrados para meta_key "' . esc_html($meta_key) . '" e busca "' . esc_html($search_term) . '":</h2>';
