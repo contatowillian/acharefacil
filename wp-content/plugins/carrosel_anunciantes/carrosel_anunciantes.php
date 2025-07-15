@@ -72,21 +72,21 @@ function content_buscaCarroselAnunciantes($content) {
 
 function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
   
-
-
   $args = array(
-    'search'         => '' . esc_attr($search_term) . '', // O Relevanssi trata isso de forma inteligente
-    'search_columns' => array(
-        'display_name',
-        'user_nicename',
-        'user_email',
-        // Adicione outras colunas padrão de usuário se desejar que o Relevanssi as considere
-    ),
-    // Se você configurou o Relevanssi para indexar metas de usuário,
-    // ele já vai considerar essas metas na busca 'search'.
-    // Não é necessário um 'meta_query' separado para a busca por termo geral aqui.
+    'post_type'      => 'post', // Ou 'page', 'product', 'custom_post_type', etc.
+    's'              => 'cachorro', // Este é o parâmetro crucial para a busca
+    'posts_per_page' => 10, // Quntos posts por página você quer
+    'paged'          => (get_query_var('paged')) ? get_query_var('paged') : 1, // Para paginação
+    // Adicione outros parâmetros da WP_Query conforme necessário,
+    // como 'category_name', 'tag', 'author', 'meta_query', etc.
+    // O Relevanssi vai aprimorar a busca com base no 's'
 );
 
+$search_results = new WP_Query($args);
+
+relevanssi_do_query( $search_results );
+print_r(  $search_results);
+exit;
 
   $args = array(
     'meta_query' => array(
