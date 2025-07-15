@@ -85,7 +85,15 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
 $search_results = new WP_Query($args);
 
 relevanssi_do_query( $search_results );
-print_r(  $search_results);
+$search_results = $search_results->get_posts();
+
+foreach( $search_results as $post ) {
+
+  echo '<pre>';
+  print_r($post);
+  echo '</pre>';
+  
+}
 exit;
 
   $args = array(
