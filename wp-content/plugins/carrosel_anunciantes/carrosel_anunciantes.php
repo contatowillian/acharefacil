@@ -74,7 +74,7 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
   
   $args = array(
     'post_type'      => 'post', // Ou 'page', 'product', 'custom_post_type', etc.
-    's'              => 'cachorro', // Este é o parâmetro crucial para a busca
+    's'              => 'caẽs', // Este é o parâmetro crucial para a busca
     'posts_per_page' => 10, // Quntos posts por página você quer
     'paged'          => (get_query_var('paged')) ? get_query_var('paged') : 1, // Para paginação
     // Adicione outros parâmetros da WP_Query conforme necessário,
