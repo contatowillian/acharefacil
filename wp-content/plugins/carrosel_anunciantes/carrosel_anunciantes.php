@@ -75,7 +75,6 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
   $args = array(
       'post_type'      => 'post', // Ou 'page', 'product', 'custom_post_type', etc.
       'posts_per_page' => 10,
-      's' => '%festa%'
       // Adicione outros parâmetros da WP_Query conforme necessário,
       // como 'category_name', 'tag', 'author', 'meta_query', etc.
       // O Relevanssi vai aprimorar a busca com base no 's'
