@@ -72,20 +72,15 @@ function content_buscaCarroselAnunciantes($content) {
 
 function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
   
-  $args = array(
-      'post_type'      => 'post', // Ou 'page', 'product', 'custom_post_type', etc.
-      'posts_per_page' => 10,
-      // Adicione outros parâmetros da WP_Query conforme necessário,
-      // como 'category_name', 'tag', 'author', 'meta_query', etc.
-      // O Relevanssi vai aprimorar a busca com base no 's'
-  );
+  $query = new WP_Query( 's=festa' );
 
-  $search_results = new WP_Query($args);
-
-  if( $search_results->have_posts() ) {
-    while( $search_results->have_posts() ) { $search_results->the_post();
-      echo '<li>' . get_the_title() . '</li>';
-    }
+  if ($query->have_posts()){
+    while ( $query->have_posts() ) { $query->the_post();
+      echo '<h2>';
+        the_title();
+      echo '</h2>';
+      the_content();
+    } //end while
   }
 }
 
