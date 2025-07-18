@@ -73,7 +73,7 @@ function content_buscaCarroselAnunciantes($content) {
 function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
   
   //set the word to search
-  $search = "cachorro";
+  $search = "adestrador";
 
   //set arguments for search
   $args = array(
