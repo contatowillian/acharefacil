@@ -73,112 +73,23 @@ function content_buscaCarroselAnunciantes($content) {
 function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
   
   $args = array(
-    'post_type'      => 'post', // Ou 'page', 'product', 'custom_post_type', etc.
-    's'              => 'caẽs', // Este é o parâmetro crucial para a busca
-    'posts_per_page' => 10, // Quntos posts por página você quer
-    'paged'          => (get_query_var('paged')) ? get_query_var('paged') : 1, // Para paginação
-    // Adicione outros parâmetros da WP_Query conforme necessário,
-    // como 'category_name', 'tag', 'author', 'meta_query', etc.
-    // O Relevanssi vai aprimorar a busca com base no 's'
-);
-
-$search_results = new WP_Query($args);
-
-relevanssi_do_query( $search_results );
-$search_results = $search_results->get_posts();
-
-echo '<pre>';
-print_r($search_results);
-echo '</pre>';
-
-
-foreach( $search_results as $post ) {
-
-  echo '<pre>';
-  print_r($post);
-  echo '</pre>';
-  
-}
-exit;
-
-  $args = array(
-    'meta_query' => array(
-      'relation' => 'OR',
-        array(
-          'compare_key' => 'LIKE',
-          'key'     => 'afreg_additional_',
-          'value'   => 'adestrador de cachorro',
-          'compare' => 'like'
-        )
-    )
+      'post_type'      => 'post', // Ou 'page', 'product', 'custom_post_type', etc.
+      'posts_per_page' => 10,
+      's'=> $search_term // Quantos posts por página você quer
+      // Adicione outros parâmetros da WP_Query conforme necessário,
+      // como 'category_name', 'tag', 'author', 'meta_query', etc.
+      // O Relevanssi vai aprimorar a busca com base no 's'
   );
 
+  $search_results = new WP_Query($args);
 
-  $user_query = new WP_User_Query($args);
-
-  $user_query->parse_query($args);
-
-  // Usa Relevanssi para ordenar a consulta
-  if ( function_exists( 'relevanssi_do_query' ) ) {
-    relevanssi_do_query( $user_query );
-  }
-
-
-  $resultado =  $user_query->get_results();
-  
-  echo count($resultado);
-
-  exit;
-  
-  
-  $args = array(
-      'meta_query' => array(
-          array(
-            'compare_key' => 'LIKE',
-              'key'     => $meta_key,    // A chave do metadado que você quer buscar
-              'value'   => $search_term, // O valor que você quer buscar, incluindo os curingas '%'
-              'compare' => 'LIKE'       // O operador de comparação, neste caso, LIKE
-          )
-      )
-  );
-
-  $users = get_users($args); // Executa a busca pelos usuários
-  
-
-  echo count($users).'<br><br>';
-
-  print_r($users);
-}
-
-
-
-
-// Função para buscar usuários com meta_valor LIKE '%%'
-function buscar_usuarios_por_meta_like($meta_key, $search_term) {
-  $args = array(
-      'meta_query' => array(
-          array(
-              'key'     => $meta_key,
-              'value'   => $search_term,
-              'compare' => 'LIKE'
-          )
-      )
-  );
-
-  $user_query = new WP_Query($args);
-
-  if (!empty($user_query->results)) {
-      echo '<h2>Usuários encontrados para meta_key "' . esc_html($meta_key) . '" e busca "' . esc_html($search_term) . '":</h2>';
-      echo '<ul>';
-      foreach ($user_query->results as $user) {
-          echo '<li>' . esc_html($user->display_name) . ' (ID: ' . esc_html($user->ID) . ')</li>';
-          // Você pode adicionar mais informações do usuário aqui
-      }
-      echo '</ul>';
-  } else {
-      echo '<p>Nenhum usuário encontrado com os critérios especificados.</p>';
+  if( $search_results->have_posts() ) {
+    while( $search_results->have_posts() ) { $search_results->the_post();
+      echo '<li>' . get_the_title() . '</li>';
+    }
   }
 }
+
 
 
 add_filter('the_content', 'content_buscaCarroselAnunciantes');
