@@ -77,7 +77,7 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
 
   //set arguments for search
   $args = array(
-    's' => $search
+  	'meta_value'   => 'adestrador',
   );
 
   //query posts
