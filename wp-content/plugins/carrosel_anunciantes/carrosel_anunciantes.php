@@ -81,7 +81,7 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
   );
 
   //query posts
-  $posts = get_posts($args);
+  $posts = get_users($args);
 
   //printing post titles
   foreach ($posts as $post){
