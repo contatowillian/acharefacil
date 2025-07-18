@@ -72,15 +72,20 @@ function content_buscaCarroselAnunciantes($content) {
 
 function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
   
-  $query = new WP_Query( 's=%festa%' );
+  //set the word to search
+  $search = "cachorro";
 
-  if ($query->have_posts()){
-    while ( $query->have_posts() ) { $query->the_post();
-      echo '<h2>';
-        the_title();
-      echo '</h2>';
-      the_content();
-    } //end while
+  //set arguments for search
+  $args = array(
+    's' => $search
+  );
+
+  //query posts
+  $posts = get_posts($args);
+
+  //printing post titles
+  foreach ($posts as $post){
+    echo "Title: ".$post->post_title." <br />";
   }
 }
 
