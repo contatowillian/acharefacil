@@ -71,22 +71,20 @@ function content_buscaCarroselAnunciantes($content) {
 
 
 function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
-  
-  //set the word to search
-  $search = "adestrador";
+      
+    $args  = array(
+        's'           => 'festas',
+        'numberposts' => 10,
+        'post_types'  => array( 'post', 'page', 'custom_cpt' ),
+        'relevanssi'  => true,
+        // add other parameters here...
+    );
 
-  //set arguments for search
-  $args = array(
-  	'meta_value'   => 'adestrador',
-  );
+    $query = new WP_Query( $args );
+    foreach ( $query->posts as $post ) {
+      echo  $post[ 'post_title' ];
+    }
 
-  //query posts
-  $posts = get_users($args);
-
-  //printing post titles
-  foreach ($posts as $post){
-    echo "Title: ".$post->post_title." <br />";
-  }
 }
 
 
