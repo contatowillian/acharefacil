@@ -71,8 +71,8 @@
 		<?php } else { ?>
 			<?php if ( is_active_sidebar( 'blog-sidebar' ) ) { ?>
 			
-				<h2 class="search-title"><?php printf( esc_html__( '@@3 Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
-			
+				<?php /* <h2 class="search-title"><?php printf( esc_html__( '@@3 Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
+			*/ ?>
 				<div class="row content-wrapper sidebar-right">
 					<div id="primary" class="col col-12 col-lg-9 primary-column">
 						<div class="blog-posts">
@@ -107,13 +107,13 @@
 							<?php endif; ?>
 						</div>
 					</div>
-					<div id="sidebar" class="col col-12 col-lg-3 secondary-column sticky blog-sidebar">
+					<?php /*<div id="sidebar" class="col col-12 col-lg-3 secondary-column sticky blog-sidebar">
 						<div class="sidebar-inner sticky-holder sticky-top-20 overflow-visible">
 							<?php if ( is_active_sidebar( 'blog-sidebar' ) ) { ?>
 								<?php dynamic_sidebar( 'blog-sidebar' ); ?>
 							<?php } ?>
 						</div>
-					</div>
+					</div> */ ?>
 				</div>
 			<?php } else { ?>
 				<div class="row content-wrapper">
