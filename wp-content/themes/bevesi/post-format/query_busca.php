@@ -153,7 +153,9 @@
             $listaIdUsuario = '';
         }
 
+        echo $listaIdUsuario;
 
+        exit;
 
         $consulta_usuarios_anunciantes .= "SELECT DISTINCT
                                             us.ID,
