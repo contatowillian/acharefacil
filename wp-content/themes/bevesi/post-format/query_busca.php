@@ -66,28 +66,28 @@
         $filtro_categoria.='';
 
         /************************************   Filtro nome do negocio  ************************************/
-     /*   $filtro_extra .="AND us.user_status = 0 and  us.ID in
+        $filtro_extra .="AND us.user_status = 0 and  us.ID in
                                 (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
                                 where us.ID = nome_do_seu_negocio.user_id 
-                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['s']."%')";*/
+                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['s']."%')";
 
         /************************************   Filtro nome da categoria  ************************************/
-         /*  $filtro_extra .="OR us.user_status = 0 and  us.ID in
+        $filtro_extra .="OR us.user_status = 0 and  us.ID in
                                 (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
                                 where us.ID = nome_do_seu_negocio.user_id 
                                 AND nome_do_seu_negocio.meta_key = 'afreg_additional_3213'
                                 AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['s']."%')
                                 $filtro_extra
-                                ";*/
+                                ";
 
         /************************************   Filtro descrição do anúncio ************************************/
-        /*$filtro_extra .="OR us.user_status = 0 and  us.ID in
+        $filtro_extra .="OR us.user_status = 0 and  us.ID in
                                 (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
                                 where us.ID = nome_do_seu_negocio.user_id 
                                 AND nome_do_seu_negocio.meta_key = 'afreg_additional_3226'
                                 AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['s']."%')
                                 $filtro_extra
-                                ";  */            
+                                ";              
 
 
         }
@@ -153,7 +153,8 @@
             $listaIdUsuarioRelevanssi = '';
         }
 
-
+        echo  $listaIdUsuarioRelevanssi ;
+        exit;
 
         $consulta_usuarios_anunciantes .= "SELECT DISTINCT
                                             us.ID,
