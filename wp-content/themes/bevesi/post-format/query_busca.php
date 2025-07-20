@@ -190,7 +190,7 @@
         $consulta_usuarios_anunciantes_paginacao = "SELECT count(*) as quantidade
                                                     FROM wp_users AS us
                                                     JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                                    where us.user_status = 0 $filtro_extra   $listaIdUsuarioRelevanssi";
+                                                    where us.user_status = 0 $filtro_extra   $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade";
 
 
 
