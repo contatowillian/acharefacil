@@ -73,8 +73,8 @@ function content_buscaCarroselAnunciantes($content) {
 function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
   
   // Exemplo de como obter o termo de busca (se vier de um formulário, etc.)
-  $_GET['user_search'] = 'festa';
-  
+  $_GET['user_search'] = 'cachorro';
+
   $search_term = isset($_GET['user_search']) ? sanitize_text_field($_GET['user_search']) : ''; 
   
   // Ou um termo fixo para teste:
