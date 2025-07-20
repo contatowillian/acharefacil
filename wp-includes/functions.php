@@ -9024,3 +9024,20 @@ function debug_relevanssi_user_sql( $sql ) {
     error_log( 'Relevanssi User SQL: ' . $sql );
     return $sql;
 }
+
+
+add_action( 'pre_get_posts',  'set_posts_per_page'  );
+function set_posts_per_page( $query ) {
+
+  global $wp_the_query;
+
+  if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_search() ) ) {
+    $query->set( 'posts_per_page', 500 );
+  }
+  elseif ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() ) ) {
+    $query->set( 'posts_per_page', 500 );
+  }
+  // Etc..
+
+  return $query;
+}
