@@ -76,7 +76,6 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
       
       $args = array(
         's' => 'evento',
-        'post_type' => 'post',
         'relevanssi' => true,
     );
     // Para ver os argumentos que você está passando
