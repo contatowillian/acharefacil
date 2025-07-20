@@ -153,8 +153,8 @@
             $listaIdUsuarioRelevanssi = '';
         }
 
-        echo  $listaIdUsuarioRelevanssi ;
-        exit;
+       // echo  $listaIdUsuarioRelevanssi ;
+        //exit;
 
         $consulta_usuarios_anunciantes .= "SELECT DISTINCT
                                             us.ID,
