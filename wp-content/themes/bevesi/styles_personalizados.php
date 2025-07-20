@@ -2399,6 +2399,15 @@ height:35px !important;
         border-radius: 10px;
     }
 
+    .search-results .imagem_produto_lista_mobile img{
+        margin-left: 4%;
+        width: 71%;
+        border-radius: 10px;
+        min-width: 200px;
+        display: block;
+        margin: 0px auto;
+    }
+
     .products:not(.slick-slider).product-listing-style .product-inner{
         gap:0px !important;
     }

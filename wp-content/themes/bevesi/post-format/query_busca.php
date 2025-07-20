@@ -138,7 +138,7 @@
                                             >=  NOW()
                                         $filtro_extra  union all  ";
 
-        if(count($all_user_id_post>0)){
+        if(count($all_user_id_post>0) and count($all_user_id_post<500)){
 
             $listaIdUsuarioRelevanssi = '';
 
