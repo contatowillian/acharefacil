@@ -76,15 +76,19 @@
 				<div class="row content-wrapper sidebar-right">
 					<div id="primary" class="col col-12 col-lg-9 primary-column">
 						<div class="blog-posts">
-							<?php if (have_posts()) : while (have_posts()) : the_post();
+							<?php
+							
+							$user_id_post = [];
+							global $post; 
+							if (have_posts()) : while (have_posts()) : the_post();
 								include('post-format/query_busca.php');
 							?>
-
-								<?php  get_template_part( 'post-format/content', get_post_format() ); ?>
-
 							<?php endwhile; ?>
+
+							<?php /*  get_template_part( 'post-format/content', get_post_format() ); ?>
+
 						
-								<?php get_template_part( 'post-format/pagination' ); ?>
+							<?php get_template_part( 'post-format/pagination' ); */ ?>
 								
 							<?php else : ?>
 
