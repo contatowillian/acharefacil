@@ -9010,3 +9010,17 @@ function myprefix_relevanssi_index_user_meta_for_query( $value ) {
     // Liste os campos user_meta que você quer pesquisar com Relevanssi
     return 'first_name,last_name,description,afreg_additional_3226';
 }
+
+// Adicione este código no seu functions.php ou em um plugin customizado
+add_filter( 'relevanssi_user_query_args', 'debug_relevanssi_user_query', 10, 1 );
+function debug_relevanssi_user_query( $query_args ) {
+    error_log( 'Relevanssi User Query Args: ' . print_r( $query_args, true ) );
+    return $query_args;
+}
+
+// Você também pode inspecionar a query SQL gerada pelo Relevanssi
+add_filter( 'relevanssi_user_query', 'debug_relevanssi_user_sql', 10, 1 );
+function debug_relevanssi_user_sql( $sql ) {
+    error_log( 'Relevanssi User SQL: ' . $sql );
+    return $sql;
+}
