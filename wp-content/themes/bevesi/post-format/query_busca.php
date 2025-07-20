@@ -140,17 +140,17 @@
 
         if(count($all_user_id_post>0)){
 
-            $listaIdUsuario = '';
+            $listaIdUsuarioRelevanssi = '';
 
             foreach($all_user_id_post  as $registro_usuario_busca_relevansi){
-                $listaIdUsuario.=$registro_usuario_busca_relevansi.',';
+                $listaIdUsuarioRelevanssi.=$registro_usuario_busca_relevansi.',';
             }
 
-            $listaIdUsuario = substr($listaIdUsuario,0,-1);
-            $listaIdUsuario =  "or  us.ID in ($listaIdUsuario) ";
+            $listaIdUsuarioRelevanssi = substr($listaIdUsuarioRelevanssi,0,-1);
+            $listaIdUsuarioRelevanssi =  "or  us.ID in ($listaIdUsuarioRelevanssi) ";
             
         }else{
-            $listaIdUsuario = '';
+            $listaIdUsuarioRelevanssi = '';
         }
 
 
@@ -164,7 +164,7 @@
                                             JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                             where us.user_status = 0 $filtro_extra 
                                             $filtro_categoria_adulta
-                                            $listaIdUsuario
+                                            $listaIdUsuarioRelevanssi
                                             ORDER BY 4 ASC
                                             ) a GROUP BY 1,2,3,4
                                             ORDER BY 4 ASC
@@ -181,7 +181,7 @@
         $consulta_usuarios_anunciantes_paginacao = "SELECT count(*) as quantidade
                                                     FROM wp_users AS us
                                                     JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                                    where us.user_status = 0 $filtro_extra   $listaIdUsuario";
+                                                    where us.user_status = 0 $filtro_extra   $listaIdUsuarioRelevanssi";
 
 
 
@@ -228,6 +228,7 @@
         JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
         JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
         where us.user_status = 0 
+        $listaIdUsuarioRelevanssi
         $filtro_extra
         $filtro_categoria_escolhida order by  categoria.meta_value asc  ";
 
@@ -249,6 +250,7 @@
                             JOIN wp_usermeta AS estado  ON  us.ID = estado.user_id  AND estado.meta_key = 'afreg_additional_3245'
                             where  trim(cidades.meta_value) !=''
                             $filtro_cidade_escolhida
+                            $listaIdUsuarioRelevanssi
                             $filtro_extra
                             order by estado.meta_value, cidades.meta_value ASC
 
