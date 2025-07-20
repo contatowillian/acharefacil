@@ -39,26 +39,34 @@
                         AND CI.id_categoria_principal = '".$_REQUEST['categoria_principal']."')";
         }
 
+        $filtro_categoria = '';
 
         if(isset($_REQUEST['categoria']) and $_REQUEST['categoria']!=''){
 
         /************************************   Filtro nome da categoria  ************************************/
-        $filtro_extra .="AND us.user_status = 0 and  us.ID in
+        $filtro_categoria ="AND us.user_status = 0 and  us.ID in
                         (select nome_da_categoria.user_id from wp_usermeta as nome_da_categoria
                         where us.ID = nome_da_categoria.user_id 
                         AND nome_da_categoria.meta_key = 'afreg_additional_3213'
                         AND nome_da_categoria.meta_value like '%".$_REQUEST['categoria']."%')";
+
+        $filtro_extra .=$filtro_categoria;
+
         }
 
+        $filtro_cidade ='';
 
         if(isset($_REQUEST['cidade']) and $_REQUEST['cidade']!=''){
 
         /************************************   Filtro nome da cidade  ************************************/
-        $filtro_extra .="AND us.user_status = 0 and  us.ID in
+        $filtro_cidade ="AND us.user_status = 0 and  us.ID in
                         (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
                         where us.ID = nome_do_seu_negocio.user_id 
                         AND nome_do_seu_negocio.meta_key = 'afreg_additional_3244'
                         AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['cidade']."%')";
+
+        $filtro_extra .=$filtro_cidade;
+
         }
 
         if(isset($_REQUEST['s']) and $_REQUEST['s']!=''){
@@ -165,7 +173,7 @@
                                             JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                             where us.user_status = 0 $filtro_extra 
                                             $filtro_categoria_adulta
-                                            $listaIdUsuarioRelevanssi
+                                            $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade
                                             ORDER BY 4 ASC
                                             ) a GROUP BY 1,2,3,4
                                             ORDER BY 4 ASC
