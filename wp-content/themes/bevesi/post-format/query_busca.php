@@ -5,7 +5,7 @@ echo 'author_meta2'.$post->post_author;
 $value= 0 ;
 
 echo "<pre>";
-print_r($post);
+print_r($post['user_id']);
 echo "</pre>";
 exit;
 
