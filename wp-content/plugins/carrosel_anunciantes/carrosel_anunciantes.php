@@ -97,7 +97,13 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
                   'key'     => 'afreg_additional_3226',
                   'value'   => $search_term,
                   'compare' => 'LIKE', // Use 'LIKE' para busca parcial
-              ),
+                ),
+
+                array(
+                  'key'     => 'afreg_additional_3224',
+                  'value'   => $search_term,
+                  'compare' => 'LIKE', // Use 'LIKE' para busca parcial
+                ),
 
                 
             ),
