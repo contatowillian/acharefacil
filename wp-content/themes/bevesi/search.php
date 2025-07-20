@@ -28,8 +28,7 @@
 				<div id="primary" class="col col-12 col-lg-9 primary-column">
 					<div class="blog-posts">
 						<?php if (have_posts()) : while (have_posts()) : the_post(); 
-						   print_r(the_post());
-						   exit;
+						 
 						?>
 
 							<?php  get_template_part( 'post-format/content', get_post_format() ); ?>
@@ -77,7 +76,10 @@
 				<div class="row content-wrapper sidebar-right">
 					<div id="primary" class="col col-12 col-lg-9 primary-column">
 						<div class="blog-posts">
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+							<?php if (have_posts()) : while (have_posts()) : the_post();
+							  print_r(the_post());
+							  exit;
+							?>
 
 								<?php  get_template_part( 'post-format/content', get_post_format() ); ?>
 
