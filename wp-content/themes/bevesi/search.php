@@ -15,7 +15,7 @@
 
 		<?php if( get_theme_mod( 'bevesi_blog_layout' ) == 'left-sidebar') { ?>
 		
-			<h2 class="search-title"><?php printf( esc_html__( 'Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
+			<h2 class="search-title"><?php printf( esc_html__( '@@1 Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
 			
 			<div class="row content-wrapper sidebar-left">
 				<div id="sidebar" class="col col-12 col-lg-3 secondary-column sticky blog-sidebar">
@@ -27,7 +27,10 @@
 				</div>
 				<div id="primary" class="col col-12 col-lg-9 primary-column">
 					<div class="blog-posts">
-						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<?php if (have_posts()) : while (have_posts()) : the_post(); 
+						   print_r(the_post());
+						   exit;
+						?>
 
 							<?php  get_template_part( 'post-format/content', get_post_format() ); ?>
 
@@ -47,7 +50,7 @@
 			<div class="row content-wrapper">
 				<div id="primary" class="col col-12 col-lg-12 primary-column">
 				
-					<h2 class="search-title"><?php printf( esc_html__( 'Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
+					<h2 class="search-title"><?php printf( esc_html__( '@@2 Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
 				
 					<div class="blog-posts">
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -69,7 +72,7 @@
 		<?php } else { ?>
 			<?php if ( is_active_sidebar( 'blog-sidebar' ) ) { ?>
 			
-				<h2 class="search-title"><?php printf( esc_html__( 'Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
+				<h2 class="search-title"><?php printf( esc_html__( '@@3 Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
 			
 				<div class="row content-wrapper sidebar-right">
 					<div id="primary" class="col col-12 col-lg-9 primary-column">
@@ -101,7 +104,7 @@
 				<div class="row content-wrapper">
 					<div id="primary" class="col col-12 col-lg-12 primary-column">
 
-						<h2 class="search-title"><?php printf( esc_html__( 'Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
+						<h2 class="search-title"><?php printf( esc_html__( '@@4 Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
 					
 						<div class="blog-posts">
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
