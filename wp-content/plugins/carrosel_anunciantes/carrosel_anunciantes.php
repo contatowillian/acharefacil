@@ -74,27 +74,70 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
 
     echo "Chegou aqui no relevansi";
       
-    $termo_de_busca = 'festa'; // Certifique-se de que isso não está vazio!
+    $search_term = 'evento'; // Defina o termo de busca aqui
 
-    if (!empty($termo_de_busca)) {
+    if ( ! empty( $search_term ) ) {
         $args = array(
-            's' => $termo_de_busca,
-            'relevanssi' => true,
-            'post_type' => 'afreg_fields', // Exemplo de busca em um Custom Post Type
-            'posts_per_page' => 5,
+            'search'         => '*' . esc_attr( $search_term ) . '*', // Termo de busca
+            'search_columns' => array( // Opcional: Especifique colunas para a busca padrão do WP antes do Relevanssi
+                'user_login',
+                'user_nicename',
+                'user_email',
+                'user_url',
+            ),
+            'number'         => 10, // Número de usuários por página
+            'paged'          => ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1,
+            // 'role__in' => array('subscriber', 'editor'), // Opcional: Buscar apenas em roles específicas
         );
     
-        $query_com_relevanssi = new WP_Query($args);
+        // Adicione o filtro do Relevanssi para user queries
+        add_filter( 'relevanssi_user_query_args', 'my_relevanssi_user_query_args' );
     
-        if ($query_com_relevanssi->have_posts()) {
-            // ... loop
-        } else {
-            // ... nenhum resultado
+        $user_query = new WP_User_Query( $args );
+    
+        // Remova o filtro após a query para não afetar outras queries de usuário
+        remove_filter( 'relevanssi_user_query_args', 'my_relevanssi_user_query_args' );
+    
+        // Defina a função de filtro
+        function my_relevanssi_user_query_args( $query_args ) {
+            // Esta função é chamada pelo Relevanssi quando ele processa uma WP_User_Query
+            // Você pode adicionar lógica extra aqui, se necessário.
+            // O Relevanssi já interceptará a busca se o termo 's' estiver presente
+            // ou se você tiver configurado nas opções que ele deve assumir queries de usuário.
+            return $query_args;
         }
-        wp_reset_postdata();
+    
+        if ( ! empty( $user_query->get_results() ) ) {
+            echo '<h2>Resultados da busca por usuários para "' . esc_html( $search_term ) . '"</h2>';
+            echo '<ul>';
+            foreach ( $user_query->get_results() as $user ) {
+                echo '<li>';
+                echo '<a href="' . esc_url( get_author_posts_url( $user->ID ) ) . '">' . esc_html( $user->display_name ) . '</a>';
+                echo ' (Email: ' . esc_html( $user->user_email ) . ')';
+                echo '</li>';
+            }
+            echo '</ul>';
+    
+            // Paginação (se houver muitos usuários, você pode precisar de um plugin ou lógica personalizada)
+            // A paginação para WP_User_Query é um pouco mais complexa que para WP_Query.
+            // Você precisaria calcular o total de páginas com base em $user_query->total_users.
+            $total_users    = $user_query->total_users;
+            $users_per_page = $args['number'];
+            $total_pages    = ceil( $total_users / $users_per_page );
+    
+            if ( $total_pages > 1 ) {
+                echo '<div class="pagination">';
+                for ( $i = 1; $i <= $total_pages; $i++ ) {
+                    echo '<a href="' . add_query_arg( 'paged', $i, get_permalink() ) . '">' . $i . '</a> ';
+                }
+                echo '</div>';
+            }
+    
+        } else {
+            echo '<p>Nenhum usuário encontrado para "' . esc_html( $search_term ) . '".</p>';
+        }
     } else {
-        // Lidar com o caso onde não há termo de busca
-        echo 'Por favor, forneça um termo de busca.';
+        echo '<p>Por favor, digite um termo de busca para usuários.</p>';
     }
 
 }
