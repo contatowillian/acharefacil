@@ -71,19 +71,20 @@ function content_buscaCarroselAnunciantes($content) {
 
 
 function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
-      
-    $args  = array(
-        's'           => 'festas',
-        'numberposts' => 10,
-        'post_types'  => array( 'post', 'page', 'custom_cpt' ),
-        'relevanssi'  => true,
-        // add other parameters here...
-    );
 
-    $query = new WP_Query( $args );
-    foreach ( $query->posts as $post ) {
-      echo  $post[ 'post_title' ];
-    }
+    echo "Chegou aqui no relevansi";
+      
+      $args = array(
+        's' => 'termo de busca',
+        'post_type' => 'post',
+        'relevanssi' => true,
+    );
+    // Para ver os argumentos que você está passando
+    error_log('Relevanssi WP_Query args: ' . print_r($args, true));
+
+    $my_query = new WP_Query($args);
+    // Para ver o que o WP_Query está retornando
+    error_log('Relevanssi WP_Query posts: ' . print_r($my_query->posts, true));
 
 }
 
