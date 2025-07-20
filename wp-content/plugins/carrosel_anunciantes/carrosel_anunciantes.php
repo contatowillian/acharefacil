@@ -87,6 +87,14 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
             ),
             'number'         => 10, // Número de usuários por página
             'paged'          => ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1,
+            'meta_query' => array(
+                array(
+                    'key'     => 'afreg_additional_3213',
+                    'value'   => $search_term,
+                    'compare' => 'LIKE', // Use 'LIKE' para busca parcial
+                ),
+            ),
+
             // 'role__in' => array('subscriber', 'editor'), // Opcional: Buscar apenas em roles específicas
         );
     
