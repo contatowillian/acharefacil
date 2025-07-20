@@ -89,7 +89,11 @@
 								}
 
 							?>
-							<?php endwhile; ?>
+							<?php endwhile;
+							
+							print_r($all_user_id_post);
+							exit;
+							?>
 
 							<?php  include('post-format/query_busca.php'); ?>
 
