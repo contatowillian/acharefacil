@@ -71,95 +71,70 @@ function content_buscaCarroselAnunciantes($content) {
 
 
 function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
-
-    echo "Chegou aqui no relevansi";
-      
-    $search_term = 'DJ'; // Defina o termo de busca aqui
-
-    if ( ! empty( $search_term ) ) {
-        $args = array(
-            'search'         => '*' . esc_attr( $search_term ) . '*', // Termo de busca
-            'search_columns' => array( // Opcional: Especifique colunas para a busca padrão do WP antes do Relevanssi
-                'user_login',
-                'user_nicename',
-                'user_email',
-                'user_url',
-            ),
-            'number'         => 10, // Número de usuários por página
-            'paged'          => ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1,
-            'meta_query' => array(
-                array(
-                    'key'     => 'afreg_additional_3213',
-                    'value'   => $search_term,
-                    'compare' => 'LIKE', // Use 'LIKE' para busca parcial
-                ),
-                array(
-                  'key'     => 'afreg_additional_3226',
-                  'value'   => $search_term,
-                  'compare' => 'LIKE', // Use 'LIKE' para busca parcial
-                ),
-
-                array(
-                  'key'     => 'afreg_additional_3224',
-                  'value'   => $search_term,
-                  'compare' => 'LIKE', // Use 'LIKE' para busca parcial
-                ),
-
-                
-            ),
-
-            // 'role__in' => array('subscriber', 'editor'), // Opcional: Buscar apenas em roles específicas
-        );
-    
-        // Adicione o filtro do Relevanssi para user queries
-        add_filter( 'relevanssi_user_query_args', 'my_relevanssi_user_query_args' );
-    
-        $user_query = new WP_User_Query( $args );
-    
-        // Remova o filtro após a query para não afetar outras queries de usuário
-        remove_filter( 'relevanssi_user_query_args', 'my_relevanssi_user_query_args' );
-    
-        // Defina a função de filtro
-        function my_relevanssi_user_query_args( $query_args ) {
-            // Esta função é chamada pelo Relevanssi quando ele processa uma WP_User_Query
-            // Você pode adicionar lógica extra aqui, se necessário.
-            // O Relevanssi já interceptará a busca se o termo 's' estiver presente
-            // ou se você tiver configurado nas opções que ele deve assumir queries de usuário.
-            return $query_args;
-        }
-    
-        if ( ! empty( $user_query->get_results() ) ) {
-            echo '<h2>Resultados da busca por usuários para "' . esc_html( $search_term ) . '"</h2>';
-            echo '<ul>';
-            foreach ( $user_query->get_results() as $user ) {
-                echo '<li>';
-                echo '<a href="' . esc_url( get_author_posts_url( $user->ID ) ) . '">' . esc_html( $user->display_name ) . '</a>';
-                echo ' (Email: ' . esc_html( $user->user_email ) . ')';
-                echo '</li>';
-            }
-            echo '</ul>';
-    
-            // Paginação (se houver muitos usuários, você pode precisar de um plugin ou lógica personalizada)
-            // A paginação para WP_User_Query é um pouco mais complexa que para WP_Query.
-            // Você precisaria calcular o total de páginas com base em $user_query->total_users.
-            $total_users    = $user_query->total_users;
-            $users_per_page = $args['number'];
-            $total_pages    = ceil( $total_users / $users_per_page );
-    
-            if ( $total_pages > 1 ) {
-                echo '<div class="pagination">';
-                for ( $i = 1; $i <= $total_pages; $i++ ) {
-                    echo '<a href="' . add_query_arg( 'paged', $i, get_permalink() ) . '">' . $i . '</a> ';
-                }
-                echo '</div>';
-            }
-    
-        } else {
-            echo '<p>Nenhum usuário encontrado para "' . esc_html( $search_term ) . '".</p>';
-        }
-    } else {
-        echo '<p>Por favor, digite um termo de busca para usuários.</p>';
-    }
+  
+  // Exemplo de como obter o termo de busca (se vier de um formulário, etc.)
+  $_GET['user_search'] = 'festa';
+  
+  $search_term = isset($_GET['user_search']) ? sanitize_text_field($_GET['user_search']) : ''; 
+  
+  // Ou um termo fixo para teste:
+  // $search_term = 'termo de teste';
+  
+  if ( ! empty( $search_term ) ) {
+      $args = array(
+          'search'         => '*' . esc_attr( $search_term ) . '*', // Relevanssi usa este para buscar nos campos indexados
+          'number'         => 10, 
+          'paged'          => ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1,
+      );
+  
+      // O filtro é essencial para que o Relevanssi intercepte a query
+      add_filter( 'relevanssi_user_query_args', 'my_relevanssi_user_query_args' );
+  
+      $user_query = new WP_User_Query( $args );
+  
+      remove_filter( 'relevanssi_user_query_args', 'my_relevanssi_user_query_args' );
+  
+      function my_relevanssi_user_query_args( $query_args ) {
+          // Esta função pode ser usada para depuração ou para adicionar lógica extra.
+          // Por padrão, se o Relevanssi estiver configurado para indexar usuários e o campo,
+          // ele já deve interceptar a busca com base no parâmetro 'search'.
+          return $query_args;
+      }
+  
+      // ... (restante do código para exibir resultados e paginação)
+      if ( ! empty( $user_query->get_results() ) ) {
+          echo '<h2>Resultados da busca por usuários para "' . esc_html( $search_term ) . '"</h2>';
+          echo '<ul>';
+          foreach ( $user_query->get_results() as $user ) {
+              echo '<li>';
+              echo '<a href="' . esc_url( get_author_posts_url( $user->ID ) ) . '">' . esc_html( $user->display_name ) . '</a>';
+              $afreg_value = get_user_meta( $user->ID, 'afreg_additional', true );
+              if ( ! empty( $afreg_value ) ) {
+                  echo ' (Campo Adicional: ' . esc_html( $afreg_value ) . ')';
+              }
+              echo '</li>';
+          }
+          echo '</ul>';
+          // Paginação
+          $total_users    = $user_query->total_users;
+          $users_per_page = $args['number'];
+          $total_pages    = ceil( $total_users / $users_per_page );
+  
+          if ( $total_pages > 1 ) {
+              echo '<div class="pagination">';
+              for ( $i = 1; $i <= $total_pages; $i++ ) {
+                  echo '<a href="' . add_query_arg( 'paged', $i, get_permalink() ) . '">' . $i . '</a> ';
+              }
+              echo '</div>';
+          }
+      } else {
+          echo '<p>Nenhum usuário encontrado para "' . esc_html( $search_term ) . '".</p>';
+      }
+  
+  } else {
+      echo '<p>Por favor, digite um termo de busca para usuários.</p>';
+  }
+  
 
 }
 
