@@ -75,7 +75,7 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
     echo "Chegou aqui no relevansi";
       
       $args = array(
-        's' => 'termo de busca',
+        's' => 'evento',
         'post_type' => 'post',
         'relevanssi' => true,
     );
