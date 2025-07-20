@@ -74,16 +74,28 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
 
     echo "Chegou aqui no relevansi";
       
-      $args = array(
-        's' => 'evento',
-        'relevanssi' => true,
-    );
-    // Para ver os argumentos que você está passando
-    error_log('Relevanssi WP_Query args: ' . print_r($args, true));
+    $termo_de_busca = 'festa'; // Certifique-se de que isso não está vazio!
 
-    $my_query = new WP_Query($args);
-    // Para ver o que o WP_Query está retornando
-    error_log('Relevanssi WP_Query posts: ' . print_r($my_query->posts, true));
+    if (!empty($termo_de_busca)) {
+        $args = array(
+            's' => $termo_de_busca,
+            'relevanssi' => true,
+            'post_type' => 'afreg_fields', // Exemplo de busca em um Custom Post Type
+            'posts_per_page' => 5,
+        );
+    
+        $query_com_relevanssi = new WP_Query($args);
+    
+        if ($query_com_relevanssi->have_posts()) {
+            // ... loop
+        } else {
+            // ... nenhum resultado
+        }
+        wp_reset_postdata();
+    } else {
+        // Lidar com o caso onde não há termo de busca
+        echo 'Por favor, forneça um termo de busca.';
+    }
 
 }
 
