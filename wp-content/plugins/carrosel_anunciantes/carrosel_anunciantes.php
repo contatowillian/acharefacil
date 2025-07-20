@@ -74,7 +74,7 @@ function buscar_usuarios_por_meta_like_get_users($meta_key, $search_term) {
 
     echo "Chegou aqui no relevansi";
       
-    $search_term = 'DJ'; // Defina o termo de busca aqui
+    $search_term = '%DJ%'; // Defina o termo de busca aqui
 
     if ( ! empty( $search_term ) ) {
         $args = array(
