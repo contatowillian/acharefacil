@@ -73,8 +73,8 @@
 			
 				<?php /* <h2 class="search-title"><?php printf( esc_html__( '@@3 Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
 			*/ ?>
-				<div class="row content-wrapper sidebar-right">
-					<div id="primary" class="col col-12 col-lg-9 primary-column">
+				<div class="row ">
+					<div id="primary" class="col col-12 col-lg-12 primary-column">
 						<div class="blog-posts">
 							<?php
 							
