@@ -1,0 +1,365 @@
+<div  class='busca_usuario_anunciantes'>
+   <div class="container">
+      <nav class="woocommerce-breadcrumb">
+         <ul>
+            <li><a href="https://acharefacil.com.br">Início</a></li>
+            <li><a href="#">Buscar</a></li>
+            <?php if(isset($_GET['palavra_chave']) and $_GET['palavra_chave']!=''){?>
+            <li>Resultados da pesquisa para  ”<?php  echo $_GET['palavra_chave']; ?>”
+            <?php } ?> 
+            <?php if(isset($_GET['categoria']) and $_GET['categoria']!=''){echo " -  Categoria: ".$_GET['categoria']." "; ;} ?>
+            <?php if(isset($_GET['cidade'])  and $_GET['cidade']!=''){echo " -  Cidade: ".$_GET['cidade']." "; ;} ?>
+            </li>
+         </ul>
+      </nav>
+   </div>
+   <div class="bevesi-elementor-template template-2403">
+      <style>.elementor-2403 .elementor-element.elementor-element-2bac82c{--display:flex;--flex-direction:row;--container-widget-width:initial;--container-widget-height:100%;--container-widget-flex-grow:1;--container-widget-align-self:stretch;--flex-wrap-mobile:wrap;--gap:0px 0px;--background-transition:0.3s;--padding-top:0px;--padding-bottom:0px;--padding-left:0px;--padding-right:0px;}.elementor-2403 .elementor-element.elementor-element-cfcddb3{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--background-transition:0.3s;}.elementor-2403 .elementor-element.elementor-element-436c3b2{--display:flex;--flex-direction:row;--container-widget-width:initial;--container-widget-height:100%;--container-widget-flex-grow:1;--container-widget-align-self:stretch;--flex-wrap-mobile:wrap;--gap:0px 0px;--background-transition:0.3s;--padding-top:8px;--padding-bottom:18px;--padding-left:0px;--padding-right:0px;}.elementor-2403 .elementor-element.elementor-element-1728c9f{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--background-transition:0.3s;}.elementor-2403 .elementor-element.elementor-element-3ac7751{--divider-border-style:solid;--divider-color:#E2E8F0;--divider-border-width:1px;}.elementor-2403 .elementor-element.elementor-element-3ac7751 .elementor-divider-separator{width:100%;}@media(min-width:768px){.elementor-2403 .elementor-element.elementor-element-cfcddb3{--width:100%;}.elementor-2403 .elementor-element.elementor-element-1728c9f{--width:100%;}}</style>
+      <div data-elementor-type="section" data-elementor-id="2403" class="elementor elementor-2403">
+      
+         <div class="elementor-element elementor-element-436c3b2 e-flex e-con-boxed e-con e-parent" data-id="436c3b2" data-element_type="container">
+            <div class="e-con-inner">
+               <div class="elementor-element elementor-element-1728c9f e-con-full e-flex e-con e-child" data-id="1728c9f" data-element_type="container">
+                  <div class="elementor-element elementor-element-3ac7751 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="3ac7751" data-element_type="widget" data-widget_type="divider.default">
+                     <div class="elementor-widget-container">
+                        <div class="elementor-divider">
+                           <span class="elementor-divider-separator">
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <div id="primary" class="content-area">
+         <main id="main" class="site-main" role="main">            
+            <header class="woocommerce-products-header">
+            </header>
+            <div class="row content-wrapper row-reverse sidebar-left">
+               <div id="primary" class="col col-12 col-lg-9 primary-column">
+                  <div class="woocommerce-notices-wrapper"></div>
+                  <div class="before-shop-loop">
+                     <div class="column left">
+                        <p class="woocommerce-result-count">
+                        Exibindo <?php if($qtd_total_busca<20){ echo $qtd_total_busca;  }else{ echo "20"; } ?>  de <?php echo $qtd_total_busca; ?> resultados
+                        </p>
+                     </div>
+                  </div>
+                  <div class="shop-products-wrapper">
+                     <div class="products product-listing-style">
+                        <?php $contador_destaques = 1; 
+                        foreach($users as $dadosAnunciantes){ 
+                           $contador_destaques++;
+                           if($dadosAnunciantes->descricao!=''){ 
+                              if($dadosAnunciantes->destaque=='sim'  or $contador_destaques<=3){
+                                 $classe_destaque = 'destaque_quadro_resultado';
+                                 $estrela_destaque = '<i class="klb-icon-star"></i>';
+                              }else{
+                                 $classe_destaque = '';
+                                 $estrela_destaque = '';
+                              }
+
+                              ?>
+
+                 
+                        <div class="<?php echo $classe_destaque; ?> product type-product post-2871 status-publish first instock product_cat-auto-escola has-post-thumbnail shipping-taxable product-type-simple">
+               
+                           <div class="product-wrapper with-content-fade product-type-1 cursor_link">
+
+                           <div class="some_desk imagem_produto_lista_mobile product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-slider"><img fetchpriority="high"  src="<?php echo $dadosAnunciantes->foto_do_anunciante; ?>" class="imagem_anunciante_resultado" ></div>
+                           
+                              <div class="product-inner">
+                                 <div class="product-thumbnail-wrapper">
+                                    <div class="product-buttons">
+                                       <div class="wishlist-button product-button product-wishlist"></div>
+                                       <!-- wishlist-button -->
+                                       <div class="product-button product-quickview quick-view-1"></div>
+                                       <div class="product-button product-compare"></div>
+                                    </div>
+                                    <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>">
+                                    <!-- product-buttons -->
+                                    <div class="some_mobile product-thumbnail thumbnail-gallery-dots-style-1 thumbnail-gallery-slider"><img fetchpriority="high"  src="<?php echo $dadosAnunciantes->foto_do_anunciante; ?>" class="imagem_anunciante_resultado" ></div>
+                                    <!-- product-thumbnail -->
+                                    </a>
+                                 </div>
+                          
+                                 <!-- product-thumbnail-wrapper -->
+                                 <div class="product-content-wrapper">
+                                    <div class="product-content-body">
+                               
+                                       <div class="product-content-row">
+                                          <div class="col-lg-7 linha_desc_anuncio_texto">
+                                             <!-- product-content-row col-lg-9 -->
+                                             <div class="product-price-wrapper"><span class="price"></span> </div>
+                                             <!-- product-price-wrapper -->
+                                             <div class="titulo_produto_busca">
+                                                <h2 class="product-title">
+                                                <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>">
+                                                <span>    
+                                                <?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,26); ?><?php echo $estrela_destaque; ?>
+                                                   </span>
+                                                   <br>
+                                                  <span class='categoria_busca_linha'> <?php echo $dadosAnunciantes->categoria; ?></span>
+                                             </div>
+                                             <div class="limpa_linha"></div>
+                                             <div class="entry-description"><?php echo $dadosAnunciantes->descricao; ?></div>
+                                             <!-- product-details -->
+                                           
+                                             </a>
+                                          </div>
+                                        
+                                          <!-- product-content-row col-lg-9 -->
+                                          <div class="col-lg-4 coluna_info_anunciante_busca">
+                                             <!-- product-content-row col-lg-3 -->
+                                             <div class="info-section info-secondary">
+
+                                                <?php if(isset($dadosAnunciantes->whatsapp) and $dadosAnunciantes->whatsapp!=''){  ?>
+                                                   <div class="whatsapp_icon_search primary phones phone"><a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $dadosAnunciantes->whatsapp);  ?>?text=Ol%C3%A1,%20vi%20seu%20an%C3%BAncio%20no%20site%20Achar%20%C3%A9%20F%C3%A1cil%20www.acharefacil.com.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.'><div class="whatsapp_icon_resultado_busca"></div><span class='whats_telefone_texto'><?php echo $dadosAnunciantes->whatsapp;  ?><span></a></div>
+                                                <?php } ?>
+
+                                                <?php if(isset($dadosAnunciantes->telefone) and $dadosAnunciantes->telefone!=''){  ?>
+                                                  <div class="phones phone primary"><i class="klb-icon-phone"></i><?php echo $dadosAnunciantes->telefone; ?></div>
+                                                <?php } ?>
+
+                                                <div class="adr">
+                                                <?php if(isset($dadosAnunciantes->endereco) and $dadosAnunciantes->endereco!=''){  ?>
+                                                   <a href='https://www.google.com/maps/place/<?php echo $dadosAnunciantes->endereco; ?>, <?php echo $dadosAnunciantes->numero; ?> - <?php echo $dadosAnunciantes->cep; ?>' target='_new'>
+                                                   <div class="street-address"><i class="klb-icon-home"></i><?php echo $dadosAnunciantes->endereco; ?>, <?php echo $dadosAnunciantes->numero; ?> <?php echo $dadosAnunciantes->complemento; ?></div>
+                                                   </a>
+                                               <?php } ?>
+                                                <?php if(isset($dadosAnunciantes->cidade) and $dadosAnunciantes->cidade!=''){  ?>
+                                                   <div class="locality"><i class="klb-icon-map"></i><?php echo $dadosAnunciantes->cidade; ?>,<?php echo $dadosAnunciantes->estado; ?></div>
+                                                <?php } ?>
+
+                                                </div>
+                                               
+                                            
+
+                                                <div class="info_extra_anunciante_busca">
+                                                <?php if($dadosAnunciantes->website!=''){  ?>
+                                                    <div class="site_lista_busca"><a target='_blank' href="https://<?php echo $dadosAnunciantes->website; ?>"><i class="klb-icon-www"></i>Acessar Website</a></div>
+                                                <?php } ?>
+                                                <?php if(isset($dadosAnunciantes->endereco_facebook) and $dadosAnunciantes->endereco_facebook!=''
+                                                            or isset($dadosAnunciantes->endereco_instagram)  and $dadosAnunciantes->endereco_instagram!=''
+                                                            or isset($dadosAnunciantes->endereco_linkedin)  and $dadosAnunciantes->endereco_linkedin!=''
+                                                   ){  ?>
+                                                   <div class='linha_divisoria_detalhe'>
+                                                      <div class="product-share social-container">
+                                                         <span>Redes Sociais:</span>
+                                                         <div class="site-social lista_rede_social">
+                                                            <ul class="color-social rede_social_padding">
+                                                               <?php if(isset($dadosAnunciantes->endereco_facebook) and $dadosAnunciantes->endereco_facebook!=''){  ?>
+                                                               <li><a href="<?php echo $dadosAnunciantes->endereco_facebook; ?>" class="filled social-color facebook" target="_blank"><i class="klb-social-icon-facebook"></i></a></li>
+                                                               <?php } ?>
+                                                               <?php if(isset($dadosAnunciantes->endereco_instagram)  and $dadosAnunciantes->endereco_instagram!=''){  ?>
+                                                               <li><a href="<?php echo $dadosAnunciantes->endereco_instagram; ?>" class="filled social-color instagram" target="_blank"><i class="klb-social-icon-instagram"></i></a></li>
+                                                               <?php } ?>
+                                                               <?php if(isset($dadosAnunciantes->endereco_linkedin)  and $dadosAnunciantes->endereco_linkedin!=''){  ?>
+                                                               <li><a href="<?php echo $dadosAnunciantes->endereco_linkedin; ?>" class="filled social-color linkedin" target="_blank"><i class="klb-social-icon-linkedin"></i></a></li>
+                                                               <?php } ?>
+                                                            </ul>
+                                                         </div>
+                                                         <!-- site-social -->
+                                                      </div>
+                                                   </div>
+
+                                                <?php } ?>
+                                             </div>
+                                             </div>
+                                          </div>
+                                          <!-- product-content-row  col-lg-3-->
+                                       </div>
+                                       <!-- product-content-row -->
+                                       <div class="product-content-row"></div>
+                                       <!-- product-content-row -->
+                                    </div>
+                                    <!-- product-content-body -->
+                                    <div class="product-content-footer">
+                                       <div class="product-extra-content"></div>
+                                       <!-- product-extra-content -->
+                                     
+                                       <!-- product-cart -->
+                                    </div>
+                                    <!-- product-content-footer -->
+                                 </div>
+                                
+                                 <!-- product-content-wrapper -->
+                              </div>
+                              <!-- product-inner -->
+                              <div class="product-hidden-content">
+                                 
+                                 <!-- product-cart -->
+                              </div>
+                              <!-- product-hidden-content -->
+                           </div>
+                           <!-- product-wrapper -->
+                        </div>
+                       
+                        <div class="product">
+                        </div>
+
+                        <?php } ?>
+
+                      <?php } ?>
+                     </div>
+                  </div>
+
+                  <?php if(count($users)>0){  ?>
+                  <nav class="woocommerce-pagination" aria-label="Product Pagination">
+                     <ul class="page-numbers">
+                     <?php $pagina = 1; 
+                     
+                      while($quantidade_paginas>=$pagina and $pagina<=10){
+                        
+                         if(!isset($_REQUEST['pagina']) or $_REQUEST['pagina']==''){
+                           $pagina_atual = 1;
+                         }else{
+                           $pagina_atual = $_REQUEST['pagina'];
+                         }
+
+                         if($pagina_atual==$pagina){
+                           $classe_pagina_atual ='current';
+                           $href_paginacao ='#';
+                         }else{
+                           $classe_pagina_atual ='';
+                           $href_paginacao = '/busca?categoria='.$_GET['categoria'].'&palavra_chave='.$_GET['palavra_chave'].'&cidade='.$_GET['cidade'].'&permite_conteudo_adulto='.$_GET['permite_conteudo_adulto'].'&pagina='.$pagina;
+                         }
+
+                         
+                      ?>
+
+                     <li><a class="next page-numbers" href="<?php echo $href_paginacao; ?>">
+                        <span aria-label="Page 1" aria-current="page" class="page-numbers <?php echo $classe_pagina_atual; ?> "><?php echo $pagina ?></span></li>
+                        </a>
+                     <?php  $pagina++; } ?>
+
+                     <li><a class="next page-numbers" href="#"><i class="klb-icon-chevron-right"></i></a></li>
+                  </ul>
+                  </nav>
+                  <?php } ?>
+               </div>
+               <div id="sidebar" class="col col-12 col-lg-3 secondary-column filter-sidebar">
+                  <div class="sidebar-overlay"></div>
+                  <div class="filter-sidebar-header">
+                     <h3 class="entry-title">Filter Products</h3>
+                     <div class="site-button close-button">
+                      
+                     </div>
+                     <!-- site-button -->        
+                  </div>
+                  <div class="sidebar-inner sticky-holder sticky-top-20">
+                     <form name="busca_site" method="get" >
+
+                     <div class="site-scroll sticky-holder sticky-top-20">
+
+                     <input type="hidden" class="us_pos" name="us_pos" value="  <?php if(isset($_GET['us_pos'])  and $_GET['us_pos']!='') { echo $_GET['us_pos']; }?>">
+
+                        <div class="widget widget_block">
+                           <div class="wp-block-group">
+                              <div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                                 <h2 class="wp-block-heading">Categorias</h2>
+                                <select name='categoria' id='categoria' onchange="this.form.submit()">
+                                 <?php if(isset($_GET['categoria'])  and $_GET['categoria']!='') { ?>
+                                 <option value="<?php echo $_GET['categoria']; ?>"><?php echo $_GET['categoria']; ?></option>
+                                 <?php }else{  ?>
+                                 <option value="">Escolha a Categoria</option>
+                                 <?php }?>
+                                <?php foreach($categorias as $categoria){
+                                   if($categoria->categoria!=''){ 
+                                   ?>
+                                 <option value="<?php echo ucfirst($categoria->categoria) ?>"><?php echo ucfirst($categoria->categoria); ?></option>
+                                <?php } } ?>
+                                </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="widget woocommerce widget_layered_nav woocommerce-widget-layered-nav">
+                           <h4 class="widget-title">Filtros por Cidades</h4>
+                           <select name='cidade' id='cidade' onchange="this.form.submit()">
+                                <?php if(isset($_GET['cidade'])  and $_GET['cidade']!='') { ?>
+                                 <option value="<?php echo $_GET['cidade']; ?>"><?php echo $_GET['cidade']; ?></option>
+                                 <?php }else{  ?>
+                                 <option value="">Escolha a Cidade</option>
+                                 <?php }?>
+
+                                <?php foreach($cidades as $cidade){ ?>
+                                 <option value="<?php echo $cidade->cidade ?>"><?php echo ucfirst($cidade->estado); ?> - <?php echo ucfirst($cidade->cidade); ?></option>
+                                <?php } ?>
+                                </select>
+                        </div>
+
+                        <div class="widget widget_block">
+                           <div class="wp-block-group">
+                              <div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                                 <h2 class="wp-block-heading">Palavra Chave</h2>
+                                <input type='text' name='palavra_chave' id='palavra_chave' 
+                                 value='<?php if(isset($_GET['palavra_chave'])  and $_GET['palavra_chave']!='') {  echo $_GET['palavra_chave'];  };?>' 
+                                >
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="widget widget_block" style="display: none !important;">
+                           <div class="wp-block-group">
+                              <h2 class="wp-block-heading">Permitir conteúdo adulto:</h2>
+                                 <p class="form-row form-group user-role vendor-customer-registration">
+                                 <label class="radio">
+                                    <input type="radio" name="escolhe_permite_conteudo_adulto" value="sim" 
+                                    <?php if(isset($_GET['permite_conteudo_adulto'])  and $_GET['permite_conteudo_adulto']=='sim') {  echo 'checked="checked"';  };?>
+                                    class="dokan-role-customer">
+                                    Sim
+                                 </label>
+                                 <br>
+                                 <label class="radio">
+                                    <input type="radio" name="escolhe_permite_conteudo_adulto" 
+                                    
+                                    <?php if(!isset($_GET['permite_conteudo_adulto'])  or $_GET['permite_conteudo_adulto']!='sim') {  echo 'checked="checked"';  };?>
+                                    class="dokan-role-seller">
+                                    Não
+                                 </label>
+                                 </p>
+                           </div>
+                        </div>
+
+
+                        <div class="widget widget_block mais_18_form">
+                           <div class="wp-block-group">
+                              <h2 class="wp-block-heading">Você tem mais de 18 ?</h2>
+                                 <p class="form-row form-group user-role vendor-customer-registration">
+                                 <label class="radio">
+                                    <input type="radio" name="permite_conteudo_adulto" value="sim" 
+                                    <?php if(isset($_GET['permite_conteudo_adulto'])  and $_GET['permite_conteudo_adulto']=='sim') {  echo 'checked="checked"';  };?>
+                                    class="dokan-role-customer">
+                                    Sim
+                                 </label>
+                                 <br>
+                                 <label class="radio">
+                                    <input type="radio" name="permite_conteudo_adulto" 
+                                    
+                                    <?php if(!isset($_GET['permite_conteudo_adulto'])  or $_GET['permite_conteudo_adulto']!='sim') {  echo 'checked="checked"';  };?>
+                                    class="dokan-role-seller">
+                                    Não
+                                 </label>
+                               
+                                 </p>
+                           </div>
+                        </div>
+
+
+
+
+
+                        <button type="submit" class="button">Filtrar</button>
+
+                     </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </main>
+      </div>
+   </div>
+</div>

@@ -78,12 +78,22 @@
 						<div class="blog-posts">
 							<?php
 							
-							$user_id_post = [];
+							$all_user_id_post = [];
 							global $post; 
 							if (have_posts()) : while (have_posts()) : the_post();
-								include('post-format/query_busca.php');
+								
+								// Este Loppging grava os usuarios que a busca do relevansi retornou
+								$user_id= $post->user_id ;
+								if(!in_array($user_id, $all_user_id_post, true)){
+									array_push($all_user_id_post, $user_id);
+								}
+
 							?>
 							<?php endwhile; ?>
+
+							<?php  include('post-format/query_busca.php'); ?>
+
+							<?php  include('post-format/listagem_anuncios.php'); ?>
 
 							<?php /*  get_template_part( 'post-format/content', get_post_format() ); ?>
 
