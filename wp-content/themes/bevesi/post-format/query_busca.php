@@ -115,6 +115,27 @@
 
         $consulta_usuarios_anunciantes = "";
 
+        /*
+        $consulta_usuarios_anunciantes .= " SELECT * FROM (SELECT DISTINCT
+                                        us.ID,
+                                        us.user_login,
+                                        destaque.meta_value as data_destaque,
+                                        $order_by_next_la_long
+                                        FROM wp_users AS us
+                                        JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288'
+                                        and destaque.meta_value !=''
+                                        JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
+                                        where us.user_status = 0 
+                                        and
+                                        DATE(
+                                            CONCAT(SUBSTR(destaque.meta_value, 7, 4),
+                                            CONCAT('-',
+                                            CONCAT(SUBSTR(destaque.meta_value, 4, 2), 
+                                            CONCAT('-',SUBSTR(destaque.meta_value, 1, 2)
+                                            )))))
+                                            >=  NOW()
+                                        $filtro_extra  union all  ";*/
+
         $consulta_usuarios_anunciantes .= " SELECT * FROM (SELECT DISTINCT
                                         us.ID,
                                         us.user_login,
@@ -162,10 +183,7 @@
                                             JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                             where us.user_status = 0 $filtro_extra 
                                             $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade
-                                            ORDER BY 4 ASC
-                                            ) a GROUP BY 1,2,3,4
-                                            ORDER BY 4 ASC
-                                            ".$paginacao;
+                                            ORDER BY 4 ASC $paginacao";
 
                                             
                                         
