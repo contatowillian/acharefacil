@@ -237,9 +237,9 @@
         JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
         JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
         where us.user_status = 0 
-        $listaIdUsuarioRelevanssi
-        $filtro_extra
-        $filtro_categoria_escolhida order by  categoria.meta_value asc  ";
+        $filtro_extra 
+        $listaIdUsuarioRelevanssi  $filtro_cidade
+        order by  categoria.meta_value asc  ";
 
         $categorias = $wpdb->get_results($filtro_categoria);
 
