@@ -9052,3 +9052,11 @@ function set_posts_per_page( $query ) {
 
   return $query;
 }
+
+
+add_filter( 'relevanssi_search_ok', function( $ok, $query ) {
+    if ( empty( $query->query_vars['s'] ) ) {
+        $ok = false;
+    }
+    return $ok;
+}, 10, 2 );
