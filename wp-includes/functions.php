@@ -9043,10 +9043,10 @@ function set_posts_per_page( $query ) {
 
 
   if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_search() ) ) {
-   // $query->set( 'posts_per_page', 52 );
+    $query->set( 'posts_per_page', 200 );
   }
   elseif ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() ) ) {
-    //$query->set( 'posts_per_page', 52 );
+    $query->set( 'posts_per_page', 200 );
   }
   // Etc..
 
