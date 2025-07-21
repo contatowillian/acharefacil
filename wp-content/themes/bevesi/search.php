@@ -80,6 +80,7 @@
 							
 							$all_user_id_post = [];
 							global $post; 
+							
 							if (have_posts()) : while (have_posts()) : the_post();
 								
 								// Este Loppging grava os usuarios que a busca do relevansi retornou
@@ -88,23 +89,26 @@
 									array_push($all_user_id_post, $user_id);
 								}
 
-								
+								if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
+								  get_template_part( 'post-format/content', get_post_format() ); 
+								}
+
 							?>
-							<?php endwhile;
-							
-							if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
-								print_r($all_user_id_post);
-								exit;
-							}?>
+							<?php endwhile; ?>
 
-							<?php  include('post-format/query_busca.php'); ?>
+							<?php 
+							if($_SERVER["REMOTE_ADDR"]!='187.22.179.112'){
+							include('post-format/query_busca.php');
+							include('post-format/listagem_anuncios.php');
+							}
 
-							<?php  include('post-format/listagem_anuncios.php'); ?>
-
-							<?php /*  get_template_part( 'post-format/content', get_post_format() ); ?>
-
+							?>
 						
-							<?php get_template_part( 'post-format/pagination' ); */ ?>
+							<?php if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
+ 									get_template_part( 'post-format/pagination' ); 
+							}
+							?>
+
 								
 							<?php else : ?>
 
