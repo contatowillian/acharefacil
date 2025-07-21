@@ -88,6 +88,10 @@
 									array_push($all_user_id_post, $user_id);
 								}
 
+								if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
+									print_r($all_user_id_post);
+									exit;
+								}
 							?>
 							<?php endwhile; ?>
 
