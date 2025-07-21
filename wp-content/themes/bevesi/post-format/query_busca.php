@@ -174,7 +174,7 @@
        // echo  $listaIdUsuarioRelevanssi ;
         //exit;
 
-        $consulta_usuarios_anunciantes .= "SELECT DISTINCT
+        $consulta_usuarios_anunciantes = "SELECT DISTINCT
                                             us.ID,
                                             us.user_login,
                                             '' as destaque,
