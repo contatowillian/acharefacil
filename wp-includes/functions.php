@@ -9031,6 +9031,17 @@ function set_posts_per_page( $query ) {
 
   global $wp_the_query;
 
+  $searchterm = $query->query_vars['s'];
+
+  if(isset($query->query_vars['s'])){
+
+		$query->query_vars['s'] = str_replace("cachorro","cão",strtolower($query->query_vars['s']));
+		$query->query_vars['s'] = str_replace("cachorros","cães",strtolower($query->query_vars['s']));
+	
+	}
+
+
+
   if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_search() ) ) {
     $query->set( 'posts_per_page', 500 );
   }
