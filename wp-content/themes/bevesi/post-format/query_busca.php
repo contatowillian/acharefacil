@@ -16,16 +16,6 @@
 
 
 
-        if(isset($_REQUEST['permite_conteudo_adulto']) and $_REQUEST['permite_conteudo_adulto']=='sim'){
-        $filtro_categoria_adulta = '';
-
-        }else{
-        $filtro_categoria_adulta =" and  us.ID not in
-                                    (select nome_da_categoria.user_id from wp_usermeta as nome_da_categoria
-                                    where us.ID = nome_da_categoria.user_id 
-                                    AND nome_da_categoria.meta_key = 'afreg_additional_3213'
-                                    AND nome_da_categoria.meta_value  in ('Profissionais do sexo','Acompanhantes','Massagens eróticas','Massagem') )";
-        }
 
 
         if(isset($_REQUEST['categoria_principal']) and $_REQUEST['categoria_principal']!=''){
@@ -135,7 +125,6 @@
                                         and destaque.meta_value !=''
                                         JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                         where us.user_status = 0 
-                                        $filtro_categoria_adulta
                                         and
                                         DATE(
                                             CONCAT(SUBSTR(destaque.meta_value, 7, 4),
@@ -172,7 +161,6 @@
                                             FROM wp_users AS us
                                             JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                             where us.user_status = 0 $filtro_extra 
-                                            $filtro_categoria_adulta
                                             $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade
                                             ORDER BY 4 ASC
                                             ) a GROUP BY 1,2,3,4
