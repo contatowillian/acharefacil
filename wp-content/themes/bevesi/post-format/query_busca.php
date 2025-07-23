@@ -165,7 +165,7 @@
             }
 
             $listaIdUsuarioRelevanssi = substr($listaIdUsuarioRelevanssi,0,-1);
-            $listaIdUsuarioRelevanssi =  "or  us.ID in ($listaIdUsuarioRelevanssi) ";
+            $listaIdUsuarioRelevanssi =  "and  us.ID in ($listaIdUsuarioRelevanssi) ";
             
         }else{
             $listaIdUsuarioRelevanssi = '';
@@ -181,7 +181,7 @@
                                             $order_by_next_la_long
                                             FROM wp_users AS us
                                             JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                            where us.user_status = 0 $filtro_extra 
+                                            where us.user_status = 0 
                                             $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade
                                             ORDER BY 4 ASC $paginacao";
 

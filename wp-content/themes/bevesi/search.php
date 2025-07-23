@@ -39,7 +39,7 @@
 							
 						<?php else : ?>
 
-							<h2><?php esc_html_e('No Posts Found', 'bevesi') ?></h2>
+							<h2><?php esc_html_e('Nenhum anúnciante encontrado com  filtro escolhido !', 'bevesi') ?></h2>
 
 						<?php endif; ?>
 					</div>
@@ -62,7 +62,7 @@
 							
 						<?php else : ?>
 
-							<h2><?php esc_html_e('No Posts Found', 'bevesi') ?></h2>
+							<h2><?php esc_html_e('Nenhum anúnciante encontrado com  filtro escolhido !', 'bevesi') ?></h2>
 
 						<?php endif; ?>
 					</div>
@@ -112,7 +112,7 @@
 								
 							<?php else : ?>
 
-								<h2><?php esc_html_e('No Posts Found', 'bevesi') ?></h2>
+								<h2><?php esc_html_e('Nenhum anúnciante encontrado com  filtro escolhido !', 'bevesi') ?></h2>
 
 							<?php endif; ?>
 						</div>
@@ -142,7 +142,7 @@
 								
 							<?php else : ?>
 
-								<h2><?php esc_html_e('No Posts Found', 'bevesi') ?></h2>
+								<h2><?php esc_html_e('Nenhum anúnciante encontrado com  filtro escolhido !', 'bevesi') ?></h2>
 
 							<?php endif; ?>
 						</div>
