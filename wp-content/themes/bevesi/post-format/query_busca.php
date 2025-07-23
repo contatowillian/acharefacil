@@ -193,7 +193,7 @@
                             JOIN wp_usermeta as cidades   ON  us.ID = cidades.user_id  AND cidades.meta_key = 'afreg_additional_3244'
                             JOIN wp_usermeta AS estado  ON  us.ID = estado.user_id  AND estado.meta_key = 'afreg_additional_3245'
                             where  trim(cidades.meta_value) !=''
-                            $listaIdUsuarioRelevanssi     $filtro_categoria                       
+                            $listaIdUsuarioRelevanssi                            
                             order by estado.meta_value, cidades.meta_value ASC
 
                             ";
