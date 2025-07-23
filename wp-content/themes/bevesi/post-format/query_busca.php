@@ -59,36 +59,6 @@
 
         }
 
-        if(isset($_REQUEST['s']) and $_REQUEST['s']!=''){
-
-        $filtro_categoria.='';
-
-        /************************************   Filtro nome do negocio  ************************************/
-        $filtro_extra .="AND us.user_status = 0 and  us.ID in
-                                (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
-                                where us.ID = nome_do_seu_negocio.user_id 
-                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['s']."%')";
-
-        /************************************   Filtro nome da categoria  ************************************/
-        $filtro_extra .="OR us.user_status = 0 and  us.ID in
-                                (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
-                                where us.ID = nome_do_seu_negocio.user_id 
-                                AND nome_do_seu_negocio.meta_key = 'afreg_additional_3213'
-                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['s']."%')
-                                $filtro_extra
-                                ";
-
-        /************************************   Filtro descrição do anúncio ************************************/
-        $filtro_extra .="OR us.user_status = 0 and  us.ID in
-                                (select nome_do_seu_negocio.user_id from wp_usermeta as nome_do_seu_negocio
-                                where us.ID = nome_do_seu_negocio.user_id 
-                                AND nome_do_seu_negocio.meta_key = 'afreg_additional_3226'
-                                AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['s']."%')
-                                $filtro_extra
-                                ";              
-
-
-        }
 
 
 
@@ -115,46 +85,6 @@
 
         $consulta_usuarios_anunciantes = "";
 
-        /*
-        $consulta_usuarios_anunciantes .= " SELECT * FROM (SELECT DISTINCT
-                                        us.ID,
-                                        us.user_login,
-                                        destaque.meta_value as data_destaque,
-                                        $order_by_next_la_long
-                                        FROM wp_users AS us
-                                        JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288'
-                                        and destaque.meta_value !=''
-                                        JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                        where us.user_status = 0 
-                                        and
-                                        DATE(
-                                            CONCAT(SUBSTR(destaque.meta_value, 7, 4),
-                                            CONCAT('-',
-                                            CONCAT(SUBSTR(destaque.meta_value, 4, 2), 
-                                            CONCAT('-',SUBSTR(destaque.meta_value, 1, 2)
-                                            )))))
-                                            >=  NOW()
-                                        $filtro_extra  union all  ";*/
-
-        $consulta_usuarios_anunciantes .= " SELECT * FROM (SELECT DISTINCT
-                                        us.ID,
-                                        us.user_login,
-                                        destaque.meta_value as data_destaque,
-                                        $order_by_next_la_long
-                                        FROM wp_users AS us
-                                        JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288'
-                                        and destaque.meta_value !=''
-                                        JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                        where us.user_status = 0 
-                                        and
-                                        DATE(
-                                            CONCAT(SUBSTR(destaque.meta_value, 7, 4),
-                                            CONCAT('-',
-                                            CONCAT(SUBSTR(destaque.meta_value, 4, 2), 
-                                            CONCAT('-',SUBSTR(destaque.meta_value, 1, 2)
-                                            )))))
-                                            >=  NOW()
-                                        $filtro_extra  union all  ";
 
         if(count($all_user_id_post>0) and count($all_user_id_post<500)){
 
@@ -263,7 +193,7 @@
                             JOIN wp_usermeta as cidades   ON  us.ID = cidades.user_id  AND cidades.meta_key = 'afreg_additional_3244'
                             JOIN wp_usermeta AS estado  ON  us.ID = estado.user_id  AND estado.meta_key = 'afreg_additional_3245'
                             where  trim(cidades.meta_value) !=''
-                            $listaIdUsuarioRelevanssi                          
+                            $listaIdUsuarioRelevanssi     $filtro_categoria                       
                             order by estado.meta_value, cidades.meta_value ASC
 
                             ";
