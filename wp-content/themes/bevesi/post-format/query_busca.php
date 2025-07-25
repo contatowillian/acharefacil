@@ -101,8 +101,22 @@
             $listaIdUsuarioRelevanssi = '';
         }
 
-       // echo  $listaIdUsuarioRelevanssi ;
-        //exit;
+        $query_busca_anexada = "";
+
+        if(isset($_REQUEST['s']) and $_REQUEST['s']!=''){
+
+            $query_busca_anexada = " or us.user_status = 0  and us.text_busca_anexado like '%".$_REQUEST['s']."%' ";
+
+
+             if($filtro_cidade!=''){
+                $query_busca_anexada .= $filtro_cidade;
+             } 
+
+             if($filtro_categoria!=''){
+                $query_busca_anexada .= $filtro_categoria;
+             } 
+            
+        }
 
         $consulta_usuarios_anunciantes = "SELECT DISTINCT
                                             us.ID,
@@ -113,6 +127,7 @@
                                             JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                             where us.user_status = 0 
                                             $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade
+                                            $query_busca_anexada
                                             ORDER BY 4 ASC $paginacao";
 
                                             
@@ -126,7 +141,9 @@
         $consulta_usuarios_anunciantes_paginacao = "SELECT count(*) as quantidade
                                                     FROM wp_users AS us
                                                     JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                                    where us.user_status = 0    $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade";
+                                                    where us.user_status = 0    $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade
+                                                    $query_busca_anexada 
+                                                    ";
 
 
 
@@ -174,6 +191,7 @@
         JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
         where us.user_status = 0 
         $listaIdUsuarioRelevanssi  $filtro_cidade
+        $query_busca_anexada 
         order by  categoria.meta_value asc  ";
 
         $categorias = $wpdb->get_results($filtro_categoria);
@@ -193,7 +211,8 @@
                             JOIN wp_usermeta as cidades   ON  us.ID = cidades.user_id  AND cidades.meta_key = 'afreg_additional_3244'
                             JOIN wp_usermeta AS estado  ON  us.ID = estado.user_id  AND estado.meta_key = 'afreg_additional_3245'
                             where  trim(cidades.meta_value) !=''
-                            $listaIdUsuarioRelevanssi                            
+                            $listaIdUsuarioRelevanssi    
+                            $query_busca_anexada                        
                             order by estado.meta_value, cidades.meta_value ASC
 
                             ";

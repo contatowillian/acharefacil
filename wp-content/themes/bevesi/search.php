@@ -97,11 +97,9 @@
 							<?php endwhile; ?>
 
 							<?php 
-							if($_SERVER["REMOTE_ADDR"]!='187.22.179.112x'){
 							include('post-format/query_busca.php');
 							include('post-format/listagem_anuncios.php');
-							}
-
+							
 							?>
 						
 							<?php if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
@@ -112,7 +110,10 @@
 								
 							<?php else : ?>
 
-								<h2><?php esc_html_e('Nenhum anúnciante encontrado com  filtro escolhido !', 'bevesi') ?></h2>
+								<?php 
+								include('post-format/query_busca.php');
+								include('post-format/listagem_anuncios.php');
+								?>
 
 							<?php endif; ?>
 						</div>
