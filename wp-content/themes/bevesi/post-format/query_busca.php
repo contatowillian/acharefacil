@@ -115,7 +115,7 @@
              if($filtro_categoria!=''){
                 $query_busca_anexada .= $filtro_categoria;
              } 
-            $_REQUEST['s'] = str_replace("cachorro","cão",strtolower($_REQUEST['s']));
+            $_REQUEST['s'] = str_replace("cachorro","cães",strtolower($_REQUEST['s']));
             $_REQUEST['s'] = str_replace("cachorros","cães",strtolower($_REQUEST['s']));
 
             
