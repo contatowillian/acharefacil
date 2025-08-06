@@ -11,7 +11,11 @@
         height: 414PX;
     }
     
-
+    .page-id-1134 .elementor-element-e486072 {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+    
     .elementor-page-1134 .carrosel_recentes_lista{
 
         flex-wrap: var(--flex-wrap);
