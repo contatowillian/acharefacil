@@ -4,9 +4,13 @@
 @media screen and (min-width: 769px)  {
 
 
-    .site-banner .site-banner-image img {
+    .elementor-element-6530e6e .site-banner .site-banner-image img {
         object-fit: none !important;
     }
+    .elementor-element-6530e6e  .site-banner .site-banner-image {
+        height: 414PX;
+    }
+    
 
     .elementor-page-1134 .carrosel_recentes_lista{
 
