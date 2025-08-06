@@ -3,6 +3,11 @@
 
 @media screen and (min-width: 769px)  {
 
+
+    .site-banner .site-banner-image img {
+        object-fit: none !important;
+    }
+
     .elementor-page-1134 .carrosel_recentes_lista{
 
         flex-wrap: var(--flex-wrap);
