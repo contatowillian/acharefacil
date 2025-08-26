@@ -246,7 +246,7 @@ function content_mostraListasPlanos($content) {
           $dados_compra['descricao_plano'] = "plano_mensal";
           
 
-          $retorno_gera_checkout=  gera_token_pag_seguro($dados_compra);
+          $retorno_gera_checkout=  gera_token_pagar_me($dados_compra);
 
         }
 
@@ -254,7 +254,7 @@ function content_mostraListasPlanos($content) {
           $valor = '1990';
           $dados_compra['valor_plano'] = $valor;
           $dados_compra['descricao_plano'] = "plano_semestral";
-          $retorno_gera_checkout=  gera_token_pag_seguro($valor,$_GET['plano']);
+          $retorno_gera_checkout=  gera_token_pagar_me($valor,$_GET['plano']);
 
         }
 
@@ -262,16 +262,14 @@ function content_mostraListasPlanos($content) {
           $valor = '4990';
           $dados_compra['valor_plano'] = $valor;
           $dados_compra['descricao_plano'] = "plano_anual";
-          $retorno_gera_checkout=   gera_token_pag_seguro($valor,$_GET['plano']);
+          $retorno_gera_checkout=   gera_token_pagar_me($valor,$_GET['plano']);
 
         }
       
-        foreach($retorno_gera_checkout->links as $links){
-          if($links->rel=='PAY'){
-            header("Location: ".$links->href);
-          }
-        }
 
+     
+         header("Location: ".$retorno_gera_checkout->url);
+         
       }
       
 
@@ -344,17 +342,17 @@ function content_mostraListasPlanos($content) {
 
 
 
-function gera_token_pag_seguro($dados_compra){
+function gera_token_pagar_me($dados_compra){
 
   $curl = curl_init();
 
-  $token_achar_facil = '14a84a4a-8d7a-43ba-9b4c-19965eccfd99f50b68984ffaba08f4a980aafeb8a3f3eda0-c784-4720-a814-bb2650fde987';
+  $token_achar_facil = 'sk_f699d570ed5744e6885720dd9665f497';
 
 
   $dados_pagamento['user_id'] = $dados_compra['user_id'];
   
 
-  $dados_pagamento['dados_envio'] = '
+  /*$dados_pagamento['dados_envio'] = '
   {
     "expiration_date": "2030-08-14T19:09:10-03:00",
     "reference_id": "1",
@@ -377,7 +375,38 @@ function gera_token_pag_seguro($dados_compra){
     ],
     "redirect_url": "https://acharefacil.com.br/conclusao_plano?id_pagamento={{id_pagamento}}"
   }
-  ';
+  ';*/
+
+  
+  $dados_pagamento['dados_envio'] = ' {
+                                          "payment_config":{
+                                          "boleto":{
+                                                "enabled":false
+                                          },
+                                          "credit_card":{
+                                                "enabled":true,
+                                                "interest_rate":0.1,
+                                                "max_installments":1
+                                          }
+                                          },
+                                          "items": [
+                                                        {
+                                                        "id": "1",
+                                                        "title": "'.$dados_compra['descricao_plano'].'",
+                                                        "unit_price": "'.$dados_compra['valor_plano'].'",
+                                                        "quantity": 1,
+                                                        "tangible": false
+                                                        }
+                                                    ],
+                                          "postback_config":{
+                                            "orders":"https://acharefacil.com.br/conclusao_plano?id_pagamento={{id_pagamento}}",
+                                            "transactions":"https://acharefacil.com.br/conclusao_plano?id_pagamento={{id_pagamento}}"
+                                          },
+                                          "amount": '.$dados_compra['valor_plano'].',
+                                          "name":"teste plano"
+                                      }';
+
+
 
   $dados_pagamento['tipo_plano'] =$dados_compra['descricao_plano'];
 
@@ -387,7 +416,7 @@ function gera_token_pag_seguro($dados_compra){
 
 
   curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://sandbox.api.pagseguro.com/checkouts',
+    CURLOPT_URL => 'https://api.pagar.me/1/payment_links?api_key='.$token_achar_facil,
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -397,11 +426,8 @@ function gera_token_pag_seguro($dados_compra){
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>$dados_pagamento['dados_envio'],
     CURLOPT_HTTPHEADER => array(
-      'Authorization: Bearer '.$token_achar_facil,
       'Content-type: application/json',
-      'accept: application/json',
-      'x-client-id: 0ea39b37-5e5f-4995-ad22-62f2663ca0f8',
-      'x-client-secret: db4ab4a6-87fc-4122-b4eb-a437b24fb9fb'
+      'accept: application/json'
     ),
   ));
   
