@@ -403,7 +403,7 @@ function gera_token_pagar_me($dados_compra){
                                             "transactions":"https://acharefacil.com.br/conclusao_plano?id_pagamento={{id_pagamento}}"
                                           },
                                           "amount": '.$dados_compra['valor_plano'].',
-                                          "name":"teste plano"
+                                          "name":"'.$dados_compra['descricao_plano'].'"
                                       }';
 
 
