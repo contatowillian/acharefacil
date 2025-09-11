@@ -218,7 +218,7 @@ function content_mostraListasPlanos($content) {
 
     
 
-    if (is_page('checkout_plano') or is_page('cadastro_sucesso') ) {
+    if (is_page('checkout_plano')  ) {
 
       if(!isset($_GET['plano']) or empty($_GET['plano'])){
         
