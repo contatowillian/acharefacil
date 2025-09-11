@@ -87,20 +87,19 @@ function atualiza_pagamento_validado($id_pagamento) {
 function atualiza_pagamento_realizado($id_pagamento) {
   global $wpdb;
   
-  $result_check =  $wpdb->update( 'pagamento', array(
+  try{
+
+    $result_check =  $wpdb->update( 'pagamento', array(
       'pagamento_efetuado' => 'sim'
-  ), array(
-      'id_pagamento' =>  $id_pagamento
-  )
-  );
- 
- 
-  if(!$result_check){
-     print_r($wpdb);
+    ), array(
+        'id_pagamento' =>  $id_pagamento
+    )
+    );
+    return true;
+  } catch (Exception $e) {
+    print_r($wpdb);
     echo  "Erro ao atualizar pagamento ";
     exit;  
-  }else{
-    return true;
   }
 
 }
