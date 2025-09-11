@@ -265,12 +265,9 @@ function content_mostraListasPlanos($content) {
           $retorno_gera_checkout=   gera_token_pagar_plano($valor,$_GET['plano']);
         }
         
-        echo "<pre>";
-        print_r($retorno_gera_checkout);
-        echo "</pre>";
-        exit;
+       
      
-         header("Location: ".$retorno_gera_checkout->back_urls[0]->success);
+         header("Location: ".$retorno_gera_checkout->init_point);
          
       }
       
