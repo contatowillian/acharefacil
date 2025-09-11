@@ -246,7 +246,7 @@ function content_mostraListasPlanos($content) {
           $dados_compra['descricao_plano'] = "plano_mensal";
           
 
-          $retorno_gera_checkout=  gera_token_pagar_me($dados_compra);
+          $retorno_gera_checkout=  gera_token_pagar_plano($dados_compra);
 
         }
 
@@ -254,7 +254,7 @@ function content_mostraListasPlanos($content) {
           $valor = '1990';
           $dados_compra['valor_plano'] = $valor;
           $dados_compra['descricao_plano'] = "plano_semestral";
-          $retorno_gera_checkout=  gera_token_pagar_me($valor,$_GET['plano']);
+          $retorno_gera_checkout=  gera_token_pagar_plano($valor,$_GET['plano']);
 
         }
 
@@ -262,13 +262,12 @@ function content_mostraListasPlanos($content) {
           $valor = '4990';
           $dados_compra['valor_plano'] = $valor;
           $dados_compra['descricao_plano'] = "plano_anual";
-          $retorno_gera_checkout=   gera_token_pagar_me($valor,$_GET['plano']);
-
+          $retorno_gera_checkout=   gera_token_pagar_plano($valor,$_GET['plano']);
         }
       
 
      
-         header("Location: ".$retorno_gera_checkout->url);
+         header("Location: ".$retorno_gera_checkout->back_urls[0]->success);
          
       }
       
@@ -342,70 +341,33 @@ function content_mostraListasPlanos($content) {
 
 
 
-function gera_token_pagar_me($dados_compra){
-
-  $curl = curl_init();
-
-  $token_achar_facil = 'sk_f699d570ed5744e6885720dd9665f497';
-
+function gera_token_pagar_plano($dados_compra){
 
   $dados_pagamento['user_id'] = $dados_compra['user_id'];
-  
 
-  /*$dados_pagamento['dados_envio'] = '
-  {
-    "expiration_date": "2030-08-14T19:09:10-03:00",
-    "reference_id": "1",
-    "items": [
-      {
-        "reference_id": "'.$dados_compra['descricao_plano'].'",
-        "name": "'.$dados_compra['descricao_plano'].'",
-        "description": "Compra Plano Achar é facil - '.$dados_compra['descricao_plano'].'",
-        "unit_amount": "'.$dados_compra['valor_plano'].'",
-        "quantity": 1
-      }
-    ],
-    "payment_methods": [
-      {
-        "type": "CREDIT_CARD"
-      },
-      {
-        "type": "CREDIT_CARD"
-      }
-    ],
-    "redirect_url": "https://acharefacil.com.br/conclusao_plano?id_pagamento={{id_pagamento}}"
-  }
-  ';*/
+  // Substitua pelo seu Access Token do Mercado Pago
+  $access_token = "APP_USR-3903374143838872-091110-794a956cdb4c557e344d80b8ea7f3ba6-2677537645";
 
-  
-  $dados_pagamento['dados_envio'] = ' {
-                                          "payment_config":{
-                                          "boleto":{
-                                                "enabled":false
-                                          },
-                                          "credit_card":{
-                                                "enabled":true,
-                                                "interest_rate":0.1,
-                                                "max_installments":1
-                                          }
-                                          },
-                                          "items": [
-                                                        {
-                                                        "id": "1",
-                                                        "title": "'.$dados_compra['descricao_plano'].'",
-                                                        "unit_price": "'.$dados_compra['valor_plano'].'",
-                                                        "quantity": 1,
-                                                        "tangible": false
-                                                        }
-                                                    ],
-                                          "postback_config":{
-                                            "orders":"https://acharefacil.com.br/conclusao_plano?id_pagamento={{id_pagamento}}",
-                                            "transactions":"https://acharefacil.com.br/conclusao_plano?id_pagamento={{id_pagamento}}"
-                                          },
-                                          "amount": '.$dados_compra['valor_plano'].',
-                                          "name":"'.$dados_compra['descricao_plano'].'"
-                                      }';
+  $api_url = "https://api.mercadopago.com/checkout/preferences";
 
+
+
+
+  // Dados do item e da preferência de pagamento
+  $dados_pagamento['dados_envio']= [
+      "items" => [
+          [
+              "title" => "".$dados_compra['descricao_plano']."",
+              "quantity" => 1,
+              "unit_price" => "".$dados_compra['valor_plano']."",
+              "currency_id" => "BRL",
+          ]
+      ],
+      "back_urls" => [
+          "success" => "https://acharefacil.com.br/conclusao_plano?id_pagamento={{id_pagamento}}"
+      ],
+      "auto_return" => "approved"
+  ];
 
 
   $dados_pagamento['tipo_plano'] =$dados_compra['descricao_plano'];
@@ -415,35 +377,41 @@ function gera_token_pagar_me($dados_compra){
   $dados_pagamento['dados_envio'] = str_replace('{{id_pagamento}}',base64_encode($inseri_dados_pagamento[0]->id_pagamento),$dados_pagamento['dados_envio']);
 
 
-  curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://api.pagar.me/1/payment_links?api_key='.$token_achar_facil,
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => '',
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 0,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => 'POST',
-    CURLOPT_POSTFIELDS =>$dados_pagamento['dados_envio'],
-    CURLOPT_HTTPHEADER => array(
-      'Content-type: application/json',
-      'accept: application/json'
-    ),
-  ));
-  
-  $response = curl_exec($curl);
-  
-  curl_close($curl);
+  // Transforma os dados em formato JSON
+  $json_data = json_encode($dados_pagamento['dados_envio']);
+
+  // Inicializa a sessão cURL
+  $ch = curl_init($api_url);
+
+  // Configurações da requisição cURL
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Retorna a resposta da API como string
+  curl_setopt($ch, CURLOPT_POST, true);           // Define a requisição como POST
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data); // Envia os dados JSON no corpo da requisição
+
+  // Define os headers, incluindo o Authorization para autenticação
+  curl_setopt($ch, CURLOPT_HTTPHEADER, [
+      "Content-Type: application/json",
+      "Authorization: Bearer " . $access_token,
+  ]);
+
+  // Executa a requisição e armazena a resposta
+  $response = curl_exec($ch);
+
+  // Verifica se houve erros na requisição cURL
+  if (curl_errno($ch)) {
+      echo "Erro ao gerar pagamento : " . curl_error($ch);
+      exit;
+  }
+  // Fecha a sessão cURL
+  curl_close($ch);
 
   $dados_pagamento['dados_retorno'] = $response;
 
   $dados_pagamento['id_pagamento'] = $inseri_dados_pagamento[0]->id_pagamento;
 
-
   $inseri_dados_pagamento = atualiza_dados_pagamento($dados_pagamento);
 
   return json_decode($response);
-  
 
 }
 
