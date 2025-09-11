@@ -49,10 +49,6 @@ function atualiza_data_destaque_usuario($id_pagamento) {
     
     update_user_meta( $dados_pagamento[0]->user_id, 'afreg_additional_3288',$data_cadastro);
 
-  }else{ 
-    print_r($wpdb);
-    echo  "Erro ao atualizar pagamento, entre com contato com o Adminstrador ";
-    exit;  
   }
  
   return $dados_pagamento[0]->user_id;
