@@ -351,8 +351,8 @@ function gera_token_pagar_plano($dados_compra){
 
   $api_url = "https://api.mercadopago.com/checkout/preferences";
 
-
-
+  
+  $preco_do_produto = $dados_compra['valor_plano'];
 
   // Dados do item e da preferência de pagamento
   $dados_pagamento['dados_envio']= [
@@ -360,7 +360,7 @@ function gera_token_pagar_plano($dados_compra){
           [
               "title" => "".$dados_compra['descricao_plano']."",
               "quantity" => 1,
-              "unit_price" => $dados_compra['valor_plano'],
+              "unit_price" =>(float) $preco_do_produto, 
               "currency_id" => "BRL",
           ]
       ],
