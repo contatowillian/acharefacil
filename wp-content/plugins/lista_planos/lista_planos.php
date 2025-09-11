@@ -134,9 +134,10 @@ function inseri_dados_pagamento($dados) {
 
   $result_check = $wpdb->insert( 'pagamento', array("user_id"  => $dados['user_id'],"tipo_plano"  => $dados['tipo_plano'], "dados_envio" => $dados['dados_envio']));
   
-  
+  echo "inseriu";
+
   $select_ultimo_pagamento = "select id_pagamento from `pagamento` order by id_pagamento desc";
- 
+  
  
   if($result_check){
   return $wpdb->get_results($select_ultimo_pagamento);               
@@ -264,7 +265,7 @@ function content_mostraListasPlanos($content) {
           $retorno_gera_checkout=   gera_token_pagar_plano($dados_compra);
         }
      
-         header("Location: ".$retorno_gera_checkout->init_point);
+        // header("Location: ".$retorno_gera_checkout->init_point);
          
       }
       
