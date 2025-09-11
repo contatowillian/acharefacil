@@ -253,7 +253,7 @@ function content_mostraListasPlanos($content) {
           $valor = '19.90';
           $dados_compra['valor_plano'] = $valor;
           $dados_compra['descricao_plano'] = "plano_semestral";
-          $retorno_gera_checkout=  gera_token_pagar_plano($valor,$_GET['plano']);
+          $retorno_gera_checkout=  gera_token_pagar_plano($dados_compra);
 
         }
 
@@ -261,7 +261,7 @@ function content_mostraListasPlanos($content) {
           $valor = '49.90';
           $dados_compra['valor_plano'] = $valor;
           $dados_compra['descricao_plano'] = "plano_anual";
-          $retorno_gera_checkout=   gera_token_pagar_plano($valor,$_GET['plano']);
+          $retorno_gera_checkout=   gera_token_pagar_plano($dados_compra);
         }
      
          header("Location: ".$retorno_gera_checkout->init_point);
