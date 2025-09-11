@@ -264,8 +264,10 @@ function content_mostraListasPlanos($content) {
           $dados_compra['descricao_plano'] = "plano_anual";
           $retorno_gera_checkout=   gera_token_pagar_plano($valor,$_GET['plano']);
         }
-      
+        
+        echo "<pre>";
         print_r($retorno_gera_checkout);
+        echo "</pre>";
         exit;
      
          header("Location: ".$retorno_gera_checkout->back_urls[0]->success);
@@ -370,7 +372,6 @@ function gera_token_pagar_plano($dados_compra){
       "auto_return" => "approved"
   ];
 
-  print_r( $dados_pagamento['dados_envio']);
 
   $dados_pagamento['tipo_plano'] =$dados_compra['descricao_plano'];
 
