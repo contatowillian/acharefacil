@@ -360,7 +360,7 @@ function gera_token_pagar_plano($dados_compra){
           [
               "title" => "".$dados_compra['descricao_plano']."",
               "quantity" => 1,
-              "unit_price" => "".$dados_compra['valor_plano']."",
+              "unit_price" => $dados_compra['valor_plano'],
               "currency_id" => "BRL",
           ]
       ],
