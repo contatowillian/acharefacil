@@ -371,8 +371,6 @@ function gera_token_pagar_plano($dados_compra){
   ];
 
   print_r( $dados_pagamento['dados_envio']);
-  exit;
-
 
   $dados_pagamento['tipo_plano'] =$dados_compra['descricao_plano'];
 
