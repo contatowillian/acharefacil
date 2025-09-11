@@ -354,6 +354,11 @@ function gera_token_pagar_plano($dados_compra){
   
   $preco_do_produto = $dados_compra['valor_plano'];
 
+  $dados_pagamento['tipo_plano'] =$dados_compra['descricao_plano'];
+
+  $inseri_dados_pagamento = inseri_dados_pagamento($dados_pagamento);
+
+
   // Dados do item e da preferência de pagamento
   $dados_pagamento['dados_envio']= [
       "items" => [
@@ -365,20 +370,17 @@ function gera_token_pagar_plano($dados_compra){
           ]
       ],
       "back_urls" => [
-          "success" => "https://acharefacil.com.br/conclusao_plano?id_pagamento={{id_pagamento}}"
+          "success" => "https://acharefacil.com.br/conclusao_plano?id_pagamento=".base64_encode($inseri_dados_pagamento[0]->id_pagamento)
       ],
       "auto_return" => "approved"
   ];
 
 
-  $dados_pagamento['tipo_plano'] =$dados_compra['descricao_plano'];
-
-  $inseri_dados_pagamento = inseri_dados_pagamento($dados_pagamento);
+ 
 
   // Transforma os dados em formato JSON
   $json_data = json_encode($dados_pagamento['dados_envio']);
 
-  $dados_pagamento['dados_envio'] = str_replace('{{id_pagamento}}',base64_encode($inseri_dados_pagamento[0]->id_pagamento),$json_data);
 
 
   // Inicializa a sessão cURL
