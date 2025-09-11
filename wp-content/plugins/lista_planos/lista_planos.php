@@ -376,9 +376,6 @@ function gera_token_pagar_plano($dados_compra){
 
   $dados_pagamento['dados_envio'] = str_replace('{{id_pagamento}}',base64_encode($inseri_dados_pagamento[0]->id_pagamento),$dados_pagamento['dados_envio']['back_urls']['success']);
 
-  print_r($dados_pagamento['dados_envio']);
-
-  exit;
 
   // Transforma os dados em formato JSON
   $json_data = json_encode($dados_pagamento['dados_envio']);
