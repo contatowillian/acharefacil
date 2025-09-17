@@ -724,6 +724,9 @@ html .page-id-10 .site-login .site-login-inner .site-login-overflow .login-form-
     display: none !important; 
 }
 
+ .logged-in  .nsl-container-buttons{
+    display: none !important;  
+}
 
 .page-id-10 #form_cadastro_anunco_wizard h3{
     display: none !important;
