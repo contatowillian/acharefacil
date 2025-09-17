@@ -204,13 +204,22 @@ function content_mostraListasPlanos($content) {
       if ( is_user_logged_in() ) {
        
         $user = wp_get_current_user();
-
         $id_usuario_logado = $user->ID;
-        
-
         $template = str_replace("{{id_user}}",$id_usuario_logado,$template);
-
         $content = str_replace('[[botoes_compartilhar]]', $template, $content);
+
+        $id_pagamento  = base64_decode($_GET['id_pagamento']);
+        atualiza_pagamento_realizado($id_pagamento);
+        $id_user_id = atualiza_data_destaque_usuario($id_pagamento);
+
+
+       $botao_compartilhar = '<a style="background-color: #336838" class="elementor-button elementor-button-link elementor-size-sm" href="https://acharefacil.com.br/detalhe/?detalhe_anunciante='.$id_user_id.'" id="ver-meu-anuncio-botao">
+                                <span class="elementor-button-content-wrapper">
+                                      <span class="elementor-button-text">Ver meu anúncio</span>
+                                </span>
+                              </a>';
+        
+        $content = str_replace('[[botoes_ver_anuncio]]', $botao_compartilhar, $content);
       }
 
       return $content;
