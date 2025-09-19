@@ -52,10 +52,7 @@ function content_buscaCarroselAnunciantes($content) {
     /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 
-    if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
-        echo $consulta_anunciantes_carrosel;
-       exit;
-  }
+  
 
 
        $users_anunciantes_carrosel = $wpdb->get_results($consulta_anunciantes_carrosel);
@@ -176,6 +173,13 @@ function content_buscaCarroselAnunciantesRecentes($content) {
     JOIN wp_usermeta AS foto_do_anunciante  ON  us.ID = foto_do_anunciante.user_id  AND foto_do_anunciante.meta_key = 'afreg_additional_3212'
     where us.user_status = 0 and  foto_do_anunciante.meta_value!='' and  foto_do_anunciante.meta_value!='00000000-0000-0000-0000-000000000000'  order by user_registered desc limit 15 ";
   /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
+
+
+  if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
+    echo $consulta_anunciantes_carrosel;
+   exit;
+}
+
 
 
     $users_anunciantes_carrosel = $wpdb->get_results($consulta_anunciantes_carrosel);
