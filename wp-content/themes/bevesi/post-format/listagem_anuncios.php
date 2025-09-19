@@ -121,7 +121,11 @@
                                                 <?php } ?>
 
                                                 <?php if(isset($dadosAnunciantes->telefone) and trim($dadosAnunciantes->telefone)!=''){  ?>
-                                                   <div class="phones phone primary"><a href="tel:+55<?php echo str_replace(")","",str_replace("(","",str_replace("-","",$dadosAnunciantes->telefone))); ?>"><i class="klb-icon-phone"></i><a href="tel:+55<?php echo str_replace(")","",str_replace("(","",str_replace("-","",$dadosAnunciantes->telefone))); ?>"></a></div>
+                                                   <div class="phones phone primary">
+                                                      <a href="tel:+55<?php echo str_replace(")","",str_replace("(","",str_replace("-","",$dadosAnunciantes->telefone))); ?>">
+                                                         <i class="klb-icon-phone"></i><?php echo $dadosAnunciantes->telefone; ?>
+                                                      </a>
+                                                  </div>
                                                 <?php } ?>
 
                                                 <div class="adr">
