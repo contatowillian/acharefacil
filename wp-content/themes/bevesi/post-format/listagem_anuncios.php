@@ -4,8 +4,8 @@
          <ul>
             <li><a href="https://acharefacil.com.br">Início</a></li>
             <li><a href="#">Buscar</a></li>
-            <?php if(isset($_GET['palavra_chave']) and $_GET['palavra_chave']!=''){?>
-            <li>Resultados da pesquisa para  ”<?php  echo $_GET['palavra_chave']; ?>”
+            <?php if(isset($_GET['s']) and $_GET['s']!=''){?>
+            <li>Resultados da pesquisa para  ”<?php  echo $_GET['s']; ?>”
             <?php } ?> 
             <?php if(isset($_GET['categoria']) and $_GET['categoria']!=''){echo " -  Categoria: ".$_GET['categoria']." "; ;} ?>
             <?php if(isset($_GET['cidade'])  and $_GET['cidade']!=''){echo " -  Cidade: ".$_GET['cidade']." "; ;} ?>
@@ -121,7 +121,7 @@
                                                 <?php } ?>
 
                                                 <?php if(isset($dadosAnunciantes->telefone) and $dadosAnunciantes->telefone!=''){  ?>
-                                                  <div class="phones phone primary"><i class="klb-icon-phone"></i><?php echo $dadosAnunciantes->telefone; ?></div>
+                                                   <div class="phones phone primary"><a href="tel:+55<?php echo str_replace(")","",str_replace("(","",str_replace("-","",$dadosAnunciantes->telefone))); ?>"><i class="klb-icon-phone"></i><?php echo $dadosAnunciantes->telefone; ?></a></div>
                                                 <?php } ?>
 
                                                 <div class="adr">
@@ -225,7 +225,7 @@
                            $href_paginacao ='#';
                          }else{
                            $classe_pagina_atual ='';
-                           $href_paginacao = '/busca?categoria='.$_GET['categoria'].'&palavra_chave='.$_GET['palavra_chave'].'&cidade='.$_GET['cidade'].'&permite_conteudo_adulto='.$_GET['permite_conteudo_adulto'].'&pagina='.$pagina;
+                           $href_paginacao = '/?categoria='.$_GET['categoria'].'&s='.$_GET['s'].'&cidade='.$_GET['cidade'].'&permite_conteudo_adulto='.$_GET['permite_conteudo_adulto'].'&pagina='.$pagina;
                          }
 
                          
@@ -296,7 +296,7 @@
                               <div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
                                  <h2 class="wp-block-heading">Palavra Chave</h2>
                                 <input type='text' name='palavra_chave' id='palavra_chave' 
-                                 value='<?php if(isset($_GET['palavra_chave'])  and $_GET['palavra_chave']!='') {  echo $_GET['palavra_chave'];  };?>' 
+                                 value='<?php if(isset($_GET['s'])  and $_GET['s']!='') {  echo $_GET['s'];  };?>' 
                                 >
                               </div>
                            </div>
