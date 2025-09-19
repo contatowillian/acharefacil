@@ -177,7 +177,7 @@ function content_buscaCarroselAnunciantesRecentes($content) {
 
   if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
     echo $consulta_anunciantes_carrosel;
-   exit;
+ //  exit;
 }
 
 
