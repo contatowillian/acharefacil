@@ -2348,7 +2348,7 @@ height:35px !important;
     }
 
     .search-results .destaque_quadro_resultado{
-        width: 98% !important ;
+        width: 83% !important ;
         padding-top: 25px !important ;
     }
     .elementor-1134 .elementor-element.elementor-element-6530e6e .site-banner-image img {
