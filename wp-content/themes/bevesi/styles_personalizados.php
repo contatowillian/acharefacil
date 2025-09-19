@@ -401,8 +401,8 @@ margin-top: -20px;
 .coluna_info_anunciante_busca strong{
     color: #333;
 }
-.product .product-content-wrapper .product-content-body > *{
-  /*  display: ruby !important;*/
+.search-results .product .product-content-wrapper .product-content-body > *{
+    display: ruby !important;
 }
 .products:not(.slick-slider).product-listing-style .product-inner .product-content-wrapper{
     flex-direction: column !important;
