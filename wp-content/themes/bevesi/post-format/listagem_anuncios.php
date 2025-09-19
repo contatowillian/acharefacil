@@ -58,7 +58,7 @@
                                  $classe_destaque = 'destaque_quadro_resultado';
                                  $estrela_destaque = '<i class="klb-icon-star"></i>';
                               }else{
-                                 $classe_destaque = '';
+                                 $classe_destaque = 'sem_destaque_quadro_resultado';
                                  $estrela_destaque = '';
                               }
 

@@ -2351,6 +2351,12 @@ height:35px !important;
         width: 83% !important ;
         padding-top: 25px !important ;
     }
+    .search-results .sem_destaque_quadro_resultado{
+        width: 83% !important ;
+        padding-top: 25px !important ;
+    }
+
+    
     .elementor-1134 .elementor-element.elementor-element-6530e6e .site-banner-image img {
         object-fit: contain !important;
         border-radius: 15px;
