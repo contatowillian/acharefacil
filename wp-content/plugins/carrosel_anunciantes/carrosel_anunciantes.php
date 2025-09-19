@@ -52,6 +52,12 @@ function content_buscaCarroselAnunciantes($content) {
     /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 
+    if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
+        echo $consulta_anunciantes_carrosel;
+       exit;
+  }
+
+
        $users_anunciantes_carrosel = $wpdb->get_results($consulta_anunciantes_carrosel);
        $textotitulocat = 'Veja nosso destaques';
        $nome_carrosel = 'site-slider-anunciantes1';
