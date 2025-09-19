@@ -73,7 +73,7 @@ if(count($dados_usuario_anunciante_painel)>0){
 
 <div class="row painel_anunciante">
 
-    <h1>Sua conta achar é facil </h1>
+    <h1 class='h1_conta_achar_facil'>Sua conta achar é facil </h1>
                      
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 text-center">
         <div role="tabpanel">
@@ -155,6 +155,12 @@ if(count($dados_usuario_anunciante_painel)>0){
 
 
 <style>
+
+    .h1_conta_achar_facil{
+        width: 100%;
+        text-align: center;
+        padding: 5%;
+    }
     .painel_anunciante .im {
         font-size: 50px;
         padding-bottom: 12px;
