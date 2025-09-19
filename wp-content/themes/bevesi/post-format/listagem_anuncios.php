@@ -136,7 +136,7 @@
 
                                                 </div>
                                                
-                                            
+                                             
 
                                                 <div class="info_extra_anunciante_busca">
                                                 <?php if($dadosAnunciantes->website!=''){  ?>
@@ -249,6 +249,7 @@
                       
                      </div>
                      <!-- site-button -->        
+                  </div>
                   </div>
                   <div class="sidebar-inner sticky-holder sticky-top-20">
                      <form name="busca_site" method="get" >
