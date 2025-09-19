@@ -56,6 +56,7 @@
                         AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['cidade']."%')";
 
         $filtro_extra .=$filtro_cidade;
+        $filtro_extra .=$filtro_categoria;
 
         }
 
