@@ -2348,7 +2348,7 @@ height:35px !important;
     }
 
     .search-results .destaque_quadro_resultado{
-        width: 79% !important ;
+        width: 98% !important ;
         padding-top: 25px !important ;
     }
     .elementor-1134 .elementor-element.elementor-element-6530e6e .site-banner-image img {
@@ -2412,7 +2412,7 @@ height:35px !important;
 
     .search-results .imagem_produto_lista_mobile{
         margin-left: 4%;
-        width: 71%;
+        width: 98%;
         border-radius: 10px;
     }
 
