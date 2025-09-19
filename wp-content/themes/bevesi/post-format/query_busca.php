@@ -56,7 +56,7 @@
                         AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['cidade']."%')";
 
         $filtro_extra .=$filtro_cidade;
-        $filtro_extra .=$filtro_categoria;
+        
 
         }
 
@@ -137,8 +137,8 @@
 
                                             
         if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
-               // echo $consulta_usuarios_anunciantes;
-              //  exit;
+             echo $consulta_usuarios_anunciantes;
+             exit;
         }
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
