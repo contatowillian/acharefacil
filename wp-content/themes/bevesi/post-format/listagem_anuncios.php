@@ -120,7 +120,7 @@
                                                    <div class="whatsapp_icon_search primary phones phone"><a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $dadosAnunciantes->whatsapp);  ?>?text=Ol%C3%A1,%20vi%20seu%20an%C3%BAncio%20no%20site%20Achar%20%C3%A9%20F%C3%A1cil%20www.acharefacil.com.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.'><div class="whatsapp_icon_resultado_busca"></div><span class='whats_telefone_texto'><?php echo $dadosAnunciantes->whatsapp;  ?><span></a></div>
                                                 <?php } ?>
 
-                                                <?php if(isset($dadosAnunciantes->telefone) and $dadosAnunciantes->telefone!=''){  ?>
+                                                <?php if(isset($dadosAnunciantes->telefone) and trim($dadosAnunciantes->telefone)!=''){  ?>
                                                    <div class="phones phone primary"><a href="tel:+55<?php echo str_replace(")","",str_replace("(","",str_replace("-","",$dadosAnunciantes->telefone))); ?>"><i class="klb-icon-phone"></i><a href="tel:+55<?php echo str_replace(")","",str_replace("(","",str_replace("-","",$dadosAnunciantes->telefone))); ?>"></a></div>
                                                 <?php } ?>
 
