@@ -2411,7 +2411,7 @@ height:35px !important;
     }
 
     .search-results .imagem_produto_lista_mobile{
-        margin-left: 4%;
+      
         width: 98%;
         border-radius: 10px;
     }
