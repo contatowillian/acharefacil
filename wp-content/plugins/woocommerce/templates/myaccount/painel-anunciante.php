@@ -72,6 +72,8 @@ if(count($dados_usuario_anunciante_painel)>0){
 ?>
 
 <div class="row painel_anunciante">
+
+    <h1>Sua conta achar é facil </h1>
                      
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 text-center">
         <div role="tabpanel">
@@ -173,5 +175,9 @@ if(count($dados_usuario_anunciante_painel)>0){
         margin-top: 17px !important;
         border-radius: 7px !important;
         background-color: #f3f4f6;
+    }
+
+    .site-page-header{ 
+        display: none !important;
     }
 </style>
