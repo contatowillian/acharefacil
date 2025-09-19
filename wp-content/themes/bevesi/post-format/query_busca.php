@@ -106,6 +106,9 @@
 
         if(isset($_REQUEST['s']) and $_REQUEST['s']!=''){
 
+            $_REQUEST['s'] = str_replace("cachorro","cães",strtolower($_REQUEST['s']));
+            $_REQUEST['s'] = str_replace("cachorros","cães",strtolower($_REQUEST['s']));
+
             $query_busca_anexada = " or us.user_status = 0  and us.text_busca_anexado like '%".$_REQUEST['s']."%' ";
 
 
@@ -116,8 +119,7 @@
              if($filtro_categoria!=''){
                 $query_busca_anexada .= $filtro_categoria;
              } 
-            $_REQUEST['s'] = str_replace("cachorro","cães",strtolower($_REQUEST['s']));
-            $_REQUEST['s'] = str_replace("cachorros","cães",strtolower($_REQUEST['s']));
+            
 
             
         }
