@@ -133,6 +133,9 @@ class Bevesi_Product_Tab_Carousel_Widget extends \Elementor\Widget_Base {
 	}
 
 	protected function render() {
+
+		return true;
+		
 		$settings = $this->get_settings_for_display();
 
 		$output = '';
