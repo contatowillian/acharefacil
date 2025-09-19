@@ -138,7 +138,7 @@
                                             
         if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
              echo $consulta_usuarios_anunciantes;
-             exit;
+             // exit;
         }
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
