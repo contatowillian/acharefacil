@@ -121,7 +121,7 @@
                                                 <?php } ?>
 
                                                 <?php if(isset($dadosAnunciantes->telefone) and $dadosAnunciantes->telefone!=''){  ?>
-                                                   <div class="phones phone primary"><a href="tel:+55<?php echo str_replace(")","",str_replace("(","",str_replace("-","",$dadosAnunciantes->telefone))); ?>"><i class="klb-icon-phone"></i><?php echo $dadosAnunciantes->telefone; ?></a></div>
+                                                   <div class="phones phone primary"><a href="tel:+55<?php echo str_replace(")","",str_replace("(","",str_replace("-","",$dadosAnunciantes->telefone))); ?>"><i class="klb-icon-phone"></i><a href="tel:+55<?php echo str_replace(")","",str_replace("(","",str_replace("-","",$dadosAnunciantes->telefone))); ?>"></a></div>
                                                 <?php } ?>
 
                                                 <div class="adr">
@@ -295,7 +295,7 @@
                            <div class="wp-block-group">
                               <div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
                                  <h2 class="wp-block-heading">Palavra Chave</h2>
-                                <input type='text' name='palavra_chave' id='palavra_chave' 
+                                <input type='text' name='s' id='s' 
                                  value='<?php if(isset($_GET['s'])  and $_GET['s']!='') {  echo $_GET['s'];  };?>' 
                                 >
                               </div>
