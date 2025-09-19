@@ -3,6 +3,11 @@
 
 @media screen and (min-width: 769px)  {
 
+    .product .product-thumbnail-wrapper {
+        padding: 0.5rem;
+        min-height: 200px;
+    } 
+
 
     .elementor-element-6530e6e .site-banner .site-banner-image img {
         object-fit: none !important;
