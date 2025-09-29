@@ -2296,7 +2296,7 @@ height:35px !important;
 
     .search-results .info-secondary .locality{
     padding-bottom:15px;
-    padding-top: 5px;
+    padding-top: 10px;
     }
 
     .site-mobile-navbar{
