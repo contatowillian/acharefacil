@@ -2293,10 +2293,10 @@ height:35px !important;
     .search-results .info-secondary .adr{
         padding-top: 10px;
     }
-    
+
     .search-results .info-secondary .locality{
     padding-bottom:15px;
-    padding-top: 10px;
+    padding-top: 5px;
     }
 
     .site-mobile-navbar{
