@@ -2289,6 +2289,16 @@ height:35px !important;
 
 @media (max-width: 600px) {
 
+
+    .search-results .info-secondary .adr{
+        padding-top: 10px;
+    }
+    
+    .search-results .info-secondary .locality{
+    padding-bottom:15px;
+    padding-top: 10px;
+    }
+
     .site-mobile-navbar{
         display: none !important;
     }
@@ -2424,7 +2434,7 @@ height:35px !important;
 
     .search-results .imagem_produto_lista_mobile img{
         margin-left: 4%;
-        width: 71%;
+        width: 100%;
         border-radius: 10px;
         min-width: 200px;
         display: block;
