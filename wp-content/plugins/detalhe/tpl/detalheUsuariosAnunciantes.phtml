@@ -69,13 +69,35 @@
                            <span>Redes Sociais:</span>
                            <div class="site-social lista_rede_social">
                               <ul class="color-social rede_social_padding">
-                                 <?php if(isset($users[0]->endereco_facebook) and $users[0]->endereco_facebook!=''){  ?>
+                                 <?php if(isset($users[0]->endereco_facebook) and $users[0]->endereco_facebook!=''){ 
+
+                                       $pos = strpos( $users[0]->endereco_facebook, 'http' );
+
+                                       if ($pos === false) {
+                                          $users[0]->endereco_facebook = 'https://'.$users[0]->endereco_facebook;
+                                       }
+                                    
+                                    ?>
                                  <li><a href="<?php echo $users[0]->endereco_facebook; ?>" class="filled social-color facebook" target="_blank"><i class="klb-social-icon-facebook"></i></a></li>
                                  <?php } ?>
-                                 <?php if(isset($users[0]->endereco_instagram)  and $users[0]->endereco_instagram!=''){  ?>
+                                 <?php if(isset($users[0]->endereco_instagram)  and $users[0]->endereco_instagram!=''){
+                                    
+                                       $pos = strpos( $users[0]->endereco_instagram, 'http' );
+
+                                       if ($pos === false) {
+                                          $users[0]->endereco_instagram = 'https://'.$users[0]->endereco_instagram;
+                                       }
+                                    ?>
                                  <li><a href="<?php echo $users[0]->endereco_instagram; ?>" class="filled social-color instagram" target="_blank"><i class="klb-social-icon-instagram"></i></a></li>
                                  <?php } ?>
-                                 <?php if(isset($users[0]->endereco_linkedin)  and $users[0]->endereco_linkedin!=''){  ?>
+                                 <?php if(isset($users[0]->endereco_linkedin)  and $users[0]->endereco_linkedin!=''){ 
+
+                                    $pos = strpos( $users[0]->endereco_linkedin, 'http' );
+
+                                       if ($pos === false) {
+                                          $users[0]->endereco_linkedin = 'https://'.$users[0]->endereco_linkedin;
+                                       }
+                                    ?>
                                  <li><a href="<?php echo $users[0]->endereco_linkedin; ?>" class="filled social-color linkedin" target="_blank"><i class="klb-social-icon-linkedin"></i></a></li>
                                  <?php } ?>
 
