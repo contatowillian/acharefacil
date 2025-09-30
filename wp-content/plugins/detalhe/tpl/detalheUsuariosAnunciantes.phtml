@@ -47,8 +47,12 @@
                         <?php  }  ?>
                       <?php if(isset($users[0]->whatsapp)  and $users[0]->whatsapp!=''){  ?>
                         <div class='linha_divisoria_detalhe'>
-                            <div class="whatsapp_icon_search  whats_icone_detalhe primary "><a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $users[0]->whatsapp);  ?>?text=Ol%C3%A1,%20vi%20seu%20an%C3%BAncio%20no%20site%20Achar%20%C3%A9%20F%C3%A1cil%20www.acharefacil.com.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.'><div class="whatsapp_icon_resultado_detalhe"></div></a></div>
-                            <h1 class="product_title entry-title telefone_detalhe_anuncio"><?php echo $users[0]->whatsapp; ?></h1>
+                            <div class="whatsapp_icon_search  whats_icone_detalhe primary ">
+                            <a target='_blank' href='https://wa.me/<?php echo preg_replace("/[^0-9]/", "", $users[0]->whatsapp);  ?>?text=Ol%C3%A1,%20vi%20seu%20an%C3%BAncio%20no%20site%20Achar%20%C3%A9%20F%C3%A1cil%20www.acharefacil.com.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.'>
+                              <div class="whatsapp_icon_resultado_detalhe"></div>
+                              </div>
+                              <h1 class="product_title entry-title telefone_detalhe_anuncio"><?php echo $users[0]->whatsapp; ?></h1>
+                           </a>
                         </div> 
                       <?php  }  ?>
                    
