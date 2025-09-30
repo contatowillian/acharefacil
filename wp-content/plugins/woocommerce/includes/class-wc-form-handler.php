@@ -267,9 +267,9 @@ class WC_Form_Handler {
 		$user->display_name = $account_display_name;
 
 		// Prevent display name to be changed to email.
-		if ( is_email( $account_display_name ) ) {
+	/*	if ( is_email( $account_display_name ) ) {
 			wc_add_notice( __( 'Display name cannot be changed to email address due to privacy concern.', 'woocommerce' ), 'error' );
-		}
+		}*/
 
 		// Handle required fields.
 		$required_fields = apply_filters(
