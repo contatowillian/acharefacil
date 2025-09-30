@@ -396,7 +396,7 @@ jQuery( document ).ready(function( $ ) {
             breakpoint: 768,
             settings: {
             slidesToShow: 1,
-            centerMode: true, /* set centerMode to false to show complete slide instead of 3 */
+            centerMode: false, /* set centerMode to false to show complete slide instead of 3 */
             slidesToScroll: 1,
             dots: true
             }
