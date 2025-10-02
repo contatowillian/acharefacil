@@ -114,7 +114,7 @@
             $_REQUEST['s'] = str_replace("cachorros","cães",strtolower($_REQUEST['s']));
 
             if(count($all_user_id_post>0)){
-                $query_busca_anexada = " or ";
+                $query_busca_anexada = " or xxx ";
             }
             
             $query_busca_anexada .= " us.user_status = 0  and us.text_busca_anexado like '%".$_REQUEST['s']."%' ";
