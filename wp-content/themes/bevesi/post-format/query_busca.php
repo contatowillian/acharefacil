@@ -94,12 +94,12 @@
             $listaIdUsuarioRelevanssi = ' us.user_status = 0 ';
 
             foreach($all_user_id_post  as $registro_usuario_busca_relevansi){
-                $listaIdUsuarioRelevanssi.=$registro_usuario_busca_relevansi.',';
+                $lista_id_usuario .=$registro_usuario_busca_relevansi.',';
             }
 
-            $listaIdUsuarioRelevanssi = substr($listaIdUsuarioRelevanssi,0,-1);
-            if($listaIdUsuarioRelevanssi!=''){
-                $listaIdUsuarioRelevanssi .=  "and  us.ID in ($listaIdUsuarioRelevanssi) ";
+            $lista_id_usuario = substr($lista_id_usuario,0,-1);
+            if($lista_id_usuario!=''){
+                $listaIdUsuarioRelevanssi .=  "and  us.ID in ($lista_id_usuario) ";
             }
           
             
