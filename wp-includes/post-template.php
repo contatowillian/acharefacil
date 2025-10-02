@@ -659,7 +659,7 @@ function get_body_class( $css_class = '' ) {
 	}
 	if ( is_search() ) {
 		$classes[] = 'search';
-		$classes[] = $wp_query->posts ? 'search-results' : 'search-no-results';
+		$classes[] = $wp_query->posts ? 'search-results' : 'search-results';
 	}
 	if ( is_paged() ) {
 		$classes[] = 'paged';
