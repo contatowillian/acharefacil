@@ -91,7 +91,6 @@
 
         if(count($all_user_id_post>0) and count($all_user_id_post<500)){
 
-            $listaIdUsuarioRelevanssi = ' ';
 
             foreach($all_user_id_post  as $registro_usuario_busca_relevansi){
                 $lista_id_usuario .=$registro_usuario_busca_relevansi.',';
@@ -114,7 +113,7 @@
             $_REQUEST['s'] = str_replace("cachorro","cães",strtolower($_REQUEST['s']));
             $_REQUEST['s'] = str_replace("cachorros","cães",strtolower($_REQUEST['s']));
 
-            if($listaIdUsuarioRelevanssi!=''){
+            if(count($all_user_id_post>0)){
                 $query_busca_anexada = " or ";
             }
             
