@@ -90,7 +90,7 @@
         $consulta_usuarios_anunciantes = "";
 
 
-        $listaIdUsuarioRelevanssi = '';
+        $listaIdUsuarioRelevanssi = 'where ';
 
         if(count($all_user_id_post>0) and count($all_user_id_post<500)){
 
@@ -118,6 +118,8 @@
 
             if(count($all_user_id_post>1) and trim($listaIdUsuarioRelevanssi)!='' ){
                 $query_busca_anexada = " or ";
+            }else{
+                $query_busca_anexada = " where ";
             }
             
             $query_busca_anexada .= " us.user_status = 0  and us.text_busca_anexado like '%".$_REQUEST['s']."%' ";
@@ -143,7 +145,7 @@
                                             $order_by_next_la_long
                                             FROM wp_users AS us
                                             JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                            where 
+                                             
                                             $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade
                                             $query_busca_anexada
                                             ORDER BY 4 ASC $paginacao";
