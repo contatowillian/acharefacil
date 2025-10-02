@@ -96,7 +96,10 @@
             }
 
             $listaIdUsuarioRelevanssi = substr($listaIdUsuarioRelevanssi,0,-1);
-            $listaIdUsuarioRelevanssi =  "and  us.ID in ($listaIdUsuarioRelevanssi) ";
+            if($listaIdUsuarioRelevanssi!=''){
+                $listaIdUsuarioRelevanssi =  "and  us.ID in ($listaIdUsuarioRelevanssi) ";
+            }
+          
             
         }else{
             $listaIdUsuarioRelevanssi = '';
