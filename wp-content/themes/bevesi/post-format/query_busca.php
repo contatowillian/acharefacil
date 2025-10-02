@@ -90,7 +90,7 @@
         $consulta_usuarios_anunciantes = "";
 
 
-        $listaIdUsuarioRelevanssi = 'where ';
+        $listaIdUsuarioRelevanssi = '';
 
         if(count($all_user_id_post>0) and count($all_user_id_post<500)){
 
@@ -101,7 +101,7 @@
 
             $lista_id_usuario = substr($lista_id_usuario,0,-1);
             if($lista_id_usuario!=''){
-                $listaIdUsuarioRelevanssi .=  " us.user_status = 0  and  us.ID in ($lista_id_usuario) ";
+                $listaIdUsuarioRelevanssi .=  "where  us.user_status = 0  and  us.ID in ($lista_id_usuario) ";
             }
           
             
