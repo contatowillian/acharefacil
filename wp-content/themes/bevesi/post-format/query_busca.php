@@ -99,7 +99,7 @@
 
             $listaIdUsuarioRelevanssi = substr($listaIdUsuarioRelevanssi,0,-1);
             if($listaIdUsuarioRelevanssi!=''){
-                $listaIdUsuarioRelevanssi =  "and  us.ID in ($listaIdUsuarioRelevanssi) ";
+                $listaIdUsuarioRelevanssi .=  "and  us.ID in ($listaIdUsuarioRelevanssi) ";
             }
           
             
