@@ -84,6 +84,11 @@
 
         }
 
+        print_r($all_user_id_post);
+
+        exit;
+
+
         $consulta_usuarios_anunciantes = "";
 
 
