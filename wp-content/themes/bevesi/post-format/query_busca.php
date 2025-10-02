@@ -114,10 +114,6 @@
             $_REQUEST['s'] = str_replace("cachorro","cães",strtolower($_REQUEST['s']));
             $_REQUEST['s'] = str_replace("cachorros","cães",strtolower($_REQUEST['s']));
 
-            if(strtolower($_REQUEST['s'])=='dj'){
-                $_REQUEST['s'] = 'dj,';
-            }
-
             $query_busca_anexada = " or us.user_status = 0  and us.text_busca_anexado like '%".$_REQUEST['s']."%' ";
 
 
