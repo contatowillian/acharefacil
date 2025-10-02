@@ -84,7 +84,7 @@
 
         }
 
-        print_r($all_user_id_post);
+        print_r('contagem'+count($all_user_id_post>0));
 
         exit;
 
