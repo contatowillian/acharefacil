@@ -116,7 +116,7 @@
             $_REQUEST['s'] = str_replace("cachorro","cães",strtolower($_REQUEST['s']));
             $_REQUEST['s'] = str_replace("cachorros","cães",strtolower($_REQUEST['s']));
 
-            if(count($all_user_id_post>1) ){
+            if(count($all_user_id_post>1) and trim($listaIdUsuarioRelevanssi)!='' ){
                 $query_busca_anexada = " or ";
             }
             
