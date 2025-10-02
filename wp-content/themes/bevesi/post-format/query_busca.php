@@ -138,7 +138,7 @@
                                             ORDER BY 4 ASC $paginacao";
 
                                             
-        if($_SERVER["REMOTE_ADDR"]=='187.22.179.112'){
+        if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
              echo $consulta_usuarios_anunciantes;
              // exit;
         }
