@@ -164,7 +164,7 @@
         $consulta_usuarios_anunciantes_paginacao = "SELECT count(*) as quantidade
                                                     FROM wp_users AS us
                                                     JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                                    where us.user_status = 0    $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade
+                                                     $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade
                                                     $query_busca_anexada 
                                                     ";
 
@@ -212,7 +212,7 @@
         FROM wp_users AS us
         JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
         JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-        where us.user_status = 0 
+        
         $listaIdUsuarioRelevanssi  $filtro_cidade
         $query_busca_anexada 
         order by  categoria.meta_value asc  ";
@@ -233,7 +233,7 @@
                             from wp_users as us
                             JOIN wp_usermeta as cidades   ON  us.ID = cidades.user_id  AND cidades.meta_key = 'afreg_additional_3244'
                             JOIN wp_usermeta AS estado  ON  us.ID = estado.user_id  AND estado.meta_key = 'afreg_additional_3245'
-                            where  trim(cidades.meta_value) !=''
+                        
                             $listaIdUsuarioRelevanssi     $filtro_categoria
                             $query_busca_anexada                        
                             order by estado.meta_value, cidades.meta_value ASC
