@@ -79,11 +79,11 @@ if(count($dados_usuario_anunciante_painel)>0){
         <div role="tabpanel">
             <div class="site-category-box style-2">
                 <div class="site-category-thumbnail">
-                <a href="/busca/?categoria=Aluguel de materiais para festas	" tabindex="0">
+                <a href="#" tabindex="0">
                 <span class="im im-icon-Folder-Search"></span></a></div>
                 <!-- site-category-thumbnail -->
                 <div class="site-category-content">
-                <h4 class="category-name"><a href="/busca/?categoria=Aluguel de materiais para festas	" tabindex="0">Quantidade vizualizações do anúncio</a></h4>
+                <h4 class="category-name"><a href="#" tabindex="0">Quantidade vizualizações do anúncio</a></h4>
                 <span class="category-count"><?php echo $quantas_vezes_detalhe_anuncio;?> vezes</span>
                 </div>
                 <!-- site-category-content -->
@@ -95,11 +95,11 @@ if(count($dados_usuario_anunciante_painel)>0){
          <div role="tabpanel">
             <div class="site-category-box style-2">
                 <div class="site-category-thumbnail">
-                <a href="/busca/?categoria=Aluguel de materiais para festas	" tabindex="0">
+                <a href="#" tabindex="0">
                 <span class="im im-icon-File-Search"></span></a></div>
                 <!-- site-category-thumbnail -->
                 <div class="site-category-content">
-                <h4 class="category-name"><a href="/busca/?categoria=Aluguel de materiais para festas	" tabindex="0">Quantas vezes apareceu na pesquisa</a></h4>
+                <h4 class="category-name"><a href="#" tabindex="0">Quantas vezes apareceu na pesquisa</a></h4>
                 <span class="category-count"><?php echo $quantas_vezes_apareceu_pesquisa;?> vezes</span>
                 </div>
                 <!-- site-category-content -->
@@ -111,11 +111,11 @@ if(count($dados_usuario_anunciante_painel)>0){
          <div role="tabpanel">
             <div class="site-category-box style-2">
                 <div class="site-category-thumbnail">
-                <a href="/busca/?categoria=Aluguel de materiais para festas	" tabindex="0">
+                <a href="#" tabindex="0">
                 <span class="im im-icon-Add-UserStar"></span></a></div>
                 <!-- site-category-thumbnail -->
                 <div class="site-category-content">
-                <h4 class="category-name"><a href="/busca/?categoria=Aluguel de materiais para festas	" tabindex="0">Anúncio Destaque</a></h4>
+                <h4 class="category-name"><a href="#" tabindex="0">Anúncio Destaque</a></h4>
                 <span class="category-count"><?php echo $usuario_e_destaque; ?></span>
                 </div>
                 <!-- site-category-content -->
@@ -127,11 +127,11 @@ if(count($dados_usuario_anunciante_painel)>0){
          <div role="tabpanel">
             <div class="site-category-box style-2">
                 <div class="site-category-thumbnail">
-                <a href="/busca/?categoria=Aluguel de materiais para festas	" tabindex="0">
+                <a href="#" tabindex="0">
                 <span class="im  im-icon-Calendar-3"></span></a></div>
                 <!-- site-category-thumbnail -->
                 <div class="site-category-content">
-                <h4 class="category-name"><a href="/busca/?categoria=Aluguel de materiais para festas	" tabindex="0">Data limite Destaque</a></h4>
+                <h4 class="category-name"><a href="#" tabindex="0">Data limite Destaque</a></h4>
                 <span class="category-count"><?php echo $data_limite_destaque;?></span>
                 </div>
                 <!-- site-category-content -->
