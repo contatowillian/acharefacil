@@ -269,8 +269,9 @@
                                  <?php if(isset($_GET['categoria'])  and $_GET['categoria']!='') { ?>
                                  <option value="<?php echo $_GET['categoria']; ?>"><?php echo $_GET['categoria']; ?></option>
                                  <?php }else{  ?>
-                                 <option value="">Escolha a Categoria</option>
+                                
                                  <?php }?>
+                                 <option value="">Escolha a Categoria</option>
                                 <?php foreach($categorias as $categoria){
                                    if($categoria->categoria!=''){ 
                                    ?>
@@ -286,8 +287,8 @@
                                 <?php if(isset($_GET['cidade'])  and $_GET['cidade']!='') { ?>
                                  <option value="<?php echo $_GET['cidade']; ?>"><?php echo $_GET['cidade']; ?></option>
                                  <?php }else{  ?>
-                                 <option value="">Escolha a Cidade</option>
                                  <?php }?>
+                                 <option value="">Escolha a Cidade</option>
 
                                 <?php foreach($cidades as $cidade){ ?>
                                  <option value="<?php echo $cidade->cidade ?>"><?php echo ucfirst($cidade->estado); ?> - <?php echo ucfirst($cidade->cidade); ?></option>
