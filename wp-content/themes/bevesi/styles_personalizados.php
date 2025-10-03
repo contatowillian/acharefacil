@@ -2279,7 +2279,7 @@ height:35px !important;
     display: none;
 }
 .page-id-3290 .klb-post img{
-    width: 11.5vw;
+    width: 20.5vw;
     border-radius: 10px;
 }
 
