@@ -361,9 +361,7 @@ jQuery( document ).ready(function( $ ) {
         setInterval(function () {getLocation()}, 5000);
 
         bevesiThemeModule.siteslider();
-      /*  $('.slick-slider').slick({
-        arrows: true
-        })*/
+
         $('.site-slider-categorias').slick({
             arrows: true,
             prevArrow: '<button type="button" class="slick-nav slick-prev slick-button unset"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" fill="currentColor"><polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="17.2,22.4 6.8,12 17.2,1.6 "/></svg></button>',
@@ -384,24 +382,7 @@ jQuery( document ).ready(function( $ ) {
         
         });
 
-        $('.site-slider-anunciantes1').slick({
-            arrows: true,
-            prevArrow: '<button type="button" class="slick-nav slick-prev slick-button unset"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" fill="currentColor"><polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="17.2,22.4 6.8,12 17.2,1.6 "/></svg></button>',
-            nextArrow: '<button type="button" class="slick-nav slick-next slick-button unset"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" fill="currentColor"><polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="6.8,22.4 17.2,12 6.8,1.6 "/></svg></button>',
-            lazyLoad: 'ondemand',
-            slidesToShow: 5,
-            slidesToScroll: 5,
-            responsive: [
-            {
-            breakpoint: 768,
-            settings: {
-            slidesToShow: 1,
-            centerMode: false, /* set centerMode to false to show complete slide instead of 3 */
-            slidesToScroll: 1,
-            dots: true
-            }
-            }]
-        });
+     
 
     })
 
@@ -421,7 +402,7 @@ jQuery( document ).ready(function( $ ) {
     }
 
     function error() {
-        console.log("Sorry, no position available.");
+      //  console.log("Sorry, no position available.");
     }
 
 </script>
@@ -496,7 +477,7 @@ jQuery( document ).ready(function( $ ) {
             return value;
          }
       }
-    console.log("Cookie not found:", name); // Log para depuração
+   // console.log("Cookie not found:", name); // Log para depuração
 
     
 
@@ -530,7 +511,7 @@ jQuery( document ).ready(function( $ ) {
 }
 function setutmcookies(){
 // Definir todos os cookies UTM
-console.log("Setting cookies...");
+//console.log("Setting cookies...");
 setUTMCookie("utm_id", "organic");
 setUTMCookie("gclid", "organic");
 setUTMCookie("utm_source", "organic");
@@ -571,6 +552,106 @@ function setCookie(name,value,days) {
 
 
 jQuery( document ).ready(function( $ ) {
+
+    <?php  if (is_front_page()) {  ?> 
+
+    var ajaxurl = '/wp-admin/admin-ajax.php';
+      
+    $('#carrosel_anunciantes_1').html("<img class='loading_carrosel_home' src='/wp-content/plugins/wp-all-export/static/img/loading.png'>");
+
+    $.ajax({
+            url: ajaxurl, 
+            type: 'POST',
+            dataType: 'html' ,
+            data: {
+                action: 'carregar_posts_home'
+            },
+            success: function(response) {
+
+        
+
+                if($('#carrosel_anunciantes_1').html(response)){
+                    
+                }
+
+                if ($('.site-slider-anunciantes1').hasClass('slick-initialized')) {
+                    $('.site-slider-anunciantes1').slick('unslick');
+                }
+
+
+
+                $('.site-slider-anunciantes1').slick({
+                    arrows: true,
+                    prevArrow: '<button type="button" class="slick-nav slick-prev slick-button unset"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" fill="currentColor"><polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="17.2,22.4 6.8,12 17.2,1.6 "/></svg></button>',
+                    nextArrow: '<button type="button" class="slick-nav slick-next slick-button unset"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" fill="currentColor"><polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="6.8,22.4 17.2,12 6.8,1.6 "/></svg></button>',
+                    lazyLoad: 'ondemand',
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                    responsive: [
+                    {
+                    breakpoint: 768,
+                    settings: {
+                    slidesToShow: 1,
+                    centerMode: false, 
+                    slidesToScroll: 1,
+                    dots: true
+                    }
+                    }]
+                }); 
+
+
+              
+            },
+            error: function(xhr, status, error) {
+                console.error('Erro na Requisição AJAX:', status, error);
+            }
+        });
+
+    
+    
+
+    $.ajax({
+            url: ajaxurl, 
+            type: 'POST', 
+            dataType: 'html' ,
+            data: {
+                action: 'carregar_posts_home_recentes',
+            },
+            success: function(response) {
+
+                console.log(response);
+
+                $('#carrosel_anunciantes_recentes').html(response);
+
+
+                $('.site-slider-anunciantes_recentes').slick({
+                    arrows: true,
+                    prevArrow: '<button type="button" class="slick-nav slick-prev slick-button unset"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" fill="currentColor"><polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="17.2,22.4 6.8,12 17.2,1.6 "/></svg></button>',
+                    nextArrow: '<button type="button" class="slick-nav slick-next slick-button unset"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" fill="currentColor"><polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="6.8,22.4 17.2,12 6.8,1.6 "/></svg></button>',
+                    lazyLoad: 'ondemand',
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                    responsive: [
+                    {
+                    breakpoint: 768,
+                    settings: {
+                    slidesToShow: 1,
+                    centerMode: false, 
+                    slidesToScroll: 1,
+                    dots: true
+                    }
+                    }]
+                }); 
+
+
+             
+            },
+            error: function(xhr, status, error) {
+                // A requisição falhou (Erro HTTP, por exemplo)
+                console.error('Erro na Requisição AJAX:', status, error);
+            }
+        });
+    <?php } ?>
 
     $('input[name="escolhe_permite_conteudo_adulto"]').on("click", function(e) {
         console.log(this);
