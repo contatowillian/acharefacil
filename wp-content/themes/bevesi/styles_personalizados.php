@@ -2309,11 +2309,13 @@ height:35px !important;
 #carrosel_anunciantes_1 .product .product-content-wrapper {
     display: ruby;
     text-align: center;
+    margin-top: -28px;
 }
 
 #carrosel_anunciantes_recentes .product .product-content-wrapper {
     display: ruby;
     text-align: center;
+    margin-top: -28px;
 }
 
 
