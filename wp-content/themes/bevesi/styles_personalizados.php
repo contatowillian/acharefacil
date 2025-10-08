@@ -2305,6 +2305,11 @@ height:35px !important;
     width: 100%;
     display: block;
 }
+
+.quadro_anuncio_recente_home .product .product-content-wrapper {
+    display: ruby;
+    text-align: center;
+}
 @media (max-width: 600px) {
 
     .quadro_anuncio_recente_home{
