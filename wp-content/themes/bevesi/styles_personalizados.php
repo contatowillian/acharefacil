@@ -2306,10 +2306,17 @@ height:35px !important;
     display: block;
 }
 
-.quadro_anuncio_recente_home .product .product-content-wrapper {
+#carrosel_anunciantes_1 .product .product-content-wrapper {
     display: ruby;
     text-align: center;
 }
+
+#carrosel_anunciantes_recentes .product .product-content-wrapper {
+    display: ruby;
+    text-align: center;
+}
+
+
 @media (max-width: 600px) {
 
     .quadro_anuncio_recente_home{
