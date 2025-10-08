@@ -2290,7 +2290,7 @@ height:35px !important;
 .loading_carrosel_home{
     margin: 0px auto;
     display: block;
-    width: 30px;
+    width: 35px;
     text-align: center;
 }
 
