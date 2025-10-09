@@ -2498,10 +2498,14 @@ height:35px !important;
 
     .search-results .imagem_produto_lista_mobile{
       
-        width: 98%;
+        width: 44%;
         border-radius: 10px;
+        margin-left: 18%;
     }
-
+    .search-results .product-listing-style .product-inner {
+        display: flow-root !important;
+        padding-left: 3%;
+    }
     .search-results .imagem_produto_lista_mobile img{
         margin-left: 4%;
         width: 100%;
