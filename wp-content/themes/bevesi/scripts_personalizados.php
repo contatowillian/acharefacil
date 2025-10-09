@@ -274,10 +274,28 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
 <?php } ?>
 
 
+<?php if( is_page('criar-anuncio')){ ?>
+<script>
+
+    jQuery( document ).ready(function( $ ) {
+        
+        $( ".nsl-custom-login-form-2" ).after( '<div class="lost-password">'+
+								'<p class="woocommerce-LostPassword  form-rowlost_password">'+
+									'<a href="https://acharefacil.com.br/my-account/lost-password/">Já é cadastrado ? <br>Clique aqui para efetuar o login </a>'+
+								'</p>'+
+							'</div>' );
+    });
+
+</script>
+<?php }?>
+
+
+
 <?php if(is_page('my-acoount') or is_page('edit-acoount') or is_page('criar-anuncio')){ ?>
 <script>
 
     jQuery( document ).ready(function( $ ) {
+        
 
         $(".campo_telefone input").mask('(00) 000000009', {clearIfNotMatch: true});
         
