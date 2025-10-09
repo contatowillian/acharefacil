@@ -3,6 +3,14 @@
 
 @media screen and (min-width: 769px)  {
 
+
+    .search-results .product .product-content-wrapper .product-content-body > *{
+        min-width: 40vw;
+    }
+    .linha_desc_anuncio_texto{
+        width: 61% !important;
+    }
+
     .product .product-thumbnail-wrapper {
         padding: 0.5rem;
         min-height: 200px;

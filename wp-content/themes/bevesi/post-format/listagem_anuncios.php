@@ -91,7 +91,7 @@
                                     <div class="product-content-body">
                                
                                        <div class="product-content-row">
-                                          <div class="col-lg-7 linha_desc_anuncio_texto">
+                                          <div class="col-lg-8 linha_desc_anuncio_texto">
                                              <!-- product-content-row col-lg-9 -->
                                              <div class="product-price-wrapper"><span class="price"></span> </div>
                                              <!-- product-price-wrapper -->
@@ -99,7 +99,7 @@
                                                 <h2 class="product-title">
                                                 <a href="/detalhe?detalhe_anunciante=<?php echo $dadosAnunciantes->ID; ?>">
                                                 <span>    
-                                                <?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,26); ?><?php echo $estrela_destaque; ?>
+                                                <?php echo substr(ucfirst($dadosAnunciantes->nome_do_seu_negocio),0,36); ?><?php echo $estrela_destaque; ?>
                                                    </span>
                                                    <br>
                                                   <span class='categoria_busca_linha'> <?php echo $dadosAnunciantes->categoria; ?></span>
@@ -229,7 +229,7 @@
                            $href_paginacao ='#';
                          }else{
                            $classe_pagina_atual ='';
-                           $href_paginacao = '/?categoria='.$_GET['categoria'].'&s='.$_GET['s'].'&cidade='.$_GET['cidade'].'&permite_conteudo_adulto='.$_GET['permite_conteudo_adulto'].'&pagina='.$pagina;
+                           $href_paginacao = '/?categoria='.$_GET['categoria'].'&s='.$_GET['s'].'&cidade='.$_GET['cidade'].'&permite_conteudo_adulto='.$_GET['permite_conteudo_adulto']."/page/".$pagina;
                          }
 
                          
