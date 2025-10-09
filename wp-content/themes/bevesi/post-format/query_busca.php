@@ -21,12 +21,14 @@
         if(isset($_REQUEST['categoria_principal']) and $_REQUEST['categoria_principal']!=''){
 
         /************************************   Filtro nome da categoria  ************************************/
-        $filtro_extra .="AND us.user_status = 0 and  us.ID in
+        $filtro_categoria_principal .="AND us.user_status = 0 and  us.ID in
                         (select nome_da_categoria.user_id from wp_usermeta as nome_da_categoria
                         join Categoria_icones as CI on CI.Nome =  nome_da_categoria.meta_value 
                         where us.ID = nome_da_categoria.user_id 
                         AND nome_da_categoria.meta_key = 'afreg_additional_3213'
                         AND CI.id_categoria_principal = '".$_REQUEST['categoria_principal']."')";
+
+                      
         }
 
         $filtro_categoria = '';
@@ -40,7 +42,6 @@
                         AND nome_da_categoria.meta_key = 'afreg_additional_3213'
                         AND nome_da_categoria.meta_value like '%".$_REQUEST['categoria']."%')";
 
-        $filtro_extra .=$filtro_categoria;
 
         }
 
@@ -54,8 +55,6 @@
                         where us.ID = nome_do_seu_negocio.user_id 
                         AND nome_do_seu_negocio.meta_key = 'afreg_additional_3244'
                         AND nome_do_seu_negocio.meta_value like '%".$_REQUEST['cidade']."%')";
-
-        $filtro_extra .=$filtro_cidade;
         
 
         }
@@ -146,15 +145,17 @@
                                             FROM wp_users AS us
                                             JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
                                              
-                                            $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade
+                                            $listaIdUsuarioRelevanssi $filtro_categoria $filtro_categoria_principal  $filtro_cidade
                                             $query_busca_anexada
                                             ORDER BY 4 ASC $paginacao";
 
                                             
         if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
-            //  echo $consulta_usuarios_anunciantes;
-             // exit;
+            echo $consulta_usuarios_anunciantes;
+            exit;
         }
+
+
 
         $users = $wpdb->get_results($consulta_usuarios_anunciantes);
 
@@ -164,7 +165,7 @@
         $consulta_usuarios_anunciantes_paginacao = "SELECT count(*) as quantidade
                                                     FROM wp_users AS us
                                                     JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                                     $listaIdUsuarioRelevanssi $filtro_categoria  $filtro_cidade
+                                                     $listaIdUsuarioRelevanssi $filtro_categoria $filtro_categoria_principal  $filtro_cidade
                                                     $query_busca_anexada 
                                                     ";
 
