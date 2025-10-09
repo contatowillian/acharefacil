@@ -280,8 +280,8 @@ $("#afreg_additional_3239").mask('00000-000', {clearIfNotMatch: true});
     jQuery( document ).ready(function( $ ) {
         
         $( ".woocommerce-form" ).after( '<div class="lost-password">'+
-								'<p class="woocommerce-LostPassword  form-rowlost_password">'+
-									'<a href="https://acharefacil.com.br/my-account/">Já é cadastrado ? <br>Clique aqui para efetuar o login </a>'+
+								'<p class="woocommerce-LostPassword  texto_ja_cadastrado form-rowlost_password">'+
+									'<a href="https://acharefacil.com.br/my-account/">Já é cadastrado ? Clique aqui para efetuar o login </a>'+
 								'</p>'+
 							'</div>' );
     });

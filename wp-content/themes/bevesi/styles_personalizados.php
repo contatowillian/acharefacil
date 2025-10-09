@@ -115,6 +115,13 @@
     margin-top: -2px;
 }
 
+.texto_ja_cadastrado{
+    text-decoration: none;
+    color: var(--color-blue-700);
+    padding-top: 20px;
+}
+
+
 .descricao_carrosel_anunciante{
     color: gray !important;
 }
