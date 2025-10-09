@@ -2436,7 +2436,7 @@ height:35px !important;
     }
 
     .search-results .destaque_quadro_resultado{
-        width: 87% !important ;
+        width: 89% !important ;
         padding-top: 25px !important ;
     }
     .search-results .sem_destaque_quadro_resultado{
