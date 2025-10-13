@@ -226,6 +226,8 @@ class WC_Form_Handler {
 	 * Save the password/account details and redirect back to the my account page.
 	 */
 	public static function save_account_details() {
+
+	
 		$nonce_value = wc_get_var( $_REQUEST['save-account-details-nonce'], wc_get_var( $_REQUEST['_wpnonce'], '' ) ); // @codingStandardsIgnoreLine.
 
 		if ( ! wp_verify_nonce( $nonce_value, 'save_account_details' ) ) {
@@ -265,6 +267,13 @@ class WC_Form_Handler {
 		$user->first_name   = $account_first_name;
 		$user->last_name    = $account_last_name;
 		$user->display_name = $account_display_name;
+
+
+		if(isset($_POST['afreg_additional_3226'] )){
+			$_POST['afreg_additional_3226'] = htmlspecialchars($_POST['afreg_additional_3226'], ENT_QUOTES, 'UTF-8');
+		}
+
+
 
 		// Prevent display name to be changed to email.
 		if ( is_email( $account_display_name ) ) {
