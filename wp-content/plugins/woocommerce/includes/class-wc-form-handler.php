@@ -269,12 +269,6 @@ class WC_Form_Handler {
 		$user->display_name = $account_display_name;
 
 
-		if(isset($_POST['afreg_additional_3226'] )){
-			$_POST['afreg_additional_3226'] = htmlspecialchars($_POST['afreg_additional_3226'], ENT_QUOTES, 'UTF-8');
-		}
-
-
-
 		// Prevent display name to be changed to email.
 		if ( is_email( $account_display_name ) ) {
 			wc_add_notice( __( 'Display name cannot be changed to email address due to privacy concern.', 'woocommerce' ), 'error' );
@@ -339,6 +333,9 @@ class WC_Form_Handler {
 			}
 		}
 
+	
+
+	
 		if ( wc_notice_count( 'error' ) === 0 ) {
 			wp_update_user( $user );
 
@@ -370,15 +367,28 @@ class WC_Form_Handler {
 			 */
 			do_action( 'woocommerce_save_account_details', $user->ID );
 
+			if(isset($_POST['afreg_additional_3226'] )){
+				$afreg_additional_3226 = nl2br(htmlspecialchars($_POST['afreg_additional_3226'], ENT_QUOTES, 'UTF-8'));
+				$afreg_additional_3226 = str_replace('+', '<br>', $afreg_additional_3226);
+				$afreg_additional_3226 = str_replace("<br \>","<br>\\r\\n", $afreg_additional_3226);
+	
+				if(update_user_meta( $user->I7, 'afreg_additional_3226',$afreg_additional_3226)){
+					//echo "atualiziado ".get_current_user_id().$afreg_additional_3226;
+				   // exit;	
+				}
+				//exit;
+			}
+			
+		
 			// Notices are checked here so that if something created a notice during the save hooks above, the redirect will not happen.
 			if ( 0 === wc_notice_count( 'error' ) ) {
 				wc_add_notice( __( 'Account details changed successfully.', 'woocommerce' ) );
-				//wp_safe_redirect( wc_get_endpoint_url( 'edit-account', '', wc_get_page_permalink( 'myaccount' ) ) );
+				wp_safe_redirect( wc_get_endpoint_url( 'edit-account', '', wc_get_page_permalink( 'myaccount' ) ) );
 				if(isset($_GET['etapa_cadastro'])){
 						wp_safe_redirect( wc_get_endpoint_url( 'edit-account', '', wc_get_page_permalink( 'myaccount' ) ).'?etapa_cadastro=3' );
 				}
 				
-				exit;
+				
 			}
 		}
 	}
