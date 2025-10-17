@@ -30,6 +30,11 @@ class CheckoutFieldsFrontend {
 	 * Initialize hooks. This is not run Store API requests.
 	 */
 	public function init() {
+
+		if(isset($_POST['afreg_additional_3226'] )){
+			 $afreg_additional_3226 = nl2br(htmlspecialchars($_POST['afreg_additional_3226'], ENT_QUOTES, 'UTF-8'));
+		}
+
 		// Show custom checkout fields on the order details page.
 		add_action( 'woocommerce_order_details_after_customer_address', array( $this, 'render_order_address_fields' ), 10, 2 );
 		add_action( 'woocommerce_order_details_after_customer_details', array( $this, 'render_order_other_fields' ), 10 );
@@ -45,6 +50,17 @@ class CheckoutFieldsFrontend {
 		// Edit address form under my account.
 		add_filter( 'woocommerce_address_to_edit', array( $this, 'edit_address_fields' ), 10, 2 );
 		add_action( 'woocommerce_after_save_address_validation', array( $this, 'save_address_fields' ), 10, 4 );
+	
+		if(isset($afreg_additional_3226)){
+		
+			$afreg_additional_3226 = str_replace('+', '<br>', $afreg_additional_3226);
+			$afreg_additional_3226 = str_replace("<br \>","<br>\\r\\n", $afreg_additional_3226);
+
+			if(update_user_meta( get_current_user_id(), 'afreg_additional_3226',$afreg_additional_3226)){
+			//	echo "atualziado ".get_current_user_id().$afreg_additional_3226;
+			  //  exit;	
+			}
+		}
 	}
 
 	/**
@@ -186,16 +202,21 @@ class CheckoutFieldsFrontend {
 	 * @param integer $user_id User ID.
 	 */
 	public function save_account_form_fields( $user_id ) {
+
+	
 		// phpcs:disable WordPress.Security.NonceVerification.Missing
 		$customer          = new WC_Customer( $user_id );
 		$additional_fields = $this->checkout_fields_controller->get_fields_for_location( 'contact' );
 		$field_values      = array();
 
 		foreach ( array_keys( $additional_fields ) as $key ) {
+		
+
 			$post_key = CheckoutFields::get_group_key( 'other' ) . $key;
 			if ( ! isset( $_POST[ $post_key ] ) ) {
 				continue;
 			}
+
 
 			$field_value = $this->checkout_fields_controller->sanitize_field( $key, wc_clean( wp_unslash( $_POST[ $post_key ] ) ) );
 			$validation  = $this->checkout_fields_controller->validate_field( $key, $field_value );
@@ -212,6 +233,8 @@ class CheckoutFieldsFrontend {
 		foreach ( $field_values as $key => $value ) {
 			$this->checkout_fields_controller->persist_field_for_customer( $key, $value, $customer, 'other' );
 		}
+
+
 
 		// Validate all fields for this location.
 		$location_validation = $this->checkout_fields_controller->validate_fields_for_location( $field_values, 'contact', 'other' );
