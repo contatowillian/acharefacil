@@ -573,6 +573,12 @@ jQuery( document ).ready(function( $ ) {
 
     <?php  if (is_front_page()) {  ?> 
 
+    $('#banner_home_2_element').click((e)=> {
+        $('input[name="s"]').val("");
+        $('#searchform').submit();
+    });
+
+
     var ajaxurl = '/wp-admin/admin-ajax.php';
       
     $('#carrosel_anunciantes_1').html("<img class='loading_carrosel_home' src='/wp-content/plugins/wp-all-export/static/img/loading.png'>");
