@@ -3158,7 +3158,7 @@ height:35px !important;
 
  @media screen and (min-width: 576.1px) {
     .page-id-2162  .site-page-header.style-2 .site-page-header-inner {
-        padding-top: 28.125rem !important;
+        padding-top: 26.125rem !important;
         padding-bottom: 3.125rem !important;
     }
 
