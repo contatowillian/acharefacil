@@ -3155,4 +3155,17 @@ height:35px !important;
    -webkit-transform: translateX(0);
            transform: translateX(0);
  }
+
+ @media screen and (min-width: 576.1px) {
+    .page-id-2162  .site-page-header.style-2 .site-page-header-inner {
+        padding-top: 28.125rem !important;
+        padding-bottom: 3.125rem !important;
+    }
+
+  
+    .page-id-2162  .site-page-header.style-2 .site-page-header-inner .page-title {
+        margin-bottom: 50px !important;
+    }
+
+}
  </style>
