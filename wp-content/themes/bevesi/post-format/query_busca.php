@@ -255,7 +255,7 @@
             $quantidade_vizualizacao_busca=0; 
             }
 
-            update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca+1 );
+            update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca );
 
 
 
