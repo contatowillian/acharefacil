@@ -245,17 +245,17 @@
         $cidades = $wpdb->get_results($filtro_cidade);
 
 
-
+        
         if(!empty($users)){
         foreach ($users as $user){
 
-            $quantidade_vizualizacao_busca = get_user_meta( $user->ID, 'afreg_additional_3341', true );
+            $quantidade_vizualizacao_busca = get_user_meta( $user->ID, 'afreg_additional_3341', true )-1;
 
             if($quantidade_vizualizacao_busca==''){
             $quantidade_vizualizacao_busca=0; 
             }
 
-            update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca );
+            update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca+1 );
 
 
 
