@@ -244,18 +244,21 @@
 
         $cidades = $wpdb->get_results($filtro_cidade);
 
+        $_SESSION['conta_visita']=0;
 
-        
         if(!empty($users)){
         foreach ($users as $user){
 
-            $quantidade_vizualizacao_busca = get_user_meta( $user->ID, 'afreg_additional_3341', true )-1;
+            $quantidade_vizualizacao_busca = get_user_meta( $user->ID, 'afreg_additional_3341', true );
 
             if($quantidade_vizualizacao_busca==''){
             $quantidade_vizualizacao_busca=0; 
             }
-
-            update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca+1 );
+            
+            if($_SESSION['conta_visita']=='0'){
+                update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca+1 );
+                $_SESSION['conta_visita']=1;
+            }
 
 
 
