@@ -9,6 +9,17 @@ Author URI: http://www.acharefacil.com.br
 License: Copyright
 */
 
+function start_session() {
+  if(!session_id()) {
+    session_start();
+  }
+}
+
+add_action('init', 'start_session', 1);
+
+
+
+
 function content_detalheUsuariosAnunciantes($content) {
     global $grupo,
            $wpdb;
@@ -72,16 +83,19 @@ function content_detalheUsuariosAnunciantes($content) {
         if($quantidade_vizualizacao_detalhes==''){
           $quantidade_vizualizacao_detalhes=0; 
         }
-
-  
-
-        if(!isset($_SESSION['conta_qtd_detalhe_anuncio'])){
-            $_SESSION['conta_qtd_detalhe_anuncio']=0;
+        
+        if (session_status() == PHP_SESSION_ACTIVE) {
+         // echo 'Session is active';
+          //exit;
         }
 
-        if($_SESSION['conta_qtd_detalhe_anuncio']==0){
+        if(!isset($_SESSION['conta_qtd_detalhe_anuncio_af'])){
+            $_SESSION['conta_qtd_detalhe_anuncio']='sim';
+        }
+
+        if($_SESSION['conta_qtd_detalhe_anuncio_af']=='sim'){
           update_user_meta( $_GET['detalhe_anunciante'], 'afreg_additional_3340',$quantidade_vizualizacao_detalhes+1 );
-          $_SESSION['conta_qtd_detalhe_anuncio']=1;
+          $_SESSION['conta_qtd_detalhe_anuncio_af']='nao';
         }
 
 
@@ -375,3 +389,8 @@ function content_detalheUsuariosAnunciantes($content) {
 
 
 add_filter('the_content', 'content_detalheUsuariosAnunciantes');
+
+
+
+
+

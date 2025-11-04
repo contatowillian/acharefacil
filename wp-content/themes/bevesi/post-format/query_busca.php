@@ -14,7 +14,9 @@
         $paginacao = "limit 0,$qtd_por_pagina";
         }
 
-
+        if(!session_id()) {
+            session_start();
+        }
 
 
 
@@ -244,8 +246,8 @@
 
         $cidades = $wpdb->get_results($filtro_cidade);
 
-        if(!isset($_SESSION['conta_qtd_busca'])){
-            $_SESSION['conta_qtd_busca']=0;
+        if(!isset($_SESSION['conta_qtd_busca_af'])){
+            $_SESSION['conta_qtd_busca_af']=0;
         }
   
 
@@ -258,11 +260,10 @@
             $quantidade_vizualizacao_busca=0; 
             }
             
-            if($_SESSION['conta_qtd_busca']=='0'){
+            if($_SESSION['conta_qtd_busca_af']=='0'){
                 update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca+1 );
-                $_SESSION['conta_qtd_busca']=1;
+                $_SESSION['conta_qtd_busca_af']=1;
             }
-
 
 
             foreach ($afreg_extra_fields as $afreg_field) {
