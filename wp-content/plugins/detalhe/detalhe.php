@@ -73,7 +73,16 @@ function content_detalheUsuariosAnunciantes($content) {
           $quantidade_vizualizacao_detalhes=0; 
         }
 
-        update_user_meta( $_GET['detalhe_anunciante'], 'afreg_additional_3340',$quantidade_vizualizacao_detalhes+1 );
+  
+
+        if(!isset($_SESSION['conta_qtd_detalhe_anuncio'])){
+            $_SESSION['conta_qtd_detalhe_anuncio']=0;
+        }
+
+        if($_SESSION['conta_qtd_detalhe_anuncio']==0){
+          update_user_meta( $_GET['detalhe_anunciante'], 'afreg_additional_3340',$quantidade_vizualizacao_detalhes+1 );
+          $_SESSION['conta_qtd_detalhe_anuncio']=1;
+        }
 
 
 
