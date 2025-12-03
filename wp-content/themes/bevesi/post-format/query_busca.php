@@ -254,34 +254,16 @@
         if(!empty($users)){
         foreach ($users as $user){
 
-            $quantidade_vizualizacao_busca = get_user_meta( $user->ID, 'afreg_additional_3341', true );
-
-            if($quantidade_vizualizacao_busca==''){
-            $quantidade_vizualizacao_busca=0; 
-            }
-         
-
+           
             if(!isset($array_contagem_usuario)){
                 $array_contagem_usuario= array();
             }
 
             if(!in_array($user->ID, $array_contagem_usuario, true)){
-                update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca+1 );
-                update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca-1 );
-
-                array_push($liste, $value);
-                if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
-                        echo 'user_id'.$user->ID;
-                        echo 'afreg_additional_3341'.$quantidade_vizualizacao_busca.'<br>';
-                    //  exit;
-                }
-
+                array_push($array_contagem_usuario, $value);
             }
 
-          
-
-
-
+        
             foreach ($afreg_extra_fields as $afreg_field) {
 
             
