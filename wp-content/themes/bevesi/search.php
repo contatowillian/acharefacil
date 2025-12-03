@@ -155,43 +155,4 @@
 	</div>
 </div>
 
-
-
-
-<?php 
-
-	if($_SERVER["REMOTE_ADDR"]=='179.215.177.141' and !isset($adiciona_contagem_busca)){
-		
-		$adiciona_contagem_busca =1;
-		if(isset($array_contagem_usuario)){
-			print_r($array_contagem_usuario);
-		
-
-			foreach($array_contagem_usuario as $ID_user){
-				echo '<br>'.'ID_user'.$ID_user.'<br>';
-
-				$quantidade_vizualizacao_busca = get_user_meta($ID_user, 'afreg_additional_3341', true );
-
-				echo 'quantidade_vizualizacao_busca1'.$quantidade_vizualizacao_busca.'<br>';
-
-
-				if($quantidade_vizualizacao_busca==''){
-					$quantidade_vizualizacao_busca=0; 
-				}
-				$quantidade_vizualizacao_busca = (int)$quantidade_vizualizacao_busca+1;
-				echo 'quantidade_vizualizacao_busca2'.$quantidade_vizualizacao_busca.'<br>';
-
-
-
-			echo 	$query = "update wp_usermeta set meta_value= '".$quantidade_vizualizacao_busca."' WHERE meta_key = 'afreg_additional_3341' AND user_id = $ID_user limit 1";
-				$wpdb->query($wpdb->prepare($query));
-
-			}
-
-        }
-
-    }
-?>
-
-
 <?php get_footer(); ?>      
