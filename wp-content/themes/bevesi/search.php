@@ -164,7 +164,8 @@ if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
 	
 
 	foreach($array_contagem_usuario as $ID_user){
-		echo $ID_user;
+		echo '<br>'.'ID_user'.$ID_user.'<br>';
+		echo 'quantidade_vizualizacao_busca'.$quantidade_vizualizacao_busca.'<br>';
 
 		$quantidade_vizualizacao_busca = get_user_meta($ID_user, 'afreg_additional_3341', true );
 
