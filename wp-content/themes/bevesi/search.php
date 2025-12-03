@@ -159,7 +159,7 @@
 
 if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
 
-	if(!isset($array_contagem_usuario)){
+	if(isset($array_contagem_usuario)){
 		print_r($array_contagem_usuario);
 	}
 
