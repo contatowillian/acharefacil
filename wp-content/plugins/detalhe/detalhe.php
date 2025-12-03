@@ -22,7 +22,9 @@ add_action('init', 'start_session', 1);
 
 function content_detalheUsuariosAnunciantes($content) {
     global $grupo,
+           $wp_session,
            $wpdb;
+
 
     if (is_page('detalhe')) {
 
@@ -78,27 +80,36 @@ function content_detalheUsuariosAnunciantes($content) {
         $afreg_extra_fields = get_posts($afreg_args);
 
 
-        $quantidade_vizualizacao_detalhes = get_user_meta( $_GET['detalhe_anunciante'], 'afreg_additional_3340', true );
+        	/************************************   Verifica contagem repetida ************************************/
+				 $verifica_contagem_repetida ="select id_controle_insert_contagem_vizualizacao_anuncio from wp_controle_insert_contagem_vizualizacao_anuncio
+         where   id_user = ".$_GET['detalhe_anunciante']." and ip ='".$_SERVER["REMOTE_ADDR"]."' and date(data_insert) = CURDATE()  and pagina = 'detalhe'
+          ";
+
+          $contagem_verifica_contagem_repetida = $wpdb->get_results($verifica_contagem_repetida);
+
+          if(count($contagem_verifica_contagem_repetida)==0){
+
+            $quantidade_vizualizacao_detalhes = get_user_meta( $_GET['detalhe_anunciante'], 'afreg_additional_3340', true );
+            if($quantidade_vizualizacao_detalhes==''){
+              $quantidade_vizualizacao_detalhes=0; 
+            }
+
+            $quantidade_vizualizacao_detalhes = (int)$quantidade_vizualizacao_detalhes+1;
+
+            $query = "insert into wp_controle_insert_contagem_vizualizacao_anuncio(id_user,valor_contagem,ip,pagina) values(".$_GET['detalhe_anunciante'].",$quantidade_vizualizacao_detalhes,'".$_SERVER['REMOTE_ADDR']."','detalhe')";
+            $wpdb->query($wpdb->prepare($query));
+
+
+            $query = "update wp_usermeta set meta_value= '".$quantidade_vizualizacao_detalhes."' WHERE meta_key = 'afreg_additional_3340' AND user_id = ".$_GET['detalhe_anunciante']." limit 1";
+            $wpdb->query($wpdb->prepare($query));
+          }
+
+          
+
+
         
-        if($quantidade_vizualizacao_detalhes==''){
-          $quantidade_vizualizacao_detalhes=0; 
-        }
+     
         
-        if (session_status() == PHP_SESSION_ACTIVE) {
-         // echo 'Session is active';
-          //exit;
-        }
-
-        if(!isset($_SESSION['conta_qtd_detalhe_anuncio_af'])){
-            $_SESSION['conta_qtd_detalhe_anuncio']='sim';
-        }
-
-        if($_SESSION['conta_qtd_detalhe_anuncio_af']=='sim'){
-          update_user_meta( $_GET['detalhe_anunciante'], 'afreg_additional_3340',$quantidade_vizualizacao_detalhes+1 );
-          $_SESSION['conta_qtd_detalhe_anuncio_af']='nao';
-        }
-
-
 
         if(!empty($users)){
           foreach ($users as $user){
