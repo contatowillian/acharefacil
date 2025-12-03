@@ -188,9 +188,22 @@
 				$wpdb->query($wpdb->prepare($query));
 
 
+				/************************************   Verifica contagem repetida ************************************/
+				echo $verifica_contagem_repetida ="select id_controle_insert_contagem_vizualizacao_anuncio from wp_controle_insert_contagem_vizualizacao_anuncio
+								where   id_user = $ID_user and ip ='".$_SERVER["REMOTE_ADDR"]."' and date(data_insert) = now()
+				";
+					exit;
 
-			echo 	$query = "update wp_usermeta set meta_value= '".$quantidade_vizualizacao_busca."' WHERE meta_key = 'afreg_additional_3341' AND user_id = $ID_user limit 1";
-				$wpdb->query($wpdb->prepare($query));
+				$contagem_verifica_contagem_repetida = $wpdb->get_results($verifica_contagem_repetida);
+
+
+				if($contagem_verifica_contagem_repetida==0){
+					echo 	$query = "update wp_usermeta set meta_value= '".$quantidade_vizualizacao_busca."' WHERE meta_key = 'afreg_additional_3341' AND user_id = $ID_user limit 1";
+					$wpdb->query($wpdb->prepare($query));
+				}
+
+
+	
 
 			}
 
