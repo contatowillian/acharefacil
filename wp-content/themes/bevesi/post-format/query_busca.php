@@ -265,7 +265,8 @@
             if(!isset($contagem_busca)){
 
                 if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
-                     echo 'consulta_usuarios_anunciantes'.$consulta_usuarios_anunciantes;
+                     echo 'user_id'.$user->ID;
+                     echo 'afreg_additional_3341'.$quantidade_vizualizacao_busca;
                      exit;
                 }
 
