@@ -161,16 +161,29 @@ if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
 
 	if(isset($array_contagem_usuario)){
 		print_r($array_contagem_usuario);
+	
+
+	foreach($array_contagem_usuario as $ID_user){
+		echo $ID_user;
+
+		$quantidade_vizualizacao_busca = get_user_meta($ID_user, 'afreg_additional_3341', true );
+
+		if($quantidade_vizualizacao_busca==''){
+			$quantidade_vizualizacao_busca=0; 
+		}
+		$quantidade_vizualizacao_busc = $quantidade_vizualizacao_busca+1;
+		$wpdb->query($wpdb->prepare("update wp_usermeta set meta_value= '".$quantidade_vizualizacao_busca."' WHERE meta_key = 'afreg_additional_3341' AND user_id = $ID_user limit 1"));
+
 	}
 
-	// $quantidade_vizualizacao_busca = get_user_meta( $user->ID, 'afreg_additional_3341', true );
+	// 
 
-	// $wpdb->query($wpdb->prepare('update wp_usermeta set meta_value= '' AS um WHERE um.meta_key = 'afreg_additional_3341' AND um.user_id =1 ;'));
-
+	// 
 
 	/* if($quantidade_vizualizacao_busca==''){
 	$quantidade_vizualizacao_busca=0; 
 	}*/
+	}
 
 }
 ?>
