@@ -178,7 +178,7 @@
 				if($quantidade_vizualizacao_busca==''){
 					$quantidade_vizualizacao_busca=0; 
 				}
-				$quantidade_vizualizacao_busca = $quantidade_vizualizacao_busca++;
+				$quantidade_vizualizacao_busca = (int)$quantidade_vizualizacao_busca+1;
 				echo 'quantidade_vizualizacao_busca2'.$quantidade_vizualizacao_busca.'<br>';
 
 
