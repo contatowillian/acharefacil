@@ -177,7 +177,7 @@
 
 
 				if($quantidade_vizualizacao_busca==''){
-					$quantidade_vizualizacao_busca=0; 
+					$quantidade_vizualizacao_busca=0;  
 				}
 				
 				$quantidade_vizualizacao_busca = (int)$quantidade_vizualizacao_busca+1;
