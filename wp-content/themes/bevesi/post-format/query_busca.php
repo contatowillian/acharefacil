@@ -260,9 +260,9 @@
             $quantidade_vizualizacao_busca=0; 
             }
             
-            if($_SESSION['conta_qtd_busca_af']=='0'){
+            if(!isset($contagem_busca)){
                 update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca+1 );
-                $_SESSION['conta_qtd_busca_af']=1;
+                $contagem_busca=1;
             }
 
 
