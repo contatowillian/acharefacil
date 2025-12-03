@@ -277,7 +277,6 @@
             }
 
 
-            }
 
 
             foreach ($afreg_extra_fields as $afreg_field) {
