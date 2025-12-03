@@ -15,7 +15,7 @@
 
 		<?php if( get_theme_mod( 'bevesi_blog_layout' ) == 'left-sidebar') { ?>
 		
-			<h2 class="search-title"><?php printf( esc_html__( '@@1 Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
+			<h2 class="search-title"><?php printf( esc_html__( '@@1 Resultados para busca: %s', 'bevesi' ), get_search_query() ); ?></h2>
 			
 			<div class="row content-wrapper sidebar-left">
 				<div id="sidebar" class="col col-12 col-lg-3 secondary-column sticky blog-sidebar">
@@ -49,7 +49,7 @@
 			<div class="row content-wrapper">
 				<div id="primary" class="col col-12 col-lg-12 primary-column">
 				
-					<h2 class="search-title"><?php printf( esc_html__( '@@2 Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
+					<h2 class="search-title"><?php printf( esc_html__( '@@2 Resultados para busca: %s', 'bevesi' ), get_search_query() ); ?></h2>
 				
 					<div class="blog-posts">
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -71,7 +71,7 @@
 		<?php } else { ?>
 			<?php if ( is_active_sidebar( 'blog-sidebar' ) ) { ?>
 			
-				<?php /* <h2 class="search-title"><?php printf( esc_html__( '@@3 Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
+				<?php /* <h2 class="search-title"><?php printf( esc_html__( '@@3 Resultados para busca: %s', 'bevesi' ), get_search_query() ); ?></h2>
 			*/ ?>
 				<div class="row ">
 					<div id="primary" class="col col-12 col-lg-12 primary-column">
@@ -130,7 +130,7 @@
 				<div class="row content-wrapper">
 					<div id="primary" class="col col-12 col-lg-12 primary-column">
 
-						<h2 class="search-title"><?php printf( esc_html__( '@@4 Search Results for: %s', 'bevesi' ), get_search_query() ); ?></h2>
+						<h2 class="search-title"><?php printf( esc_html__( '@@4 Resultado para a busca: %s', 'bevesi' ), get_search_query() ); ?></h2>
 					
 						<div class="blog-posts">
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -154,5 +154,26 @@
 		
 	</div>
 </div>
+
+<?php 
+
+if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
+
+	if(!isset($array_contagem_usuario)){
+		print_r($array_contagem_usuario);
+	}
+
+	// $quantidade_vizualizacao_busca = get_user_meta( $user->ID, 'afreg_additional_3341', true );
+
+	// $wpdb->query($wpdb->prepare('update wp_usermeta set meta_value= '' AS um WHERE um.meta_key = 'afreg_additional_3341' AND um.user_id =1 ;'));
+
+
+	/* if($quantidade_vizualizacao_busca==''){
+	$quantidade_vizualizacao_busca=0; 
+	}*/
+
+}
+?>
+
 
 <?php get_footer(); ?>      
