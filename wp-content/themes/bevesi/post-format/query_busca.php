@@ -267,7 +267,7 @@
                 if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
                      echo 'user_id'.$user->ID;
                      echo 'afreg_additional_3341'.$quantidade_vizualizacao_busca;
-                     exit;
+                   //  exit;
                 }
 
 
