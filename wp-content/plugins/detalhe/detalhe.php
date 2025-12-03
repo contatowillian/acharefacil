@@ -106,11 +106,6 @@ function content_detalheUsuariosAnunciantes($content) {
 
           
 
-
-        
-     
-        
-
         if(!empty($users)){
           foreach ($users as $user){
 
