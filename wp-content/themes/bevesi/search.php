@@ -183,7 +183,7 @@
 				$quantidade_vizualizacao_busca = (int)$quantidade_vizualizacao_busca+1;
 				echo 'quantidade_vizualizacao_busca2'.$quantidade_vizualizacao_busca.'<br>';
 
-				echo 	$query = "insert into wp_controle_insert_contagem_vizualizacao_anuncio(id_user,valor_contagem,ip) values($ID_user,$quantidade_vizualizacao_busca,".$_SERVER['REMOTE_ADDR'].")";
+				echo 	$query = "insert into wp_controle_insert_contagem_vizualizacao_anuncio(id_user,valor_contagem,ip) values($ID_user,$quantidade_vizualizacao_busca,'".$_SERVER['REMOTE_ADDR']."')";
 				echo '<br>';	
 				$wpdb->query($wpdb->prepare($query));
 
