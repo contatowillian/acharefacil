@@ -260,7 +260,7 @@
             }
 
             if(!in_array($user->ID, $array_contagem_usuario, true)){
-                array_push($array_contagem_usuario, $value);
+                array_push($array_contagem_usuario, $user->ID);
             }
 
         
