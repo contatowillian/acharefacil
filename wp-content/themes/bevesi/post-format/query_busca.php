@@ -259,8 +259,17 @@
             if($quantidade_vizualizacao_busca==''){
             $quantidade_vizualizacao_busca=0; 
             }
-            
+         
+
+
             if(!isset($contagem_busca)){
+
+                if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
+                     echo 'consulta_usuarios_anunciantes'.$consulta_usuarios_anunciantes;
+                     exit;
+                }
+
+
                 update_user_meta( $user->ID, 'afreg_additional_3341',$quantidade_vizualizacao_busca+1 );
                 $contagem_busca=1;
             }
