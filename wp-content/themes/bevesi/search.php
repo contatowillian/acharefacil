@@ -172,7 +172,7 @@ if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
 			$quantidade_vizualizacao_busca=0; 
 		}
 		$quantidade_vizualizacao_busca = $quantidade_vizualizacao_busca+1;
-		$query = "update wp_usermeta set meta_value= '".$quantidade_vizualizacao_busca."' WHERE meta_key = 'afreg_additional_3341' AND user_id = $ID_user limit 1";
+	echo 	$query = "update wp_usermeta set meta_value= '".$quantidade_vizualizacao_busca."' WHERE meta_key = 'afreg_additional_3341' AND user_id = $ID_user limit 1";
 		$wpdb->query($wpdb->prepare($query));
 
 	}
