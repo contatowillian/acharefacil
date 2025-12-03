@@ -183,7 +183,8 @@
 				$quantidade_vizualizacao_busca = (int)$quantidade_vizualizacao_busca+1;
 				echo 'quantidade_vizualizacao_busca2'.$quantidade_vizualizacao_busca.'<br>';
 
-				$query = "insert into wp_controle_insert_contagem_vizualizacao_anuncio(user_id,valor_contagem) values($ID_user,$quantidade_vizualizacao_busca)";
+				echo 	$query = "insert into wp_controle_insert_contagem_vizualizacao_anuncio(user_id,valor_contagem) values($ID_user,$quantidade_vizualizacao_busca)";
+				echo '<br>';	
 				$wpdb->query($wpdb->prepare($query));
 
 
