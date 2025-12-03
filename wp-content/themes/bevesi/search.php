@@ -191,7 +191,7 @@
 
 				$contagem_verifica_contagem_repetida = $wpdb->get_results($verifica_contagem_repetida);
 
-				if($contagem_verifica_contagem_repetida==0){
+				if(count($contagem_verifica_contagem_repetida)==0){
 
 					echo 	$query = "insert into wp_controle_insert_contagem_vizualizacao_anuncio(id_user,valor_contagem,ip) values($ID_user,$quantidade_vizualizacao_busca,'".$_SERVER['REMOTE_ADDR']."')";
 					echo '<br>';	
