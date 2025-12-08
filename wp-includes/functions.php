@@ -9081,8 +9081,8 @@ function carregar_posts_via_ajax() {
 
 	$consulta_maximo_anunciantes= "SELECT DISTINCT
 	foto_do_anunciante.meta_value
-	FROM wp_usermeta AS foto_do_anunciante  ON  us.ID = foto_do_anunciante.user_id  AND foto_do_anunciante.meta_key = 'afreg_additional_3212'
-	where  foto_do_anunciante.meta_value!='' and  foto_do_anunciante.meta_value!='00000000-0000-0000-0000-000000000000'  ";
+	FROM wp_usermeta AS foto_do_anunciante where foto_do_anunciante.meta_key = 'afreg_additional_3212'
+	and  foto_do_anunciante.meta_value!='' and  foto_do_anunciante.meta_value!='00000000-0000-0000-0000-000000000000'  ";
   /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 	 $contagem_maximo_anunciantes = $wpdb->get_results($consulta_maximo_anunciantes);
