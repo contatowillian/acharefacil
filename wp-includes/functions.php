@@ -9092,7 +9092,7 @@ function carregar_posts_via_ajax() {
 	$random_offset = rand(0, count($contagem_maximo_anunciantes));
 */
 
-	   $random_offset = rand(0, 5000);
+	   $random_offset = rand(0, 4000);
 
       $consulta_anunciantes_carrosel = "SELECT DISTINCT
       us.ID,
