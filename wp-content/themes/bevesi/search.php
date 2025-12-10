@@ -181,14 +181,14 @@
 			
 				/************************************   Verifica contagem repetida ************************************/
 				 $verifica_contagem_repetida ="select id_controle_insert_contagem_vizualizacao_anuncio from wp_controle_insert_contagem_vizualizacao_anuncio
-								where   id_user = $ID_user and ip ='".$_SERVER["REMOTE_ADDR"]."' and date(data_insert) = CURDATE()
+								where   id_user = $ID_user and ip ='".$_SERVER["REMOTE_ADDR"]."' and date(data_insert) = CURDATE() and pagina = 'busca'
 				";
 
 				$contagem_verifica_contagem_repetida = $wpdb->get_results($verifica_contagem_repetida);
 
 				if(count($contagem_verifica_contagem_repetida)==0){
 
-					$query = "insert into wp_controle_insert_contagem_vizualizacao_anuncio(id_user,valor_contagem,ip) values($ID_user,$quantidade_vizualizacao_busca,'".$_SERVER['REMOTE_ADDR']."')";
+					$query = "insert into wp_controle_insert_contagem_vizualizacao_anuncio(id_user,valor_contagem,ip,pagina) values($ID_user,$quantidade_vizualizacao_busca,'".$_SERVER['REMOTE_ADDR']."','busca')";
 					$wpdb->query($wpdb->prepare($query));
 
 
