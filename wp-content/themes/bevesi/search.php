@@ -160,7 +160,7 @@
 
 <?php 
 
-	if(!isset($adiciona_contagem_busca)){
+	/*if(!isset($adiciona_contagem_busca)){
 		
 		$adiciona_contagem_busca =1;
 		if(isset($array_contagem_usuario)){
@@ -179,7 +179,6 @@
 				$quantidade_vizualizacao_busca = (int)$quantidade_vizualizacao_busca+1;
 
 			
-				/************************************   Verifica contagem repetida ************************************/
 				 $verifica_contagem_repetida ="select id_controle_insert_contagem_vizualizacao_anuncio from wp_controle_insert_contagem_vizualizacao_anuncio
 								where   id_user = $ID_user and ip ='".$_SERVER["REMOTE_ADDR"]."' and date(data_insert) = CURDATE() and pagina = 'busca'
 				";
@@ -203,7 +202,7 @@
 
         }
 
-    }
+    }*/
 ?>
 
 
