@@ -351,7 +351,7 @@ function content_detalheUsuariosAnunciantes($content) {
         us.user_login,
         us.nome_categoria as categoria,
         us.nome_do_seu_negocio as nome_do_seu_negocio,
-        ud.descricao_anunciante as descricao,
+        us.descricao_anunciante as descricao,
         us.foto_do_anunciante as foto_do_anunciante
         FROM wp_users AS us
         where us.user_status = 0  and categoria.meta_value = '".$users[0]->categoria."'
