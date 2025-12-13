@@ -9078,19 +9078,6 @@ function carregar_posts_via_ajax() {
 
 	global $wpdb;
 	
-/*
-	$consulta_maximo_anunciantes= "SELECT DISTINCT
-	foto_do_anunciante.meta_value
-	FROM wp_usermeta AS foto_do_anunciante where foto_do_anunciante.meta_key = 'afreg_additional_3212'
-	and  foto_do_anunciante.meta_value!='' and  foto_do_anunciante.meta_value!='00000000-0000-0000-0000-000000000000'  ";
-
-	 $contagem_maximo_anunciantes = $wpdb->get_results($consulta_maximo_anunciantes);
-	echo count($contagem_maximo_anunciantes);
-
-	exit;
-		
-	$random_offset = rand(0, count($contagem_maximo_anunciantes));
-*/
 
 	   $random_offset = rand(0, 4000);
 
@@ -9099,13 +9086,12 @@ function carregar_posts_via_ajax() {
       us.user_login,
       nome_do_seu_negocio.meta_value as nome_do_seu_negocio,
       descricao.meta_value  as descricao,
-      foto_do_anunciante.meta_value  as foto_do_anunciante
+      us.foto_do_anunciante  as foto_do_anunciante
       FROM wp_users AS us
       JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
       JOIN wp_usermeta AS nome_do_seu_negocio  ON  us.ID = nome_do_seu_negocio.user_id  AND nome_do_seu_negocio.meta_key = 'afreg_additional_3224'
       JOIN wp_usermeta AS descricao  ON  us.ID = descricao.user_id  AND descricao.meta_key = 'afreg_additional_3226'
-      JOIN wp_usermeta AS foto_do_anunciante  ON  us.ID = foto_do_anunciante.user_id  AND foto_do_anunciante.meta_key = 'afreg_additional_3212'
-      where us.user_status = 0   and  foto_do_anunciante.meta_value!='' and  foto_do_anunciante.meta_value!='00000000-0000-0000-0000-000000000000'   limit 15  OFFSET $random_offset";
+      where us.user_status = 0   and  us.foto_do_anunciante!='' and  us.foto_do_anunciante!='00000000-0000-0000-0000-000000000000'   limit 15  OFFSET $random_offset";
     /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 	   $users_anunciantes_carrosel = $wpdb->get_results($consulta_anunciantes_carrosel);
@@ -9163,13 +9149,12 @@ function carregar_posts_via_ajax_recentes() {
       us.user_login,
       nome_do_seu_negocio.meta_value as nome_do_seu_negocio,
       descricao.meta_value  as descricao,
-      foto_do_anunciante.meta_value  as foto_do_anunciante
+      us.foto_do_anunciante as foto_do_anunciante
       FROM wp_users AS us
       JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
       JOIN wp_usermeta AS nome_do_seu_negocio  ON  us.ID = nome_do_seu_negocio.user_id  AND nome_do_seu_negocio.meta_key = 'afreg_additional_3224'
       JOIN wp_usermeta AS descricao  ON  us.ID = descricao.user_id  AND descricao.meta_key = 'afreg_additional_3226'
-      JOIN wp_usermeta AS foto_do_anunciante  ON  us.ID = foto_do_anunciante.user_id  AND foto_do_anunciante.meta_key = 'afreg_additional_3212'
-      where us.user_status = 0   and  foto_do_anunciante.meta_value!='' and  foto_do_anunciante.meta_value!='00000000-0000-0000-0000-000000000000'  order by us.ID DESC limit 15 ";
+      where us.user_status = 0   and  us.foto_do_anunciante!='' and  us.foto_do_anunciante!='00000000-0000-0000-0000-000000000000'  order by us.ID DESC limit 15 ";
     /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 	   $users_anunciantes_carrosel = $wpdb->get_results($consulta_anunciantes_carrosel);
