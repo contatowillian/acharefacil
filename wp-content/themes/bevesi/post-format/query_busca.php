@@ -23,7 +23,12 @@
         if(isset($_REQUEST['categoria_principal']) and $_REQUEST['categoria_principal']!=''){
 
         /************************************   Filtro nome da categoria  ************************************/
-        $filtro_categoria_principal .="AND us.user_status = 0 and  us.nome_categoria = '".$_REQUEST['categoria_principal']."'";
+        $filtro_categoria_principal .="AND us.user_status = 0 and  us.ID in
+                        (select nome_da_categoria.user_id from wp_usermeta as nome_da_categoria
+                        join Categoria_icones as CI on CI.Nome =  nome_da_categoria.meta_value 
+                        where us.ID = nome_da_categoria.user_id 
+                        AND nome_da_categoria.meta_key = 'afreg_additional_3213'
+                        AND CI.id_categoria_principal = '".$_REQUEST['categoria_principal']."')";
 
                       
         }
@@ -142,8 +147,8 @@
 
                                             
         if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
-          //  echo $consulta_usuarios_anunciantes;
-           // exit;
+            echo $consulta_usuarios_anunciantes;
+            exit;
         }
 
 
@@ -210,7 +215,7 @@
 
 
         if(isset($_REQUEST['cidade']) and $_REQUEST['cidade']!=''){
-            $filtro_cidade_escolhida = "and trim(cidades.meta_value) !='".$_REQUEST['cidade']."'";
+            $filtro_cidade_escolhida = "and trim(us.cidade) !='".$_REQUEST['cidade']."'";
         }else{
             $filtro_cidade_escolhida="";
         }
@@ -221,7 +226,7 @@
                             from wp_users as us
                             $listaIdUsuarioRelevanssi     $filtro_categoria
                             $query_busca_anexada                        
-                            order by estado.meta_value, cidades.meta_value ASC
+                            order by us.estado, us.cidade ASC
 
                             ";
 
