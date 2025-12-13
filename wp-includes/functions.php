@@ -9088,8 +9088,7 @@ function carregar_posts_via_ajax() {
       us.descricao_anunciante  as descricao,
       us.foto_do_anunciante  as foto_do_anunciante
       FROM wp_users AS us
-      JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-      where us.user_status = 0   and  us.foto_do_anunciante!='' and  us.foto_do_anunciante!='00000000-0000-0000-0000-000000000000'   limit 15  OFFSET $random_offset";
+      where us.user_status = 0  and us.afreg_new_user_status ='approved'    and  us.foto_do_anunciante!='' and  us.foto_do_anunciante!='00000000-0000-0000-0000-000000000000'   limit 15  OFFSET $random_offset";
     /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 	   $users_anunciantes_carrosel = $wpdb->get_results($consulta_anunciantes_carrosel);
@@ -9149,8 +9148,7 @@ function carregar_posts_via_ajax_recentes() {
       us.descricao_anunciante  as descricao,
       us.foto_do_anunciante as foto_do_anunciante
       FROM wp_users AS us
-      JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-      where us.user_status = 0   and  us.foto_do_anunciante!='' and  us.foto_do_anunciante!='00000000-0000-0000-0000-000000000000'  order by us.ID DESC limit 15 ";
+      where us.user_status = 0  and us.afreg_new_user_status ='approved'    and  us.foto_do_anunciante!='' and  us.foto_do_anunciante!='00000000-0000-0000-0000-000000000000'  order by us.ID DESC limit 15 ";
     /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 	   $users_anunciantes_carrosel = $wpdb->get_results($consulta_anunciantes_carrosel);

@@ -307,8 +307,7 @@ function content_mostraListasPlanos($content) {
         FROM wp_users AS us
         JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288'
         and destaque.meta_value !=''
-        JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-        where us.user_status = 0 
+        where us.user_status = 0   and us.afreg_new_user_status ='approved' 
         and
         DATE(
           CONCAT(SUBSTR(destaque.meta_value, 7, 4),

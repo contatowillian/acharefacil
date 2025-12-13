@@ -38,8 +38,7 @@ function content_detalheUsuariosAnunciantes($content) {
                                           us.user_login,
                                           afreg_new_user_status.meta_value as aprovacao
                                           FROM wp_users AS us
-                                          LEFT JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status'
-                                          where us.user_status = 0  and us.ID = '".$_GET['detalhe_anunciante']."'";
+                                          where us.user_status = 0   and us.afreg_new_user_status ='approved'  and us.ID = '".$_GET['detalhe_anunciante']."'";
 
     
 
@@ -355,10 +354,9 @@ function content_detalheUsuariosAnunciantes($content) {
         ud.descricao_anunciante as descricao,
         us.foto_do_anunciante as foto_do_anunciante
         FROM wp_users AS us
-        JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
         where us.user_status = 0  and categoria.meta_value = '".$users[0]->categoria."'
         and foto_do_anunciante.meta_value  !=''
-        and us.ID != ".$_GET['detalhe_anunciante']." 
+        and us.ID != ".$_GET['detalhe_anunciante']."   and us.afreg_new_user_status ='approved' 
         GROUP BY     us.user_login,
         categoria.meta_value,
         us.nome_do_seu_negocio,

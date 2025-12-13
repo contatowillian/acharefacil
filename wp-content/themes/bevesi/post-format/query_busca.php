@@ -93,7 +93,7 @@
 
             $lista_id_usuario = substr($lista_id_usuario,0,-1);
             if($lista_id_usuario!=''){
-                $listaIdUsuarioRelevanssi .=  "where  us.user_status = 0  and  us.ID in ($lista_id_usuario) ";
+                $listaIdUsuarioRelevanssi .=  "where  us.user_status = 0  and us.afreg_new_user_status ='approved'  and  us.ID in ($lista_id_usuario) ";
             }
           
             
@@ -114,7 +114,7 @@
                 $query_busca_anexada = " where ";
             }
             
-            $query_busca_anexada .= " us.user_status = 0  and us.text_busca_anexado like '%".$_REQUEST['s']."%' ";
+            $query_busca_anexada .= " us.user_status = 0  and us.afreg_new_user_status ='approved'   and us.text_busca_anexado like '%".$_REQUEST['s']."%' ";
 
 
              if($filtro_cidade!=''){
@@ -136,8 +136,6 @@
                                             '' as destaque,
                                             $order_by_next_la_long
                                             FROM wp_users AS us
-                                            JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-                                             
                                             $listaIdUsuarioRelevanssi $filtro_categoria $filtro_categoria_principal  $filtro_cidade
                                             $query_busca_anexada
                                             ORDER BY 4 ASC $paginacao";
@@ -156,8 +154,7 @@
                     
 
         $consulta_usuarios_anunciantes_paginacao = "SELECT count(*) as quantidade
-                                                    FROM wp_users AS us
-                                                    JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
+                                                    FROM wp_users AS us 
                                                      $listaIdUsuarioRelevanssi $filtro_categoria $filtro_categoria_principal  $filtro_cidade
                                                     $query_busca_anexada 
                                                     ";
@@ -204,8 +201,6 @@
 
         $filtro_categoria_query = "SELECT  distinct(us.nome_categoria) as categoria 
         FROM wp_users AS us
-        JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-        
         $listaIdUsuarioRelevanssi  $filtro_cidade
         $query_busca_anexada 
         order by  categoria.meta_value asc  ";
