@@ -191,7 +191,7 @@
         $cidades = array();
 
         if(isset($_REQUEST['categoria']) and $_REQUEST['categoria']!=''){
-        $filtro_categoria_escolhida = "and trim(categoria.meta_value) !='".$_REQUEST['categoria']."'";
+        $filtro_categoria_escolhida = "and trim(us.nome_categoria) !='".$_REQUEST['categoria']."'";
         }else{
         $filtro_categoria_escolhida="";
         }
@@ -203,7 +203,7 @@
         FROM wp_users AS us
         $listaIdUsuarioRelevanssi  $filtro_cidade
         $query_busca_anexada 
-        order by  categoria.meta_value asc  ";
+        order by  us.nome_categoria asc  ";
 
         $categorias = $wpdb->get_results($filtro_categoria_query);
 
