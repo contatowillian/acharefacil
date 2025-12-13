@@ -147,8 +147,8 @@
 
                                             
         if($_SERVER["REMOTE_ADDR"]=='179.215.177.141'){
-            echo $consulta_usuarios_anunciantes;
-            exit;
+          //  echo $consulta_usuarios_anunciantes;
+          //  exit;
         }
 
 
