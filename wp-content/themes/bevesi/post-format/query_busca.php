@@ -23,12 +23,7 @@
         if(isset($_REQUEST['categoria_principal']) and $_REQUEST['categoria_principal']!=''){
 
         /************************************   Filtro nome da categoria  ************************************/
-        $filtro_categoria_principal .="AND us.user_status = 0 and  us.ID in
-                        (select nome_da_categoria.user_id from wp_usermeta as nome_da_categoria
-                        join Categoria_icones as CI on CI.Nome =  nome_da_categoria.meta_value 
-                        where us.ID = nome_da_categoria.user_id 
-                        AND nome_da_categoria.meta_key = 'afreg_additional_3213'
-                        AND CI.id_categoria_principal = '".$_REQUEST['categoria_principal']."')";
+        $filtro_categoria_principal .="AND us.user_status = 0 and  us.nome_categoria = '".$_REQUEST['categoria_principal']."'";
 
                       
         }
@@ -38,11 +33,7 @@
         if(isset($_REQUEST['categoria']) and $_REQUEST['categoria']!=''){
 
         /************************************   Filtro nome da categoria  ************************************/
-        $filtro_categoria ="AND us.user_status = 0 and  us.ID in
-                        (select nome_da_categoria.user_id from wp_usermeta as nome_da_categoria
-                        where us.ID = nome_da_categoria.user_id 
-                        AND nome_da_categoria.meta_key = 'afreg_additional_3213'
-                        AND nome_da_categoria.meta_value like '%".$_REQUEST['categoria']."%')";
+        $filtro_categoria ="AND us.user_status = 0 and us.nome_categoria  like '%".$_REQUEST['categoria']."%'";
 
 
         }
@@ -211,9 +202,8 @@
 
         /************************************   Filtro nome da categoria  ************************************/
 
-        $filtro_categoria_query = "SELECT  distinct(categoria.meta_value) as categoria 
+        $filtro_categoria_query = "SELECT  distinct(us.nome_categoria) as categoria 
         FROM wp_users AS us
-        JOIN wp_usermeta AS categoria  ON  us.ID = categoria.user_id  AND categoria.meta_key = 'afreg_additional_3213'
         JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
         
         $listaIdUsuarioRelevanssi  $filtro_cidade
@@ -246,10 +236,7 @@
 
         $cidades = $wpdb->get_results($filtro_cidade);
 
-        if(!isset($_SESSION['conta_qtd_busca_af'])){
-            $_SESSION['conta_qtd_busca_af']=0;
-        }
-  
+    
 
         if(!empty($users)){
         foreach ($users as $user){
