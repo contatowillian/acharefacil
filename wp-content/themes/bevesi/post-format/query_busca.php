@@ -217,11 +217,8 @@
 
 
         /************************************   Filtro nome da cidade  ************************************/
-        $filtro_cidade ="select distinct cidades.meta_value as cidade,  estado.meta_value as estado
+        $filtro_cidade ="select distinct us.cidade as cidade,  us.estado as estado
                             from wp_users as us
-                            JOIN wp_usermeta as cidades   ON  us.ID = cidades.user_id  AND cidades.meta_key = 'afreg_additional_3244'
-                            JOIN wp_usermeta AS estado  ON  us.ID = estado.user_id  AND estado.meta_key = 'afreg_additional_3245'
-                        
                             $listaIdUsuarioRelevanssi     $filtro_categoria
                             $query_busca_anexada                        
                             order by estado.meta_value, cidades.meta_value ASC

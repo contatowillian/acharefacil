@@ -18,7 +18,6 @@ function content_buscaCategoriaAnunciantes($content) {
     
       
       $consulta_anunciantes_Categoria = "SELECT * FROM Categoria_principal";
-    /*  JOIN wp_usermeta AS destaque  ON  us.ID = destaque.user_id  AND destaque.meta_key = 'afreg_additional_3288' AND destaque.meta_value = 'sim'*/
 
 
       $users_anunciantes_Categoria = $wpdb->get_results($consulta_anunciantes_Categoria);
