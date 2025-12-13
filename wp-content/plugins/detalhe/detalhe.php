@@ -355,13 +355,13 @@ function content_detalheUsuariosAnunciantes($content) {
         us.foto_do_anunciante as foto_do_anunciante
         FROM wp_users AS us
         where us.user_status = 0  and categoria.meta_value = '".$users[0]->categoria."'
-        and foto_do_anunciante.meta_value  !=''
+        and us.foto_do_anunciante !=''
         and us.ID != ".$_GET['detalhe_anunciante']."   and us.afreg_new_user_status ='approved' 
         GROUP BY     us.user_login,
         categoria.meta_value,
         us.nome_do_seu_negocio,
         descricao.meta_value  ,
-        foto_do_anunciante.meta_value 
+        us.foto_do_anunciante
         limit 3 
         
         ";
