@@ -360,7 +360,7 @@ function content_detalheUsuariosAnunciantes($content) {
         GROUP BY     us.user_login,
         us.nome_categoria,
         us.nome_do_seu_negocio,
-        descricao.meta_value  ,
+        us.descricao_anunciante  ,
         us.foto_do_anunciante
         limit 3 
         
