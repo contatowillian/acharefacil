@@ -354,7 +354,7 @@ function content_detalheUsuariosAnunciantes($content) {
         us.descricao_anunciante as descricao,
         us.foto_do_anunciante as foto_do_anunciante
         FROM wp_users AS us
-        where us.user_status = 0  and us.categoria = '".$users[0]->categoria."'
+        where us.user_status = 0  and us.nome_categoria = '".$users[0]->categoria."'
         and us.foto_do_anunciante !=''
         and us.ID != ".$_GET['detalhe_anunciante']."   and us.afreg_new_user_status ='approved' 
         GROUP BY     us.user_login,
