@@ -351,20 +351,17 @@ function content_detalheUsuariosAnunciantes($content) {
         us.ID,
         us.user_login,
         us.nome_categoria as categoria,
-        nome_do_seu_negocio.meta_value as nome_do_seu_negocio,
-        descricao.meta_value  as descricao,
-        foto_do_anunciante.meta_value  as foto_do_anunciante
+        us.nome_do_seu_negocio as nome_do_seu_negocio,
+        ud.descricao_anunciante as descricao,
+        us.foto_do_anunciante as foto_do_anunciante
         FROM wp_users AS us
         JOIN wp_usermeta AS afreg_new_user_status  ON  us.ID = afreg_new_user_status.user_id  AND afreg_new_user_status.meta_key = 'afreg_new_user_status' and afreg_new_user_status.meta_value ='approved'
-        JOIN wp_usermeta AS nome_do_seu_negocio  ON  us.ID = nome_do_seu_negocio.user_id  AND nome_do_seu_negocio.meta_key = 'afreg_additional_3224'
-        JOIN wp_usermeta AS descricao  ON  us.ID = descricao.user_id  AND descricao.meta_key = 'afreg_additional_3226'
-        JOIN wp_usermeta AS foto_do_anunciante  ON  us.ID = foto_do_anunciante.user_id  AND foto_do_anunciante.meta_key = 'afreg_additional_3212'
         where us.user_status = 0  and categoria.meta_value = '".$users[0]->categoria."'
         and foto_do_anunciante.meta_value  !=''
         and us.ID != ".$_GET['detalhe_anunciante']." 
         GROUP BY     us.user_login,
         categoria.meta_value,
-        nome_do_seu_negocio.meta_value,
+        us.nome_do_seu_negocio,
         descricao.meta_value  ,
         foto_do_anunciante.meta_value 
         limit 3 
